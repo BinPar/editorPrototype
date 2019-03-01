@@ -12,8 +12,7 @@ import {
 } from 'draft-js';
 import Container from '../components/container';
 
-const RedContainer = styled(Container)`
-  color: red;
+const SizeContainer = styled(Container)`
   font-size: ${props => 20 + props.size * 2}px;
 `;
 
@@ -51,15 +50,9 @@ const testPage = () => {
     }
   });
 
-  function increaseSize() {
-    setSize(size + 1);
-  }
   return (
-    <RedContainer size={size}>
-      <button
-        type="button"
-        onClick={increaseSize}
-      >
+    <SizeContainer size={size}>
+      <button type="button" onClick={() => setSize(size + 1)}>
         Aumentar
       </button>
       <Head>
@@ -68,7 +61,7 @@ const testPage = () => {
       {!ssr && (
         <Editor editorState={editorState} handleKeyCommand={handleKeyCommand} onChange={onChange} />
       )}
-    </RedContainer>
+    </SizeContainer>
   );
 };
 

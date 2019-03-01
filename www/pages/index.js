@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
-import styled from 'styled-components';
 import log from 'loglevel';
+import styled from 'styled-components';
 import {
   Editor,
   EditorState,
@@ -10,11 +10,11 @@ import {
   ContentState,
   convertToRaw,
 } from 'draft-js';
+import Container from '../components/container';
 
-const Container = styled.div`
-  font-size: 40px;
-  font-weight: 100;
-  font-family: 'AppareoMedium';
+const RedContainer = styled(Container)`
+  color: red;
+  font-size: ${props => 20 + props.size * 2}px;
 `;
 
 function handleKeyCommand(command, editorState) {
@@ -28,6 +28,7 @@ function handleKeyCommand(command, editorState) {
 
 const testPage = () => {
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
+  const [size, setSize] = useState(10);
 
   const [ssr, setSsr] = useState(true);
 
@@ -50,15 +51,24 @@ const testPage = () => {
     }
   });
 
+  function increaseSize() {
+    setSize(size + 1);
+  }
   return (
-    <Container>
+    <RedContainer size={size}>
+      <button
+        type="button"
+        onClick={increaseSize}
+      >
+        Aumentar
+      </button>
       <Head>
         <title>Editor de ejemplo</title>
       </Head>
       {!ssr && (
         <Editor editorState={editorState} handleKeyCommand={handleKeyCommand} onChange={onChange} />
       )}
-    </Container>
+    </RedContainer>
   );
 };
 

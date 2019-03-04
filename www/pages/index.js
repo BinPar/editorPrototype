@@ -14,6 +14,7 @@ import Container from '../components/container';
 
 const SizeContainer = styled(Container)`
   font-size: ${props => 20 + props.size * 2}px;
+  margin-top: 20px;
 `;
 
 function handleKeyCommand(command, editorState) {
@@ -51,17 +52,23 @@ const testPage = () => {
   });
 
   return (
-    <SizeContainer size={size}>
+    <React.Fragment>
       <button type="button" onClick={() => setSize(size + 1)}>
         Aumentar
       </button>
-      <Head>
-        <title>Editor de ejemplo</title>
-      </Head>
-      {!ssr && (
-        <Editor editorState={editorState} handleKeyCommand={handleKeyCommand} onChange={onChange} />
-      )}
-    </SizeContainer>
+      <SizeContainer size={size}>
+        <Head>
+          <title>Editor de ejemplo</title>
+        </Head>
+        {!ssr && (
+          <Editor
+            editorState={editorState}
+            handleKeyCommand={handleKeyCommand}
+            onChange={onChange}
+          />
+        )}
+      </SizeContainer>
+    </React.Fragment>
   );
 };
 

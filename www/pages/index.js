@@ -15,6 +15,7 @@ import Container from '../components/container';
 const SizeContainer = styled(Container)`
   font-size: ${props => 20 + props.size * 2}px;
   margin-top: 20px;
+  color: red;
 `;
 
 function handleKeyCommand(command, editorState) {

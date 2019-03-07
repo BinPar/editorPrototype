@@ -32,6 +32,7 @@ export default class MyDocument extends Document {
       <html lang="es">
         <Head>
           <link crossOrigin="anonymous" media="all" rel="stylesheet" href="/static/css/style.css" />
+          <link crossOrigin="anonymous" media="all" rel="stylesheet" href="/static/css/stefStyles.css" />
           <meta name="viewport" content="width=device-width" />
           {this.props.styleTags}
         </Head>

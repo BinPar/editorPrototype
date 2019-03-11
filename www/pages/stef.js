@@ -14,8 +14,13 @@ import * as Constants from '../utils/Constants';
 import Wrapper from '../components/layout/Wrapper';
 import Title from '../components/text/Title';
 import Subtitle from '../components/text/Subtitle';
-import Text from '../components/text/Text';
+import Parragraph from '../components/text/Parragraph';
 import MidFullWrapper from '../components/layout/MidFullWrapper';
+import FullWrapper from '../components/layout/FullWrapper';
+import ImageFooter from '../components/text/ImageFooter';
+import Link from '../components/text/Link';
+import Image from '../components/Image';
+import Holder from '../components/layout/Holder';
 
 const Container = styled.div`
   background-color: white;
@@ -59,60 +64,134 @@ const testPage = () => {
       <Head>
         <title>Editor de ejemplo</title>
       </Head>
-      <Wrapper layout="full">
+      <FullWrapper>
         <Title>I'm a title</Title>
-      </Wrapper>
-      <Wrapper layout="column">
+      </FullWrapper>
+      <Wrapper>
         <Subtitle right>Subtitle</Subtitle>
       </Wrapper>
-      <Wrapper layout="midFull">
-        <Text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque non ante sed dolor finibus
-          hendrerit. Morbi commodo tellus dolor, et faucibus felis iaculis at. Proin tempor tristique
-          enim non aliquam. Donec at justo vehicula, euismod mi at, mattis neque. Phasellus ac neque
-          vitae risus euismod vehicula nec id lectus. Ut semper gravida lorem, vitae egestas enim
-          lacinia a. Nunc non leo lobortis, tristique neque vel, bibendum dui. In id est est. In
-          sagittis pretium metus id ullamcorper. Sed tempus tellus vitae mi fringilla dignissim. Orci
-          varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum
-          vestibulum imperdiet odio ut ultricies.
-        </Text>
+      <Wrapper>
+        <Parragraph>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque non ante sed dolor
+          finibus hendrerit.
+          {' '}
+          <i>Morbi commodo tellus dolor, et faucibus felis</i>
+          {' '}
+iaculis at. Proin
+          tempor tristique enim non aliquam. Donec at justo vehicula, euismod mi at, mattis neque.
+          Phasellus ac neque vitae risus euismod vehicula nec id lectus. Ut semper gravida lorem,
+          vitae egestas enim lacinia a. Nunc non leo lobortis, tristique neque vel, bibendum dui. In
+          id est est.
+          {' '}
+          <strong>In sagittis pretium metus id ullamcorper.</strong>
+          {' '}
+Sed tempus tellus
+          vitae mi fringilla dignissim. Orci varius natoque penatibus et magnis dis parturient
+          montes, nascetur ridiculus mus. Vestibulum vestibulum imperdiet odio ut ultricies.
+        </Parragraph>
       </Wrapper>
-      <MidFullWrapper right>
-        <Text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque non ante sed dolor finibus
-          hendrerit. Morbi commodo tellus dolor, et faucibus felis iaculis at. Proin tempor tristique
-          enim non aliquam. Donec at justo vehicula, euismod mi at, mattis neque. Phasellus ac neque
-          vitae risus euismod vehicula nec id lectus. Ut semper gravida lorem, vitae egestas enim
-          lacinia a. Nunc non leo lobortis, tristique neque vel, bibendum dui. In id est est. In
-          sagittis pretium metus id ullamcorper. Sed tempus tellus vitae mi fringilla dignissim. Orci
-          varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum
-          vestibulum imperdiet odio ut ultricies.
-        </Text>
+      <MidFullWrapper align="right">
+        <Parragraph>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque non ante sed dolor
+          finibus hendrerit. Morbi commodo tellus dolor, et faucibus felis iaculis at. Proin tempor
+          tristique enim non aliquam. Donec at justo vehicula, euismod mi at, mattis neque.
+          Phasellus ac neque vitae risus euismod vehicula nec id lectus. Ut semper gravida lorem,
+          vitae egestas enim lacinia a. Nunc non leo lobortis, tristique neque vel, bibendum dui. In
+          id est est. In sagittis pretium metus id ullamcorper. Sed tempus tellus vitae mi fringilla
+          dignissim. Orci varius natoque penatibus et magnis dis parturient montes, nascetur
+          ridiculus mus. Vestibulum vestibulum imperdiet odio ut ultricies.
+        </Parragraph>
       </MidFullWrapper>
-      <Wrapper layout="midFull">
-        <Text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque non ante sed dolor finibus
-          hendrerit. Morbi commodo tellus dolor, et faucibus felis iaculis at. Proin tempor tristique
-          enim non aliquam. Donec at justo vehicula, euismod mi at, mattis neque. Phasellus ac neque
-          vitae risus euismod vehicula nec id lectus. Ut semper gravida lorem, vitae egestas enim
-          lacinia a. Nunc non leo lobortis, tristique neque vel, bibendum dui. In id est est. In
-          sagittis pretium metus id ullamcorper. Sed tempus tellus vitae mi fringilla dignissim. Orci
-          varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum
-          vestibulum imperdiet odio ut ultricies.
-        </Text>
-      </Wrapper>
       <MidFullWrapper>
-        <Text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque non ante sed dolor finibus
-          hendrerit. Morbi commodo tellus dolor, et faucibus felis iaculis at. Proin tempor tristique
-          enim non aliquam. Donec at justo vehicula, euismod mi at, mattis neque. Phasellus ac neque
-          vitae risus euismod vehicula nec id lectus. Ut semper gravida lorem, vitae egestas enim
-          lacinia a. Nunc non leo lobortis, tristique neque vel, bibendum dui. In id est est. In
-          sagittis pretium metus id ullamcorper. Sed tempus tellus vitae mi fringilla dignissim. Orci
-          varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum
-          vestibulum imperdiet odio ut ultricies.
-        </Text>
+        <Parragraph>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque non ante sed dolor
+          finibus hendrerit. Morbi commodo tellus dolor, et faucibus felis iaculis at. Proin tempor
+          tristique enim non aliquam. Donec at justo vehicula, euismod mi at, mattis neque.
+          Phasellus ac neque vitae risus euismod vehicula nec id lectus. Ut semper gravida lorem,
+          vitae egestas enim lacinia a. Nunc non leo lobortis, tristique neque vel, bibendum dui. In
+          id est est. In sagittis pretium metus id ullamcorper. Sed tempus tellus vitae mi fringilla
+          dignissim. Orci varius natoque penatibus et magnis dis parturient montes, nascetur
+          ridiculus mus. Vestibulum vestibulum imperdiet odio ut ultricies.
+        </Parragraph>
       </MidFullWrapper>
+      <MidFullWrapper align="left">
+        <Image
+          alt=""
+          source="/static/img/small1.png"
+          footerText="Footer text"
+          footerLink="Footer Link"
+          footerLinkRoute="#"
+        />
+        <div>
+          <Parragraph>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque non ante sed dolor
+            finibus hendrerit. Morbi commodo tellus dolor, et faucibus felis iaculis at. Proin tempor
+            tristique enim non aliquam. Donec at justo vehicula, euismod mi at, mattis neque.
+            Phasellus ac neque vitae risus euismod vehicula nec id lectus. Ut semper gravida lorem,
+            vitae egestas enim lacinia a. Nunc non leo lobortis, tristique neque vel, bibendum dui. In
+            id est est. In sagittis pretium metus id ullamcorper. Sed tempus tellus vitae mi fringilla
+            dignissim. Orci varius natoque penatibus et magnis dis parturient montes, nascetur
+            ridiculus mus. Vestibulum vestibulum imperdiet odio ut ultricies.
+          </Parragraph>
+          <Parragraph>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque non ante sed dolor
+            finibus hendrerit. Morbi commodo tellus dolor, et faucibus felis iaculis at. Proin tempor
+            tristique enim non aliquam. Donec at justo vehicula, euismod mi at, mattis neque.
+            Phasellus ac neque vitae risus euismod vehicula nec id lectus. Ut semper gravida lorem,
+            vitae egestas enim lacinia a. Nunc non leo lobortis, tristique neque vel, bibendum dui. In
+            id est est. In sagittis pretium metus id ullamcorper. Sed tempus tellus vitae mi fringilla
+            dignissim. Orci varius natoque penatibus et magnis dis parturient montes, nascetur
+            ridiculus mus. Vestibulum vestibulum imperdiet odio ut ultricies.
+          </Parragraph>
+        </div>
+      </MidFullWrapper>
+      <FullWrapper align="left">
+        <Parragraph>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque non ante sed dolor
+          finibus hendrerit. Morbi commodo tellus dolor, et faucibus felis iaculis at. Proin tempor
+          tristique enim non aliquam. Donec at justo vehicula, euismod mi at, mattis neque.
+          Phasellus ac neque vitae risus euismod vehicula nec id lectus. Ut semper gravida lorem,
+          vitae egestas enim lacinia a. Nunc non leo lobortis, tristique neque vel, bibendum dui. In
+          id est est. In sagittis pretium metus id ullamcorper. Sed tempus tellus vitae mi fringilla
+          dignissim. Orci varius natoque penatibus et magnis dis parturient montes, nascetur
+          ridiculus mus. Vestibulum vestibulum imperdiet odio ut ultricies.
+        </Parragraph>
+      </FullWrapper>
+      <MidFullWrapper>
+        <Image
+          alt=""
+          source="/static/img/large1.png"
+          size="full"
+          footerText="Footer text"
+          footerLink="Footer Link"
+          footerLinkRoute="#"
+        />
+      </MidFullWrapper>
+      <Wrapper>
+        <Subtitle right>Subtitle</Subtitle>
+      </Wrapper>
+      <FullWrapper align="right">
+        <Parragraph>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque non ante sed dolor
+          finibus hendrerit. Morbi commodo tellus dolor, et faucibus felis iaculis at. Proin tempor
+          tristique enim non aliquam. Donec at justo vehicula, euismod mi at, mattis neque.
+          Phasellus ac neque vitae risus euismod vehicula nec id lectus. Ut semper gravida lorem,
+          vitae egestas enim lacinia a. Nunc non leo lobortis, tristique neque vel, bibendum dui. In
+          id est est. In sagittis pretium metus id ullamcorper. Sed tempus tellus vitae mi fringilla
+          dignissim. Orci varius natoque penatibus et magnis dis parturient montes, nascetur
+          ridiculus mus. Vestibulum vestibulum imperdiet odio ut ultricies.
+        </Parragraph>
+      </FullWrapper>
+      <FullWrapper>
+        <Image
+          alt=""
+          source="/static/img/video1.png"
+          size="full"
+          footerText="Footer text"
+          footerLink="Footer Link"
+          footerLinkRoute="#"
+        />
+      </FullWrapper>
     </Container>
   );
 };

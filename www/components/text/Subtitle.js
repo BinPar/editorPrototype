@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 import {
-  colors, fontFamily, fontWeight, fontStyle,
+  colors, fontFamily, fontWeight, fontStyle, fontSize,
 } from '../../utils/Constants';
 
 export default styled.h2`
-  font-size: 1.8rem;
+  font-size: ${fontSize.F30};
   text-align: ${props => (props.right ? 'right' : 'left')};
-  font-weight: ${fontWeight.bold};
+  font-weight: ${fontWeight.extrabold};
   font-style: ${fontStyle.normal};
-  color: ${props => props.color || colors.greyDarker};
+  color: ${colors.greyDarker};
   font-family: ${fontFamily.sansSerif};
 `;

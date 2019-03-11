@@ -15,6 +15,37 @@ export const fontStyle = {
   italic: 'italic',
 };
 
+// FONT SIZE
+
+export const fontSize = {
+  F40: '2.5rem '/* 40pts */,
+  F37: '2.31rem '/* 37pts */,
+  F32: '2rem' /* 32pts */,
+  F30: '1.875rem' /* 30pts */,
+  F29: '1.8125rem' /* 29pts */,
+  F28: '1.75rem' /* 28pts */,
+  F27: '1.6875rem' /* 27pts */,
+  F26: '1.625rem' /* 26pts */,
+  F25: '1.5625rem' /* 25pts */,
+  F24: '1.5rem' /* 24pts */,
+  F23: '1.4375rem' /* 23pts */,
+  F22: '1.375rem' /* 22pts */,
+  F21: '1.3125rem' /* 21pts */,
+  F20: '1.25rem' /* 20pts */,
+  F19: '1.1875rem' /* 19pts */,
+  F18: '1.125rem' /* 18pts */,
+  F17: '1.0625rem' /* 17pts */,
+  F16: '1rem' /* 16pts */,
+  F15: '0.9375rem' /* 15pts */,
+  F14: '0.875rem' /* 14pts */,
+  F13: '0.8125rem' /* 13pts */,
+  F12: '0.75rem' /* 12pts */,
+  F11: '0.6875rem' /* 11pts */,
+  F10: '0.625rem' /* 10pts */,
+  F09: '0.5625rem' /* 9pts */,
+  F08: '0.5rem' /* 8pts */,
+};
+
 // FONT WEIGHT
 
 export const fontWeight = {
@@ -25,6 +56,8 @@ export const fontWeight = {
   medium: '500',
   semibold: '600',
   bold: '700',
+  extrabold: '800',
+  black: '900',
 };
 
 // COLORS
@@ -54,6 +87,8 @@ export const colors = {
 // MEDIA QUERIES
 
 export const sizes = {
+  minDeskMegaHD: 1921,
+
   maxDeskUltraHD: 1920,
   minDeskUltraHD: 1661,
 

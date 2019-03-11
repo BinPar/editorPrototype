@@ -58,13 +58,13 @@ const testPage = () => {
       <Head>
         <title>Editor de ejemplo</title>
       </Head>
-      <Wrapper full>
+      <Wrapper layout="full">
         <Title>I'm a title</Title>
       </Wrapper>
-      <Wrapper column>
+      <Wrapper layout="column">
         <Subtitle right>Subtitle</Subtitle>
       </Wrapper>
-      <Wrapper midFull>
+      <Wrapper layout="midFull">
         <Text>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque non ante sed dolor finibus
           hendrerit. Morbi commodo tellus dolor, et faucibus felis iaculis at. Proin tempor tristique

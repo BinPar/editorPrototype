@@ -1,12 +1,26 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { maxMedia, minMedia } from '../../utils/Constants';
+
+const layout = {
+  column: css`
+    width: 30%;
+    ${maxMedia.maxMobile`
+      background: red;
+      color: Red;
+      max-width: calc(100% - 50px);
+    `}
+  `,
+  midFull: css`
+    width: 100%;
+  `,
+  full: css`
+    width: 100%;
+  `,
+};
 
 export default styled.div`
   margin: 0 auto;
-  ${props => (props.full ? 'width: 100%; background: dodgerblue;' : 'padding: 0 20px;')};
-  ${props => (props.column && 'max-width: 970px; background: palevioletred;')};
-  ${props => (props.column && 'max-width: 970px; background: palevioletred;')};
-  ${props => (props.midFull && 'max-width: 1230px; background: mediumseagreen;')};
+  ${props => layout[props.layout]}
 `;
 
 {

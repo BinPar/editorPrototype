@@ -7,8 +7,6 @@ import FullWrapper from '../layout/FullWrapper';
 import Subtitle from '../text/Subtitle';
 
 const Full = styled(FullWrapper)`
-  color: red;
-  border: 1px solid red;
   background: ${colors.backgroundLightGreen};
 `;
 
@@ -38,12 +36,12 @@ const HolderBlock = styled(Holder)`
 
 const Targets = ({ children, title }) => (
   <Full align="left">
-    <Holder as={HolderBlock} column align="end">
+    <HolderBlock column align="end">
       <Subtitle right color>
         {title}
       </Subtitle>
       {children}
-    </Holder>
+    </HolderBlock>
   </Full>
 );
 

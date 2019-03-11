@@ -3,8 +3,14 @@ import { maxMedia, minMedia } from '../../utils/Constants';
 
 export default styled.div`
   margin: 0 auto;
-  width: 100%;
-  ${maxMedia.maxMobile`
+  ${props => (props.full ? 'width: 100%; background: dodgerblue;' : 'padding: 0 20px;')};
+  ${props => (props.column && 'max-width: 970px; background: palevioletred;')};
+  ${props => (props.column && 'max-width: 970px; background: palevioletred;')};
+  ${props => (props.midFull && 'max-width: 1230px; background: mediumseagreen;')};
+`;
+
+{
+  /*   ${maxMedia.maxMobile`
     background: pink;
     max-width: calc(100% - 50px);
   `}
@@ -23,5 +29,5 @@ export default styled.div`
   ${minMedia.minDeskHD`
     background: dodgerblue;
     max-width: 970px;
-  `}
-`;
+  `} */
+}

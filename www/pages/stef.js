@@ -58,20 +58,24 @@ const testPage = () => {
       <Head>
         <title>Editor de ejemplo</title>
       </Head>
-      <Wrapper>
+      <Wrapper full>
         <Title>I'm a title</Title>
       </Wrapper>
-      <Subtitle right>Subtitle</Subtitle>
-      <Text>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque non ante sed dolor finibus
-        hendrerit. Morbi commodo tellus dolor, et faucibus felis iaculis at. Proin tempor tristique
-        enim non aliquam. Donec at justo vehicula, euismod mi at, mattis neque. Phasellus ac neque
-        vitae risus euismod vehicula nec id lectus. Ut semper gravida lorem, vitae egestas enim
-        lacinia a. Nunc non leo lobortis, tristique neque vel, bibendum dui. In id est est. In
-        sagittis pretium metus id ullamcorper. Sed tempus tellus vitae mi fringilla dignissim. Orci
-        varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum
-        vestibulum imperdiet odio ut ultricies.
-      </Text>
+      <Wrapper column>
+        <Subtitle right>Subtitle</Subtitle>
+      </Wrapper>
+      <Wrapper midFull>
+        <Text>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque non ante sed dolor finibus
+          hendrerit. Morbi commodo tellus dolor, et faucibus felis iaculis at. Proin tempor tristique
+          enim non aliquam. Donec at justo vehicula, euismod mi at, mattis neque. Phasellus ac neque
+          vitae risus euismod vehicula nec id lectus. Ut semper gravida lorem, vitae egestas enim
+          lacinia a. Nunc non leo lobortis, tristique neque vel, bibendum dui. In id est est. In
+          sagittis pretium metus id ullamcorper. Sed tempus tellus vitae mi fringilla dignissim. Orci
+          varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum
+          vestibulum imperdiet odio ut ultricies.
+        </Text>
+      </Wrapper>
     </Container>
   );
 };

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colors, fontFamily, fontWeight } from '../utils/Constants';
+import { colors, fontFamily, fontWeight } from '../../utils/Constants';
 
 export default styled.p`
 font-size: 1.2rem;

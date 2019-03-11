@@ -3,45 +3,37 @@ import { maxMedia, minMedia } from '../../utils/Constants';
 
 const layout = {
   column: css`
-    width: 30%;
+    margin: 0 auto;
+    background: mediumseagreen;
     ${maxMedia.maxMobile`
-      background: red;
-      color: Red;
       max-width: calc(100% - 50px);
+    `}
+    ${minMedia.minTablet`
+      max-width: calc(100% - 150px);
+    `}
+    ${minMedia.minDesk`
+      max-width: calc(100% - 250px);
+    `}
+    ${minMedia.minDeskLarge`
+      max-width: 970px;
     `}
   `,
   midFull: css`
-    width: 100%;
+    margin: 0 auto;
+    background: palevioletred;
+    ${maxMedia.maxDesk`
+      max-width: calc(100% - 50px);
+    `}
+    ${minMedia.minDeskLarge`
+      max-width: 1230px;
+    `}
   `,
   full: css`
     width: 100%;
+    background: dodgerblue;
   `,
 };
 
 export default styled.div`
-  margin: 0 auto;
   ${props => layout[props.layout]}
 `;
-
-{
-  /*   ${maxMedia.maxMobile`
-    background: pink;
-    max-width: calc(100% - 50px);
-  `}
-  ${minMedia.minTablet`
-    background: grey;
-    max-width: calc(100% - 200px);
-  `}
-  ${minMedia.minDesk`
-    background: mediumseagreen;
-    max-width: 900px;
-  `}
-  ${minMedia.minDeskLarge`
-    background: palevioletred;
-    max-width: 970px;
-  `}
-  ${minMedia.minDeskHD`
-    background: dodgerblue;
-    max-width: 970px;
-  `} */
-}

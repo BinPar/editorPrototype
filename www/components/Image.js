@@ -6,20 +6,25 @@ import Holder from './layout/Holder';
 import ImageFooter from './text/ImageFooter';
 import Link from './text/Link';
 
-
 const sizeOption = {
   full: css`
     width: 100%;
   `,
-  small: css`
+  half: css`
     width: calc(50% - 30px);
     flex: 1 0 auto;
     &.left {
       margin-right: 30px;
-    };
+      &.float {
+        float: left;
+      }
+    }
     &.right {
       margin-left: 30px;
-    };
+      &.float {
+        float: right;
+      }
+    }
   `,
 };
 
@@ -39,16 +44,16 @@ const FooterLink = styled(Link)`
 `;
 
 const ImageWrapper = styled.div`
-  ${props => sizeOption[props.size] || sizeOption.small}
+  ${props => sizeOption[props.size] || sizeOption.half}
 `;
 const Img = styled.img`
   width: 100%;
 `;
 
 const Image = ({
-  alt, source, size, footerText, footerLink, footerLinkRoute, right,
+  alt, source, size, footerText, footerLink, footerLinkRoute, right, float,
 }) => (
-  <ImageWrapper size={size} className={right ? 'right' : 'left'}>
+  <ImageWrapper size={size} className={`${right ? 'right' : 'left'}${float ? ' float' : ''}`}>
     <Img src={source} alt={alt} />
     <ImageFooter>
       {footerText}
@@ -58,6 +63,7 @@ const Image = ({
 );
 
 Image.defaultProps = {
+  float: false,
   right: false,
   size: '',
   footerLink: '',
@@ -65,6 +71,7 @@ Image.defaultProps = {
 };
 
 Image.propTypes = {
+  float: PropTypes.bool,
   right: PropTypes.bool,
   size: PropTypes.string,
   alt: PropTypes.string.isRequired,

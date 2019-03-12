@@ -6,15 +6,17 @@ import {
   EditorState, RichUtils, convertFromHTML, ContentState, convertToRaw,
 } from 'draft-js';
 import Wrapper from '../components/layout/Wrapper';
+import WrapperAlignedContent from '../components/layout/WrapperAlignedContent';
+import MidFullWrapper from '../components/layout/MidFullWrapper';
+import FullWrapper from '../components/layout/FullWrapper';
 import Title from '../components/text/Title';
 import Subtitle from '../components/text/Subtitle';
 import Paragraph from '../components/text/Paragraph';
-import MidFullWrapper from '../components/layout/MidFullWrapper';
-import FullWrapper from '../components/layout/FullWrapper';
 import Image from '../components/Image';
 import Quote from '../components/resources/Quote';
-import Targets from '../components/resources/Targets';
-import TargetItem from '../components/text/TargetItem';
+import { Targets, TargetItem } from '../components/resources/Targets';
+import { Conclusions, ConclusionItem } from '../components/resources/Conclusions';
+import { BulletList, ListItem, OrderedList } from '../components/text/List';
 
 const Container = styled.div`
   background-color: white;
@@ -100,13 +102,14 @@ Sed tempus tellus
       </Wrapper>
       <MidFullWrapper align="left">
         <Image
+          float
           alt=""
           source="/static/img/small1.png"
           footerText="Footer text"
           footerLink="Footer Link"
           footerLinkRoute="#"
         />
-        <div>
+        <WrapperAlignedContent>
           <Paragraph>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque non ante sed dolor
             finibus hendrerit. Morbi commodo tellus dolor, et faucibus felis iaculis at. Proin
@@ -127,10 +130,10 @@ Sed tempus tellus
             fringilla dignissim. Orci varius natoque penatibus et magnis dis parturient montes,
             nascetur ridiculus mus. Vestibulum vestibulum imperdiet odio ut ultricies.
           </Paragraph>
-        </div>
+        </WrapperAlignedContent>
       </MidFullWrapper>
       <Wrapper>
-        <Quote>
+        <Quote size="full">
           Ut placerat justo et condimentum molestie. Nulla facilisi. Integer semper ac sem auctor
           hendrerit. Aliquam erat volutpat. Suspendisse ut nisi eu nisi sollicitudin feugiat et
           malesuada erat. Nullam enim ante, sodales ac odio sit amet, euismod consectetur erat.
@@ -177,7 +180,10 @@ Sed tempus tellus
         </Paragraph>
       </Wrapper>
       <MidFullWrapper align="right">
-        <Quote mid>Soy un quote mid</Quote>
+        <Quote mid size="full">
+          Ut placerat justo ed te lorem sit amo et condimentum molestie. Nulla facilisi. Integer
+          semper ac sem auctor hendrerit. Aliquam erat volutpat. Lorem dolor sit amet.
+        </Quote>
       </MidFullWrapper>
       <Wrapper>
         <Subtitle>Situación actual de la Monitorización Fetal</Subtitle>
@@ -192,7 +198,20 @@ Sed tempus tellus
           lectus vel purus. In hac habitasse platea dictumst. Mauris ante sapien, dictum in
           pellentesque in, interdum quis nisi.
         </Paragraph>
-        <Paragraph>Aquí va una lista de bullets</Paragraph>
+        <BulletList>
+          <ListItem>
+            Quisque dignissim leo nec mi posuere, et venenatis nisi posuere. Etiam eros lacus,
+            tincidunt eu vulputate sit amet, fermentum sit amet nisl.
+          </ListItem>
+          <ListItem>
+            Quisque dignissim leo nec mi posuere, et venenatis nisi posuere. Etiam eros lacus,
+            tincidunt eu vulputate sit amet, fermentum sit amet nisl.
+          </ListItem>
+          <ListItem>
+            Quisque dignissim leo nec mi posuere, et venenatis nisi posuere. Etiam eros lacus,
+            tincidunt eu vulputate sit amet, fermentum sit amet nisl.
+          </ListItem>
+        </BulletList>
       </Wrapper>
       <FullWrapper>
         <Image
@@ -234,37 +253,60 @@ Sed tempus tellus
           convallis. Duis tempus luctus ornare. Orci varius natoque penatibus et magnis dis
           parturient montes, nascetur ridiculus mus. Nunc ornare lacus et nisl commodo euismod. Sed
           id tempor urna. Integer luctus, arcu et dictum consectetur, nisi enim luctus felis, in
-          elementum justo velit et mauris. Sed commodo suscipit enim, vel hendrerit velit rhoncus
-          ac.
+          elementum justo velit et mauris.
         </Paragraph>
-      </Wrapper>
-      <MidFullWrapper align="right">
         <Paragraph>
-          Aliquam erat volutpat. Ut sollicitudin sapien sed suscipit finibus. Cras eget eros eget
-          velit faucibus convallis non non diamet nect. Pellentesque molestie metus erat, quis
-          dictum leo aliquet sit amet. Praesent ac tempor sem. Curabitur facilisis in purus at
-          consequat. Curabitur mollis mi a lacus sodales dictum. Praesent eu est massa. Curabitur
-          ornare ut dolor sed vestibulum. Nam ut hendrerit nulla. Cras rutrum eleifend tincidunt.
-          Aenean mauris turpis, tristique eget sem vel, euismod malesuada tellus. Morbi sapien
-          lobortis magna ut dolori ligula, semper quis ante et, aliquam tincidunt neque. Vestibulum
-          ut sagittis eros. Donec tristique odio libero, et venenatis libero laoreet sed. Nunc
-          suscipit risus a scelerisque malesuada. Suspendisse mattis, velit nec gravida accumsan,
-          lacus neque ornare est, pulvinar rhoncus tellus nunc id dolor. Vivamus condimentum, massa
-          at bibendum consequat, erat odio hendrerit nibh, in lobortis nunc magna commodo ligula. Ut
-          malesuada ultricies ullamcorper. Mauris vitae erat tortor. Duis id quam pulvinar, pretium
-          nulla eu, sagittis libero. Maecenas sed dictum eros, sed feugiat erat. Aliquam consequat
-          pretium metus, ut sollicitudin mauris placerat ac. Ut vel augue rhoncus, tempor ante non,
-          tristique nunc. Nulla ornare aliquam mi scelerisque malesuada. Nulla facilisi. Proin eu
-          felis non sem rhoncus iaculis.
+          Sed commodo suscipit enim, vel hendrerit velit rhoncus:
         </Paragraph>
+        <OrderedList>
+          <ListItem type="letter">
+            Sed id tempor urna. Integer luctus, arcu et dictum consectetur, nisi enim luctus felis,
+            in elementum justo velit et mauris. Sed commodo suscipit enim, vel hendrerit velit
+            rhoncus
+          </ListItem>
+          <ListItem type="letter">
+            Etiam mattis magna id congue vulputate. Vestibulum facilisis pellentesque purus, id
+            finibus turpis
+          </ListItem>
+          <ListItem type="letter">
+            Maecenas non dictum velit, eget vehicula sem. Cras faucibus magna ac sem efficitur
+            sagittis. Nunc pulvinar augue neque, sed lobortis nisl maximus a. Phasellus volutpat
+            nibh et vulputate dapibus. Aliquam erat volutpat. Quisque nec ornare arcu, eu placerat
+            nisl. Morbi a leo ornare, dignissim nisi a, commodo diam. Maecenas elementum faucibus
+            risus, ut vehicula enim ultricies vitae.
+          </ListItem>
+        </OrderedList>
+      </Wrapper>
+      <MidFullWrapper align="right" position="block">
         <Image
           alt=""
           right
+          float
           source="/static/img/small2.png"
           footerText="Footer text"
           footerLink="Footer Link"
           footerLinkRoute="#"
         />
+        <WrapperAlignedContent>
+          <Paragraph>
+            Aliquam erat volutpat. Ut sollicitudin sapien sed suscipit finibus. Cras eget eros eget
+            velit faucibus convallis non non diamet nect. Pellentesque molestie metus erat, quis
+            dictum leo aliquet sit amet. Praesent ac tempor sem. Curabitur facilisis in purus at
+            consequat. Curabitur mollis mi a lacus sodales dictum. Praesent eu est massa. Curabitur
+            ornare ut dolor sed vestibulum. Nam ut hendrerit nulla. Cras rutrum eleifend tincidunt.
+            Aenean mauris turpis, tristique eget sem vel, euismod malesuada tellus. Morbi sapien
+            lobortis magna ut dolori ligula, semper quis ante et, aliquam tincidunt neque.
+            Vestibulum ut sagittis eros. Donec tristique odio libero, et venenatis libero laoreet
+            sed. Nunc suscipit risus a scelerisque malesuada. Suspendisse mattis, velit nec gravida
+            accumsan, lacus neque ornare est, pulvinar rhoncus tellus nunc id dolor. Vivamus
+            condimentum, massa at bibendum consequat, erat odio hendrerit nibh, in lobortis nunc
+            magna commodo ligula. Ut malesuada ultricies ullamcorper. Mauris vitae erat tortor. Duis
+            id quam pulvinar, pretium nulla eu, sagittis libero. Maecenas sed dictum eros, sed
+            feugiat erat. Aliquam consequat pretium metus, ut sollicitudin mauris placerat ac. Ut
+            vel augue rhoncus, tempor ante non, tristique nunc. Nulla ornare aliquam mi scelerisque
+            malesuada. Nulla facilisi. Proin eu felis non sem rhoncus iaculis.
+          </Paragraph>
+        </WrapperAlignedContent>
       </MidFullWrapper>
       <MidFullWrapper>
         <Paragraph>Aquí va un ejercicio</Paragraph>
@@ -288,19 +330,97 @@ Sed tempus tellus
       <Wrapper>
         <Paragraph>Aquí va una tabla</Paragraph>
       </Wrapper>
-      <MidFullWrapper align="left">
-        <Quote large>Soy un quote large</Quote>
-        <Paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque non ante sed dolor
-          finibus hendrerit. Morbi commodo tellus dolor, et faucibus felis iaculis at. Proin tempor
-          tristique enim non aliquam. Donec at justo vehicula, euismod mi at, mattis neque.
-          Phasellus ac neque vitae risus euismod vehicula nec id lectus. Ut semper gravida lorem,
-          vitae egestas enim lacinia a. Nunc non leo lobortis, tristique neque vel, bibendum dui. In
-          id est est. In sagittis pretium metus id ullamcorper. Sed tempus tellus vitae mi fringilla
-          dignissim. Orci varius natoque penatibus et magnis dis parturient montes, nascetur
-          ridiculus mus. Vestibulum vestibulum imperdiet odio ut ultricies.
-        </Paragraph>
+      <MidFullWrapper align="left" position="block">
+        <Quote circle float large>
+          Aliquam erat volutpat. Ut sollicitudin sapien
+        </Quote>
+        <WrapperAlignedContent alignment="right">
+          <Paragraph>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque non ante sed dolor
+            finibus hendrerit. Morbi commodo tellus dolor, et faucibus felis iaculis at. Proin
+            tempor tristique enim non aliquam. Donec at justo vehicula, euismod mi at, mattis neque.
+            Phasellus ac neque vitae risus euismod vehicula nec id lectus. Ut semper gravida lorem,
+            vitae egestas enim lacinia a. Nunc non leo lobortis, tristique neque vel, bibendum dui.
+            In id est est. In sagittis pretium metus id ullamcorper. Sed tempus tellus vitae mi
+            fringilla dignissim. Orci varius natoque penatibus et magnis dis parturient montes,
+            nascetur ridiculus mus. Vestibulum vestibulum imperdiet odio ut ultricies. Aliquam erat
+            volutpat. Ut sollicitudin sapien sed suscipit finibus. Cras eget eros eget velit
+            faucibus convallis non non diam. Pellentesque molestie metus erat, quis dictum leo
+            aliquet sit amet. Praesent ac tempor sem. Curabitur facilisis in purus at consequat.
+            Curabitur mollis mi a lacus sodales dictum. Praesent eu est massa. Curabitur ornare ut
+            dolor sed vestibulum. Nam ut hendrerit nulla. Cras rutrum eleifend tincidunt. Aenean
+            mauris turpis, tristique eget sem vel, euismod malesuada tellus. Morbi sapien ligula,
+            semper quis ante et, aliquam tincidunt neque. Vestibulum ut sagittis eros. Donec
+            tristique odio libero, et venenatis libero laoreet sed. Nunc suscipit risus a
+            scelerisque malesuada. Suspendisse mattis, velit nec gravida accumsan, lacus neque
+            ornare est, pulvinar rhoncus tellus nunc id dolor. Vivamus condimentum, massa at
+            bibendum consequat, erat odio hendrerit nibh, in lobortis nunc magna commodo ligula. Ut
+            malesuada ultricies dea ullamcorper. Mauris vitae erat tortor. Duis id quam pulvinar,
+            pretium nulla eu, sagittis libero. Maecenas sed dictum eros, sed feugiat erat. Aliquam
+            consequat pretium metus, ut sollicitudin mauris placerat ac. Ut vel augue rhoncus,
+            tempor ante non, tristique nunc. Nulla ornare aliquam mi scelerisque malesuada. Nulla
+            facilisi. Proin eu felis non sem rhoncus iaculis. ivamus condimentum, massa at bibendum
+            consequat, erat odio hendrerit nibh, in lobortis nunc magna commodo ligula.
+          </Paragraph>
+        </WrapperAlignedContent>
       </MidFullWrapper>
+      <Conclusions>
+        <ConclusionItem>
+          Nulla facilisi. Nunc erat tortor, ultrices ac faucibus eu, auctor eu augue. Sed bibendum
+          sodales semper. Cras volutpat ipsum.
+        </ConclusionItem>
+        <ConclusionItem>
+          Mauris fermentum nulla sit amet ex vehicula, sed pharetra elit finibus. Mauris dapibus
+          sodales tortor, vel rhoncus mi suscipit sit amet. Suspendisse scelerisque odio suscipit,
+          commodo turpis vitae, convallis nisl lorem.
+        </ConclusionItem>
+        <ConclusionItem>
+          Donec consequat non quam eu mollis. Mauris laoreet dignissim molestie. Sed vel ligula
+          vitae turpis tempor finibus at in ipsum.
+        </ConclusionItem>
+      </Conclusions>
+      <Wrapper>
+        <Subtitle>Bibliografía</Subtitle>
+        <OrderedList>
+          <ListItem type="number">
+            Quisque dignissim leo nec mi posuere, et venenatis nisi posuere. Etiam eros lacus,
+            tincidunt eu vulputate sit amet, fermentum sit amet nisl.
+          </ListItem>
+          <ListItem type="number">
+            Nulla facilisi. Nunc erat tortor, ultrices ac faucibus eu, auctor eu augue et de. Sed
+            bibendum sodales semper. Cras volutpat ipsum tempor nisi lacinia imperdiet.
+          </ListItem>
+          <ListItem type="number">
+            Sed aliquam quam nec leo imperdiet, vel fringilla diam faucibus. Mauris fermentum nulla
+            sit amet ex vehicula, sed pharetra elit finibus. Mauris dapibus sodales tortor, vel
+            rhoncus mi suscipit sit amet. Suspendisse scelerisque odio suscipit, commodo turpis
+            vitae, convallis nisl.
+          </ListItem>
+          <ListItem type="number">
+            Donec consequat non quam eu mollis. Mauris laoreet dignissim molestie. Sed vel ligula
+            vitae turpis tempor finibus at in ipsum. Ut sollicitudin lorem lorem, eu finibus velit
+            placerat eu.
+          </ListItem>
+          <ListItem type="number">
+            Maecenas non dictum velit, eget vehicula sem. Cras faucibus magna ac sem efficitur
+            sagittis. Nunc pulvinar augue neque, sed lobortis nisl maximus a. Phasellus volutpat
+            nibh et vulputate dapibus.
+          </ListItem>
+          <ListItem type="number">
+            Etiam mattis magna id congue vulputate. Vestibulum facilisis pellentesque purus, id
+            finibus turpis. Maecenas sed enim congue, tincidunt nunc nec, laoreet sapien. Duis
+            egestas ornare elit, ac mollis enim faucibus id. Aenean turpis odio, volutpat ornare
+            cursus eget, malesuada at eros. Integer vehicula malesuada tellus, ac pellentesque
+            turpis. Sed vehicula vel libero in placerat.
+          </ListItem>
+          <ListItem type="number">
+            Mauris fermentum nulla sit amet ex vehicula, sed pharetra elit finibus.
+          </ListItem>
+        </OrderedList>
+      </Wrapper>
+      <FullWrapper>
+        <Paragraph>Anterior y siguiente</Paragraph>
+      </FullWrapper>
     </Container>
   );
 };

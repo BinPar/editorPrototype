@@ -23,11 +23,11 @@ const MidFull = styled(Wrapper)`
 `;
 
 const MidFullWrapper = ({
-  children, align, alignContent, className,
+  children, align, alignContent, className, position,
 }) => (
   <MidFull layout="midFull" align={align}>
     {align ? (
-      <MidFullWrapperAlignedContent position="flex" justify={alignContent} align="start" className={className}>
+      <MidFullWrapperAlignedContent position={position || 'flex'} justify={alignContent} align="start" className={className}>
         {children}
       </MidFullWrapperAlignedContent>
     ) : (
@@ -40,6 +40,7 @@ MidFullWrapper.defaultProps = {
   align: '',
   alignContent: '',
   className: '',
+  position: '',
 };
 
 MidFullWrapper.propTypes = {
@@ -47,6 +48,7 @@ MidFullWrapper.propTypes = {
   align: PropTypes.string,
   alignContent: PropTypes.string,
   className: PropTypes.string,
+  position: PropTypes.string,
 };
 
 export default MidFullWrapper;

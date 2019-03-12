@@ -11,6 +11,7 @@ export default styled.p`
   font-weight: ${fontWeight.regular};
   line-height: ${fontSize.F32};
   letter-spacing: 0.05rem;
+  user-select: auto;
   ~ * {
     margin-top: 20px
   };

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import {
   colors, fontFamily, fontWeight, fontStyle, fontSize,
-} from '../../utils/Constants';
+} from '../../../utils/Constants';
 
 export default styled.p`
   font-size: ${fontSize.F14};

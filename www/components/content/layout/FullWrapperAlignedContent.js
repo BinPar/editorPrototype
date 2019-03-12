@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { maxMedia, minMedia } from '../../utils/Constants';
+import { maxMedia, minMedia } from '../../../utils/Constants';
 import Holder from './Holder';
 
 export default styled(Holder)`

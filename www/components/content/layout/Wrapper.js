@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { maxMedia, minMedia } from '../../utils/Constants';
+import { maxMedia, minMedia } from '../../../utils/Constants';
 
 const layout = {
   wrapper: css`

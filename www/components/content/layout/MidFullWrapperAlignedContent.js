@@ -1,16 +1,8 @@
-import styled, { css } from 'styled-components';
-import { maxMedia, minMedia } from '../../utils/Constants';
+import styled from 'styled-components';
+import { maxMedia, minMedia } from '../../../utils/Constants';
 import Holder from './Holder';
 
-const alignment = {
-  right: css`
-    margin: 0 0 0 auto;
-  `,
-};
-
 export default styled(Holder)`
-  display: block;
-  ${props => alignment[props.alignment]};
   ${maxMedia.maxMobile`
     width: 100%;
   `}

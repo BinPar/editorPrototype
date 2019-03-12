@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import { maxMedia, minMedia } from '../../utils/Constants';
 import Wrapper from './Wrapper';
 import MidFullWrapperAlignedContent from './MidFullWrapperAlignedContent';
-import Holder from './Holder';
 
 const alignment = {
   left: css`

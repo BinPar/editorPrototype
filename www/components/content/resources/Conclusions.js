@@ -1,17 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { colors, fontSize, fontWeight } from '../../utils/Constants';
+import { colors, fontSize, fontWeight } from '../../../utils/Constants';
 import Subtitle from '../text/Subtitle';
 import FullWrapper from '../layout/FullWrapper';
 import Wrapper from '../layout/Wrapper';
 import Paragraph from '../text/Paragraph';
 
-export const TargetItem = styled(Paragraph)`
+export const ConclusionItem = styled(Paragraph)`
   font-size: ${fontSize.F19};
   color: ${colors.primaryDarker};
   font-weight: ${fontWeight.medium};
-  text-align: right;
 `;
 
 const Full = styled(FullWrapper)`
@@ -21,17 +20,17 @@ const Full = styled(FullWrapper)`
   `;
 
 const Holder = styled(Wrapper)`
-  margin: 30px 20px 30px 0;
+  margin: 30px 0 30px 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-end;
+  align-items: flex-start;
 `;
 
-export const Targets = ({ children, title }) => (
-  <Full align="left" alignContent="end">
+export const Conclusions = ({ children, title }) => (
+  <Full align="right" alignContent="start">
     <Holder>
-      <Subtitle right color>
+      <Subtitle color>
         {title}
       </Subtitle>
       {children}
@@ -39,11 +38,11 @@ export const Targets = ({ children, title }) => (
   </Full>
 );
 
-Targets.defaultProps = {
-  title: 'Objetivos de Aprendizaje',
+Conclusions.defaultProps = {
+  title: 'Conclusiones',
 };
 
-Targets.propTypes = {
+Conclusions.propTypes = {
   title: PropTypes.string,
   children: PropTypes.node.isRequired,
 };

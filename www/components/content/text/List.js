@@ -3,8 +3,23 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import {
   colors, fontFamily, fontWeight, fontSize,
-} from '../../utils/Constants';
+} from '../../../utils/Constants';
 import Paragraph from './Paragraph';
+
+export const OrderedList = styled.ol`
+  list-style: none;
+  counter-reset: listStyle;
+  ~ * {
+    margin-top: 40px;
+  }
+`;
+
+export const BulletList = styled.ul`
+  list-style: none;
+  ~ * {
+    margin-top: 40px;
+  }
+`;
 
 const listType = {
   number: css`
@@ -76,18 +91,3 @@ ListItem.propTypes = {
   children: PropTypes.node.isRequired,
   type: PropTypes.string,
 };
-
-export const OrderedList = styled.ol`
-  list-style: none;
-  counter-reset: listStyle;
-  ~ * {
-    margin-top: 40px;
-  }
-`;
-
-export const BulletList = styled.ul`
-  list-style: none;
-  ~ * {
-    margin-top: 40px;
-  }
-`;

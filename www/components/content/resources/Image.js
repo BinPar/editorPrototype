@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import { colors, maxMedia, minMedia } from '../utils/Constants';
-import Holder from './layout/Holder';
-import ImageFooter from './text/ImageFooter';
-import Link from './text/Link';
+import { colors } from '../../../utils/Constants';
+import ImageFooter from '../text/ImageFooter';
+import Link from '../text/Link';
 
 const sizeOption = {
   full: css`

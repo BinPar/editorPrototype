@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import {
   colors, fontStyle, fontSize,
-} from '../../utils/Constants';
+} from '../../../utils/Constants';
 import Holder from '../layout/Holder';
 import Paragraph from '../text/Paragraph';
 

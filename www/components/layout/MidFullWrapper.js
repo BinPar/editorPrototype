@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import { maxMedia, minMedia } from '../../utils/Constants';
 import Wrapper from './Wrapper';
+import MidFullWrapperAlignedContent from './MidFullWrapperAlignedContent';
 import Holder from './Holder';
 
 const alignment = {
@@ -21,45 +22,31 @@ const MidFull = styled(Wrapper)`
   ${props => alignment[props.align]}
 `;
 
-const AlignedWrapper = styled(Holder)`
-  ${maxMedia.maxMobile`
-    width: 100%;
-  `}
-  ${minMedia.minTablet`
-    width: calc(100% - 50px);
-  `}
-  ${minMedia.minDesk`
-    width: calc(100% - 100px);
-  `}
-  ${minMedia.minDeskLarge`
-    width: 100%;
-    max-width: 89.8%;
-  `}
-  ${minMedia.minDeskHD`
-    max-width: 90.3%;
-  `}
-  ${minMedia.minDeskHD`
-    max-width: 90.7%;
-  `}
-`;
-
-const MidFullWrapper = ({ children, align }) => (
+const MidFullWrapper = ({
+  children, align, alignContent, className,
+}) => (
   <MidFull layout="midFull" align={align}>
     {align ? (
-      <AlignedWrapper align="start">{children}</AlignedWrapper>
+      <MidFullWrapperAlignedContent position="flex" justify={alignContent} align="start" className={className}>
+        {children}
+      </MidFullWrapperAlignedContent>
     ) : (
-      <Holder align="start">{children}</Holder>
+      children
     )}
   </MidFull>
 );
 
 MidFullWrapper.defaultProps = {
-  align: false,
+  align: '',
+  alignContent: '',
+  className: '',
 };
 
 MidFullWrapper.propTypes = {
   children: PropTypes.node.isRequired,
-  align: PropTypes.bool,
+  align: PropTypes.string,
+  alignContent: PropTypes.string,
+  className: PropTypes.string,
 };
 
 export default MidFullWrapper;

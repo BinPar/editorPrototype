@@ -41,8 +41,8 @@ const position = {
     display: flex;
     flex-direction: ${props => (props.column ? 'column' : 'row')};
     align-items: center;
-    ${props => justify[props.justify] || justify.center}
-    ${props => align[props.align] || align.center}
+    ${props => justify[props.justify] || justify.center};
+    ${props => align[props.align] || align.center};
   `,
 };
 

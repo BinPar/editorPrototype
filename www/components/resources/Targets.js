@@ -1,16 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { colors, maxMedia, minMedia } from '../../utils/Constants';
 import Holder from '../layout/Holder';
-import FullWrapper from '../layout/FullWrapper';
 import Subtitle from '../text/Subtitle';
+import FullWrapper from '../layout/FullWrapper';
 
 const Full = styled(FullWrapper)`
-  background: ${colors.backgroundLightGreen};
-`;
+  && {
+    background: ${colors.backgroundLightGreen};
+  }
+  `;
 
 const HolderBlock = styled(Holder)`
+  margin: 30px 20px 30px 0;
   ${maxMedia.maxMobile`
     max-width: calc(100% - 50px);
   `}
@@ -35,9 +38,9 @@ const HolderBlock = styled(Holder)`
 `;
 
 const Targets = ({ children, title }) => (
-  <Full align="left">
+  <Full align="left" alignContent="end">
     <HolderBlock column align="end">
-      <Subtitle right color>
+      <Subtitle right color="true">
         {title}
       </Subtitle>
       {children}

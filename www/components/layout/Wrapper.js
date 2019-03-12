@@ -51,7 +51,7 @@ const layout = {
 
 export default styled.div`
   ${props => layout[props.layout] || layout.wrapper};
-  & + & {
+  & ~ & {
     margin-top: 40px;
   }
 `;

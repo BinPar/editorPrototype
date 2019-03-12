@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import { maxMedia, minMedia } from '../../utils/Constants';
 import Wrapper from './Wrapper';
+import FullWrapperAlignedContent from './FullWrapperAlignedContent';
 
 const alignment = {
   left: css`
@@ -20,43 +20,31 @@ const Full = styled(Wrapper)`
   ${props => alignment[props.align]}
 `;
 
-const Holder = styled.div`
-  ${maxMedia.maxMobile`
-    width: 100%;
-  `}
-  ${minMedia.minTablet`
-    width: calc(100% - 75px);
-  `}
-  ${minMedia.minDesk`
-    width: calc(100% - 125px);
-  `}
-  ${minMedia.minDeskLarge`
-    width: 85%;
-  `}
-  ${minMedia.minDeskHD`
-    width: 81%;
-  `}
-  ${minMedia.minDeskUltraHD`
-    width: 76.5%;
-  `}
-  ${minMedia.minDeskMegaHD`
-    width: 71.5%;
-  `}
-`;
-
-const FullWrapper = ({ children, align }) => (
+const FullWrapper = ({
+  children, align, alignContent, className,
+}) => (
   <Full layout="full" align={align}>
-    {align ? <Holder>{children}</Holder> : children}
+    {align ? (
+      <FullWrapperAlignedContent position="flex" justify={alignContent} align="start" className={className}>
+        {children}
+      </FullWrapperAlignedContent>
+    ) : (
+      children
+    )}
   </Full>
 );
 
 FullWrapper.defaultProps = {
-  align: false,
+  align: '',
+  alignContent: '',
+  className: '',
 };
 
 FullWrapper.propTypes = {
   children: PropTypes.node.isRequired,
-  align: PropTypes.bool,
+  align: PropTypes.string,
+  alignContent: PropTypes.string,
+  className: PropTypes.string,
 };
 
 export default FullWrapper;

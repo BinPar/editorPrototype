@@ -43,6 +43,7 @@ const FooterLink = styled(Link)`
   }
   &.disabled {
     color: ${colors.greyMed};
+    pointer-events: none;
   }
 `;
 

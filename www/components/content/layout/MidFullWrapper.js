@@ -3,13 +3,24 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import Wrapper from './Wrapper';
 import MidFullWrapperAlignedContent from './MidFullWrapperAlignedContent';
+import { maxMedia, minMedia } from '../../../utils/Constants';
 
 const alignment = {
   left: css`
-    align-items: flex-start;
+    ${maxMedia.maxTablet`
+      align-items: center;
+    `};
+    ${minMedia.minDesk`
+      align-items: flex-start;
+    `};
   `,
   right: css`
-    align-items: flex-end;
+    ${maxMedia.maxTablet`
+      align-items: center;
+    `};
+        ${minMedia.minDesk`
+      align-items: flex-end;
+    `};
   `,
 };
 
@@ -25,7 +36,12 @@ const MidFullWrapper = ({
 }) => (
   <MidFull layout="midFull" align={align}>
     {align ? (
-      <MidFullWrapperAlignedContent position={position || 'flex'} justify={alignContent} align="start" className={className}>
+      <MidFullWrapperAlignedContent
+        position={position || 'flex'}
+        justify={alignContent}
+        align="start"
+        className={className}
+      >
         {children}
       </MidFullWrapperAlignedContent>
     ) : (

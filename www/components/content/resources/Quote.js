@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import {
-  colors, fontStyle, fontSize,
+  colors, fontStyle, fontSize, minMedia, maxMedia,
 } from '../../../utils/Constants';
 import Holder from '../../layout/Holder';
 import Paragraph from '../text/Paragraph';
@@ -12,34 +12,49 @@ const sizeOption = {
     width: 100%;
   `,
   half: css`
-    width: calc(50% - 30px);
     flex: 1 0 auto;
     &.left {
-      margin-right: 30px;
+      ${minMedia.minDesk`
+        margin-right: 30px;
+      `}
       &.float {
-        float: left;
+        ${minMedia.minDesk`
+          float: left;
+        `}
       }
     }
     &.right {
-      margin-left: 30px;
+      ${minMedia.minDesk`
+        margin-left: 30px;
+      `}
       &.float {
-        float: right;
+        ${minMedia.minDesk`
+          float: right;
+        `}
       }
     }
+    ${minMedia.minDesk`
+      width: calc(50% - 30px);
+    `}
   `,
 };
 
-// polygon(0 0,0 337px,55px 337px,350px 321px,440px 282px ,514px 233px,564px 0)
-
 const QuoteHolder = styled(Holder)`
   ${props => sizeOption[props.size] || sizeOption.half}
-  shape-outside: ${props => (props.circle && 'polygon(0 0,0 337px,55px 337px,350px 321px,440px 282px ,514px 233px,564px 0)')};
   :not(:only-child) {
     margin-bottom: 50px;
   }
+  ${minMedia.minDesk`
+    shape-outside: ${props => props.circle && 'polygon(0 0,0 337px,55px 337px,350px 321px,440px 282px ,514px 233px,564px 0)'};
+  `}
+  &.mid{
+    ${maxMedia.maxMobile`
+      display: block;
+    `}
+  }
 `;
 
-const QuoteText = styled(Paragraph)`
+const QuoteText = styled.p`
   font-style: ${fontStyle.italic};
   color: ${colors.greyDark};
   opacity: 0.8;
@@ -79,19 +94,26 @@ const Image = styled.img`
 `;
 
 const ImageMid = styled.div`
-  width: 270px;
+  ${maxMedia.maxMobile`
+    width: 100px;
+  `}
+  ${minMedia.minTablet`
+    width: 270px;
+  `}
   position: relative;
   margin-right: 30px;
   flex: 1 0 auto;
   padding: 20px 0;
   ::before {
-    content: '';
-    width: 5px;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    right: -30px;
-    background: ${colors.greyLight};
+    ${minMedia.minTablet`
+      content: '';
+      width: 5px;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: -30px;
+      background: ${colors.greyLight};
+    `}
   }
 `;
 
@@ -105,10 +127,7 @@ const Quote = ({
 }) => {
   if (mid) {
     return (
-      <QuoteHolder
-        size={size}
-        className={`${right ? 'right' : 'left'}${float ? ' float' : ''}`}
-      >
+      <QuoteHolder size={size} className={`mid ${right ? 'right' : 'left'}${float ? ' float' : ''}`}>
         <ImageMid>
           <Image src="/static/img/quotesGrey.svg" alt="Quotes" />
         </ImageMid>

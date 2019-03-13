@@ -1,23 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { colors, fontSize, fontWeight } from '../../utils/Constants';
+import { colors, fontSize, fontWeight, fontStyle, minMedia } from '../../utils/Constants';
 import Link from '../content/text/Link';
 
 const FooterWrapper = styled.footer`
   width: 100%;
   height: 200px;
-  position: fixed;
-  z-index: -1;
-  bottom: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  ${minMedia.minDesk`
+    position: fixed;
+    z-index: -1;
+    bottom: 0;
+  `}
 `;
 
 const FooterLink = styled(Link)`
   font-weight: ${fontWeight.regular};
   font-size: ${fontSize.F19};
+  font-style: ${fontStyle.normal}
   color: ${colors.greyDark};
   position: relative;
   & + & {
@@ -39,7 +43,6 @@ const FooterLink = styled(Link)`
   }
   &.disabled {
     color: ${colors.greyMed};
-    pointer-events: none;
   }
 `;
 

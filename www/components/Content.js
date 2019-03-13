@@ -13,18 +13,20 @@ import Block from './content/resources/Block';
 import { Targets, TargetItem } from './content/resources/Targets';
 import { Conclusions, ConclusionItem } from './content/resources/Conclusions';
 import { BulletList, ListItem, OrderedList } from './content/text/List';
-import { colors } from '../utils/Constants';
+import { colors, minMedia } from '../utils/Constants';
 import {
   Table, Header, Row, CellHeader, Text, Body, Cell,
 } from './content/resources/Table';
 import Link from './content/text/Link';
 
 const ContentWrapper = styled.section`
-  margin-bottom: 200px;
   margin-top: 80px;
   padding: 0 0 70px;
   box-shadow: 0px 12px 20px -7px rgba(0, 0, 0, 0.2);
   background: ${colors.white};
+  ${minMedia.minDesk`
+    margin-bottom: 200px;
+  `}
 `;
 
 const Content = () => (
@@ -100,12 +102,12 @@ Sed tempus tellus vitae mi
           tristique enim non aliquam. Donec at justo vehicula,
           {' '}
           <Link href="#">euismod mi at</Link>
-, mattis
-          neque. Phasellus ac neque vitae risus euismod vehicula nec id lectus. Ut semper gravida
-          lorem, vitae egestas enim lacinia a. Nunc non leo lobortis, tristique neque vel, bibendum
-          dui. In id est est. In sagittis pretium metus id ullamcorper. Sed tempus tellus vitae mi
-          fringilla dignissim. Orci varius natoque penatibus et magnis dis parturient montes,
-          nascetur ridiculus mus. Vestibulum vestibulum imperdiet odio ut ultricies.
+,
+          mattis neque. Phasellus ac neque vitae risus euismod vehicula nec id lectus. Ut semper
+          gravida lorem, vitae egestas enim lacinia a. Nunc non leo lobortis, tristique neque vel,
+          bibendum dui. In id est est. In sagittis pretium metus id ullamcorper. Sed tempus tellus
+          vitae mi fringilla dignissim. Orci varius natoque penatibus et magnis dis parturient
+          montes, nascetur ridiculus mus. Vestibulum vestibulum imperdiet odio ut ultricies.
         </Paragraph>
         <Paragraph>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque non ante sed dolor

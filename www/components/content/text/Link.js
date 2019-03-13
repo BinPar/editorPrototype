@@ -1,7 +1,5 @@
 import styled from 'styled-components';
-import {
-  colors, fontWeight, fontStyle,
-} from '../../../utils/Constants';
+import { colors, fontWeight, fontStyle } from '../../../utils/Constants';
 
 export default styled.a`
   color: ${colors.primaryDark};

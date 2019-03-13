@@ -2,7 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import {
-  colors, fontFamily, fontWeight, fontStyle, fontSize,
+  colors,
+  fontFamily,
+  fontWeight,
+  fontStyle,
+  fontSize,
+  minMedia,
+  maxMedia,
 } from '../../../utils/Constants';
 import Link from '../text/Link';
 
@@ -23,20 +29,25 @@ const sizeOption = {
     width: 100%;
   `,
   half: css`
-    width: calc(50% - 30px);
     flex: 1 0 auto;
-    &.left {
-      margin-right: 30px;
-      &.float {
-        float: left;
+    ${maxMedia.maxTablet`
+      margin-bottom: 30px;
+    `}
+    ${minMedia.minDesk`
+      width: calc(50% - 30px);
+      &.left {
+        margin-right: 30px;
+        &.float {
+          float: left;
+        }
       }
-    }
-    &.right {
-      margin-left: 30px;
-      &.float {
-        float: right;
+      &.right {
+        margin-left: 30px;
+        &.float {
+          float: right;
+        }
       }
-    }
+    `}
   `,
 };
 

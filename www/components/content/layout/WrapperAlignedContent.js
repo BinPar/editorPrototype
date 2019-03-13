@@ -4,13 +4,23 @@ import Holder from '../../layout/Holder';
 
 const alignment = {
   right: css`
-    margin: 0 0 0 auto;
+    ${maxMedia.maxTablet`
+      margin: 0 auto;
+    `};
+    ${minMedia.minDesk`
+      margin: 0 0 0 auto;
+    `};
+  `,
+  left: css`
+    ${maxMedia.maxTablet`
+      margin: 0 auto;
+    `};
   `,
 };
 
 export default styled(Holder)`
   display: block;
-  ${props => alignment[props.alignment]};
+  ${props => alignment[props.alignment] || alignment.left};
   ${maxMedia.maxMobile`
     width: 100%;
   `}

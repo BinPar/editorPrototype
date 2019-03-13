@@ -83,6 +83,7 @@ const style = {
     color: ${colors.greyDark};
     font-size: ${fontSize.F14};
     line-height: ${fontSize.F21};
+    font-weight: ${fontWeight.medium};
     text-align: left;
   `,
   highlight: css`
@@ -90,17 +91,18 @@ const style = {
     font-size: ${fontSize.F16};
     font-weight: ${fontWeight.bold};
     text-align: center;
-    line-height: ${fontSize.F22};
+    line-height: ${fontSize.F20};
   `,
   header: css`
     color: ${colors.white};
     font-size: ${fontSize.F16};
     font-weight: ${fontWeight.bold};
     line-height: ${fontSize.F22};
+    text-align: left;
   `,
 };
 
-export const Text = styled(Paragraph)`
+export const Text = styled.p`
   font-family: ${fontFamily.sansSerif};
   ${props => style[props.type] || style.basic}
 `;

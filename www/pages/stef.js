@@ -8,10 +8,13 @@ import {
 import Header from '../components/layout/Header';
 import Content from '../components/Content';
 import Footer from '../components/layout/Footer';
+import { maxMedia } from '../utils/Constants';
 
 const MainLayout = styled.div`
   position: relative;
-  overflow-x: hidden;
+  ${maxMedia.maxTablet`
+    overflow-x: hidden;
+  `}
 `;
 
 const Container = styled.div`

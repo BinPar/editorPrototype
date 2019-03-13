@@ -6,6 +6,9 @@ export default styled(Holder)`
   ${maxMedia.maxMobile`
     width: 100%;
   `}
+  ${maxMedia.maxTablet`
+    display: block;
+  `}
   ${minMedia.minTablet`
     width: calc(100% - 50px);
   `}

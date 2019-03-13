@@ -20,6 +20,7 @@ export const fontStyle = {
 export const fontSize = {
   F40: '2.5rem '/* 40pts */,
   F37: '2.31rem '/* 37pts */,
+  F35: '2.1875rem '/* 37pts */,
   F32: '2rem' /* 32pts */,
   F30: '1.875rem' /* 30pts */,
   F29: '1.8125rem' /* 29pts */,

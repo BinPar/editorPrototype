@@ -77,9 +77,15 @@ const QuoteSmall = styled(QuoteText)`
 `;
 
 const QuoteMid = styled(QuoteText)`
-  font-size: ${fontSize.F37};
+  ${maxMedia.maxMobile`
+    font-size: ${fontSize.F30};
+    line-height: 40px;
+    `}
+  ${minMedia.minTablet`
+    font-size: ${fontSize.F37};
+    line-height: 51px;
+  `}
   margin-left: 30px;
-  line-height: 51px;
 `;
 
 const QuoteLarge = styled(QuoteText)`

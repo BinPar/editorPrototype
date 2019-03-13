@@ -13,15 +13,6 @@ export default styled(Holder)`
     width: calc(100% - 125px);
   `}
   ${minMedia.minDeskLarge`
-    width: 85%;
-  `}
-  ${minMedia.minDeskHD`
-    width: 81%;
-  `}
-  ${minMedia.minDeskUltraHD`
-    width: 76.5%;
-  `}
-  ${minMedia.minDeskMegaHD`
-    width: 71.5%;
+    width: calc(970px + (100% - 970px)/2);
   `}
 `;

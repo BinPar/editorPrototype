@@ -16,13 +16,6 @@ export default styled(Holder)`
     width: calc(100% - 100px);
   `}
   ${minMedia.minDeskLarge`
-    width: 100%;
-    max-width: 89.8%;
-  `}
-  ${minMedia.minDeskHD`
-    max-width: 90.3%;
-  `}
-  ${minMedia.minDeskHD`
-    max-width: 90.7%;
+    width: calc(970px + (100% - 970px)/2);
   `}
 `;

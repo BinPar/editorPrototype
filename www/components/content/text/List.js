@@ -62,6 +62,9 @@ const listType = {
     }
     &.table {
       margin-left: 1rem;
+      ~ * {
+        margin-top: 10px
+      };
       ::before {
         width: 5px;
         height: 5px;
@@ -76,10 +79,10 @@ const listType = {
 const Item = styled.li`
   position: relative;
   margin-left: 2rem;
-  ${props => listType[props.type] || listType.bullet};
   & + & {
     margin-top: 20px;
   }
+  ${props => listType[props.type] || listType.bullet};
 `;
 
 export const ListItem = ({ children, type, table }) => (

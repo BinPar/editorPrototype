@@ -105,4 +105,7 @@ const style = {
 export const Text = styled.p`
   font-family: ${fontFamily.sansSerif};
   ${props => style[props.type] || style.basic}
+  ~ * {
+    margin-top: 10px
+  };
 `;

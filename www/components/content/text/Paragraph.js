@@ -19,6 +19,7 @@ export default styled.p`
   font-family: ${fontFamily.serif};
   font-weight: ${fontWeight.regular};
   user-select: auto;
+  hyphens: auto;
   ~ * {
     margin-top: 20px
   };

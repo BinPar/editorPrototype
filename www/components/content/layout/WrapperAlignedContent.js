@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { maxMedia, minMedia } from '../../../utils/Constants';
-import Holder from './Holder';
+import Holder from '../../layout/Holder';
 
 const alignment = {
   right: css`

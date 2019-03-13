@@ -1,9 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import { colors } from '../../../utils/Constants';
-import ImageFooter from '../text/ImageFooter';
+import {
+  colors, fontFamily, fontWeight, fontStyle, fontSize,
+} from '../../../utils/Constants';
 import Link from '../text/Link';
+
+const ImageFooter = styled.p`
+  font-size: ${fontSize.F14};
+  text-align: center;
+  color: ${colors.greyMed};
+  font-family: ${fontFamily.sansSerif};
+  font-weight: ${fontWeight.semibold};
+  font-style: ${fontStyle.italic};
+  line-height: ${fontSize.F18};
+  letter-spacing: 0.02rem;
+  margin-top: 15px;
+`;
 
 const sizeOption = {
   full: css`
@@ -30,6 +43,7 @@ const sizeOption = {
 const FooterLink = styled(Link)`
   position: relative;
   margin-left: 20px;
+  font-style: ${fontStyle.normal};
   ::before {
     content: '';
     width: 2px;

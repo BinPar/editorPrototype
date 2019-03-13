@@ -5,6 +5,7 @@ import {
   colors, fontFamily, fontWeight, fontSize,
 } from '../../../utils/Constants';
 import Paragraph from './Paragraph';
+import { Text } from '../resources/Table';
 
 export const OrderedList = styled.ol`
   list-style: none;
@@ -27,11 +28,12 @@ const listType = {
     ::before {
       content: counter(listStyle, decimal) '.';
       position: absolute;
-      top: 0;
+      top: 6px;
       right: calc(100% + 10px);
       color: ${colors.secondary};
-      font-weight: ${fontWeight.medium};
+      font-weight: ${fontWeight.bold};
       font-size: ${fontSize.F19};
+      font-family: ${fontFamily.sansSerif};
     }
   `,
   letter: css`
@@ -39,11 +41,12 @@ const listType = {
     ::before {
       content: counter(listStyle, lower-alpha) '.';
       position: absolute;
-      top: 0;
+      top: 6px;
       right: calc(100% + 10px);
       color: ${colors.secondary};
-      font-weight: ${fontWeight.medium};
+      font-weight: ${fontWeight.bold};
       font-size: ${fontSize.F19};
+      font-family: ${fontFamily.sansSerif};
     }
   `,
   bullet: css`
@@ -57,18 +60,20 @@ const listType = {
       border-radius: 50%;
       background: ${colors.secondary};
     }
+    &.table {
+      margin-left: 1rem;
+      ::before {
+        width: 5px;
+        height: 5px;
+        background: ${colors.primary};
+        top: 8px;
+        right: calc(100% + 10px);
+      }
+    }
   `,
 };
 
 const Item = styled.li`
-  font-size: ${fontSize.F20};
-  text-align: justify;
-  color: ${colors.greyDarker};
-  font-family: ${fontFamily.serif};
-  font-weight: ${fontWeight.regular};
-  line-height: ${fontSize.F32};
-  letter-spacing: 0.05rem;
-  user-select: auto;
   position: relative;
   margin-left: 2rem;
   ${props => listType[props.type] || listType.bullet};
@@ -77,17 +82,17 @@ const Item = styled.li`
   }
 `;
 
-export const ListItem = ({ children, type }) => (
-  <Item type={type}>
-    <Paragraph>{children}</Paragraph>
-  </Item>
+export const ListItem = ({ children, type, table }) => (
+  <Item className={table ? 'table' : ''} type={type}>{table ? <Text>{children}</Text> : <Paragraph>{children}</Paragraph>}</Item>
 );
 
 ListItem.defaultProps = {
   type: '',
+  table: false,
 };
 
 ListItem.propTypes = {
+  table: PropTypes.bool,
   children: PropTypes.node.isRequired,
   type: PropTypes.string,
 };

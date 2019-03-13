@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 import {
   colors, fontStyle, fontSize,
 } from '../../../utils/Constants';
-import Holder from '../layout/Holder';
+import Holder from '../../layout/Holder';
 import Paragraph from '../text/Paragraph';
 
 const sizeOption = {

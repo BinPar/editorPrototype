@@ -5,9 +5,8 @@ import {
 
 export default styled.a`
   color: ${colors.primaryDark};
-  font-style: ${fontStyle.normal};
+  font-style: ${fontStyle.italic};
   font-weight: ${fontWeight.semibold};
-
   :hover {
     color: ${colors.primaryDarker};
   }

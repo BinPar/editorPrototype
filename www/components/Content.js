@@ -9,15 +9,21 @@ import Subtitle from './content/text/Subtitle';
 import Paragraph from './content/text/Paragraph';
 import Image from './content/resources/Image';
 import Quote from './content/resources/Quote';
+import Block from './content/resources/Block';
 import { Targets, TargetItem } from './content/resources/Targets';
 import { Conclusions, ConclusionItem } from './content/resources/Conclusions';
 import { BulletList, ListItem, OrderedList } from './content/text/List';
 import { colors } from '../utils/Constants';
+import {
+  Table, Header, Row, CellHeader, Text, Body, Cell,
+} from './content/resources/Table';
+import Link from './content/text/Link';
 
 const ContentWrapper = styled.section`
   margin-bottom: 200px;
-  padding: 40px 0 70px;
-  box-shadow: 0px 12px 20px -7px rgba(0,0,0,0.2);
+  margin-top: 80px;
+  padding: 0 0 70px;
+  box-shadow: 0px 12px 20px -7px rgba(0, 0, 0, 0.2);
   background: ${colors.white};
 `;
 
@@ -25,7 +31,7 @@ const Content = () => (
   <ContentWrapper>
     <Wrapper>
       <Paragraph>Autor</Paragraph>
-      <Title>Fundamentos y Objetivos de la Monitorizacón Fetal Intraparto</Title>
+      <Title>Fundamentos y Objetivos de la Monitorización Fetal Intraparto</Title>
     </Wrapper>
     <Targets>
       <TargetItem>
@@ -91,12 +97,15 @@ Sed tempus tellus vitae mi
         <Paragraph>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque non ante sed dolor
           finibus hendrerit. Morbi commodo tellus dolor, et faucibus felis iaculis at. Proin tempor
-          tristique enim non aliquam. Donec at justo vehicula, euismod mi at, mattis neque.
-          Phasellus ac neque vitae risus euismod vehicula nec id lectus. Ut semper gravida lorem,
-          vitae egestas enim lacinia a. Nunc non leo lobortis, tristique neque vel, bibendum dui. In
-          id est est. In sagittis pretium metus id ullamcorper. Sed tempus tellus vitae mi fringilla
-          dignissim. Orci varius natoque penatibus et magnis dis parturient montes, nascetur
-          ridiculus mus. Vestibulum vestibulum imperdiet odio ut ultricies.
+          tristique enim non aliquam. Donec at justo vehicula,
+          {' '}
+          <Link href="#">euismod mi at</Link>
+, mattis
+          neque. Phasellus ac neque vitae risus euismod vehicula nec id lectus. Ut semper gravida
+          lorem, vitae egestas enim lacinia a. Nunc non leo lobortis, tristique neque vel, bibendum
+          dui. In id est est. In sagittis pretium metus id ullamcorper. Sed tempus tellus vitae mi
+          fringilla dignissim. Orci varius natoque penatibus et magnis dis parturient montes,
+          nascetur ridiculus mus. Vestibulum vestibulum imperdiet odio ut ultricies.
         </Paragraph>
         <Paragraph>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque non ante sed dolor
@@ -221,7 +230,11 @@ Sed tempus tellus vitae mi
       </Paragraph>
     </Wrapper>
     <MidFullWrapper>
-      <Paragraph>Aquí va un recurso (bombilla)</Paragraph>
+      <Block>
+        Aliquam erat volutpat. Ut sollicitudin sapien sed suscipit finibus. Cras eget eros eget
+        velit faucibus convallis non non diam. Pellentesque molestie metus erat, quis dictum leo
+        aliquet sit amet. Praesent ac tempor sem.
+      </Block>
     </MidFullWrapper>
     <Wrapper>
       <Paragraph>
@@ -299,10 +312,89 @@ Sed tempus tellus vitae mi
       </Paragraph>
     </Wrapper>
     <MidFullWrapper align="right">
-      <Paragraph>Aquí va un recurso (info)</Paragraph>
+      <Block type="info">
+        Aliquam erat volutpat. Ut sollicitudin sapien sed suscipit finibus. Cras eget eros eget
+        velit faucibus convallis non non diam. Pellentesque molestie metus erat, quis dictum leo
+        aliquet sit amet. Praesent ac tempor sem.
+      </Block>
     </MidFullWrapper>
     <Wrapper>
-      <Paragraph>Aquí va una tabla</Paragraph>
+      <Table>
+        <Header>
+          <Row>
+            <CellHeader colSpan="4">
+              <Text type="header">Tabla 1.2-1 | Definiciones de las Tasas de Mortalidad</Text>
+            </CellHeader>
+          </Row>
+        </Header>
+        <Body>
+          <Row>
+            <Cell type="highlight">
+              <Text type="highlight">Indicador</Text>
+            </Cell>
+            <Cell type="highlight" colSpan="2">
+              <Text type="highlight">Numerador</Text>
+            </Cell>
+            <Cell type="highlight">
+              <Text type="highlight">Denominador</Text>
+            </Cell>
+          </Row>
+          <Row>
+            <Cell type="highlight">
+              <Text type="highlight">Tasa de Mortalidad prenatal</Text>
+            </Cell>
+            <Cell colSpan="2">
+              <Text>
+                Quisque dignissim leo nec mi posuere, et venenatis nisi posuere. Etiam eros lacus,
+                tincidunt eu vulputate sit amet, fermentum sit amet nisl. Sed euismod quis velit vel
+                efficitur. Fusce vehicula, quam vel euismod luctus, ante ipsum lobortis nibh, non
+                luctus lorem nisi dignissim purus.
+              </Text>
+            </Cell>
+            <Cell>
+              <Text>Quisque dignissim leo nec mi posuere, et venenatis nisi posuere.</Text>
+            </Cell>
+          </Row>
+          <Row>
+            <Cell type="highlight">
+              <Text type="highlight">Tasa de Mortalidad neonatal</Text>
+            </Cell>
+            <Cell colSpan="2">
+              <Text>
+                Dignissim leo nec mi posuere, et venenatis nisi posuere. Etiam eros lacus, tincidunt
+                eu vulputate sit amet.
+              </Text>
+            </Cell>
+            <Cell>
+              <Text>Quisque dignissim leo nec</Text>
+            </Cell>
+          </Row>
+          <Row>
+            <Cell type="highlight">
+              <Text type="highlight">Tasa de Mortalidad perinatal</Text>
+            </Cell>
+            <Cell colSpan="2">
+              <Text>Quisque dignissim leo:</Text>
+              <BulletList>
+                <ListItem table>
+                  Sed euismod quis velit vel efficitur. Fusce vehicula, quam vel euismod luctus,
+                  ante ipsum lobortis nibh, non luctus lorem nisi dignissim purus.
+                </ListItem>
+                <ListItem table>
+                  Sed euismod quis velit vel efficitur. Fusce vehicula, quam vel euismod
+                </ListItem>
+                <ListItem table>
+                  Fusce vehicula, quam vel euismod luctus, ante ipsum lobortis nibh, non luctus
+                  lorem nisi dignissim purus.
+                </ListItem>
+              </BulletList>
+            </Cell>
+            <Cell>
+              <Text>Quisque dignissim leo nec mi posuere, et venenatis nisi posuere.</Text>
+            </Cell>
+          </Row>
+        </Body>
+      </Table>
     </Wrapper>
     <MidFullWrapper align="left" position="block">
       <Quote circle float large>

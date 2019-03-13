@@ -5,8 +5,14 @@ import log from 'loglevel';
 import {
   EditorState, RichUtils, convertFromHTML, ContentState, convertToRaw,
 } from 'draft-js';
+import Header from '../components/layout/Header';
 import Content from '../components/Content';
 import Footer from '../components/layout/Footer';
+
+const MainLayout = styled.div`
+  position: relative;
+  overflow-x: hidden;
+`;
 
 const Container = styled.div`
   background-color: white;
@@ -31,13 +37,16 @@ const testPage = () => {
   });
 
   return (
-    <Container>
-      <Head>
-        <title>Editor</title>
-      </Head>
-      <Content />
-      <Footer backRoute="#" backDisabled nextRoute="#" />
-    </Container>
+    <MainLayout>
+      <Container>
+        <Head>
+          <title>Editor</title>
+        </Head>
+        <Header progress="50" />
+        <Content />
+        <Footer backRoute="#" backDisabled nextRoute="#" />
+      </Container>
+    </MainLayout>
   );
 };
 

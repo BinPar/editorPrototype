@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { maxMedia, minMedia } from '../../../utils/Constants';
-import Holder from './Holder';
+import Holder from '../../layout/Holder';
 
 export default styled(Holder)`
   ${maxMedia.maxMobile`

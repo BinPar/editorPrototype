@@ -69,12 +69,18 @@ export const colors = {
   greyDark: '#6E6F71',
   greyDarker: '#323031',
 
+  primaryLightest: '#F0F6F5',
+  primaryLighter: '#E8F3F1',
   primaryLight: '#AFC6CA',
   primary: '#8DC3B9',
+  primaryMed: '#5C817A',
   primaryDark: '#578995',
   primaryDarker: '#485869',
 
+  secondaryLight: '#FBFAF7',
   secondary: '#EAC36A',
+  secondaryDark: '#B29451',
+
   error: '#F2735F',
   warning: '#EFA773',
   warningDark: '#956847',
@@ -82,6 +88,7 @@ export const colors = {
   white: '#FFFFFF',
 
   backgroundLightGreen: '#F9FBFA',
+
 };
 
 // MEDIA QUERIES

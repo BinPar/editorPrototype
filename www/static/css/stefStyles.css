@@ -770,7 +770,6 @@ table {
   border-spacing: 0;
 }
 a {
-  display: inline-block;
   background-color: transparent;
   text-decoration: none;
   cursor: pointer;

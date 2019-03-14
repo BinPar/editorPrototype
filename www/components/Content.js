@@ -23,6 +23,10 @@ const minDesk = minMedia.minDesk`
   margin-bottom: 200px;
 `;
 
+const Ejercicio = styled.iframe`
+  border: none;
+  height: 830px;
+`;
 const ContentWrapper = styled.section`
   margin-top: 80px;
   padding: 0 0 70px;
@@ -300,7 +304,7 @@ Sed tempus tellus vitae mi
       </WrapperAlignedContent>
     </MidFullWrapper>
     <MidFullWrapper>
-      <Paragraph>Aquí va un ejercicio</Paragraph>
+      <Ejercicio src="https://aula.campuspanamericana.com/_Cursos/Curso01171/Temario/EVA_Actividades_independientes/A1/story_html5.html" />
     </MidFullWrapper>
     <Wrapper>
       <Subtitle>Definición y clasificación de las muertes prenatales</Subtitle>

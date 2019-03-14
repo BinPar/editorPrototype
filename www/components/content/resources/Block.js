@@ -50,7 +50,7 @@ const ImageWrapper = styled.div`
   left: -70px;
 `;
 
-const Quote = ({ children, type }) => (
+const Block = ({ children, type }) => (
   <BlockHolder type={type} column align="start" justify="start">
     <ImageWrapper>
       <Image
@@ -62,13 +62,13 @@ const Quote = ({ children, type }) => (
   </BlockHolder>
 );
 
-Quote.defaultProps = {
+Block.defaultProps = {
   type: '',
 };
 
-Quote.propTypes = {
+Block.propTypes = {
   children: PropTypes.node.isRequired,
-  type: PropTypes.bool,
+  type: PropTypes.string,
 };
 
-export default Quote;
+export default Block;

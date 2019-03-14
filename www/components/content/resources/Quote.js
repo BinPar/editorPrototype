@@ -5,7 +5,18 @@ import {
   colors, fontStyle, fontSize, minMedia, maxMedia,
 } from '../../../utils/Constants';
 import Holder from '../../layout/Holder';
-import Paragraph from '../text/Paragraph';
+
+const minDeskFloatRight = minMedia.minDesk`
+  float: left;
+`;
+
+const minDeskFloatLeft = minMedia.minDesk`
+  float: left;
+`;
+
+const minDeskWidth = minMedia.minDesk`
+  width: calc(50% - 30px);
+`;
 
 const sizeOption = {
   full: css`
@@ -18,9 +29,7 @@ const sizeOption = {
         margin-right: 30px;
       `}
       &.float {
-        ${minMedia.minDesk`
-          float: left;
-        `}
+        ${minDeskFloatLeft}
       }
     }
     &.right {
@@ -28,16 +37,16 @@ const sizeOption = {
         margin-left: 30px;
       `}
       &.float {
-        ${minMedia.minDesk`
-          float: right;
-        `}
+        ${minDeskFloatRight}
       }
     }
-    ${minMedia.minDesk`
-      width: calc(50% - 30px);
-    `}
+    ${minDeskWidth}
   `,
 };
+
+const displayMaxMobile = maxMedia.maxMobile`
+display: block;
+`;
 
 const QuoteHolder = styled(Holder)`
   ${props => sizeOption[props.size] || sizeOption.half}
@@ -45,12 +54,11 @@ const QuoteHolder = styled(Holder)`
     margin-bottom: 50px;
   }
   ${minMedia.minDesk`
-    shape-outside: ${props => props.circle && 'polygon(0 0,0 337px,55px 337px,350px 321px,440px 282px ,514px 233px,564px 0)'};
+    shape-outside: ${props => props.circle
+      && 'polygon(0 0,0 337px,55px 337px,350px 321px,440px 282px ,514px 233px,564px 0)'};
   `}
-  &.mid{
-    ${maxMedia.maxMobile`
-      display: block;
-    `}
+  &.mid {
+    ${displayMaxMobile}
   }
 `;
 
@@ -75,16 +83,19 @@ const QuoteSmall = styled(QuoteText)`
     background: ${colors.secondary};
   }
 `;
+const minTabletFont = minMedia.minTablet`
+  font-size: ${fontSize.F37};
+  line-height: 51px;
+`;
+
+const maxMobileFont = maxMedia.maxMobile`
+  font-size: ${fontSize.F30};
+  line-height: 40px;
+`;
 
 const QuoteMid = styled(QuoteText)`
-  ${maxMedia.maxMobile`
-    font-size: ${fontSize.F30};
-    line-height: 40px;
-    `}
-  ${minMedia.minTablet`
-    font-size: ${fontSize.F37};
-    line-height: 51px;
-  `}
+  ${maxMobileFont}
+  ${minTabletFont}
   margin-left: 30px;
 `;
 
@@ -99,27 +110,33 @@ const Image = styled.img`
   height: auto;
 `;
 
+const maxMobileWidth = maxMedia.maxMobile`
+  width: 100px;
+`;
+
+const minTabletWidth = minMedia.minTablet`
+  width: 270px;
+`;
+
+const minTabletBefore = minMedia.minTablet`
+  content: '';
+  width: 5px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: -30px;
+  background: ${colors.greyLight};
+`;
+
 const ImageMid = styled.div`
-  ${maxMedia.maxMobile`
-    width: 100px;
-  `}
-  ${minMedia.minTablet`
-    width: 270px;
-  `}
+  ${maxMobileWidth}
+  ${minTabletWidth}
   position: relative;
   margin-right: 30px;
   flex: 1 0 auto;
   padding: 20px 0;
   ::before {
-    ${minMedia.minTablet`
-      content: '';
-      width: 5px;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      right: -30px;
-      background: ${colors.greyLight};
-    `}
+    ${minTabletBefore}
   }
 `;
 
@@ -133,7 +150,10 @@ const Quote = ({
 }) => {
   if (mid) {
     return (
-      <QuoteHolder size={size} className={`mid ${right ? 'right' : 'left'}${float ? ' float' : ''}`}>
+      <QuoteHolder
+        size={size}
+        className={`mid ${right ? 'right' : 'left'}${float ? ' float' : ''}`}
+      >
         <ImageMid>
           <Image src="/static/img/quotesGrey.svg" alt="Quotes" />
         </ImageMid>

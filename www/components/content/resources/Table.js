@@ -4,7 +4,6 @@ import styled, { css } from 'styled-components';
 import {
   colors, fontSize, fontFamily, fontWeight, maxMedia, minMedia,
 } from '../../../utils/Constants';
-import Paragraph from '../text/Paragraph';
 import Holder from '../../layout/Holder';
 
 // ESTRUCTURA
@@ -58,16 +57,20 @@ const type = {
   `,
 };
 
+const maxMobileMinWidth = maxMedia.maxMobile`
+  min-width: 200px;
+`;
+
+const minTabletMinWidth = minMedia.minTablet`
+  min-width: 150px;
+`;
+
 export const Cell = styled.td`
   ${props => type[props.type] || type.basic};
   vertical-align: middle;
   min-height: 50px;
-  ${maxMedia.maxMobile`
-    min-width: 200px;
-  `}
-  ${minMedia.minTablet`
-    min-width: 150px;
-  `}
+  ${maxMobileMinWidth}
+  ${minTabletMinWidth}
 `;
 
 export const CellHeader = styled.th`

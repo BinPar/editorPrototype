@@ -5,22 +5,26 @@ import Wrapper from './Wrapper';
 import MidFullWrapperAlignedContent from './MidFullWrapperAlignedContent';
 import { maxMedia, minMedia } from '../../../utils/Constants';
 
+const maxTabletAlign = maxMedia.maxTablet`
+  align-items: center;
+`;
+
+const minDeskAlignLeft = minMedia.minDesk`
+  align-items: flex-start;
+`;
+
+const minDeskAlignRight = minMedia.minDesk`
+  align-items: flex-end;
+`;
+
 const alignment = {
   left: css`
-    ${maxMedia.maxTablet`
-      align-items: center;
-    `};
-    ${minMedia.minDesk`
-      align-items: flex-start;
-    `};
+    ${maxTabletAlign};
+    ${minDeskAlignLeft};
   `,
   right: css`
-    ${maxMedia.maxTablet`
-      align-items: center;
-    `};
-        ${minMedia.minDesk`
-      align-items: flex-end;
-    `};
+    ${maxTabletAlign};
+    ${minDeskAlignRight};
   `,
 };
 

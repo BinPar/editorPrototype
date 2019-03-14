@@ -8,7 +8,7 @@ export default styled.h2`
   text-align: ${props => (props.right ? 'right' : 'left')};
   font-weight: ${fontWeight.extrabold};
   font-style: ${fontStyle.normal};
-  color: ${props => (props.color ? colors.primaryDarker : colors.greyDarker)};
+  color: ${props => (props.useColor ? colors.primaryDarker : colors.greyDarker)};
   font-family: ${fontFamily.sansSerif};
   margin-bottom: 30px;
 `;

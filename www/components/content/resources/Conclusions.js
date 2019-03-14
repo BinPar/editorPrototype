@@ -30,7 +30,7 @@ const Holder = styled(Wrapper)`
 export const Conclusions = ({ children, title }) => (
   <Full align="right" alignContent="start">
     <Holder>
-      <Subtitle color>
+      <Subtitle useColor>
         {title}
       </Subtitle>
       {children}

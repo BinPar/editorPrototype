@@ -5,6 +5,7 @@
     "jscodeshift",
     "loglevel",
     "polyfill",
-    "quokka"
+    "quokka",
+    "stef"
   ]
 }

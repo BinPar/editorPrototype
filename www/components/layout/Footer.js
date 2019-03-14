@@ -1,8 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { colors, fontSize, fontWeight, fontStyle, minMedia } from '../../utils/Constants';
+import {
+  colors, fontSize, fontWeight, fontStyle, minMedia,
+} from '../../utils/Constants';
 import Link from '../content/text/Link';
+
+const desktop = minMedia.minDesk`
+position: fixed;
+z-index: -1;
+bottom: 0;
+`;
 
 const FooterWrapper = styled.footer`
   width: 100%;
@@ -10,32 +18,27 @@ const FooterWrapper = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
-
-  ${minMedia.minDesk`
-    position: fixed;
-    z-index: -1;
-    bottom: 0;
-  `}
+  ${desktop}
 `;
 
 const FooterLink = styled(Link)`
   font-weight: ${fontWeight.regular};
   font-size: ${fontSize.F19};
-  font-style: ${fontStyle.normal}
+  font-style: ${fontStyle.normal};
   color: ${colors.greyDark};
   position: relative;
   & + & {
     margin-left: 50px;
-    ::before{
-      content '';
+    ::before {
+      content: '';
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
       left: -25px;
       width: 2px;
-      height 30px;
+      height: 30px;
       background: ${colors.greyMed};
-      opacity: .4;
+      opacity: 0.4;
     }
   }
   :hover {

@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import styled from 'styled-components';
-import log from 'loglevel';
-import {
-  EditorState, RichUtils, convertFromHTML, ContentState, convertToRaw,
-} from 'draft-js';
+import { EditorState, convertFromHTML, ContentState } from 'draft-js';
 import Header from '../components/layout/Header';
 import Content from '../components/Content';
 import Footer from '../components/layout/Footer';
 import { maxMedia } from '../utils/Constants';
 
+const maxTablet = maxMedia.maxTablet`
+overflow-x: hidden;
+`;
+
 const MainLayout = styled.div`
   position: relative;
-  ${maxMedia.maxTablet`
-    overflow-x: hidden;
-  `}
+  ${maxTablet}
 `;
 
 const Container = styled.div`
@@ -22,7 +21,7 @@ const Container = styled.div`
 `;
 
 const testPage = () => {
-  const [editorState, setEditorState] = useState(EditorState.createEmpty());
+  const [, setEditorState] = useState(EditorState.createEmpty());
 
   const [ssr, setSsr] = useState(true);
 

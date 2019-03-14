@@ -19,14 +19,16 @@ import {
 } from './content/resources/Table';
 import Link from './content/text/Link';
 
+const minDesk = minMedia.minDesk`
+  margin-bottom: 200px;
+`;
+
 const ContentWrapper = styled.section`
   margin-top: 80px;
   padding: 0 0 70px;
   box-shadow: 0px 12px 20px -7px rgba(0, 0, 0, 0.2);
   background: ${colors.white};
-  ${minMedia.minDesk`
-    margin-bottom: 200px;
-  `}
+  ${minDesk}
 `;
 
 const Content = () => (
@@ -101,7 +103,7 @@ Sed tempus tellus vitae mi
           finibus hendrerit. Morbi commodo tellus dolor, et faucibus felis iaculis at. Proin tempor
           tristique enim non aliquam. Donec at justo vehicula,
           {' '}
-          <Link href="#">euismod mi at</Link>
+          <Link href="#test">euismod mi at</Link>
 ,
           mattis neque. Phasellus ac neque vitae risus euismod vehicula nec id lectus. Ut semper
           gravida lorem, vitae egestas enim lacinia a. Nunc non leo lobortis, tristique neque vel,

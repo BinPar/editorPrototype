@@ -2,9 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {
-  colors, fontSize, fontWeight, fontStyle, minMedia,
+  colors, fontSize, fontWeight, fontStyle, minMedia, icon,
 } from '../../utils/Constants';
 import Link from '../content/text/Link';
+import Icon from '../basics/Icon';
 
 const desktop = minMedia.minDesk`
 position: fixed;
@@ -27,6 +28,9 @@ const FooterLink = styled(Link)`
   font-style: ${fontStyle.normal};
   color: ${colors.greyDark};
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   & + & {
     margin-left: 50px;
     ::before {
@@ -45,8 +49,14 @@ const FooterLink = styled(Link)`
     color: ${colors.primaryDark};
   }
   &.disabled {
-    color: ${colors.greyMed};
+    opacity: 0.4;
     pointer-events: none;
+  }
+  .longArrowLeft {
+    margin-right: 15px;
+  }
+  .longArrowRight {
+    margin-left: 15px;
   }
 `;
 
@@ -55,10 +65,12 @@ const Footer = ({
 }) => (
   <FooterWrapper>
     <FooterLink href={backRoute} className={backDisabled ? 'disabled' : ''}>
+      <Icon name={icon.longArrowLeft} />
       Anterior
     </FooterLink>
     <FooterLink href={nextRoute} className={nextDisabled ? 'disabled' : ''}>
       Siguiente
+      <Icon name={icon.longArrowRight} />
     </FooterLink>
   </FooterWrapper>
 );

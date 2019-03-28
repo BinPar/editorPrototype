@@ -33,4 +33,5 @@ export default styled(Holder)`
   ${minMedia.minDeskLarge`
     width: 970px;
   `}
+  
 `;

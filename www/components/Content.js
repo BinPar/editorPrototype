@@ -13,11 +13,13 @@ import Block from './content/resources/Block';
 import { Targets, TargetItem } from './content/resources/Targets';
 import { Conclusions, ConclusionItem } from './content/resources/Conclusions';
 import { BulletList, ListItem, OrderedList } from './content/text/List';
-import { colors, minMedia } from '../utils/Constants';
+import { colors, minMedia, icon } from '../utils/Constants';
 import {
   Table, Header, Row, CellHeader, Text, Body, Cell,
 } from './content/resources/Table';
 import Link from './content/text/Link';
+import Tooltip from './basics/Tooltip';
+import TooltipButton from './basics/TooltipButton';
 
 const minDesk = minMedia.minDesk`
   margin-bottom: 200px;
@@ -26,6 +28,7 @@ const minDesk = minMedia.minDesk`
 const Ejercicio = styled.iframe`
   border: none;
   height: 830px;
+  width: 100%;
 `;
 const ContentWrapper = styled.section`
   margin-top: 80px;
@@ -37,6 +40,10 @@ const ContentWrapper = styled.section`
 
 const Content = () => (
   <ContentWrapper>
+    <Tooltip>
+      <TooltipButton name={icon.bold} />
+      <TooltipButton name={icon.italic} />
+    </Tooltip>
     <Wrapper>
       <Paragraph>Autor</Paragraph>
       <Title>Fundamentos y Objetivos de la Monitorización Fetal Intraparto</Title>

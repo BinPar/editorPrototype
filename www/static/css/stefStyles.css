@@ -691,6 +691,182 @@
     U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+/* ICONS */
+
+@font-face {
+  font-family: 'panamericanaIconFont';
+  src:  url('../fonts/IconFont/panamericanaIconFont.eot?gweghy');
+  src:  url('../fonts/IconFont/panamericanaIconFont.eot?gweghy#iefix') format('embedded-opentype'),
+    url('../fonts/IconFont/panamericanaIconFont.ttf?gweghy') format('truetype'),
+    url('../fonts/IconFont/panamericanaIconFont.woff?gweghy') format('woff'),
+    url('../fonts/IconFont/panamericanaIconFont.svg?gweghy#panamericanaIconFont') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.addCircle:before {
+  content: "\e900";
+}
+.alignLeft:before {
+  content: "\e901";
+}
+.alignRight:before {
+  content: "\e902";
+}
+.article:before {
+  content: "\e903";
+}
+.bell:before {
+  content: "\e904";
+}
+.blockLeft:before {
+  content: "\e905";
+}
+.blockRight:before {
+  content: "\e906";
+}
+.bold:before {
+  content: "\e907";
+}
+.bulletList:before {
+  content: "\e908";
+}
+.calendar:before {
+  content: "\e909";
+}
+.centered:before {
+  content: "\e90a";
+}
+.check:before {
+  content: "\e90b";
+}
+.clock:before {
+  content: "\e90c";
+}
+.close:before {
+  content: "\e90d";
+}
+.closeCircle:before {
+  content: "\e90e";
+}
+.doubt:before {
+  content: "\e90f";
+}
+.dragMouse:before {
+  content: "\e910";
+}
+.edit:before {
+  content: "\e911";
+}
+.evaluation:before {
+  content: "\e912";
+}
+.fixedTextLeft:before {
+  content: "\e913";
+}
+.fixedTextRight:before {
+  content: "\e914";
+}
+.full:before {
+  content: "\e915";
+}
+.highlight:before {
+  content: "\e916";
+}
+.image:before {
+  content: "\e917";
+}
+.index:before {
+  content: "\e918";
+}
+.information:before {
+  content: "\e919";
+}
+.italic:before {
+  content: "\e91a";
+}
+.knowledge:before {
+  content: "\e91b";
+}
+.letterList:before {
+  content: "\e91c";
+}
+.link:before {
+  content: "\e91d";
+}
+.longArrowLeft:before {
+  content: "\e91e";
+}
+.longArrowRight:before {
+  content: "\e91f";
+}
+.maximize:before {
+  content: "\e920";
+}
+.midCenter:before {
+  content: "\e921";
+}
+.midLeft:before {
+  content: "\e922";
+}
+.midRight:before {
+  content: "\e923";
+}
+.minimize:before {
+  content: "\e924";
+}
+.numberList:before {
+  content: "\e925";
+}
+.paragraph:before {
+  content: "\e926";
+}
+.quote:before {
+  content: "\e927";
+}
+.quoteOne:before {
+  content: "\e928";
+}
+.quoteThree:before {
+  content: "\e929";
+}
+.quoteTwo:before {
+  content: "\e92a";
+}
+.redo:before {
+  content: "\e92b";
+}
+.resources:before {
+  content: "\e92c";
+}
+.star:before {
+  content: "\e92d";
+}
+.subtitle:before {
+  content: "\e92e";
+}
+.table:before {
+  content: "\e92f";
+}
+.textLeft:before {
+  content: "\e930";
+}
+.textRight:before {
+  content: "\e931";
+}
+.undo:before {
+  content: "\e932";
+}
+.user:before {
+  content: "\e933";
+}
+.video:before {
+  content: "\e934";
+}
+.videoPlay:before {
+  content: "\e935";
+}
+
 /* RESET */
 
 *:before,
@@ -706,9 +882,8 @@
 *:after box-sizing border-box {
   outline: none;
 }
-*:selection {
-  color: #fff;
-  background: #808080;
+*::selection {
+  background: #efefef;
 }
 body > div:first-child,
 #__next {
@@ -727,7 +902,6 @@ body {
   margin: 0;
   font-smoothing: antialiased;
   text-rendering: geometricPrecision;
-  color: #808080;
   background-color: white;
   overflow-x: hidden;
   touch-action: manipulation;

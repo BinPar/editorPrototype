@@ -6,6 +6,7 @@ import styled, { css } from 'styled-components';
 export const fontFamily = {
   serif: 'IBM Plex Serif',
   sansSerif: 'Muli',
+  icon: 'panamericanaIconFont',
 };
 
 // FONT STYLE
@@ -135,3 +136,62 @@ export const minMedia = Object.keys(sizes).reduce((acc, key) => {
 
   return acc;
 }, {});
+
+// ICONS
+
+export const icon = {
+  addCircle: 'addCircle',
+  alignLeft: 'alignLeft',
+  alignRight: 'alignRight',
+  article: 'article',
+  bell: 'bell',
+  blockLeft: 'blockLeft',
+  blockRight: 'blockRight',
+  bold: 'bold',
+  bulletList: 'bulletList',
+  calendar: 'calendar',
+  centered: 'centered',
+  check: 'check',
+  clock: 'clock',
+  close: 'close',
+  closeCircle: 'closeCircle',
+  doubt: 'doubt',
+  dragMouse: 'dragMouse',
+  edit: 'edit',
+  evaluation: 'evaluation',
+  fixedTextLeft: 'fixedTextLeft',
+  fixedTextRight: 'fixedTextRight',
+  full: 'full',
+  highlight: 'highlight',
+  image: 'image',
+  index: 'index',
+  information: 'information',
+  italic: 'italic',
+  knowledge: 'knowledge',
+  letterList: 'letterList',
+  link: 'link',
+  longArrowLeft: 'longArrowLeft',
+  longArrowRight: 'longArrowRight',
+  maximize: 'maximize',
+  midCenter: 'midCenter',
+  midLeft: 'midLeft',
+  midRight: 'midRight',
+  minimize: 'minimize',
+  numberList: 'numberList',
+  paragraph: 'paragraph',
+  quote: 'quote',
+  quoteOne: 'quoteOne',
+  quoteThree: 'quoteThree',
+  quoteTwo: 'quoteTwo',
+  redo: 'redo',
+  resources: 'resources',
+  star: 'star',
+  subtitle: 'subtitle',
+  table: 'table',
+  textLeft: 'textLeft',
+  textRight: 'textRight',
+  undo: 'undo',
+  user: 'user',
+  video: 'video',
+  videoPlay: 'videoPlay',
+};

@@ -14,6 +14,9 @@ const Button = styled.button`
     opacity: 0.4;
     pointer-events: none;
   }
+  ~ * {
+    margin-left: 10px;
+  };
 `;
 
 export const TooltipButton = ({ active, disabled, name }) => (

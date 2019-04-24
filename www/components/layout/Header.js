@@ -1,62 +1,166 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { colors } from '../../utils/Constants';
+import {
+  colors, fontSize, fontWeight, minMedia, maxMedia, icon,
+} from '../../utils/Constants';
 import Holder from './Holder';
+import Paragraph from '../content/text/Paragraph';
+import Button from '../basics/Button';
+import { ProgressBar } from './ProgressBar';
 
 const HeaderWrapper = styled.header`
-  width: 100%;
   height: 70px;
   position: fixed;
   top: 0;
-  left: 0;
   right: 0;
-  z-index: 2;
+  z-index: 1000;
+  ${maxMedia.maxMobile`
+    width: 100%;
+    left: 0;
+  `};
+  ${minMedia.minTablet`
+    width: ${props => (props.open ? 'calc(100% - 350px)' : '100%')};
+    left: ${props => (props.open ? '350px' : 0)};
+  `};
 `;
 
 const Content = styled(Holder)`
   width: 100%;
   height: 65px;
   background: ${colors.primaryDark};
+  padding: 0 20px;
+  position: relative;
+  ${maxMedia.maxMobile`
+    justify-content: flex-end;
+  `};
+  ${minMedia.minTablet`
+    justify-content: space-between;
+  `};
 `;
 
-const ProgressBar = styled.div`
-  width: 100%;
-  height: 5px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+const TitleWrapper = styled(Holder)`
+  width: 30%;
+  ${maxMedia.maxMobile`
+    display: none;
+  `};
 `;
 
-const Bar = styled.span`
-  height: 5px;
-  background: ${colors.primaryLight};
-  width: ${props => `${props.progress}px`};
+const Module = styled(Paragraph)`
+  color: ${colors.white};
+  font-weight: ${fontWeight.bold};
+  font-size: ${fontSize.F19};
 `;
 
-const Footer = ({ progress }) => (
-  <HeaderWrapper>
-    <Content justify="between">
-      <Holder column justify="start">
-        Título
-      </Holder>
+const Title = styled(Paragraph)`
+  color: ${colors.white};
+  margin-top: 0;
+  margin-left: 10px;
+  border-left: 1px solid ${colors.white};
+  padding-left: 10px;
+  hyphens: none;
+  text-align: left;
+  ${minMedia.minTablet`
+    font-size: ${fontSize.F16};
+    letter-spacing: 0.02rem;
+    line-height: ${fontSize.F18};
+    max-width: 300px;
+  `};
+
+  display: block;
+  display: -webkit-box;
+  -webkit-box-align: stretch;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 35px;
+  height: 35px;
+  position: relative;
+  word-break: break-all;
+
+  &:before {
+    content: '';
+    text-align: right;
+    position: absolute;
+    bottom: 0;
+    right: -20px;
+    width: 20%;
+    height: 35px;
+    background: linear-gradient(to right, rgba(#8DC3B9, 0), rgba(#8DC3B9, 1) 80%);
+  }
+
+  @supports (-webkit-line-clamp: 2 ) {
+    word-break: normal;
+    -webkit-box-orient: vertical;
+
+    &:before {
+      display: none;
+    }
+  }
+`;
+
+const Logo = styled.a`
+  width: 200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
+
+const EditTools = styled(Holder)`
+  margin-right: 15px;
+  padding-right: 15px;
+  position: relative;
+  &:after {
+    content: '';
+    width: 2px;
+    height: 25px;
+    border-radius: 2px;
+    background-color: ${colors.white};
+    opacity: 0.3;
+    position: absolute;
+    left: 100%;
+  }
+`;
+
+const EditButton = styled(Button)`
+  & + & {
+    margin-left: 15px;
+  }
+`;
+
+const editing = false; // Posiblemente haya que usar el Hook de estado
+
+const Header = ({ ...props }) => (
+  <HeaderWrapper {...props}>
+    <Content>
+      <TitleWrapper justify="start">
+        <Module>1.1</Module>
+        <Title>Fundamentos y Objetivos de la monitorización fetal intraparto</Title>
+      </TitleWrapper>
+      <Logo href="https://www.medicapanamericana.com" target="blank">
+        <img
+          src="/static/img/logoPanamericana-noclaim-white.svg"
+          alt="Editorial Médica Panamericana"
+        />
+      </Logo>
       <Holder>
-        Logo
-      </Holder>
-      <Holder>
-        Notifications
+        {editing ? (
+          <EditTools>
+            <EditButton name={icon.edit} color={colors.white} hoverColor={colors.primaryLight} />
+            <EditButton name={icon.clock} color={colors.white} hoverColor={colors.primaryLight} />
+            <EditButton name={icon.undo} color={colors.white} hoverColor={colors.primaryLight} />
+            <EditButton name={icon.redo} color={colors.white} hoverColor={colors.primaryLight} />
+          </EditTools>
+        ) : null}
+        <Button name={icon.bell} color={colors.white} hoverColor={colors.primaryLight} />
       </Holder>
     </Content>
-    <ProgressBar>
-      <Bar progress={progress} />
-    </ProgressBar>
+    <ProgressBar {...props} progress="40" />
   </HeaderWrapper>
 );
 
-Footer.defaultProps = {};
+Header.defaultProps = {};
 
-Footer.propTypes = {
-  progress: PropTypes.string.isRequired,
-};
+Header.propTypes = {};
 
-export default Footer;
+export default Header;

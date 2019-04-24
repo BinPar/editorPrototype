@@ -5,19 +5,40 @@ import { EditorState, convertFromHTML, ContentState } from 'draft-js';
 import Header from '../components/layout/Header';
 import Content from '../components/Content';
 import Footer from '../components/layout/Footer';
-import { maxMedia } from '../utils/Constants';
+import Sidebar from '../components/layout/Sidebar';
+import Holder from '../components/layout/Holder';
+import { maxMedia, minMedia } from '../utils/Constants';
 
 const maxTablet = maxMedia.maxTablet`
-overflow-x: hidden;
+  overflow-x: hidden;
 `;
 
 const MainLayout = styled.div`
   position: relative;
+  background-color: white;
   ${maxTablet}
 `;
 
-const Container = styled.div`
-  background-color: white;
+const Wrapper = styled(Holder)`
+  height: 100vh;
+  ${maxMedia.maxMobile`
+    padding-top: 125px;
+  `}
+`;
+
+const sidebarOpen = true; // Posiblemente haya que usar el Hook de estado
+
+const ContentWrapper = styled.div`
+  width: ${sidebarOpen ? 'calc(100% - 350px)' : '100%'};
+  overflow-y: auto;
+  overflow-x: hidden;
+  ${maxMedia.maxMobile`
+    height: 100%;
+  `}
+  ${minMedia.minTablet`
+    margin-top: 65px;
+    height: calc(100% - 65px);
+  `}
 `;
 
 const testPage = () => {
@@ -40,14 +61,17 @@ const testPage = () => {
 
   return (
     <MainLayout>
-      <Container>
-        <Head>
-          <title>Editor</title>
-        </Head>
-        <Header progress="50" />
-        <Content />
-        <Footer backRoute="#" backDisabled nextRoute="#" />
-      </Container>
+      <Head>
+        <title>Editor</title>
+      </Head>
+      <Wrapper align="start">
+        <Sidebar open={sidebarOpen} />
+        <ContentWrapper>
+          <Header open={sidebarOpen} />
+          <Content open={sidebarOpen} />
+          <Footer backRoute="#" backDisabled nextRoute="#" />
+        </ContentWrapper>
+      </Wrapper>
     </MainLayout>
   );
 };

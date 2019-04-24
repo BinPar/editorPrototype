@@ -7,10 +7,10 @@ import {
 import Link from '../content/text/Link';
 import Icon from '../basics/Icon';
 
-const desktop = minMedia.minDesk`
-position: fixed;
-z-index: -1;
-bottom: 0;
+const minDesk = minMedia.minDesk`
+  position: fixed;
+  z-index: -1;
+  bottom: 0;
 `;
 
 const FooterWrapper = styled.footer`
@@ -19,7 +19,7 @@ const FooterWrapper = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
-  ${desktop}
+  ${minDesk}
 `;
 
 const FooterLink = styled(Link)`
@@ -33,7 +33,7 @@ const FooterLink = styled(Link)`
   align-items: center;
   & + & {
     margin-left: 50px;
-    ::before {
+    :before {
       content: '';
       position: absolute;
       top: 50%;

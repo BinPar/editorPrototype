@@ -1,5 +1,4 @@
-import React from 'react';
-import styled, { css } from 'styled-components';
+import { css } from 'styled-components';
 
 // FONT FAMILY
 
@@ -71,13 +70,16 @@ export const colors = {
   greyDark: '#6E6F71',
   greyDarker: '#323031',
 
-  primaryLightest: '#F0F6F5',
+  primaryLightest: '#F1F7F6',
   primaryLighter: '#E8F3F1',
   primaryLight: '#AFC6CA',
   primary: '#8DC3B9',
   primaryMed: '#5C817A',
   primaryDark: '#578995',
   primaryDarker: '#485869',
+  primaryDarkerLighten: '#B6BCC3',
+  primaryDarkerMed: '#7C8995',
+
 
   secondaryLight: '#FBFAF7',
   secondary: '#EAC36A',
@@ -137,6 +139,10 @@ export const minMedia = Object.keys(sizes).reduce((acc, key) => {
   return acc;
 }, {});
 
+// SIDEBAR
+
+export const sidebarWidth = '350px';
+
 // ICONS
 
 export const icon = {
@@ -156,9 +162,12 @@ export const icon = {
   close: 'close',
   closeCircle: 'closeCircle',
   doubt: 'doubt',
+  drag: 'drag',
   dragMouse: 'dragMouse',
   edit: 'edit',
+  editSmall: 'editSmall',
   evaluation: 'evaluation',
+  eye: 'eye',
   fixedTextLeft: 'fixedTextLeft',
   fixedTextRight: 'fixedTextRight',
   full: 'full',
@@ -172,6 +181,7 @@ export const icon = {
   link: 'link',
   longArrowLeft: 'longArrowLeft',
   longArrowRight: 'longArrowRight',
+  logout: 'logout',
   maximize: 'maximize',
   midCenter: 'midCenter',
   midLeft: 'midLeft',
@@ -186,10 +196,12 @@ export const icon = {
   redo: 'redo',
   resources: 'resources',
   star: 'star',
+  settings: 'settings',
   subtitle: 'subtitle',
   table: 'table',
   textLeft: 'textLeft',
   textRight: 'textRight',
+  trash: 'trash',
   undo: 'undo',
   user: 'user',
   video: 'video',

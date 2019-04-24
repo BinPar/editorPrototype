@@ -752,14 +752,23 @@
 .doubt:before {
   content: "\e90f";
 }
+.drag:before {
+  content: "\e936";
+}
 .dragMouse:before {
   content: "\e910";
 }
 .edit:before {
   content: "\e911";
 }
+.editSmall:before {
+  content: "\e937";
+}
 .evaluation:before {
   content: "\e912";
+}
+.eye:before {
+  content: "\e938";
 }
 .fixedTextLeft:before {
   content: "\e913";
@@ -793,6 +802,9 @@
 }
 .link:before {
   content: "\e91d";
+}
+.logout:before {
+  content: "\e939";
 }
 .longArrowLeft:before {
   content: "\e91e";
@@ -842,6 +854,9 @@
 .star:before {
   content: "\e92d";
 }
+.settings:before {
+  content: "\e93a";
+}
 .subtitle:before {
   content: "\e92e";
 }
@@ -853,6 +868,9 @@
 }
 .textRight:before {
   content: "\e931";
+}
+.trash:before {
+  content: "\e93b";
 }
 .undo:before {
   content: "\e932";
@@ -878,9 +896,10 @@
   font-size: 100%;
   vertical-align: baseline;
 }
-*:before box-sizing border-box,
-*:after box-sizing border-box {
-  outline: none;
+*:before,
+*:after {
+  box-sizing: border-box;
+	outline: none;
 }
 *::selection {
   background: #efefef;
@@ -891,6 +910,8 @@ body > div:first-child,
   height: 100%;
 }
 html {
+  box-sizing: border-box;
+	outline: none;
   font-size: 16px;
   font-weight: 100;
   letter-spacing: 0.1em;
@@ -899,6 +920,8 @@ html {
   height: 100%;
 }
 body {
+  box-sizing: border-box;
+	outline: none;
   margin: 0;
   font-smoothing: antialiased;
   text-rendering: geometricPrecision;
@@ -922,10 +945,21 @@ header,
 menu,
 nav,
 section {
+  box-sizing: border-box;
+	outline: none;
   display: block;
+}
+div,
+label,
+span,
+form {
+  box-sizing: border-box;
+	outline: none;
 }
 ol,
 ul {
+  box-sizing: border-box;
+	outline: none;
   margin: 0;
   padding: 0;
 }
@@ -940,10 +974,14 @@ q:after {
   content: none;
 }
 table {
+  box-sizing: border-box;
+	outline: none;
   border-collapse: collapse;
   border-spacing: 0;
 }
 a {
+  box-sizing: border-box;
+	outline: none;
   background-color: transparent;
   text-decoration: none;
   cursor: pointer;
@@ -983,6 +1021,8 @@ h4,
 h5,
 h6,
 p {
+  box-sizing: border-box;
+	outline: none;
   margin: 0;
   padding: 0;
   border: 0;
@@ -995,6 +1035,8 @@ input,
 optgroup,
 select,
 textarea {
+  box-sizing: border-box;
+	outline: none;
   border-radius: 0;
   margin: 0;
   padding: 0;
@@ -1122,6 +1164,8 @@ strong {
   font-weight: bold;
 }
 img {
+  box-sizing: border-box;
+	outline: none;
   border-style: none;
   width: 100%;
   height: auto;

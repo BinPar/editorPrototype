@@ -43,6 +43,7 @@ const CenteredContent = styled.div`
         border: 4px solid ${colors.greyMed};
         opacity: 0.3;
         border-radius: 10px;
+        pointer-events: none;
       }
     }
   }
@@ -55,7 +56,7 @@ const MidFull = styled(Wrapper)`
   ${props => alignment[props.align]}
 `;
 
-const editing = true; // Posiblemente haya que usar el Hook de estado
+const editing = false; // Posiblemente haya que usar el Hook de estado
 
 const MidFullWrapper = ({
   children, align, alignContent, className, position,

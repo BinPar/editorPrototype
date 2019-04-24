@@ -36,12 +36,13 @@ const CenteredContent = styled.div`
         border: 4px solid ${colors.greyMed};
         opacity: 0.3;
         border-radius: 10px;
+        pointer-events: none;
       }
     }
   }
 `;
 
-const editing = true; // Posiblemente haya que usar el Hook de estado
+const editing = false; // Posiblemente haya que usar el Hook de estado
 
 const FullWrapper = ({
   children, align, alignContent, className,

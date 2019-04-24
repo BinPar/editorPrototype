@@ -13,13 +13,11 @@ import Block from './content/resources/Block';
 import { Targets, TargetItem } from './content/resources/Targets';
 import { Conclusions, ConclusionItem } from './content/resources/Conclusions';
 import { BulletList, ListItem, OrderedList } from './content/text/List';
-import { colors, minMedia, icon } from '../utils/Constants';
+import { colors, minMedia } from '../utils/Constants';
 import {
   Table, Header, Row, CellHeader, Text, Body, Cell,
 } from './content/resources/Table';
 import Link from './content/text/Link';
-import Tooltip from './basics/Tooltip';
-import TooltipButton from './basics/TooltipButton';
 
 const minDesk = minMedia.minDesk`
   margin-bottom: 200px;
@@ -31,19 +29,15 @@ const Ejercicio = styled.iframe`
   width: 100%;
 `;
 const ContentWrapper = styled.section`
-  margin-top: 80px;
   padding: 0 0 70px;
   box-shadow: 0px 12px 20px -7px rgba(0, 0, 0, 0.2);
   background: ${colors.white};
   ${minDesk}
 `;
 
+
 const Content = () => (
   <ContentWrapper>
-    <Tooltip>
-      <TooltipButton name={icon.bold} />
-      <TooltipButton name={icon.italic} />
-    </Tooltip>
     <Wrapper>
       <Paragraph>Autor</Paragraph>
       <Title>Fundamentos y Objetivos de la Monitorización Fetal Intraparto</Title>
@@ -501,6 +495,7 @@ Sed tempus tellus vitae mi
   </ContentWrapper>
 );
 
-Content.propTypes = {};
+Content.propTypes = {
+};
 
 export default Content;

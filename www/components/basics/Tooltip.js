@@ -36,7 +36,7 @@ const TooltipWrapper = styled.div`
   }
 `;
 
-export const Icon = ({ children }) => (
+export const Tooltip = ({ children }) => (
   <TooltipPosition>
     <TooltipWrapper>
       {children}
@@ -44,8 +44,8 @@ export const Icon = ({ children }) => (
   </TooltipPosition>
 );
 
-Icon.propTypes = {
+Tooltip.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default Icon;
+export default Tooltip;

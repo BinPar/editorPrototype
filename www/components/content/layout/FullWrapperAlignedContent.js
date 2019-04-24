@@ -29,6 +29,7 @@ export default styled(Holder)`
         border: 4px solid ${colors.greyMed};
         opacity: 0.3;
         border-radius: 10px;
+        pointer-events: none;
       }
     }
   }

@@ -6,6 +6,7 @@ import ItemWrapper from './items/ItemWrapper';
 
 const PanelWrapper = styled(Panel)`
   padding-left: 10px;
+  padding-right: 10px;
 `;
 
 const IndexPanel = () => (

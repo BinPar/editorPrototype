@@ -36,7 +36,7 @@ const TooltipWrapper = styled.div`
   }
 `;
 
-export const Tooltip = ({ children }) => (
+const Tooltip = ({ children }) => (
   <TooltipPosition>
     <TooltipWrapper>
       {children}

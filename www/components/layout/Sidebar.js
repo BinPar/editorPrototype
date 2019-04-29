@@ -1,8 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {
-  colors, maxMedia, minMedia, icon, fontSize,
+  colors, maxMedia, minMedia, icon,
 } from '../../utils/Constants';
 import Holder from './Holder';
 import Button from '../basics/Button';
@@ -137,7 +136,7 @@ const activeTop = (panelName) => {
   }
 };
 
-const panelName = 'index'; // Posiblemente haya que usar el Hook de estado
+const panelName = 'user'; // Posiblemente haya que usar el Hook de estado
 
 const Sidebar = ({ ...props }) => (
   <SidebarWrapper {...props}>

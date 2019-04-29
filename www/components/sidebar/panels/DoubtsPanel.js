@@ -7,6 +7,7 @@ import DoubtItem from './items/DoubtItem';
 
 const PanelWrapper = styled(Panel)`
   padding-left: 10px;
+  padding-right: 10px;
 `;
 
 const DoubtsPanel = () => (

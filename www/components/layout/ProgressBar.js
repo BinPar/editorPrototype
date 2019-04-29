@@ -7,6 +7,35 @@ import {
 } from '../../utils/Constants';
 
 
+const SmallProgressBarWrapper = styled.div`
+  height: 5px;
+  width: 100%;
+  border-radius: 3px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background: ${colors.primaryDarkerLighten};
+`;
+
+const SmallBar = styled.span`
+  height: 8px;
+  background: ${colors.primaryDarkerMed};
+  width: ${props => `${props.progress}%`};
+`;
+
+export const SmallProgressBar = ({ progress, ...props }) => (
+  <SmallProgressBarWrapper {...props}>
+    <SmallBar progress={progress} />
+  </SmallProgressBarWrapper>
+);
+
+SmallProgressBar.defaultProps = {
+};
+
+SmallProgressBar.propTypes = {
+  progress: PropTypes.string.isRequired,
+};
+
 const ProgressBarWrapper = styled.div`
   height: 5px;
   display: flex;

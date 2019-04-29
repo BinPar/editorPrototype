@@ -1,21 +1,60 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import {
-  colors, fontSize, fontWeight, fontStyle, minMedia, icon,
-} from '../../../utils/Constants';
 import Panel from './Panel';
+import ItemGroup from './items/ItemGroup';
+import ItemWrapper from './items/ItemWrapper';
+import ResourceItem from './items/ResourceItem';
+import { Tabs, Tab } from '../../basics/Tabs';
 
-const ResourcesPanel = ({ ...props }) => (
-  <Panel>
-    resources panel
-  </Panel>
+const PanelWrapper = styled(Panel)``;
+
+const MainGroup = styled(ItemGroup)`
+  padding-left: 10px;
+  padding-right: 10px;
+`;
+
+const ResourcesPanel = () => (
+  <PanelWrapper>
+    <Tabs>
+      <Tab active text="Figuras" />
+      <Tab text="Interactivos" />
+      <Tab text="Vídeos" />
+      <Tab text="Enlaces" />
+    </Tabs>
+    <MainGroup>
+      <ItemWrapper
+        module={1}
+        text="Fundamentos, equipos y anatomía ecográfica"
+        hasChildren
+        count="10"
+      />
+      <ItemWrapper
+        module={2}
+        text="Ecografía abdominal 1: hígado y vía biliar"
+        hasChildren
+        open
+        count="5"
+      >
+        <ItemGroup>
+          <ResourceItem
+            title="Fig. 8-4-10"
+            source="/static/img/image.jpg"
+            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras bibendum quis nibh eu ullamcorper. Phasellus nulla ligula, euismod nec nunc id, rutrum feugiat nisl. Integer semper, metus in tempor gravida, lectus nisl rhoncus felis, ac orcibel."
+          />
+        </ItemGroup>
+      </ItemWrapper>
+      <ItemWrapper
+        module={3}
+        text="Ecografía abdominal 2: riñón, vías urinarias y próstata"
+        hasChildren
+        count="10"
+      />
+    </MainGroup>
+  </PanelWrapper>
 );
 
-ResourcesPanel.defaultProps = {
-};
+ResourcesPanel.defaultProps = {};
 
-ResourcesPanel.propTypes = {
-};
+ResourcesPanel.propTypes = {};
 
 export default ResourcesPanel;

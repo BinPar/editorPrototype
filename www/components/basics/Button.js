@@ -8,12 +8,19 @@ import Icon from './Icon';
 
 const type = {
   outline: css`
-    border: 2px solid ${colors.primary};
-    color: ${colors.primary};
+    border: 2px solid ${colors.primaryMed};
+    color: ${colors.primaryMed};
+    &:hover {
+      background-color: ${colors.primaryMed};
+      color: ${colors.white};
+    }
   `,
   full: css`
-    background-color: ${colors.primary};
+    background-color: ${colors.primaryMed};
     color: ${colors.white};
+    &:hover {
+      background-color: ${colors.primaryDark};
+    }
   `,
 };
 
@@ -21,13 +28,13 @@ const ButtonWrapper = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-weight: ${fontWeight.semibold};
-  font-size: ${fontSize.F15};
+  font-weight: ${fontWeight.extrabold};
+  letter-spacing: 0.05em;
+  font-size: ${fontSize.F11};
   text-transform: uppercase;
   padding: 10px 20px;
   margin: 5px;
   font-family: ${fontFamily.sansSerif};
-  border-radius: 25px;
   ${props => type[props.type] || type.full};
 `;
 

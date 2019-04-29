@@ -74,6 +74,7 @@ export const colors = {
   primaryLighter: '#E8F3F1',
   primaryLight: '#AFC6CA',
   primary: '#8DC3B9',
+  primaryTrans10: '#E6F1EF',
   primaryMed: '#5C817A',
   primaryDark: '#578995',
   primaryDarker: '#485869',
@@ -150,6 +151,7 @@ export const icon = {
   alignLeft: 'alignLeft',
   alignRight: 'alignRight',
   article: 'article',
+  badge: 'badge',
   bell: 'bell',
   blockLeft: 'blockLeft',
   blockRight: 'blockRight',
@@ -158,6 +160,7 @@ export const icon = {
   calendar: 'calendar',
   centered: 'centered',
   check: 'check',
+  checkCircle: 'checkCircle',
   clock: 'clock',
   close: 'close',
   closeCircle: 'closeCircle',
@@ -196,6 +199,7 @@ export const icon = {
   redo: 'redo',
   resources: 'resources',
   star: 'star',
+  starCircle: 'starCircle',
   settings: 'settings',
   subtitle: 'subtitle',
   table: 'table',
@@ -206,4 +210,64 @@ export const icon = {
   user: 'user',
   video: 'video',
   videoPlay: 'videoPlay',
+};
+
+// INPUT
+
+export const inputSize = {
+  full: css`
+    width: 100%;
+  `,
+  half: css`
+    ${maxMedia.maxMobile`
+      width: 100%;
+    `}
+    ${minMedia.minTablet`
+      width: calc(50% - 10px);
+    `}
+  `,
+  third: css`
+    ${maxMedia.maxMobile`
+      width: 100%;
+    `}
+    ${maxMedia.maxTablet`
+      width: calc(50% - 15px);
+    `}
+    ${minMedia.minDesk`
+      width: calc((100% / 3) - 15px);
+    `}
+  `,
+  fourth: css`
+    ${maxMedia.minMobile`
+      width: 100%;
+    `}
+    ${maxMedia.maxTablet`
+      width: calc(50% - 15px);
+    `}
+    ${minMedia.minDesk`
+      width: calc((100% / 4) - 15px);
+    `}
+  `,
+  fifth: css`
+    ${maxMedia.minMobile`
+      width: 100%;
+    `}
+    ${maxMedia.maxTablet`
+      width: calc(50% - 15px);
+    `}
+    ${minMedia.minDesk`
+      width: calc((100% / 5) - 15px);
+    `}
+  `,
+  sixth: css`
+    ${maxMedia.minMobile`
+      width: 100%;
+    `}
+    ${maxMedia.maxTablet`
+      width: calc(50% - 15px);
+    `}
+    ${minMedia.minDesk`
+      width: calc((100% / 6) - 15px);
+    `}
+  `,
 };

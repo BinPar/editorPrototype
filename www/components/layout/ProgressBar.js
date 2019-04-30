@@ -10,7 +10,7 @@ import {
 const SmallProgressBarWrapper = styled.div`
   height: 5px;
   width: 100%;
-  border-radius: 3px;
+  border-radius: 5px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -18,7 +18,8 @@ const SmallProgressBarWrapper = styled.div`
 `;
 
 const SmallBar = styled.span`
-  height: 8px;
+  height: 7px;
+  border-radius: 7px;
   background: ${colors.primaryDarkerMed};
   width: ${props => `${props.progress}%`};
 `;

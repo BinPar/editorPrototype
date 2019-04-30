@@ -10,7 +10,7 @@ import Holder from '../../../../layout/Holder';
 const Wrapper = styled(Holder)`
   background-color: ${colors.primaryTrans10};
   width: 100%;
-  padding: 25px 10px;
+  padding: 25px 30px;
 `;
 
 const Title = styled.p`
@@ -47,7 +47,7 @@ Item.propTypes = {
 };
 
 const UserProgress = ({ completed, note, exercises }) => (
-  <Wrapper justify="around">
+  <Wrapper justify="between">
     <Item icon={icon.checkCircle} title="Completado" progress={completed} />
     <Item icon={icon.evaluation} title="Nota" progress={note} />
     <Item icon={icon.starCircle} title="Ejercicios" progress={exercises} />

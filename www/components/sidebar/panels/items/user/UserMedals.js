@@ -8,7 +8,16 @@ import Holder from '../../../../layout/Holder';
 import Medal from './Medal';
 import CurrentMedal from './CurrentMedal';
 
-const MedalsWrapper = styled(Holder)``;
+const MedalsWrapper = styled(Holder)`
+  padding-top: 30px;
+`;
+
+const CurrentMedalsWrapper = styled(Holder)`
+  width: calc(100% - 60px);
+  padding: 20px 0;
+  margin: 10px 30px 10px;
+  border-bottom: 1px solid ${colors.primaryDarkerLighten};
+`;
 
 const MedalTitle = styled.p`
   font-family: ${fontFamily.sansSerif};
@@ -19,28 +28,43 @@ const MedalTitle = styled.p`
 `;
 const WonMedals = styled(Holder)`
   flex-wrap: wrap;
+  margin: 0 10px;
 `;
 
 const UserMedals = () => (
   <MedalsWrapper column>
     <MedalTitle>Medallas</MedalTitle>
-    <Holder column>
-      <CurrentMedal icon={icon.badge} name="Nombre" description="Lorem dolor sit amet" progress={50} />
-      <CurrentMedal icon={icon.badge} name="Nombre" description="Lorem dolor sit amet" progress={50} />
-    </Holder>
+    <CurrentMedalsWrapper column>
+      <CurrentMedal
+        badge={icon.badge}
+        name="Nombre"
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque non ante sed dolor
+        finibus hendrerit."
+        progress="50"
+      />
+      <CurrentMedal
+        badge={icon.badge}
+        name="Nombre"
+        description="Lorem dolor sit amet"
+        progress="50"
+      />
+    </CurrentMedalsWrapper>
     <WonMedals justify="start">
-      <Medal badge={icon.badge} title="Nombre" />
-      <Medal badge={icon.badge} title="Nombre" />
-      <Medal badge={icon.badge} title="Nombre" />
-      <Medal badge={icon.badge} title="Nombre" />
-      <Medal badge={icon.badge} title="Nombre" />
+      <Medal badge={icon.badge} name="Nombre de la Medalla" />
+      <Medal badge={icon.badge} name="Nombre de la Medalla" />
+      <Medal badge={icon.badge} name="Nombre de la Medalla" />
+      <Medal badge={icon.badge} name="Nombre de la Medalla" />
+      <Medal badge={icon.badge} name="Nombre de la Medalla" disabled />
+      <Medal badge={icon.badge} name="Nombre de la Medalla" />
+      <Medal badge={icon.badge} name="Nombre de la Medalla" />
+      <Medal badge={icon.badge} name="Nombre de la Medalla" />
+      <Medal badge={icon.badge} name="Nombre de la Medalla" disabled />
     </WonMedals>
   </MedalsWrapper>
 );
 
 UserMedals.defaultProps = {};
 
-UserMedals.propTypes = {
-};
+UserMedals.propTypes = {};
 
 export default UserMedals;

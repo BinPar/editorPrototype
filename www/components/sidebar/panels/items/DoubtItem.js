@@ -7,10 +7,6 @@ import {
 import Holder from '../../../layout/Holder';
 import Button from '../../../basics/Button';
 import Icon from '../../../basics/Icon';
-import { CircleProgressBar } from '../../../layout/ProgressBar';
-import Counter from '../../../basics/Counter';
-
-const editing = false;
 
 const StyledItem = styled.li`
   display: flex;
@@ -20,7 +16,7 @@ const StyledItem = styled.li`
   }
   &.active {
     a {
-      &:after  {
+      &:after {
         content: '';
         width: calc(100% - 12px);
         height: calc(100% + 10px);
@@ -69,7 +65,7 @@ const Link = styled.a`
   z-index: 1;
   margin-left: 10px;
   &:hover {
-    &:after  {
+    &:after {
       content: '';
       width: calc(100% - 20px);
       height: calc(100% + 10px);

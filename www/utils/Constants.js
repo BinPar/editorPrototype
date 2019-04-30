@@ -18,7 +18,8 @@ export const fontStyle = {
 // FONT SIZE
 
 export const fontSize = {
-  F70: '4.375rem '/* 40pts */,
+  F70: '4.375rem '/* 70pts */,
+  F45: '2.8125rem '/* 40pts */,
   F40: '2.5rem '/* 40pts */,
   F37: '2.31rem '/* 37pts */,
   F35: '2.1875rem '/* 37pts */,

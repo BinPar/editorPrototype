@@ -9,6 +9,8 @@ const PanelWrapper = styled(Panel)`
   padding-right: 10px;
 `;
 
+// Editar texto del item y añadir nodo
+
 const IndexPanel = () => (
   <PanelWrapper>
     <ItemGroup>

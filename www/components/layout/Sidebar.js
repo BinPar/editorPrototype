@@ -136,7 +136,7 @@ const activeTop = (panelName) => {
   }
 };
 
-const panelName = 'index'; // Posiblemente haya que usar el Hook de estado
+const panelName = 'calendar'; // Posiblemente haya que usar el Hook de estado
 
 const Sidebar = ({ ...props }) => (
   <SidebarWrapper {...props}>

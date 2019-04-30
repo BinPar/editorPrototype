@@ -1,48 +1,105 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import {
-  colors, fontSize, fontWeight, fontStyle, minMedia, icon,
-} from '../../../utils/Constants';
 import Panel from './Panel';
-import Holder from '../../layout/Holder';
+import Date from './items/calendar/Date';
+import Event from './items/calendar/Event';
+import Calendar from './items/calendar/Calendar';
+import { colors } from '../../../utils/Constants';
 
 const PanelWrapper = styled(Panel)`
-  padding: 10px 30px;
+  padding-bottom: 0;
 `;
 
-const CalendarWrapper = styled(Holder)`
-  margin-bottom: 10px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid ${colors.primaryDarkerLighten};
+const EventsWrapper = styled.div`
+  margin-top: 20px;
+  padding: 0 30px 20px;
+  height: calc(100vh - 300px);
+  overflow: auto;
+  &::-webkit-scrollbar-track {
+    background-color: ${colors.primaryLightest};
+  }
+  &::-webkit-scrollbar-thumb {
+    background: ${colors.primaryLighter};
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: ${colors.primary};
+  }
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    * {
+      -ms-overflow-style: -ms-autohiding-scrollbar;
+      -ms-scrollbar-highlight-color: ${colors.primaryLightest};
+      -ms-scrollbar-arrow-color: ${colors.primaryLighter};
+      -ms-scrollbar-face-color: ${colors.primaryLighter};
+    }
+  }
 `;
 
-const Date = styled(Holder)`
-`;
-const Day = styled.p`
-`;
-const Weekday = styled.p`
-`;
-const Month = styled.p`
-`;
-
-const CalendarPanel = ({ ...props }) => (
+const CalendarPanel = () => (
   <PanelWrapper>
-    <CalendarWrapper>Calendar</CalendarWrapper>
-    <Date justify="start">
-      <Day>10</Day>
-      <Holder column>
-        <Weekday>Miércoles</Weekday>
-        <Month>Abril 2019</Month>
-      </Holder>
-    </Date>
+    <Calendar />
+    <Date day={10} weekday="Miércoles" month="Mayo" year={2019} />
+    <EventsWrapper>
+      <Event
+        type="evaluation"
+        typeTitle="Evaluación"
+        title="Módulo 1"
+        description="Fundamentos, equipos y anatomía ecográfica"
+      />
+      <Event
+        typeTitle="Lorem"
+        title="Módulo 1"
+        description="Fundamentos, equipos y anatomía ecográfica"
+      />
+      <Event
+        type="evaluation"
+        typeTitle="Evaluación"
+        title="Módulo 1"
+        description="Fundamentos, equipos y anatomía ecográfica"
+      />
+      <Event
+        typeTitle="Lorem"
+        title="Módulo 1"
+        description="Fundamentos, equipos y anatomía ecográfica"
+      />
+      <Event
+        type="evaluation"
+        typeTitle="Evaluación"
+        title="Módulo 1"
+        description="Fundamentos, equipos y anatomía ecográfica"
+      />
+      <Event
+        typeTitle="Lorem"
+        title="Módulo 1"
+        description="Fundamentos, equipos y anatomía ecográfica"
+      />
+      <Event
+        type="evaluation"
+        typeTitle="Evaluación"
+        title="Módulo 1"
+        description="Fundamentos, equipos y anatomía ecográfica"
+      />
+      <Event
+        typeTitle="Lorem"
+        title="Módulo 1"
+        description="Fundamentos, equipos y anatomía ecográfica"
+      />
+      <Event
+        type="evaluation"
+        typeTitle="Evaluación"
+        title="Módulo 1"
+        description="Fundamentos, equipos y anatomía ecográfica"
+      />
+      <Event
+        typeTitle="Lorem"
+        title="Módulo 1"
+        description="Fundamentos, equipos y anatomía ecográfica"
+      />
+    </EventsWrapper>
   </PanelWrapper>
 );
 
-CalendarPanel.defaultProps = {
-};
+CalendarPanel.defaultProps = {};
 
-CalendarPanel.propTypes = {
-};
+CalendarPanel.propTypes = {};
 
 export default CalendarPanel;

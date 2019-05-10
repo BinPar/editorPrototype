@@ -184,6 +184,7 @@ export const icon = {
   knowledge: 'knowledge',
   letterList: 'letterList',
   link: 'link',
+  lock: 'lock',
   longArrowLeft: 'longArrowLeft',
   longArrowRight: 'longArrowRight',
   logout: 'logout',

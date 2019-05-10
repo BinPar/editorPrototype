@@ -9,6 +9,8 @@ const PanelWrapper = styled(Panel)`
   padding-right: 10px;
 `;
 
+const editing = true;
+
 // Editar texto del item y añadir nodo
 
 const IndexPanel = () => (
@@ -19,13 +21,16 @@ const IndexPanel = () => (
         text="Fundamentos, equipos y anatomía ecográfica"
         hasChildren
         progress="100"
+        editing={editing}
       />
+      {/* {editing && <Add />} */}
       <ItemWrapper
         module={2}
         text="Ecografía abdominal 1: hígado y vía biliar"
         hasChildren
         open
         progress="50"
+        editing={editing}
       >
         <ItemGroup>
           <ItemWrapper
@@ -34,6 +39,7 @@ const IndexPanel = () => (
             hasChildren
             open
             progress="75"
+            editing={editing}
           >
             <ItemGroup>
               <ItemWrapper text="Objetivos de Aprendizaje" type="alignLeft" />
@@ -54,19 +60,22 @@ const IndexPanel = () => (
             theme={2}
             text="Patología hepática. Alteraciones focales y difusas"
             hasChildren
-            progress="0"
+            locked
+            editing={editing}
           />
           <ItemWrapper
             theme={3}
             text="Anatomía ecográfica de la vesícula y vía biliar. Normalidad y variantes morfológicas"
             hasChildren
-            progress="0"
+            locked
+            editing={editing}
           />
           <ItemWrapper
             theme={4}
             text="Patología vesícula y vías biliares: obstructiva y tumoral"
             hasChildren
-            progress="0"
+            locked
+            editing={editing}
           />
           <ItemWrapper evaluation type="star" />
         </ItemGroup>
@@ -75,25 +84,29 @@ const IndexPanel = () => (
         module={3}
         text="Ecografía abdominal 2: riñón, vías urinarias y próstata"
         hasChildren
-        progress="0"
+        locked
+        editing={editing}
       />
       <ItemWrapper
         module={4}
         text="Ecografía abdominal 2: páncreas, bazo y tubo digestivo"
         hasChildren
-        progress="0"
+        locked
+        editing={editing}
       />
       <ItemWrapper
         module={5}
         text="Ecografía ginecológica y obstétrica para el médico de familia"
         hasChildren
-        progress="0"
+        locked
+        editing={editing}
       />
       <ItemWrapper
         module={6}
         text="Ecografía en Urgencias y Emergencias"
         hasChildren
-        progress="0"
+        locked
+        editing={editing}
       />
     </ItemGroup>
   </PanelWrapper>

@@ -809,6 +809,9 @@
 .link:before {
   content: "\e91d";
 }
+.lock:before {
+  content: "\e93f";
+}
 .logout:before {
   content: "\e939";
 }

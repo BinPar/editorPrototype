@@ -17,7 +17,7 @@ const StyledItem = styled(Holder)`
   }
   &.active {
     a {
-      &:after  {
+      &:after {
         content: '';
         width: ${props => (props.editing ? 'calc(100% - 35px)' : 'calc(100% - 12px)')};
         height: calc(100% + 10px);
@@ -60,7 +60,7 @@ const Link = styled.a`
   width: calc(100% - 65px);
   z-index: 1;
   &:hover {
-    &:after  {
+    &:after {
       content: '';
       width: ${props => (props.editing ? 'calc(100% - 35px)' : 'calc(100% - 12px)')};
       height: calc(100% + 10px);
@@ -116,6 +116,14 @@ const LevelThreeTitle = styled(Title)`
   color: ${colors.primaryDarkerMed};
 `;
 
+const Lock = styled(Icon)`
+  width: 20px;
+  position: absolute;
+  right: 12px;
+  top: 0;
+  opacity: 0.4;
+`;
+
 const Item = ({
   active,
   hasChildren,
@@ -128,6 +136,7 @@ const Item = ({
   progress,
   count,
   type,
+  locked,
   editing,
 }) => (
   <StyledItem justify="start" align="start" className={`${active ? ' active' : ''} `}>
@@ -157,21 +166,20 @@ const Item = ({
             {' '}
             {module}
           </Module>,
-          <LevelOneTitle>{text}</LevelOneTitle>,
-        ]}
+          <LevelOneTitle>{text}</LevelOneTitle>]}
         {theme && [
           <Theme>
             Tema
             {' '}
             {theme}
           </Theme>,
-          <LevelTwoTitle>{text}</LevelTwoTitle>,
-        ]}
+          <LevelTwoTitle>{text}</LevelTwoTitle>]}
         {evaluation && <Evaluation>Evaluación</Evaluation>}
         {module || theme || evaluation ? null : <LevelThreeTitle>{text}</LevelThreeTitle>}
       </Holder>
       {progress && !editing && <CircleProgressBar progress={progress} />}
-      {count && <Counter number={count} />}
+      {locked && !editing && <Lock name={icon.lock} color={colors.primaryLight} />}
+      {count && !editing && <Counter number={count} />}
     </Link>
     {editing && (module || theme) && (
       <DeleteButton
@@ -194,6 +202,7 @@ Item.defaultProps = {
   theme: null,
   evaluation: false,
   editing: false,
+  locked: false,
   progress: '',
   count: null,
 };
@@ -210,6 +219,7 @@ Item.propTypes = {
   evaluation: PropTypes.bool,
   progress: PropTypes.string,
   editing: PropTypes.bool,
+  locked: PropTypes.bool,
   count: PropTypes.number,
 };
 

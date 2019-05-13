@@ -9,7 +9,6 @@ export default styled.input`
   font-family: ${fontFamily.sansSerif};
   font-weight: ${fontWeight.semibold};
   padding: 5px 10px 5px 0;
-  font-family: ${fontFamily.sansSerif};
   border-bottom: 2px solid ${colors.primaryDarkerLighten};
 
   ~ label {

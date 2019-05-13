@@ -15,9 +15,11 @@ const MainGroup = styled(ItemGroup)`
 
 const ResourcesPanel = () => (
   <PanelWrapper>
-    <Tabs>
+    <Tabs markerWidth="44px" markerPosition="16px">
       <Tab active text="Figuras" />
-      <Tab text="Interactivos" />
+      <Tab text="Tablas" />
+      <Tab text="Actividades" />
+      <Tab text="Casos" />
       <Tab text="Vídeos" />
       <Tab text="Enlaces" />
     </Tabs>

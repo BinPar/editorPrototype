@@ -12,6 +12,7 @@ import CalendarPanel from '../sidebar/panels/CalendarPanel';
 import ResourcesPanel from '../sidebar/panels/ResourcesPanel';
 import HighlightsPanel from '../sidebar/panels/HighlightsPanel';
 import DoubtsPanel from '../sidebar/panels/DoubtsPanel';
+import SettingsPanel from '../sidebar/panels/SettingsPanel';
 
 const SidebarWrapper = styled.div`
   display: flex;
@@ -65,8 +66,8 @@ const FixedMenu = styled(Holder)`
     left: 0;
   `}
   ${minMedia.minTablet`
-    width: 70px;
-    height: 360px;
+    width: 71px;
+    height: 420px;
     border-radius: 35px;
     top: 100px;
     left: ${props => (props.open ? '355px' : '5px')};
@@ -112,6 +113,8 @@ const renderPanel = (panelName) => {
       return <HighlightsPanel />;
     case 'doubts':
       return <DoubtsPanel />;
+    case 'settings':
+      return <SettingsPanel />;
     default:
       return null;
   }
@@ -131,12 +134,14 @@ const activeTop = (panelName) => {
       return 200;
     case 'doubts':
       return 255;
+    case 'settings':
+      return 315;
     default:
       return null;
   }
 };
 
-const panelName = 'doubts'; // Posiblemente haya que usar el Hook de estado
+const panelName = 'index'; // Posiblemente haya que usar el Hook de estado
 
 const Sidebar = ({ ...props }) => (
   <SidebarWrapper {...props}>
@@ -148,6 +153,7 @@ const Sidebar = ({ ...props }) => (
       <MenuButton active={panelName === 'resources'} name={icon.resources} />
       <MenuButton active={panelName === 'highlights'} name={icon.highlight} />
       <MenuButton active={panelName === 'doubts'} name={icon.doubt} />
+      <MenuButton active={panelName === 'settings'} name={icon.adjustment} />
       {panelName && <SidebarShape top={activeTop(panelName)} />}
     </FixedMenu>
   </SidebarWrapper>

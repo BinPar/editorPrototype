@@ -150,6 +150,7 @@ export const sidebarWidth = '350px';
 
 export const icon = {
   addCircle: 'addCircle',
+  adjustment: 'adjustment',
   alignLeft: 'alignLeft',
   alignRight: 'alignRight',
   article: 'article',
@@ -195,6 +196,7 @@ export const icon = {
   minimize: 'minimize',
   numberList: 'numberList',
   paragraph: 'paragraph',
+  print: 'print',
   quote: 'quote',
   quoteOne: 'quoteOne',
   quoteThree: 'quoteThree',

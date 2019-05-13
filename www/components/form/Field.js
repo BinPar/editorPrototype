@@ -9,7 +9,7 @@ import Textarea from './Textarea';
 import Search from './Search';
 import Label from './Label';
 
-const renderInput = (input, props = {}) => {
+const renderInput = (input, className, props = {}) => {
   switch (input) {
     case 'textarea': {
       return <Textarea {...props} />;
@@ -24,7 +24,7 @@ const renderInput = (input, props = {}) => {
       return <Search {...props} />;
     }
     default: {
-      return <TextInput {...props} />;
+      return <TextInput className={className} {...props} />;
     }
   }
 };
@@ -41,11 +41,11 @@ const FieldWrapper = styled.div`
 `;
 
 const Field = ({
-  label, input, size, children, ...props
+  label, input, size, children, className, ...props
 }) => (
-  <FieldWrapper {...{ size }}>
-    {renderInput(input, props)}
-    <Label>{label}</Label>
+  <FieldWrapper className={className} {...{ size }}>
+    {renderInput(input, className, props)}
+    {label && <Label>{label}</Label>}
   </FieldWrapper>
 );
 
@@ -54,12 +54,14 @@ Field.defaultProps = {
   size: '',
   children: '',
   input: '',
+  className: '',
 };
 
 Field.propTypes = {
   label: PropTypes.string,
   size: PropTypes.string,
   input: PropTypes.string,
+  className: PropTypes.string,
   children: PropTypes.node,
 };
 

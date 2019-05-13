@@ -128,6 +128,10 @@ const EditButton = styled(Button)`
   }
 `;
 
+const PrintButton = styled(Button)`
+  margin-right: 15px;
+`;
+
 const editing = false; // Posiblemente haya que usar el Hook de estado
 
 const Header = ({ ...props }) => (
@@ -152,7 +156,10 @@ const Header = ({ ...props }) => (
             <EditButton name={icon.redo} color={colors.white} hoverColor={colors.primaryLight} />
           </EditTools>
         ) : null}
-        <Button name={icon.bell} color={colors.white} hoverColor={colors.primaryLight} />
+        <Holder>
+          <PrintButton name={icon.print} color={colors.white} hoverColor={colors.primaryLight} />
+          <Button name={icon.bell} color={colors.white} hoverColor={colors.primaryLight} />
+        </Holder>
       </Holder>
     </Content>
     <ProgressBar {...props} progress="40" />

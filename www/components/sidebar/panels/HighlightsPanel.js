@@ -10,8 +10,7 @@ import { Tabs, Tab } from '../../basics/Tabs';
 import Button from '../../basics/Button';
 import { colors } from '../../../utils/Constants';
 
-const PanelWrapper = styled(Panel)`
-`;
+const PanelWrapper = styled(Panel)``;
 
 const MainGroup = styled(ItemGroup)`
   padding-left: 10px;
@@ -33,14 +32,13 @@ const AddMarker = styled(Button)`
   width: 100%;
 `;
 
-
-const settings = true;
+const settings = false;
 
 const HighlightsPanel = () => (
   <PanelWrapper>
-    <Tabs>
-      <Tab active text="Mis textos" />
-      <Tab text="Mis marcadores" />
+    <Tabs markerWidth={settings ? '93px' : '62px'} markerPosition={settings ? '163px' : '93px'}>
+      <Tab active={!settings} text="Mis textos" />
+      <Tab active={settings} text="Mis marcadores" />
     </Tabs>
     {settings ? (
       <SettingsWrapper column>
@@ -79,7 +77,12 @@ const HighlightsPanel = () => (
               <ItemGroup>
                 <ItemWrapper text="Características ecográficas del hígado" hasChildren open>
                   <ItemGroup>
-                    <HighlightItem text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras bibendum quis nibh eu ullamcorper. Phasellus nulla ligula, euismod nec nunc id, rutrum feugiat nisl. Integer semper, metus in tempor gravida, lectus nisl rhoncus felis, ac orcibel." />
+                    <HighlightItem
+                      bgColor={colors.error}
+                      textColor={colors.white}
+                      name="Marcador 1"
+                      text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras bibendum quis nibh eu ullamcorper. Phasellus nulla ligula, euismod nec nunc id, rutrum feugiat nisl. Integer semper, metus in tempor gravida, lectus nisl rhoncus felis, ac orcibel."
+                    />
                   </ItemGroup>
                 </ItemWrapper>
               </ItemGroup>

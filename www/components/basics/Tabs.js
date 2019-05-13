@@ -2,16 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {
-  colors, fontFamily, fontSize, fontWeight,
+  colors,
+  fontFamily,
+  fontSize,
+  fontWeight,
+  minMedia,
+  maxMedia,
 } from '../../utils/Constants';
 import Holder from '../layout/Holder';
 
 const Marker = styled.span`
   position: absolute;
   bottom: -2px;
-  border-bottom: 4px solid ${colors.primaryMed};
-  transform: translateX(-60px);
-  width: 100px;
+  border-bottom: 3px solid ${colors.primaryMed};
+  width: ${props => props.markerWidth};
+  left: ${props => props.markerPosition};
 `;
 
 const TabsWrapper = styled(Holder)`
@@ -24,30 +29,33 @@ const TabsWrapper = styled(Holder)`
   }
 `;
 
-
-export const Tabs = ({ active, children }) => (
+export const Tabs = ({ children, ...props }) => (
   <TabsWrapper>
     {children}
-    <Marker />
+    <Marker {...props} />
   </TabsWrapper>
 );
 
-Tabs.defaultProps = {
-  active: false,
-};
+Tabs.defaultProps = {};
 
 Tabs.propTypes = {
   children: PropTypes.node.isRequired,
-  active: PropTypes.bool,
 };
 
 const TabWrapper = styled.button`
   font-family: ${fontFamily.sansSerif};
   text-transform: uppercase;
-  font-size: ${fontSize.F12};
   font-weight: ${fontWeight.extrabold};
   letter-spacing: 0.05em;
   color: ${colors.primaryDarkerLighten};
+
+  ${maxMedia.maxMobile`
+    font-size: ${fontSize.F10};
+  `};
+  ${minMedia.minTablet`
+    font-size: ${fontSize.F09};
+  `};
+
   &:hover,
   &.active {
     color: ${colors.primaryMed};
@@ -58,7 +66,9 @@ const TabWrapper = styled.button`
 `;
 
 export const Tab = ({ active, text }) => (
-  <TabWrapper className={`${active ? 'active' : ''}`}>{text}</TabWrapper>
+  <TabWrapper className={`${active ? 'active' : ''}`}>
+    {text}
+  </TabWrapper>
 );
 
 Tab.defaultProps = {

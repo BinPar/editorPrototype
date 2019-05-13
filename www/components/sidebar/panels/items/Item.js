@@ -9,6 +9,7 @@ import Button from '../../../basics/Button';
 import Icon from '../../../basics/Icon';
 import { CircleProgressBar } from '../../../layout/ProgressBar';
 import Counter from '../../../basics/Counter';
+import Title from './index/Title';
 
 const StyledItem = styled(Holder)`
   position: relative;
@@ -41,6 +42,12 @@ const DragButton = styled(Button)`
 const DeleteButton = styled(Button)`
   position: absolute;
   top: 0;
+  right: 10px;
+`;
+
+const CalendarButton = styled(Button)`
+  position: absolute;
+  top: 20px;
   right: 10px;
 `;
 
@@ -95,12 +102,6 @@ const Evaluation = styled(Section)`
   font-size: ${fontSize.F12};
 `;
 
-const Title = styled.p`
-  font-family: ${fontFamily.sansSerif};
-  font-weight: ${fontWeight.semibold};
-  letter-spacing: 0.07em;
-`;
-
 const LevelOneTitle = styled(Title)`
   font-size: ${fontSize.F14};
   color: ${colors.primaryDarker};
@@ -111,7 +112,10 @@ const LevelTwoTitle = styled(Title)`
   color: ${colors.primaryDarker};
 `;
 
-const LevelThreeTitle = styled(Title)`
+const LevelThreeTitle = styled.p`
+  font-family: ${fontFamily.sansSerif};
+  font-weight: ${fontWeight.semibold};
+  letter-spacing: 0.07em;
   font-size: ${fontSize.F12};
   color: ${colors.primaryDarkerMed};
 `;
@@ -166,14 +170,14 @@ const Item = ({
             {' '}
             {module}
           </Module>,
-          <LevelOneTitle>{text}</LevelOneTitle>]}
+          <LevelOneTitle editing={editing} title={text} />]}
         {theme && [
           <Theme>
             Tema
             {' '}
             {theme}
           </Theme>,
-          <LevelTwoTitle>{text}</LevelTwoTitle>]}
+          <LevelTwoTitle editing={editing} title={text} />]}
         {evaluation && <Evaluation>Evaluación</Evaluation>}
         {module || theme || evaluation ? null : <LevelThreeTitle>{text}</LevelThreeTitle>}
       </Holder>
@@ -181,14 +185,20 @@ const Item = ({
       {locked && !editing && <Lock name={icon.lock} color={colors.primaryLight} />}
       {count && !editing && <Counter number={count} />}
     </Link>
-    {editing && (module || theme) && (
+    {editing && (module || theme) && [
       <DeleteButton
         name={icon.trash}
         color={colors.primaryDarkerLighten}
         hoverColor={colors.primaryDarkerMed}
         size={fontSize.F15}
-      />
-    )}
+      />,
+      <CalendarButton
+        name={icon.calendar}
+        color={colors.primaryDarkerLighten}
+        hoverColor={colors.primaryDarkerMed}
+        size={fontSize.F15}
+      />,
+    ]}
   </StyledItem>
 );
 
@@ -198,6 +208,7 @@ Item.defaultProps = {
   open: false,
   route: '',
   type: '',
+  text: '',
   module: null,
   theme: null,
   evaluation: false,
@@ -213,7 +224,7 @@ Item.propTypes = {
   open: PropTypes.bool,
   route: PropTypes.string,
   type: PropTypes.string,
-  text: PropTypes.string.isRequired,
+  text: PropTypes.string,
   module: PropTypes.number,
   theme: PropTypes.number,
   evaluation: PropTypes.bool,

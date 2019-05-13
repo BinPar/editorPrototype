@@ -58,6 +58,9 @@ const TypeIcon = styled(Icon)`
   margin-left: -3px;
   margin-right: 3px;
   opacity: 0.8;
+  background-color: ${props => props.bgColor};
+  border-radius: 50%;
+  padding: 8px;
 `;
 
 const Link = styled.a`
@@ -81,20 +84,31 @@ const Link = styled.a`
 `;
 
 const Text = styled.p`
-font-family: ${fontFamily.sansSerif};
+  font-family: ${fontFamily.sansSerif};
   font-weight: ${fontWeight.regular};
   letter-spacing: 0.07em;
   font-size: ${fontSize.F12};
   color: ${colors.primaryDarkerMed};
 `;
 
+const Name = styled.p`
+  font-family: ${fontFamily.sansSerif};
+  font-weight: ${fontWeight.bold};
+  font-size: ${fontSize.F09};
+  color: ${colors.primaryDarkerMed};
+  margin-bottom: 5px;
+`;
+
 const HighlightItem = ({
-  active, route, text,
+  active, route, text, name, textColor, ...props,
 }) => (
   <StyledItem className={`${active ? ' active' : ''} `}>
-    <TypeIcon color={colors.primaryDarkerLighten} name={icon.highlight} size={fontSize.F16} />
+    <TypeIcon color={textColor} name={icon.highlight} size={fontSize.F12} {...props} />
     <Link href={route}>
-      <Text>{text}</Text>
+      <Holder column justify="start" align="start">
+        <Name>{name}</Name>
+        <Text>{text}</Text>
+      </Holder>
     </Link>
     <OptionsWrapper column justify="start">
       <DeleteButton
@@ -116,6 +130,8 @@ HighlightItem.propTypes = {
   active: PropTypes.bool,
   route: PropTypes.string,
   text: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  textColor: PropTypes.string.isRequired,
 };
 
 export default HighlightItem;

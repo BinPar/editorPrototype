@@ -707,6 +707,9 @@
 .addCircle:before {
   content: "\e900";
 }
+.adjustment:before {
+  content: "\e940";
+}
 .alignLeft:before {
   content: "\e901";
 }
@@ -841,6 +844,9 @@
 }
 .paragraph:before {
   content: "\e926";
+}
+.print:before {
+  content: "\e941";
 }
 .quote:before {
   content: "\e927";

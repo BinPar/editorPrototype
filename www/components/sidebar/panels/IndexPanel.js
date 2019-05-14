@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Panel from './Panel';
 import ItemGroup from './items/ItemGroup';
@@ -10,11 +11,9 @@ const PanelWrapper = styled(Panel)`
   padding-right: 10px;
 `;
 
-const editing = true;
-
 // Editar texto del item y añadir nodo
 
-const IndexPanel = () => (
+const IndexPanel = ({ editing }) => (
   <PanelWrapper>
     <ItemGroup>
       <ItemWrapper
@@ -52,7 +51,7 @@ const IndexPanel = () => (
                   <ItemWrapper disabled={editing} text="Lóbulo hepático de Riedel" type="alignLeft" />
                   <ItemWrapper disabled={editing} text="Ejercicio" type="star" />
                   <ItemWrapper disabled={editing} active text="Situs inversus hepático" type="alignLeft" />
-                  <ItemWrapper text="Videoclase" type="video" />
+                  <ItemWrapper disabled={editing} text="Videoclase" type="video" />
                 </ItemGroup>
               </ItemWrapper>
             </ItemGroup>
@@ -62,6 +61,8 @@ const IndexPanel = () => (
             text="Patología hepática. Alteraciones focales y difusas"
             hasChildren
             locked
+            day={10}
+            month="Jun"
             editing={editing}
           />
           <ItemWrapper
@@ -69,6 +70,8 @@ const IndexPanel = () => (
             text="Anatomía ecográfica de la vesícula y vía biliar. Normalidad y variantes morfológicas"
             hasChildren
             locked
+            day={17}
+            month="Jun"
             editing={editing}
           />
           <ItemWrapper
@@ -76,6 +79,8 @@ const IndexPanel = () => (
             text="Patología vesícula y vías biliares: obstructiva y tumoral"
             hasChildren
             locked
+            day={28}
+            month="Jun"
             editing={editing}
           />
           <ItemWrapper evaluation type="star" />
@@ -86,6 +91,8 @@ const IndexPanel = () => (
         text="Ecografía abdominal 2: riñón, vías urinarias y próstata"
         hasChildren
         locked
+        day={10}
+        month="Jul"
         editing={editing}
       />
       <ItemWrapper
@@ -93,6 +100,8 @@ const IndexPanel = () => (
         text="Ecografía abdominal 2: páncreas, bazo y tubo digestivo"
         hasChildren
         locked
+        day={10}
+        month="Ago"
         editing={editing}
       />
       <ItemWrapper
@@ -100,6 +109,8 @@ const IndexPanel = () => (
         text="Ecografía ginecológica y obstétrica para el médico de familia"
         hasChildren
         locked
+        day={10}
+        month="Sep"
         editing={editing}
       />
       <ItemWrapper
@@ -107,14 +118,20 @@ const IndexPanel = () => (
         text="Ecografía en Urgencias y Emergencias"
         hasChildren
         locked
+        day={10}
+        month="Oct"
         editing={editing}
       />
     </ItemGroup>
   </PanelWrapper>
 );
 
-IndexPanel.defaultProps = {};
+IndexPanel.defaultProps = {
+  editing: false,
+};
 
-IndexPanel.propTypes = {};
+IndexPanel.propTypes = {
+  editing: PropTypes.bool,
+};
 
 export default IndexPanel;

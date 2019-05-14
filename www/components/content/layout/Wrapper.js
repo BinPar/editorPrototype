@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { maxMedia, minMedia } from '../../../utils/Constants';
+import { colors, maxMedia, minMedia } from '../../../utils/Constants';
 
 const layout = {
   wrapper: css`
@@ -38,6 +38,24 @@ const layout = {
 
 export default styled.div`
   ${props => layout[props.layout] || layout.wrapper};
+  &.editing {
+    position: relative;
+    &:hover {
+      &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: calc(100% + 50px);
+        height: calc(100% + 50px);
+        border: 4px solid ${colors.greyMed};
+        opacity: 0.3;
+        border-radius: 10px;
+        pointer-events: none;
+      }
+    }
+  }
   & ~ & {
     margin-top: 40px;
   }

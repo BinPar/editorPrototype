@@ -54,6 +54,15 @@ const CalendarButton = styled(Button)`
 const ExpandButton = styled(Button)`
   margin-top: -3px;
   margin-left: -5px;
+  &.locked {
+    user-select: none;
+    cursor: default;
+    &:hover {
+      .icon {
+        color: ${colors.primaryDarkerLighten}
+      }
+    }
+  }
 `;
 
 const TypeIcon = styled(Icon)`
@@ -77,7 +86,16 @@ const Link = styled.a`
       top: -5px;
       left: ${props => (props.editing ? '35px' : '12px')};
       right: 0;
-      pointer-events: none;
+      user-select: none;
+    }
+  }
+  &.locked {
+    user-select: none;
+    cursor: default;
+    &:hover {
+      &:after {
+        content: none;
+      }
     }
   }
 `;
@@ -126,6 +144,7 @@ const Date = styled.p`
   font-weight: ${fontWeight.black};
   font-size: ${fontSize.F09};
   color: ${colors.primaryLight};
+  text-transform: uppercase;
 `;
 
 const ItemHolder = styled(Holder)`
@@ -150,6 +169,8 @@ const Item = ({
   type,
   locked,
   editing,
+  day,
+  month,
 }) => (
   <StyledItem justify="start" align="start" className={`${active ? ' active' : ''} `}>
     {editing && (
@@ -166,6 +187,7 @@ const Item = ({
         color={colors.primaryDarkerLighten}
         hoverColor={colors.primaryDarkerMed}
         size={fontSize.F20}
+        className={`${locked && !editing ? ' locked' : ''}`}
       />
     ) : (
       <TypeIcon color={colors.primaryDarkerLighten} name={type} size={fontSize.F16} />
@@ -194,7 +216,8 @@ const Item = ({
         </ItemWrapper>
       </ItemHolder>
     ) : (
-      <Link href={route}>
+      // TODO: Al estar locked, no debe ser link
+      <Link href={route} className={`${locked && !editing ? ' locked' : ''}`}>
         <Holder column justify="start" align="start">
           {module && [
             <Module>
@@ -209,17 +232,21 @@ const Item = ({
               Tema
               {' '}
               {theme}
-            </Theme>, <Title className="levelTwo" title={text} />]}
+            </Theme>,
+            <Title className="levelTwo" title={text} />,
+          ]}
           {evaluation && <Evaluation>Evaluación</Evaluation>}
-          {module || theme || evaluation ? null : (
-            <LevelThreeTitle>{text}</LevelThreeTitle>
-          )}
+          {module || theme || evaluation ? null : <LevelThreeTitle>{text}</LevelThreeTitle>}
         </Holder>
         {progress && !editing && <CircleProgressBar progress={progress} />}
         {locked && !editing && (
           <LockedDate column>
             <Lock name={icon.lock} color={colors.primaryLight} />
-            <Date>21/09</Date>
+            <Date>
+              {day}
+              {' '}
+              {month}
+            </Date>
           </LockedDate>
         )}
         {count && !editing && <Counter number={count} />}
@@ -256,6 +283,8 @@ Item.defaultProps = {
   editing: false,
   locked: false,
   progress: '',
+  day: null,
+  month: '',
   count: null,
 };
 
@@ -270,6 +299,8 @@ Item.propTypes = {
   theme: PropTypes.number,
   evaluation: PropTypes.bool,
   progress: PropTypes.string,
+  day: PropTypes.number,
+  month: PropTypes.string,
   editing: PropTypes.bool,
   locked: PropTypes.bool,
   count: PropTypes.number,

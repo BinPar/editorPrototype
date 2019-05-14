@@ -18,11 +18,11 @@ export const fontStyle = {
 // FONT SIZE
 
 export const fontSize = {
-  F70: '4.375rem '/* 70pts */,
-  F45: '2.8125rem '/* 40pts */,
-  F40: '2.5rem '/* 40pts */,
-  F37: '2.31rem '/* 37pts */,
-  F35: '2.1875rem '/* 37pts */,
+  F70: '4.375rem ' /* 70pts */,
+  F45: '2.8125rem ' /* 40pts */,
+  F40: '2.5rem ' /* 40pts */,
+  F37: '2.31rem ' /* 37pts */,
+  F35: '2.1875rem ' /* 37pts */,
   F32: '2rem' /* 32pts */,
   F30: '1.875rem' /* 30pts */,
   F29: '1.8125rem' /* 29pts */,
@@ -84,7 +84,6 @@ export const colors = {
   primaryDarkerLighten: '#B6BCC3',
   primaryDarkerMed: '#7C8995',
 
-
   secondaryLight: '#FBFAF7',
   secondary: '#EAC36A',
   secondaryDark: '#B29451',
@@ -94,9 +93,63 @@ export const colors = {
   warningDark: '#956847',
 
   white: '#FFFFFF',
+  black: '#000000',
 
   backgroundLightGreen: '#F9FBFA',
 
+  defaultTheme: {
+    primaryLightest: '#F1F7F6',
+    primaryLighter: '#E8F3F1',
+    primaryLight: '#AFC6CA',
+    primary: '#8DC3B9',
+    primaryTrans10: '#E6F1EF',
+    primaryMed: '#5C817A',
+    primaryDark: '#578995',
+    primaryDarker: '#485869',
+    primaryDarkerLightest: '#EAEBEC',
+    primaryDarkerLighten: '#B6BCC3',
+    primaryDarkerMed: '#7C8995',
+
+    secondaryLight: '#FBFAF7',
+    secondary: '#EAC36A',
+    secondaryDark: '#B29451',
+  },
+
+  darkTheme: {
+    primaryLightest: 'red',
+    primaryLighter: '#E8F3F1',
+    primaryLight: '#AFC6CA',
+    primary: '#8DC3B9',
+    primaryTrans10: '#E6F1EF',
+    primaryMed: '#5C817A',
+    primaryDark: '#578995',
+    primaryDarker: '#485869',
+    primaryDarkerLightest: '#EAEBEC',
+    primaryDarkerLighten: '#B6BCC3',
+    primaryDarkerMed: '#7C8995',
+
+    secondaryLight: '#FBFAF7',
+    secondary: '#EAC36A',
+    secondaryDark: '#B29451',
+  },
+
+  lightTheme: {
+    primaryLightest: '#F1F7F6',
+    primaryLighter: '#E8F3F1',
+    primaryLight: '#AFC6CA',
+    primary: '#8DC3B9',
+    primaryTrans10: '#E6F1EF',
+    primaryMed: '#5C817A',
+    primaryDark: '#578995',
+    primaryDarker: '#485869',
+    primaryDarkerLightest: '#EAEBEC',
+    primaryDarkerLighten: '#B6BCC3',
+    primaryDarkerMed: '#7C8995',
+
+    secondaryLight: '#FBFAF7',
+    secondary: '#EAC36A',
+    secondaryDark: '#B29451',
+  },
 };
 
 // MEDIA QUERIES

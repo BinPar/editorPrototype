@@ -19,7 +19,7 @@ const SidebarWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  background-color: ${colors.primaryLightest};
+  background-color: ${props => props.theme.primaryLightest};
   overflow-y: auto;
 
   &::-webkit-scrollbar-track {
@@ -77,7 +77,7 @@ const FixedMenu = styled(Holder)`
   `}
 `;
 
-const MenuButton = styled(Button)`
+const StyledMenuButton = styled(Button)`
   z-index: 1;
   .icon {
     color: ${colors.greyMed};
@@ -99,7 +99,7 @@ const MenuButton = styled(Button)`
   }
 `;
 
-const renderPanel = (panelName) => {
+const renderPanel = (panelName, editing) => {
   if (!panelName) {
     return null;
   }
@@ -107,7 +107,7 @@ const renderPanel = (panelName) => {
     case 'user':
       return <UserPanel />;
     case 'index':
-      return <IndexPanel />;
+      return <IndexPanel editing={editing} />;
     case 'calendar':
       return <CalendarPanel />;
     case 'resources':
@@ -123,28 +123,27 @@ const renderPanel = (panelName) => {
   }
 };
 
-// TODO: MenuButton a componente que lance el onClick interno con su nombre
-
-const MyMenuButton = ({
+const MenuButton = ({
   tabName, name, active, onClick,
 }) => {
   const onTabClick = e => onClick(tabName, e);
-  return <MenuButton active={active} name={name} onClick={onTabClick} />;
+  return <StyledMenuButton active={active} name={name} onClick={onTabClick} />;
 };
 
-MyMenuButton.defaultProps = {
-  active: '',
+MenuButton.defaultProps = {
+  active: false,
 };
 
-MyMenuButton.propTypes = {
+MenuButton.propTypes = {
   tabName: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  active: PropTypes.string,
+  active: PropTypes.bool,
   onClick: PropTypes.func.isRequired,
 };
 
-
-const Sidebar = ({ activeTab: panelName, onTabClick, ...props }) => {
+const Sidebar = ({
+  activeTab: panelName, onTabClick, editing, ...props
+}) => {
   const [topSidebarShape, setTopSidebarShape] = useState(0);
   const onClick = (tabName, e) => {
     const top = e.target.offsetTop;
@@ -153,45 +152,45 @@ const Sidebar = ({ activeTab: panelName, onTabClick, ...props }) => {
   };
   return (
     <SidebarWrapper {...props}>
-      {renderPanel(panelName)}
+      {renderPanel(panelName, editing)}
       <FixedMenu {...props} column justify="around">
-        <MyMenuButton
+        <MenuButton
           tabName="user"
           active={panelName === 'user'}
           name={icon.user}
           onClick={onClick}
         />
-        <MyMenuButton
+        <MenuButton
           tabName="index"
           active={panelName === 'index'}
           name={icon.index}
           onClick={onClick}
         />
-        <MyMenuButton
+        <MenuButton
           tabName="calendar"
           active={panelName === 'calendar'}
           name={icon.calendar}
           onClick={onClick}
         />
-        <MyMenuButton
+        <MenuButton
           tabName="resources"
           active={panelName === 'resources'}
           name={icon.resources}
           onClick={onClick}
         />
-        <MyMenuButton
+        <MenuButton
           tabName="highlights"
           active={panelName === 'highlights'}
           name={icon.highlight}
           onClick={onClick}
         />
-        <MyMenuButton
+        <MenuButton
           tabName="doubts"
           active={panelName === 'doubts'}
           name={icon.doubt}
           onClick={onClick}
         />
-        <MyMenuButton
+        <MenuButton
           tabName="settings"
           active={panelName === 'settings'}
           name={icon.adjustment}
@@ -202,10 +201,15 @@ const Sidebar = ({ activeTab: panelName, onTabClick, ...props }) => {
     </SidebarWrapper>
   );
 };
-Sidebar.defaultProps = {};
+Sidebar.defaultProps = {
+  activeTab: null,
+  editing: false,
+};
 
 Sidebar.propTypes = {
+  activeTab: PropTypes.string,
   onTabClick: PropTypes.func.isRequired,
+  editing: PropTypes.bool,
 };
 
 export default Sidebar;

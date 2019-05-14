@@ -17,7 +17,7 @@ const Full = styled(FullWrapper)`
   && {
     background: ${colors.backgroundLightGreen};
   }
-  `;
+`;
 
 const Holder = styled(Wrapper)`
   margin: 30px 0 30px 20px;
@@ -27,12 +27,10 @@ const Holder = styled(Wrapper)`
   align-items: flex-start;
 `;
 
-export const Conclusions = ({ children, title }) => (
-  <Full align="right" alignContent="start">
+export const Conclusions = ({ children, title, ...props }) => (
+  <Full align="right" alignContent="start" {...props}>
     <Holder>
-      <Subtitle useColor>
-        {title}
-      </Subtitle>
+      <Subtitle useColor>{title}</Subtitle>
       {children}
     </Holder>
   </Full>

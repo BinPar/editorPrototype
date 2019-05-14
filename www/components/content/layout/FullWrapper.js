@@ -18,6 +18,7 @@ const Full = styled(Wrapper)`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 100%;
   ${props => alignment[props.align]}
 `;
 
@@ -42,10 +43,8 @@ const CenteredContent = styled.div`
   }
 `;
 
-const editing = false; // Posiblemente haya que usar el Hook de estado
-
 const FullWrapper = ({
-  children, align, alignContent, className,
+  children, align, alignContent, className, editing,
 }) => (
   <Full layout="full" align={align}>
     {align ? (
@@ -69,6 +68,7 @@ FullWrapper.defaultProps = {
   align: '',
   alignContent: '',
   className: '',
+  editing: false,
 };
 
 FullWrapper.propTypes = {
@@ -76,6 +76,7 @@ FullWrapper.propTypes = {
   align: PropTypes.string,
   alignContent: PropTypes.string,
   className: PropTypes.string,
+  editing: PropTypes.bool,
 };
 
 export default FullWrapper;

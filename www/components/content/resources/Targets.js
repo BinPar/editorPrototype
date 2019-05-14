@@ -18,7 +18,7 @@ const Full = styled(FullWrapper)`
   && {
     background: ${colors.backgroundLightGreen};
   }
-  `;
+`;
 
 const Holder = styled(Wrapper)`
   margin: 30px 20px 30px 0;
@@ -28,8 +28,10 @@ const Holder = styled(Wrapper)`
   align-items: flex-end;
 `;
 
-export const Targets = ({ children, title, sidebarOpen }) => (
-  <Full align="left" alignContent="end">
+export const Targets = ({
+  children, title, sidebarOpen, ...props
+}) => (
+  <Full align="left" alignContent="end" {...props}>
     <Holder sidebarOpen={sidebarOpen}>
       <Subtitle right useColor>
         {title}

@@ -43,7 +43,7 @@ const CenteredContent = styled.div`
         border: 4px solid ${colors.greyMed};
         opacity: 0.3;
         border-radius: 10px;
-        pointer-events: none;
+        pointer-events:none;
       }
     }
   }
@@ -56,10 +56,8 @@ const MidFull = styled(Wrapper)`
   ${props => alignment[props.align]}
 `;
 
-const editing = false; // Posiblemente haya que usar el Hook de estado
-
 const MidFullWrapper = ({
-  children, align, alignContent, className, position,
+  children, align, alignContent, className, position, editing,
 }) => (
   <MidFull layout="midFull" align={align}>
     {align ? (
@@ -84,6 +82,7 @@ MidFullWrapper.defaultProps = {
   alignContent: '',
   className: '',
   position: '',
+  editing: false,
 };
 
 MidFullWrapper.propTypes = {
@@ -92,6 +91,7 @@ MidFullWrapper.propTypes = {
   alignContent: PropTypes.string,
   className: PropTypes.string,
   position: PropTypes.string,
+  editing: PropTypes.bool,
 };
 
 export default MidFullWrapper;

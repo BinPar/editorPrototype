@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 import { EditorState, convertFromHTML, ContentState } from 'draft-js';
 import Header from '../components/layout/Header';
 import Content from '../components/Content';
 import Footer from '../components/layout/Footer';
 import Sidebar from '../components/layout/Sidebar';
 import Holder from '../components/layout/Holder';
-import { maxMedia, minMedia } from '../utils/Constants';
+import { maxMedia, minMedia, colors } from '../utils/Constants';
 
 const maxTablet = maxMedia.maxTablet`
   overflow-x: hidden;
@@ -27,20 +27,23 @@ const Wrapper = styled(Holder)`
 `;
 
 const ContentWrapper = styled.div`
-  width: ${props => (props.sidebarOpen ? 'calc(100% - 350px)' : '100%')};
   overflow-y: auto;
   overflow-x: hidden;
-  transition: width 500ms ease;
   ${maxMedia.maxMobile`
     height: 100%;
-  `}
+    `}
   ${minMedia.minTablet`
+    width: ${props => (props.sidebarOpen ? 'calc(100% - 350px)' : '100%')};
+    transition: width 500ms ease;
     margin-top: 65px;
     height: calc(100% - 65px);
   `}
 `;
 
 const testPage = () => {
+  const [setAuthor] = useState(false);
+  const [setEditing] = useState(setAuthor);
+
   const [, setEditorState] = useState(EditorState.createEmpty());
 
   const [ssr, setSsr] = useState(true);
@@ -58,24 +61,32 @@ const testPage = () => {
     }
   });
   const [activeTab, setActiveTab] = useState(null);
+
   const onTabClick = (tab) => {
     setActiveTab(activeTab === tab ? null : tab);
   };
   const sidebarOpen = !!activeTab;
   return (
-    <MainLayout>
-      <Head>
-        <title>Editor</title>
-      </Head>
-      <Wrapper align="start">
-        <Sidebar open={sidebarOpen} activeTab={activeTab} onTabClick={onTabClick} />
-        <ContentWrapper {...{ sidebarOpen }}>
-          <Header open={sidebarOpen} />
-          <Content open={sidebarOpen} />
-          <Footer backRoute="#" backDisabled nextRoute="#" />
-        </ContentWrapper>
-      </Wrapper>
-    </MainLayout>
+    <ThemeProvider theme={colors.darkTheme}>
+      <MainLayout>
+        <Head>
+          <title>Editor</title>
+        </Head>
+        <Wrapper align="start">
+          <Sidebar
+            editing={setEditing}
+            open={sidebarOpen}
+            activeTab={activeTab}
+            onTabClick={onTabClick}
+          />
+          <ContentWrapper {...{ sidebarOpen }}>
+            <Header editing={setEditing} author={setAuthor} open={sidebarOpen} />
+            <Content editing={setEditing} open={sidebarOpen} />
+            <Footer backRoute="#" backDisabled nextRoute="#" />
+          </ContentWrapper>
+        </Wrapper>
+      </MainLayout>
+    </ThemeProvider>
   );
 };
 

@@ -23,19 +23,20 @@ const ResourcesPanel = () => (
         module={1}
         text="Fundamentos, equipos y anatomía ecográfica"
         hasChildren
-        count="10"
+        count={10}
       />
       <ItemWrapper
         module={2}
         text="Ecografía abdominal 1: hígado y vía biliar"
         hasChildren
         open
-        count="5"
+        count={5}
       >
         <ItemGroup>
           <ResourceItem
             title="Fig. 8-4-10"
             source="/static/img/image.jpg"
+            alt="Fig. 8-4-10"
             text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras bibendum quis nibh eu ullamcorper. Phasellus nulla ligula, euismod nec nunc id, rutrum feugiat nisl. Integer semper, metus in tempor gravida, lectus nisl rhoncus felis, ac orcibel."
           />
         </ItemGroup>
@@ -44,7 +45,7 @@ const ResourcesPanel = () => (
         module={3}
         text="Ecografía abdominal 2: riñón, vías urinarias y próstata"
         hasChildren
-        count="10"
+        count={10}
       />
     </MainGroup>
   </PanelWrapper>

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {
   colors, fontSize, fontWeight, minMedia, maxMedia, icon,
@@ -86,10 +87,10 @@ const Title = styled(Paragraph)`
     right: -20px;
     width: 20%;
     height: 35px;
-    background: linear-gradient(to right, rgba(#8DC3B9, 0), rgba(#8DC3B9, 1) 80%);
+    background: linear-gradient(to right, rgba(#8dc3b9, 0), rgba(#8dc3b9, 1) 80%);
   }
 
-  @supports (-webkit-line-clamp: 2 ) {
+  @supports (-webkit-line-clamp: 2) {
     word-break: normal;
     -webkit-box-orient: vertical;
 
@@ -124,6 +125,10 @@ const EditTools = styled(Holder)`
 `;
 
 const EditButton = styled(Button)`
+  margin-right: 15px;
+`;
+
+const EditToolButton = styled(Button)`
   & + & {
     margin-left: 15px;
   }
@@ -133,9 +138,7 @@ const PrintButton = styled(Button)`
   margin-right: 15px;
 `;
 
-const editing = false; // Posiblemente haya que usar el Hook de estado
-
-const Header = ({ ...props }) => (
+const Header = ({ editing, author, ...props }) => (
   <HeaderWrapper {...props}>
     <Content>
       <TitleWrapper justify="start">
@@ -149,15 +152,29 @@ const Header = ({ ...props }) => (
         />
       </Logo>
       <Holder>
-        {editing ? (
+        {editing && author ? (
           <EditTools>
-            <EditButton name={icon.edit} color={colors.white} hoverColor={colors.primaryLight} />
-            <EditButton name={icon.clock} color={colors.white} hoverColor={colors.primaryLight} />
-            <EditButton name={icon.undo} color={colors.white} hoverColor={colors.primaryLight} />
-            <EditButton name={icon.redo} color={colors.white} hoverColor={colors.primaryLight} />
+            <EditToolButton
+              name={icon.clock}
+              color={colors.white}
+              hoverColor={colors.primaryLight}
+            />
+            <EditToolButton
+              name={icon.undo}
+              color={colors.white}
+              hoverColor={colors.primaryLight}
+            />
+            <EditToolButton
+              name={icon.redo}
+              color={colors.white}
+              hoverColor={colors.primaryLight}
+            />
           </EditTools>
         ) : null}
         <Holder>
+          {author && (
+            <EditButton name={icon.edit} color={colors.white} hoverColor={colors.primaryLight} />
+          )}
           <PrintButton name={icon.print} color={colors.white} hoverColor={colors.primaryLight} />
           <Button name={icon.bell} color={colors.white} hoverColor={colors.primaryLight} />
         </Holder>
@@ -167,8 +184,14 @@ const Header = ({ ...props }) => (
   </HeaderWrapper>
 );
 
-Header.defaultProps = {};
+Header.defaultProps = {
+  editing: false,
+  author: false,
+};
 
-Header.propTypes = {};
+Header.propTypes = {
+  editing: PropTypes.bool,
+  author: PropTypes.bool,
+};
 
 export default Header;

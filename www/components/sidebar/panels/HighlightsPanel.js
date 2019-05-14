@@ -32,7 +32,7 @@ const AddMarker = styled(Button)`
   width: 100%;
 `;
 
-const settings = false;
+const settings = true;
 const tabs = ['Mis textos', 'Mis marcadores'];
 const HighlightsPanel = () => (
   <PanelWrapper>
@@ -54,14 +54,14 @@ const HighlightsPanel = () => (
           module={1}
           text="Fundamentos, equipos y anatomía ecográfica"
           hasChildren
-          count="10"
+          count={10}
         />
         <ItemWrapper
           module={2}
           text="Ecografía abdominal 1: hígado y vía biliar"
           hasChildren
           open
-          count="5"
+          count={5}
         >
           <ItemGroup>
             <ItemWrapper
@@ -69,7 +69,7 @@ const HighlightsPanel = () => (
               text="Anatomía ecográfica hepática. Normalidad y variantes morfológicas"
               hasChildren
               open
-              count="1"
+              count={1}
             >
               <ItemGroup>
                 <ItemWrapper text="Características ecográficas del hígado" hasChildren open>
@@ -88,7 +88,7 @@ const HighlightsPanel = () => (
               theme={2}
               text="Patología hepática. Alteraciones focales y difusas"
               hasChildren
-              count="4"
+              count={4}
             />
           </ItemGroup>
         </ItemWrapper>

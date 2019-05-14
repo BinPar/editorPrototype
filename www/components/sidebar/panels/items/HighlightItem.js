@@ -100,7 +100,7 @@ const Name = styled.p`
 `;
 
 const HighlightItem = ({
-  active, route, text, name, textColor, ...props,
+  active, route, text, name, textColor, ...props
 }) => (
   <StyledItem className={`${active ? ' active' : ''} `}>
     <TypeIcon color={textColor} name={icon.highlight} size={fontSize.F12} {...props} />

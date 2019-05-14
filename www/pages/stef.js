@@ -26,12 +26,11 @@ const Wrapper = styled(Holder)`
   `}
 `;
 
-const sidebarOpen = true; // Posiblemente haya que usar el Hook de estado
-
 const ContentWrapper = styled.div`
-  width: ${sidebarOpen ? 'calc(100% - 350px)' : '100%'};
+  width: ${props => (props.sidebarOpen ? 'calc(100% - 350px)' : '100%')};
   overflow-y: auto;
   overflow-x: hidden;
+  transition: width 500ms ease;
   ${maxMedia.maxMobile`
     height: 100%;
   `}
@@ -58,15 +57,19 @@ const testPage = () => {
       setEditorState(EditorState.createWithContent(state));
     }
   });
-
+  const [activeTab, setActiveTab] = useState(null);
+  const onTabClick = (tab) => {
+    setActiveTab(activeTab === tab ? null : tab);
+  };
+  const sidebarOpen = !!activeTab;
   return (
     <MainLayout>
       <Head>
         <title>Editor</title>
       </Head>
       <Wrapper align="start">
-        <Sidebar open={sidebarOpen} />
-        <ContentWrapper>
+        <Sidebar open={sidebarOpen} activeTab={activeTab} onTabClick={onTabClick} />
+        <ContentWrapper {...{ sidebarOpen }}>
           <Header open={sidebarOpen} />
           <Content open={sidebarOpen} />
           <Footer backRoute="#" backDisabled nextRoute="#" />

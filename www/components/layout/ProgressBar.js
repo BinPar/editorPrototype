@@ -42,17 +42,27 @@ const ProgressBarWrapper = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  position: fixed;
-  left: ${props => (props.open ? '350px' : 0)};
+  position: absolute;
+  left: 0;
   ${maxMedia.maxMobile`
     top: 125px;
     width: 100%;
     `}
   ${minMedia.minTablet`
     top: 65px;
-    width: ${props => (props.open ? 'calc(100% - 350px)' : '100%')};;
+    width: 100%;
   `}
 `;
+
+{/* const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+const scrolled = (winScroll / height) * 100;
+
+const Bar = styled.span`
+  height: 5px;
+  background: ${colors.primaryLight};
+  width: ${`${scrolled}%`};
+`; */}
 
 const Bar = styled.span`
   height: 5px;

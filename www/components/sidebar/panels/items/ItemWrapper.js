@@ -8,7 +8,7 @@ const StyledItemWrapper = styled.li`
     padding-left: 15px;
   }
   ~ * {
-    margin-top: 15px;
+    margin-top: ${props => (props.editing ? '25px' : '15px')};
   }
 `;
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Wrapper from './content/layout/Wrapper';
 import WrapperAlignedContent from './content/layout/WrapperAlignedContent';
@@ -13,15 +14,12 @@ import Block from './content/resources/Block';
 import { Targets, TargetItem } from './content/resources/Targets';
 import { Conclusions, ConclusionItem } from './content/resources/Conclusions';
 import { BulletList, ListItem, OrderedList } from './content/text/List';
-import { colors, minMedia } from '../utils/Constants';
+import { colors } from '../utils/Constants';
 import {
   Table, Header, Row, CellHeader, Text, Body, Cell,
 } from './content/resources/Table';
 import Link from './content/text/Link';
-
-const minDesk = minMedia.minDesk`
-  margin-bottom: 200px;
-`;
+import Author from './content/resources/Author';
 
 const Ejercicio = styled.iframe`
   border: none;
@@ -32,17 +30,15 @@ const ContentWrapper = styled.section`
   padding: 0 0 70px;
   box-shadow: 0px 12px 20px -7px rgba(0, 0, 0, 0.2);
   background: ${colors.white};
-  ${minDesk}
 `;
 
-
-const Content = () => (
+const Content = ({ open }) => (
   <ContentWrapper>
-    <Wrapper>
-      <Paragraph>Autor</Paragraph>
+    <Wrapper sidebarOpen={open}>
+      <Author name="I. Fernández Buhigas" date="1 Marzo" time="10 min" />
       <Title>Fundamentos y Objetivos de la Monitorización Fetal Intraparto</Title>
     </Wrapper>
-    <Targets>
+    <Targets sidebarOpen={open}>
       <TargetItem>
         En este capítulo se busca comprender cuál es el objetivo real de la monitorización fetal y
         cuáles son sus limitaciones.
@@ -57,7 +53,7 @@ const Content = () => (
         de los métodos de detección que hay disponibles hoy.
       </TargetItem>
     </Targets>
-    <Wrapper>
+    <Wrapper sidebarOpen={open}>
       <Subtitle>Historia de la Monitorización Fetal</Subtitle>
       <Paragraph>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque non ante sed dolor finibus
@@ -93,7 +89,7 @@ Sed tempus tellus vitae mi
         volutpat sit amet risus.
       </Paragraph>
     </Wrapper>
-    <MidFullWrapper align="left">
+    <MidFullWrapper align="left" sidebarOpen={open}>
       <Image
         float
         alt=""
@@ -109,12 +105,12 @@ Sed tempus tellus vitae mi
           tristique enim non aliquam. Donec at justo vehicula,
           {' '}
           <Link href="#test">euismod mi at</Link>
-,
-          mattis neque. Phasellus ac neque vitae risus euismod vehicula nec id lectus. Ut semper
-          gravida lorem, vitae egestas enim lacinia a. Nunc non leo lobortis, tristique neque vel,
-          bibendum dui. In id est est. In sagittis pretium metus id ullamcorper. Sed tempus tellus
-          vitae mi fringilla dignissim. Orci varius natoque penatibus et magnis dis parturient
-          montes, nascetur ridiculus mus. Vestibulum vestibulum imperdiet odio ut ultricies.
+, mattis neque. Phasellus ac neque vitae risus
+          euismod vehicula nec id lectus. Ut semper gravida lorem, vitae egestas enim lacinia a.
+          Nunc non leo lobortis, tristique neque vel, bibendum dui. In id est est. In sagittis
+          pretium metus id ullamcorper. Sed tempus tellus vitae mi fringilla dignissim. Orci varius
+          natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum
+          vestibulum imperdiet odio ut ultricies.
         </Paragraph>
         <Paragraph>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque non ante sed dolor
@@ -128,7 +124,7 @@ Sed tempus tellus vitae mi
         </Paragraph>
       </WrapperAlignedContent>
     </MidFullWrapper>
-    <Wrapper>
+    <Wrapper sidebarOpen={open}>
       <Quote size="full">
         Ut placerat justo et condimentum molestie. Nulla facilisi. Integer semper ac sem auctor
         hendrerit. Aliquam erat volutpat. Suspendisse ut nisi eu nisi sollicitudin feugiat et
@@ -146,7 +142,7 @@ Sed tempus tellus vitae mi
         ante et, aliquam tincidunt neque.
       </Paragraph>
     </Wrapper>
-    <MidFullWrapper>
+    <MidFullWrapper sidebarOpen={open}>
       <Image
         alt=""
         source="/static/img/large1.png"
@@ -156,7 +152,7 @@ Sed tempus tellus vitae mi
         footerLinkRoute="#"
       />
     </MidFullWrapper>
-    <Wrapper>
+    <Wrapper sidebarOpen={open}>
       <Paragraph>
         Sed nulla sapien, facilisis posuere molestie non, vulputate sit amet orci. Phasellus sodales
         sagittis ipsum, eu eleifend augue imperdiet vel. Pellentesque dapibus odio est. Donec lectus
@@ -174,13 +170,13 @@ Sed tempus tellus vitae mi
         lorem rutrum, placerat odio in, posuere dui.
       </Paragraph>
     </Wrapper>
-    <MidFullWrapper align="right">
+    <MidFullWrapper align="right" sidebarOpen={open}>
       <Quote mid size="full">
         Ut placerat justo ed te lorem sit amo et condimentum molestie. Nulla facilisi. Integer
         semper ac sem auctor hendrerit. Aliquam erat volutpat. Lorem dolor sit amet.
       </Quote>
     </MidFullWrapper>
-    <Wrapper>
+    <Wrapper sidebarOpen={open}>
       <Subtitle>Situación actual de la Monitorización Fetal</Subtitle>
       <Paragraph>
         Nulla facilisi. Nunc erat tortor, ultrices ac faucibus eu, auctor eu augue. Sed bibendum
@@ -208,7 +204,7 @@ Sed tempus tellus vitae mi
         </ListItem>
       </BulletList>
     </Wrapper>
-    <FullWrapper>
+    <FullWrapper sidebarOpen={open}>
       <Image
         alt=""
         source="/static/img/video1.png"
@@ -218,7 +214,7 @@ Sed tempus tellus vitae mi
         footerLinkRoute="#"
       />
     </FullWrapper>
-    <Wrapper>
+    <Wrapper sidebarOpen={open}>
       <Subtitle>Fisiopatología de la Respuesta Fetal</Subtitle>
       <Paragraph>
         Donec consequat non quam eu mollis. Mauris laoreet dignissim molestie. Sed vel ligula vitae
@@ -238,14 +234,14 @@ Sed tempus tellus vitae mi
         in placerat.
       </Paragraph>
     </Wrapper>
-    <MidFullWrapper>
+    <MidFullWrapper sidebarOpen={open}>
       <Block>
         Aliquam erat volutpat. Ut sollicitudin sapien sed suscipit finibus. Cras eget eros eget
         velit faucibus convallis non non diam. Pellentesque molestie metus erat, quis dictum leo
         aliquet sit amet. Praesent ac tempor sem.
       </Block>
     </MidFullWrapper>
-    <Wrapper>
+    <Wrapper sidebarOpen={open}>
       <Paragraph>
         Vestibulum imperdiet ligula ac pellentesque venenatis. Vivamus ornare nibh ut nisl volutpat
         placerat. Nam suscipit dui et pretium consequat. Sed eget turpis a ipsum commodo convallis.
@@ -273,7 +269,7 @@ Sed tempus tellus vitae mi
         </ListItem>
       </OrderedList>
     </Wrapper>
-    <MidFullWrapper align="right" position="block">
+    <MidFullWrapper align="right" position="block" sidebarOpen={open}>
       <Image
         alt=""
         right
@@ -283,7 +279,7 @@ Sed tempus tellus vitae mi
         footerLink="Footer Link"
         footerLinkRoute="#"
       />
-      <WrapperAlignedContent>
+      <WrapperAlignedContent sidebarOpen={open}>
         <Paragraph>
           Aliquam erat volutpat. Ut sollicitudin sapien sed suscipit finibus. Cras eget eros eget
           velit faucibus convallis non non diamet nect. Pellentesque molestie metus erat, quis
@@ -304,10 +300,10 @@ Sed tempus tellus vitae mi
         </Paragraph>
       </WrapperAlignedContent>
     </MidFullWrapper>
-    <MidFullWrapper>
+    <MidFullWrapper sidebarOpen={open}>
       <Ejercicio src="https://aula.campuspanamericana.com/_Cursos/Curso01171/Temario/EVA_Actividades_independientes/A1/story_html5.html" />
     </MidFullWrapper>
-    <Wrapper>
+    <Wrapper sidebarOpen={open}>
       <Subtitle>Definición y clasificación de las muertes prenatales</Subtitle>
       <Paragraph>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque non ante sed dolor finibus
@@ -320,14 +316,14 @@ Sed tempus tellus vitae mi
         vestibulum imperdiet odio ut ultricies.
       </Paragraph>
     </Wrapper>
-    <MidFullWrapper align="right">
+    <MidFullWrapper align="right" sidebarOpen={open}>
       <Block type="info">
         Aliquam erat volutpat. Ut sollicitudin sapien sed suscipit finibus. Cras eget eros eget
         velit faucibus convallis non non diam. Pellentesque molestie metus erat, quis dictum leo
         aliquet sit amet. Praesent ac tempor sem.
       </Block>
     </MidFullWrapper>
-    <Wrapper>
+    <Wrapper sidebarOpen={open}>
       <Table>
         <Header>
           <Row>
@@ -405,7 +401,7 @@ Sed tempus tellus vitae mi
         </Body>
       </Table>
     </Wrapper>
-    <MidFullWrapper align="left" position="block">
+    <MidFullWrapper align="left" position="block" sidebarOpen={open}>
       <Quote circle float large>
         Aliquam erat volutpat. Ut sollicitudin sapien
       </Quote>
@@ -438,7 +434,7 @@ Sed tempus tellus vitae mi
         </Paragraph>
       </WrapperAlignedContent>
     </MidFullWrapper>
-    <Conclusions>
+    <Conclusions sidebarOpen={open}>
       <ConclusionItem>
         Nulla facilisi. Nunc erat tortor, ultrices ac faucibus eu, auctor eu augue. Sed bibendum
         sodales semper. Cras volutpat ipsum.
@@ -453,7 +449,7 @@ Sed tempus tellus vitae mi
         turpis tempor finibus at in ipsum.
       </ConclusionItem>
     </Conclusions>
-    <Wrapper>
+    <Wrapper sidebarOpen={open}>
       <Subtitle>Bibliografía</Subtitle>
       <OrderedList>
         <ListItem type="number">
@@ -495,7 +491,12 @@ Sed tempus tellus vitae mi
   </ContentWrapper>
 );
 
+Content.defaultProps = {
+  open: false,
+};
+
 Content.propTypes = {
+  open: PropTypes.bool,
 };
 
 export default Content;

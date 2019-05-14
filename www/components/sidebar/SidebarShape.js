@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { colors, fontFamily, fontSize } from '../../utils/Constants';
 
 const Wrapper = styled.div`
   position: absolute;
   top: ${props => props.top}px;
-  transition: top 2ms ease;
   left: -6px;
+  transition: top 500ms ease;
   @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
     svg {
       display: none;
@@ -78,18 +77,17 @@ const EndShape = () => (
   </Svg>
 );
 
-const SidebarShape = ({ top }) => (
+const SidebarShape = ({ top }) => (
   <Wrapper className="sidebarShape" {...{ top }}>
     <StaticShape />
   </Wrapper>
 );
 
 SidebarShape.defaultProps = {
-  top: 50,
 };
 
 SidebarShape.propTypes = {
-  top: PropTypes.number,
+  top: PropTypes.number.isRequired,
 };
 
 export default SidebarShape;

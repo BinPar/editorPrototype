@@ -14,7 +14,12 @@ const layout = {
       width: calc(100% - 250px);
     `}
     ${minMedia.minDeskLarge`
-      width: 970px;
+      ${maxMedia.maxDeskLarge`
+        width: ${props => (props.sidebarOpen ? 'calc(100% - 350px)' : '970px')};
+      `}
+    `}
+    ${minMedia.minDeskHD`
+      width: ${props => (props.sidebarOpen ? 'calc(1280px - 350px)' : '970px')};
     `}
   `,
   midFull: css`
@@ -23,7 +28,7 @@ const layout = {
       width: calc(100% - 50px);
     `}
     ${minMedia.minDeskLarge`
-      width: 1280px;
+      width: ${props => (props.sidebarOpen ? 'calc(1280px - 350px)' : '1280px')};
     `}
   `,
   full: css`

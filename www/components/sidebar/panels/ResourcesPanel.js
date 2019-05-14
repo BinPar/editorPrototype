@@ -4,7 +4,7 @@ import Panel from './Panel';
 import ItemGroup from './items/ItemGroup';
 import ItemWrapper from './items/ItemWrapper';
 import ResourceItem from './items/ResourceItem';
-import { Tabs, Tab } from '../../basics/Tabs';
+import Tabs from '../../basics/Tabs';
 
 const PanelWrapper = styled(Panel)``;
 
@@ -13,16 +13,11 @@ const MainGroup = styled(ItemGroup)`
   padding-right: 10px;
 `;
 
+const tabs = ['Figuras', 'Tablas', 'Actividades', 'Casos', 'Vídeos', 'Enlaces'];
+
 const ResourcesPanel = () => (
   <PanelWrapper>
-    <Tabs markerWidth="44px" markerPosition="16px">
-      <Tab active text="Figuras" />
-      <Tab text="Tablas" />
-      <Tab text="Actividades" />
-      <Tab text="Casos" />
-      <Tab text="Vídeos" />
-      <Tab text="Enlaces" />
-    </Tabs>
+    <Tabs tabs={tabs} />
     <MainGroup>
       <ItemWrapper
         module={1}

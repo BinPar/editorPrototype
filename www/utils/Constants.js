@@ -80,6 +80,7 @@ export const colors = {
   primaryMed: '#5C817A',
   primaryDark: '#578995',
   primaryDarker: '#485869',
+  primaryDarkerLightest: '#EAEBEC',
   primaryDarkerLighten: '#B6BCC3',
   primaryDarkerMed: '#7C8995',
 

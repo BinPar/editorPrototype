@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {
   colors, maxMedia, minMedia, icon,
@@ -50,6 +51,7 @@ const SidebarWrapper = styled.div`
   ${minMedia.minTablet`
     width: ${props => (props.open ? '350px' : 0)};
     height: 100%;
+    transition: width 500ms ease;
   `}
 `;
 
@@ -71,6 +73,7 @@ const FixedMenu = styled(Holder)`
     border-radius: 35px;
     top: 100px;
     left: ${props => (props.open ? '355px' : '5px')};
+    transition: left 500ms ease;
   `}
 `;
 
@@ -120,47 +123,89 @@ const renderPanel = (panelName) => {
   }
 };
 
-const activeTop = (panelName) => {
-  switch (panelName) {
-    case 'user':
-      return -28;
-    case 'index':
-      return 28;
-    case 'calendar':
-      return 85;
-    case 'resources':
-      return 140;
-    case 'highlights':
-      return 200;
-    case 'doubts':
-      return 255;
-    case 'settings':
-      return 315;
-    default:
-      return null;
-  }
+// TODO: MenuButton a componente que lance el onClick interno con su nombre
+
+const MyMenuButton = ({
+  tabName, name, active, onClick,
+}) => {
+  const onTabClick = e => onClick(tabName, e);
+  return <MenuButton active={active} name={name} onClick={onTabClick} />;
 };
 
-const panelName = 'index'; // Posiblemente haya que usar el Hook de estado
+MyMenuButton.defaultProps = {
+  active: '',
+};
 
-const Sidebar = ({ ...props }) => (
-  <SidebarWrapper {...props}>
-    {renderPanel(panelName)}
-    <FixedMenu {...props} column justify="around">
-      <MenuButton active={panelName === 'user'} name={icon.user} />
-      <MenuButton active={panelName === 'index'} name={icon.index} />
-      <MenuButton active={panelName === 'calendar'} name={icon.calendar} />
-      <MenuButton active={panelName === 'resources'} name={icon.resources} />
-      <MenuButton active={panelName === 'highlights'} name={icon.highlight} />
-      <MenuButton active={panelName === 'doubts'} name={icon.doubt} />
-      <MenuButton active={panelName === 'settings'} name={icon.adjustment} />
-      {panelName && <SidebarShape top={activeTop(panelName)} />}
-    </FixedMenu>
-  </SidebarWrapper>
-);
+MyMenuButton.propTypes = {
+  tabName: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  active: PropTypes.string,
+  onClick: PropTypes.func.isRequired,
+};
 
+
+const Sidebar = ({ activeTab: panelName, onTabClick, ...props }) => {
+  const [topSidebarShape, setTopSidebarShape] = useState(0);
+  const onClick = (tabName, e) => {
+    const top = e.target.offsetTop;
+    setTopSidebarShape(top - 55);
+    onTabClick(tabName);
+  };
+  return (
+    <SidebarWrapper {...props}>
+      {renderPanel(panelName)}
+      <FixedMenu {...props} column justify="around">
+        <MyMenuButton
+          tabName="user"
+          active={panelName === 'user'}
+          name={icon.user}
+          onClick={onClick}
+        />
+        <MyMenuButton
+          tabName="index"
+          active={panelName === 'index'}
+          name={icon.index}
+          onClick={onClick}
+        />
+        <MyMenuButton
+          tabName="calendar"
+          active={panelName === 'calendar'}
+          name={icon.calendar}
+          onClick={onClick}
+        />
+        <MyMenuButton
+          tabName="resources"
+          active={panelName === 'resources'}
+          name={icon.resources}
+          onClick={onClick}
+        />
+        <MyMenuButton
+          tabName="highlights"
+          active={panelName === 'highlights'}
+          name={icon.highlight}
+          onClick={onClick}
+        />
+        <MyMenuButton
+          tabName="doubts"
+          active={panelName === 'doubts'}
+          name={icon.doubt}
+          onClick={onClick}
+        />
+        <MyMenuButton
+          tabName="settings"
+          active={panelName === 'settings'}
+          name={icon.adjustment}
+          onClick={onClick}
+        />
+        {panelName && <SidebarShape top={topSidebarShape} />}
+      </FixedMenu>
+    </SidebarWrapper>
+  );
+};
 Sidebar.defaultProps = {};
 
-Sidebar.propTypes = {};
+Sidebar.propTypes = {
+  onTabClick: PropTypes.func.isRequired,
+};
 
 export default Sidebar;

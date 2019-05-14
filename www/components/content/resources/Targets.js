@@ -28,9 +28,9 @@ const Holder = styled(Wrapper)`
   align-items: flex-end;
 `;
 
-export const Targets = ({ children, title }) => (
+export const Targets = ({ children, title, sidebarOpen }) => (
   <Full align="left" alignContent="end">
-    <Holder>
+    <Holder sidebarOpen={sidebarOpen}>
       <Subtitle right useColor>
         {title}
       </Subtitle>
@@ -41,9 +41,11 @@ export const Targets = ({ children, title }) => (
 
 Targets.defaultProps = {
   title: 'Objetivos de Aprendizaje',
+  sidebarOpen: false,
 };
 
 Targets.propTypes = {
   title: PropTypes.string,
   children: PropTypes.node.isRequired,
+  sidebarOpen: PropTypes.bool,
 };

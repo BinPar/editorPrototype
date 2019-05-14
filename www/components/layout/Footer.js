@@ -2,16 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {
-  colors, fontSize, fontWeight, fontStyle, minMedia, icon,
+  colors, fontSize, fontWeight, fontStyle, icon,
 } from '../../utils/Constants';
 import Link from '../content/text/Link';
 import Icon from '../basics/Icon';
-
-const minDesk = minMedia.minDesk`
-  position: fixed;
-  z-index: -1;
-  bottom: 0;
-`;
 
 const FooterWrapper = styled.footer`
   width: 100%;
@@ -19,7 +13,6 @@ const FooterWrapper = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
-  ${minDesk}
 `;
 
 const FooterLink = styled(Link)`

@@ -64,7 +64,7 @@ const TypeIcon = styled(Icon)`
 `;
 
 const Link = styled.a`
-  width: calc(100% - 65px);
+  width: calc(100% - 70px);
   z-index: 1;
   &:hover {
     &:after {
@@ -102,16 +102,6 @@ const Evaluation = styled(Section)`
   font-size: ${fontSize.F12};
 `;
 
-const LevelOneTitle = styled(Title)`
-  font-size: ${fontSize.F14};
-  color: ${colors.primaryDarker};
-`;
-
-const LevelTwoTitle = styled(Title)`
-  font-size: ${fontSize.F13};
-  color: ${colors.primaryDarker};
-`;
-
 const LevelThreeTitle = styled.p`
   font-family: ${fontFamily.sansSerif};
   font-weight: ${fontWeight.semibold};
@@ -120,12 +110,30 @@ const LevelThreeTitle = styled.p`
   color: ${colors.primaryDarkerMed};
 `;
 
-const Lock = styled(Icon)`
-  width: 20px;
+const LockedDate = styled(Holder)`
   position: absolute;
   right: 12px;
   top: 0;
+  user-select: none;
+`;
+
+const Lock = styled(Icon)`
   opacity: 0.4;
+`;
+
+const Date = styled.p`
+  font-family: ${fontFamily.sansSerif};
+  font-weight: ${fontWeight.black};
+  font-size: ${fontSize.F09};
+  color: ${colors.primaryLight};
+`;
+
+const ItemHolder = styled(Holder)`
+  width: 100%;
+`;
+
+const ItemWrapper = styled(Holder)`
+  width: calc(100% - 40px);
 `;
 
 const Item = ({
@@ -162,42 +170,75 @@ const Item = ({
     ) : (
       <TypeIcon color={colors.primaryDarkerLighten} name={type} size={fontSize.F16} />
     )}
-    <Link href={route}>
-      <Holder column justify="start" align="start">
-        {module && [
-          <Module>
-            Módulo
-            {' '}
-            {module}
-          </Module>,
-          <LevelOneTitle editing={editing} title={text} />]}
-        {theme && [
-          <Theme>
-            Tema
-            {' '}
-            {theme}
-          </Theme>,
-          <LevelTwoTitle editing={editing} title={text} />]}
-        {evaluation && <Evaluation>Evaluación</Evaluation>}
-        {module || theme || evaluation ? null : <LevelThreeTitle>{text}</LevelThreeTitle>}
-      </Holder>
-      {progress && !editing && <CircleProgressBar progress={progress} />}
-      {locked && !editing && <Lock name={icon.lock} color={colors.primaryLight} />}
-      {count && !editing && <Counter number={count} />}
-    </Link>
-    {editing && (module || theme) && [
-      <DeleteButton
-        name={icon.trash}
-        color={colors.primaryDarkerLighten}
-        hoverColor={colors.primaryDarkerMed}
-        size={fontSize.F15}
-      />,
-      <CalendarButton
-        name={icon.calendar}
-        color={colors.primaryDarkerLighten}
-        hoverColor={colors.primaryDarkerMed}
-        size={fontSize.F15}
-      />,
+    {editing ? (
+      <ItemHolder justify="start">
+        <ItemWrapper column justify="start" align="start">
+          {module && [
+            <Module>
+              Módulo
+              {' '}
+              {module}
+            </Module>,
+            <Title className="levelOne" editing title={text} />,
+          ]}
+          {theme && [
+            <Theme>
+              Tema
+              {' '}
+              {theme}
+            </Theme>,
+            <Title className="levelTwo" editing title={text} />,
+          ]}
+          {evaluation && <Evaluation>Evaluación</Evaluation>}
+          {module || theme || evaluation ? null : <LevelThreeTitle>{text}</LevelThreeTitle>}
+        </ItemWrapper>
+      </ItemHolder>
+    ) : (
+      <Link href={route}>
+        <Holder column justify="start" align="start">
+          {module && [
+            <Module>
+              Módulo
+              {' '}
+              {module}
+            </Module>,
+            <Title className="levelOne" title={text} />,
+          ]}
+          {theme && [
+            <Theme>
+              Tema
+              {' '}
+              {theme}
+            </Theme>, <Title className="levelTwo" title={text} />]}
+          {evaluation && <Evaluation>Evaluación</Evaluation>}
+          {module || theme || evaluation ? null : (
+            <LevelThreeTitle>{text}</LevelThreeTitle>
+          )}
+        </Holder>
+        {progress && !editing && <CircleProgressBar progress={progress} />}
+        {locked && !editing && (
+          <LockedDate column>
+            <Lock name={icon.lock} color={colors.primaryLight} />
+            <Date>21/09</Date>
+          </LockedDate>
+        )}
+        {count && !editing && <Counter number={count} />}
+      </Link>
+    )}
+    {editing
+      && (module || theme) && [
+        <DeleteButton
+          name={icon.trash}
+          color={colors.primaryDarkerLighten}
+          hoverColor={colors.primaryDarkerMed}
+          size={fontSize.F15}
+        />,
+        <CalendarButton
+          name={icon.calendar}
+          color={colors.primaryDarkerLighten}
+          hoverColor={colors.primaryDarkerMed}
+          size={fontSize.F15}
+        />,
     ]}
   </StyledItem>
 );

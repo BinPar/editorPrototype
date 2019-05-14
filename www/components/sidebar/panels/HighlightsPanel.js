@@ -6,7 +6,7 @@ import ItemGroup from './items/ItemGroup';
 import ItemWrapper from './items/ItemWrapper';
 import HighlightItem from './items/HighlightItem';
 import HighlighterItem from './items/highlights/HighlighterItem';
-import { Tabs, Tab } from '../../basics/Tabs';
+import Tabs from '../../basics/Tabs';
 import Button from '../../basics/Button';
 import { colors } from '../../../utils/Constants';
 
@@ -33,13 +33,10 @@ const AddMarker = styled(Button)`
 `;
 
 const settings = false;
-
+const tabs = ['Mis textos', 'Mis marcadores'];
 const HighlightsPanel = () => (
   <PanelWrapper>
-    <Tabs markerWidth={settings ? '93px' : '62px'} markerPosition={settings ? '163px' : '93px'}>
-      <Tab active={!settings} text="Mis textos" />
-      <Tab active={settings} text="Mis marcadores" />
-    </Tabs>
+    <Tabs tabs={tabs} />
     {settings ? (
       <SettingsWrapper column>
         <AddMarker text="Nuevo marcador" type="outline" />
@@ -76,15 +73,15 @@ const HighlightsPanel = () => (
             >
               <ItemGroup>
                 <ItemWrapper text="Características ecográficas del hígado" hasChildren open>
-                  <ItemGroup>
-                    <HighlightItem
-                      bgColor={colors.error}
-                      textColor={colors.white}
-                      name="Marcador 1"
-                      text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras bibendum quis nibh eu ullamcorper. Phasellus nulla ligula, euismod nec nunc id, rutrum feugiat nisl. Integer semper, metus in tempor gravida, lectus nisl rhoncus felis, ac orcibel."
-                    />
-                  </ItemGroup>
-                </ItemWrapper>
+                    <ItemGroup>
+                      <HighlightItem
+                        bgColor={colors.error}
+                        textColor={colors.white}
+                        name="Marcador 1"
+                        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras bibendum quis nibh eu ullamcorper. Phasellus nulla ligula, euismod nec nunc id, rutrum feugiat nisl. Integer semper, metus in tempor gravida, lectus nisl rhoncus felis, ac orcibel."
+                      />
+                    </ItemGroup>
+                  </ItemWrapper>
               </ItemGroup>
             </ItemWrapper>
             <ItemWrapper
@@ -99,7 +96,6 @@ const HighlightsPanel = () => (
     )}
   </PanelWrapper>
 );
-
 HighlightsPanel.defaultProps = {};
 
 HighlightsPanel.propTypes = {};

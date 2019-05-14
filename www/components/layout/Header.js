@@ -21,6 +21,7 @@ const HeaderWrapper = styled.header`
   ${minMedia.minTablet`
     width: ${props => (props.open ? 'calc(100% - 350px)' : '100%')};
     left: ${props => (props.open ? '350px' : 0)};
+    transition: all 500ms ease;
   `};
 `;
 

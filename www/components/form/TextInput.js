@@ -20,7 +20,6 @@ export default styled.input`
   }
 
   &:focus,
-  &:valid,
   &.withValue {
     border-bottom-color: ${colors.primaryMed};
     ~ label {

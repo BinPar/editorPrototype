@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import {
-  fontSize, fontFamily, fontWeight, colors,
+  fontSize, fontFamily, fontWeight,
 } from '../../utils/Constants';
 
 export default styled.input`
@@ -9,7 +9,7 @@ export default styled.input`
   font-family: ${fontFamily.sansSerif};
   font-weight: ${fontWeight.semibold};
   padding: 5px 10px 5px 0;
-  border-bottom: 2px solid ${colors.primaryDarkerLighten};
+  border-bottom: 2px solid ${props => props.theme.inputBorder};
 
   ~ label {
     pointer-events: none;
@@ -21,13 +21,13 @@ export default styled.input`
 
   &:focus,
   &.withValue {
-    border-bottom-color: ${colors.primaryMed};
+    border-bottom-color: ${props => props.theme.inputBorderWithValue};
     ~ label {
       top: 5px;
       left: 0;
       font-size: ${fontSize.F08};
       transform: translateY(-125%);
-      color: ${colors.primaryMed};
+      color: ${props => props.theme.labelWithValue};
     }
   }
 
@@ -37,7 +37,7 @@ export default styled.input`
       left: 0;
       font-size: ${fontSize.F08};
       transform: translateY(-125%);
-      color: ${colors.primaryMed};
+      color: ${props => props.theme.labelWithValue};
     }
   }
 
@@ -47,7 +47,7 @@ export default styled.input`
       left: 0;
       font-size: ${fontSize.F08};
       transform: translateY(-125%);
-      color: ${colors.primaryMed};
+      color: ${props => props.theme.labelWithValue};
     }
   }
 

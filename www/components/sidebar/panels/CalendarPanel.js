@@ -16,20 +16,20 @@ const EventsWrapper = styled.div`
   height: calc(100vh - 300px);
   overflow: auto;
   &::-webkit-scrollbar-track {
-    background-color: ${colors.primaryLightest};
+    background-color: ${props => props.theme.primaryLightest};
   }
   &::-webkit-scrollbar-thumb {
-    background: ${colors.primaryLighter};
+    background: ${props => props.theme.primaryLighter};
   }
   &::-webkit-scrollbar-thumb:hover {
-    background: ${colors.primary};
+    background: ${props => props.theme.primary};
   }
   @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
     * {
       -ms-overflow-style: -ms-autohiding-scrollbar;
-      -ms-scrollbar-highlight-color: ${colors.primaryLightest};
-      -ms-scrollbar-arrow-color: ${colors.primaryLighter};
-      -ms-scrollbar-face-color: ${colors.primaryLighter};
+      -ms-scrollbar-highlight-color: ${props => props.theme.primaryLightest};
+      -ms-scrollbar-arrow-color: ${props => props.theme.primaryLighter};
+      -ms-scrollbar-face-color: ${props => props.theme.primaryLighter};
     }
   }
 `;

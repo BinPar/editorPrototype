@@ -2,21 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import {
-  colors, fontStyle, fontSize, minMedia, maxMedia,
+  fontStyle, fontSize, minMedia, maxMedia,
 } from '../../../utils/Constants';
 import Holder from '../../layout/Holder';
-
-const minDeskFloatRight = minMedia.minDesk`
-  float: left;
-`;
-
-const minDeskFloatLeft = minMedia.minDesk`
-  float: left;
-`;
-
-const minDeskWidth = minMedia.minDesk`
-  width: calc(50% - 30px);
-`;
 
 const sizeOption = {
   full: css`
@@ -29,7 +17,9 @@ const sizeOption = {
         margin-right: 30px;
       `}
       &.float {
-        ${minDeskFloatLeft}
+        ${minMedia.minDesk`
+          float: left;
+        `}
       }
     }
     &.right {
@@ -37,10 +27,14 @@ const sizeOption = {
         margin-left: 30px;
       `}
       &.float {
-        ${minDeskFloatRight}
+        ${minMedia.minDesk`
+          float: right;
+        `}
       }
     }
-    ${minDeskWidth}
+    ${minMedia.minDesk`
+      width: calc(50% - 30px);
+    `}
   `,
 };
 
@@ -64,7 +58,7 @@ const QuoteHolder = styled(Holder)`
 
 const QuoteText = styled.p`
   font-style: ${fontStyle.italic};
-  color: ${colors.greyDark};
+  color: ${props => props.theme.quoteText};
   opacity: 0.8;
 `;
 
@@ -80,7 +74,7 @@ const QuoteSmall = styled(QuoteText)`
     position: absolute;
     top: 0;
     left: -30px;
-    background: ${colors.secondary};
+    background: ${props => props.theme.quoteSmallAccent};
   }
 `;
 const minTabletFont = minMedia.minTablet`
@@ -125,7 +119,7 @@ const minTabletBefore = minMedia.minTablet`
   position: absolute;
   top: 0;
   right: -30px;
-  background: ${colors.greyLight};
+  background: ${props => props.theme.quoteMidAccent};
 `;
 
 const ImageMid = styled.div`

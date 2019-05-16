@@ -10,7 +10,7 @@ import ColorPicker from './ColorPicker';
 const SettingsWrapper = styled.div`
   margin-top: 10px;
   padding: 20px 5px 10px;
-  border-top: 1px solid ${colors.primaryLighter};
+  border-top: 1px solid ${props => props.theme.primaryLighter};
 `;
 
 const PickerWrapper = styled(Holder)``;

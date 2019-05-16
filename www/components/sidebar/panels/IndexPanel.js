@@ -4,7 +4,9 @@ import styled from 'styled-components';
 import Panel from './Panel';
 import ItemGroup from './items/ItemGroup';
 import ItemWrapper from './items/ItemWrapper';
-import Add from '../../basics/Add';
+import Add from '../../basics/addMenu/Add';
+import Option from '../../basics/addMenu/Option';
+import { icon } from '../../../utils/Constants';
 
 const PanelWrapper = styled(Panel)`
   padding-left: 10px;
@@ -23,7 +25,13 @@ const IndexPanel = ({ editing }) => (
         progress="100"
         editing={editing}
       />
-      {editing && <Add />}
+      {editing && (
+        <Add sidebar>
+          <Option sidebar name={icon.subtitle} />
+          <Option sidebar name={icon.star} />
+          {' '}
+        </Add>
+      )}
       <ItemWrapper
         module={2}
         text="Ecografía abdominal 1: hígado y vía biliar"
@@ -48,9 +56,18 @@ const IndexPanel = ({ editing }) => (
               <ItemWrapper text="Patología de la vesícula" type="alignLeft" />
               <ItemWrapper text="Características ecográficas del hígado" hasChildren open>
                 <ItemGroup>
-                  <ItemWrapper disabled={editing} text="Lóbulo hepático de Riedel" type="alignLeft" />
+                  <ItemWrapper
+                    disabled={editing}
+                    text="Lóbulo hepático de Riedel"
+                    type="alignLeft"
+                  />
                   <ItemWrapper disabled={editing} text="Ejercicio" type="star" />
-                  <ItemWrapper disabled={editing} active text="Situs inversus hepático" type="alignLeft" />
+                  <ItemWrapper
+                    disabled={editing}
+                    active
+                    text="Situs inversus hepático"
+                    type="alignLeft"
+                  />
                   <ItemWrapper disabled={editing} text="Videoclase" type="video" />
                 </ItemGroup>
               </ItemWrapper>

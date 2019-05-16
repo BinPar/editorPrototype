@@ -25,7 +25,7 @@ const Name = styled.p`
   text-transform: uppercase;
   font-weight: ${fontWeight.black};
   font-size: ${fontSize.F11};
-  color: ${colors.primaryDarker};
+  color: ${props => props.theme.primaryDarker};
   margin-bottom: 5px;
 `;
 
@@ -33,7 +33,7 @@ const Description = styled.p`
   font-family: ${fontFamily.sansSerif};
   font-weight: ${fontWeight.regular};
   font-size: ${fontSize.F11};
-  color: ${colors.primaryDarker};
+  color: ${props => props.theme.primaryDarker};
   letter-spacing: 0.05em;
   margin-bottom: 10px;
   width: 100%;

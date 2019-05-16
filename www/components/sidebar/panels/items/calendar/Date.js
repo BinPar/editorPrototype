@@ -13,7 +13,7 @@ const Text = styled.p`
   font-family: ${fontFamily.sansSerif};
   font-weight: ${fontWeight.black};
   text-transform: uppercase;
-  color: ${colors.primaryDarkerMed};
+  color: ${props => props.theme.primaryDarkerMed};
 `;
 const Day = styled(Text)`
   font-size: ${fontSize.F45};

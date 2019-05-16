@@ -7,7 +7,7 @@ import Settings from './Settings';
 
 const HighlighterItemWrapper = styled.li`
   width: 100%;
-  background-color: ${colors.white};
+  background-color: ${props => props.theme.white};
   padding: 10px;
   & + & {
     margin-top: 10px;

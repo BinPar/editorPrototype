@@ -1,18 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import { colors, fontSize } from '../../../utils/Constants';
+import { fontSize } from '../../../utils/Constants';
 import Holder from '../../layout/Holder';
 import Paragraph from '../text/Paragraph';
 
 const BlockType = {
   info: css`
-    border-color: ${colors.primary};
-    background: ${colors.primaryLighter};
+    border-color: ${props => props.theme.infoBorder};
+    background: ${props => props.theme.infoBg};
   `,
   knowledge: css`
-    border-color: ${colors.secondary};
-    background: ${colors.secondaryLight};
+    border-color: ${props => props.theme.knowledgeBorder};
+    background: ${props => props.theme.knowledgeBg};
   `,
 };
 
@@ -29,13 +29,13 @@ const BlockHolder = styled(Holder)`
   }
 `;
 
-const KnowledgeText = styled(Paragraph)`
-  font-size: ${fontSize.F22};
-  color: ${colors.secondaryDark};
-`;
 const InfoText = styled(Paragraph)`
   font-size: ${fontSize.F22};
-  color: ${colors.primaryMed};
+  color: ${props => props.theme.infoText};
+`;
+const KnowledgeText = styled(Paragraph)`
+  font-size: ${fontSize.F22};
+  color: ${props => props.theme.knowledgeText};
 `;
 
 const Image = styled.img`

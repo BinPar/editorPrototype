@@ -20,7 +20,7 @@ const StyledItem = styled.li`
         content: '';
         width: calc(100% - 12px);
         height: calc(100% + 10px);
-        background-color: ${colors.primaryDarkerLighten};
+        background-color: ${props => props.theme.primaryDarkerLighten};
         opacity: 0.2;
         position: absolute;
         top: -5px;
@@ -41,7 +41,7 @@ const Link = styled.a`
       content: '';
       width: 100%;
       height: calc(100% + 10px);
-      background-color: ${colors.primaryDarkerLighten};
+      background-color: ${props => props.theme.primaryDarkerLighten};
       opacity: 0.2;
       position: absolute;
       top: -5px;
@@ -62,7 +62,7 @@ const Text = styled.p`
   font-weight: ${fontWeight.regular};
   letter-spacing: 0.07em;
   font-size: ${fontSize.F12};
-  color: ${colors.primaryDarkerMed};
+  color: ${props => props.theme.primaryDarkerMed};
 
   display: block;
   display: -webkit-box;
@@ -106,10 +106,10 @@ const Title = styled.p`
   font-family: ${fontFamily.sansSerif};
   font-weight: ${fontWeight.semibold};
   font-size: ${fontSize.F12};
-  color: ${colors.primaryDarker};
+  color: ${props => props.theme.primaryDarker};
   margin-bottom: 10px;
   padding-bottom: 10px;
-  border-bottom: 1px solid ${colors.primaryDarkerLighten};
+  border-bottom: 1px solid ${props => props.theme.primaryDarkerLighten};
 `;
 
 const ResourceItem = ({

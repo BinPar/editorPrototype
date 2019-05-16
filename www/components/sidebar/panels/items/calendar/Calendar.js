@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components';
+import styled, { withTheme } from 'styled-components';
 import {
   colors, fontFamily, fontWeight, fontSize, icon,
 } from '../../../../../utils/Constants';
@@ -27,7 +27,7 @@ const ArrowButton = styled(Button)`
 
 const Month = styled(Text)`
   font-weight: ${fontWeight.black};
-  color: ${colors.primaryDarkerMed};
+  color: ${props => props.theme.calendarMonth};
   font-size: ${fontSize.F13};
   text-transform: uppercase;
   letter-spacing: 0.3em;
@@ -40,7 +40,7 @@ const WeekWrapper = styled(Holder)`
 
 const Weekday = styled(Text)`
   font-weight: ${fontWeight.black};
-  color: ${colors.primaryDarkerLighten};
+  color: ${props => props.theme.calendarWeekDay};
   font-size: ${fontSize.F14};
   text-transform: uppercase;
   letter-spacing: 0.3em;
@@ -53,13 +53,13 @@ const DaysWrapper = styled(Holder)`
   flex-wrap: wrap;
   margin-bottom: 10px;
   padding-bottom: 10px;
-  border-bottom: 1px solid ${colors.primaryDarkerLighten};
+  border-bottom: 1px solid ${props => props.theme.calendarDivision};
 `;
 
 const DayText = styled(Text)`
   text-align: center;
   font-size: ${fontSize.F11};
-  color: ${colors.primaryDarkerMed};
+  color: ${props => props.theme.calendarDay};
   font-weight: ${fontWeight.extrabold};
   z-index: 1;
   height: 20px;
@@ -86,7 +86,7 @@ const DayButton = styled.button`
       width: 8px;
       height: 2px;
       border-radius: 2px;
-      background-color: ${colors.primaryDarkerLighten};
+      background-color: ${props => props.theme.calendarEventOnDay};
       position: absolute;
       left: 50%;
       bottom: -1px;
@@ -97,7 +97,7 @@ const DayButton = styled.button`
   &.currentDay,
   &.active {
     ${DayText} {
-      color: ${colors.white};
+      color: ${props => props.theme.calendarTextHover};
       position: relative;
       &:after {
         content: '';
@@ -115,20 +115,20 @@ const DayButton = styled.button`
   &:hover {
     ${DayText} {
       &:after {
-        background-color: ${colors.primaryLight};
+        background-color: ${props => props.theme.calendarDayHover};
       }
     }
   }
   &.currentDay {
     ${DayText} {
       &:after {
-        background-color: ${colors.primaryDark};
+        background-color: ${props => props.theme.calendarCurrentDay};
       }
     }
     &:hover {
       ${DayText} {
         &:after {
-          background-color: ${colors.primaryDarker};
+          background-color: ${props => props.theme.calendarCurrentDayHover};
         }
       }
     }
@@ -136,13 +136,13 @@ const DayButton = styled.button`
   &.active {
     ${DayText} {
       &:after {
-        background-color: ${colors.primary};
+        background-color: ${props => props.theme.calendarActiveDay};
       }
     }
     &:hover {
       ${DayText} {
         &:after {
-          background-color: ${colors.primaryLight};
+          background-color: ${props => props.theme.calendarActiveDayHover};
         }
       }
     }
@@ -177,7 +177,7 @@ Day.propTypes = {
   notCurrent: PropTypes.bool,
 };
 
-const Calendar = ({}) => (
+const Calendar = ({ theme }) => (
   <CalendarWrapper column>
     <MonthWrapper justify="between">
       <Month>Mayo</Month>
@@ -247,6 +247,8 @@ const Calendar = ({}) => (
 
 Calendar.defaultProps = {};
 
-Calendar.propTypes = {};
+Calendar.propTypes = {
+  theme: PropTypes.shape({}).isRequired,
+};
 
-export default Calendar;
+export default withTheme(Calendar);

@@ -8,8 +8,8 @@ import TextInput from '../../../../form/TextInput';
 
 const Input = styled(TextInput)`
   letter-spacing: 0.07em;
-  border-bottom: 1px solid ${colors.primaryLight};
-  color: ${colors.primaryDarker};
+  border-bottom: 1px solid ${props => props.theme.primaryLight};
+  color: ${props => props.theme.primaryDarker};
 
   &.levelOne {
     font-size: ${fontSize.F14};
@@ -23,7 +23,7 @@ const Input = styled(TextInput)`
 const StyledTitle = styled.p`
   font-family: ${fontFamily.sansSerif};
   font-weight: ${fontWeight.semibold};
-  color: ${colors.primaryDarker};
+  color: ${props => props.theme.primaryDarker};
   letter-spacing: 0.07em;
 
   &.levelOne {

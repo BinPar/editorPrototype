@@ -14,12 +14,16 @@ import Block from './content/resources/Block';
 import { Targets, TargetItem } from './content/resources/Targets';
 import { Conclusions, ConclusionItem } from './content/resources/Conclusions';
 import { BulletList, ListItem, OrderedList } from './content/text/List';
-import { colors } from '../utils/Constants';
+import { colors, icon } from '../utils/Constants';
 import {
   Table, Header, Row, CellHeader, Text, Body, Cell,
 } from './content/resources/Table';
 import Link from './content/text/Link';
 import Author from './content/resources/Author';
+import Add from './basics/addMenu/Add';
+import Option from './basics/addMenu/Option';
+import Tooltip from './basics/tooltip/Tooltip';
+import TooltipButton from './basics/tooltip/TooltipButton';
 
 const Ejercicio = styled.iframe`
   border: none;
@@ -29,7 +33,7 @@ const Ejercicio = styled.iframe`
 const ContentWrapper = styled.section`
   padding: 0 0 70px;
   box-shadow: 0px 12px 20px -7px rgba(0, 0, 0, 0.2);
-  background: ${colors.white};
+  background: ${props => props.theme.bodyBg};
 `;
 
 const Content = ({ open, editing }) => (
@@ -38,6 +42,20 @@ const Content = ({ open, editing }) => (
       <Author name="I. Fernández Buhigas" date="1 Marzo" time="10 min" />
       <Title>Fundamentos y Objetivos de la Monitorización Fetal Intraparto</Title>
     </Wrapper>
+    {editing && (
+      <Add>
+        <Option name={icon.quote} />
+        <Option name={icon.image} />
+        <Option name={icon.video} />
+        <Option name={icon.subtitle} />
+        <Option name={icon.blockLeft} />
+        <Option name={icon.bulletList} />
+        <Option name={icon.table} />
+        <Option name={icon.star} />
+        <Option name={icon.information} />
+        <Option name={icon.knowledge} />
+      </Add>
+    )}
     <Targets editing={editing} sidebarOpen={open}>
       <TargetItem>
         En este capítulo se busca comprender cuál es el objetivo real de la monitorización fetal y
@@ -55,6 +73,13 @@ const Content = ({ open, editing }) => (
     </Targets>
     <Wrapper className={editing ? ' editing' : ''} sidebarOpen={open}>
       <Subtitle>Historia de la Monitorización Fetal</Subtitle>
+      {editing && (
+        <Tooltip>
+          <TooltipButton name={icon.bold} active />
+          <TooltipButton name={icon.italic} disabled />
+          <TooltipButton name={icon.link} />
+        </Tooltip>
+      )}
       <Paragraph>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque non ante sed dolor finibus
         hendrerit.

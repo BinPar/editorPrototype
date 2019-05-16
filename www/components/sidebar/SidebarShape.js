@@ -25,19 +25,23 @@ const Wrapper = styled.div`
   }
 `;
 
+const Group = styled.g`
+  fill: ${props => props.theme.sidebarBg};
+`;
+
 const Svg = styled.svg``;
 
 const StaticShape = () => (
   <Svg xmlns="http://www.w3.org/2000/svg" width="77" height="134" viewBox="0 0 77 134">
-    <g fill="#F1F7F6">
+    <Group>
       <path d="M0.8 134.2C0.8 112.6 22.8 95 50 94.5 50.6 94.5 51.3 94.5 51.3 94.5L51.3 94.4C65.5 93.8 76.8 81.9 76.8 67.2 76.8 52.5 65.5 40.6 51.3 39.9L51.3 39.9C51.3 39.9 50.5 39.9 50 39.9 22.8 39.4 0.8 21.8 0.8 0.2" />
-    </g>
+    </Group>
   </Svg>
 );
 
 const InitShape = () => (
   <Svg xmlns="http://www.w3.org/2000/svg" width="77" height="134" viewBox="0 0 77 134">
-    <g fill="#F1F7F6">
+    <Group>
       <path d="M0.8 134.0C0.8 112.6 0 95 0 94.5 0 94.5 0 94.5 0 94.0L0.3 94.0C0.5 93.8 0 81.9 0 67.2 0 52.5 0 40.6 0 39.9L51.3 39.5C51.3 39.9 0 39.9 0 39.9 0 39.4 0 21.8 0 0.2">
         <animate
           dur="3s"
@@ -52,13 +56,13 @@ const InitShape = () => (
           keySplines="0 1 0 1; 0 1 0 1"
         />
       </path>
-    </g>
+    </Group>
   </Svg>
 );
 
 const EndShape = () => (
   <Svg xmlns="http://www.w3.org/2000/svg" width="77" height="134" viewBox="0 0 77 134">
-    <g fill="#F1F7F6">
+    <Group>
       <path d="M0.8 134.2C0.8 112.6 22.8 95 50 94.5 50.6 94.5 51.3 94.5 51.3 94.5L51.3 94.4C65.5 93.8 76.8 81.9 76.8 67.2 76.8 52.5 65.5 40.6 51.3 39.9L51.3 39.9C51.3 39.9 50.5 39.9 50 39.9 22.8 39.4 0.8 21.8 0.8 0.2">
         <animate
           dur="3s"
@@ -73,7 +77,7 @@ const EndShape = () => (
           keySplines="0 1 0 1; 0 1 0 1"
         />
       </path>
-    </g>
+    </Group>
   </Svg>
 );
 

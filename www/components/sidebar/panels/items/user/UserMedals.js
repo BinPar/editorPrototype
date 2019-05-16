@@ -16,7 +16,7 @@ const CurrentMedalsWrapper = styled(Holder)`
   width: calc(100% - 60px);
   padding: 20px 0;
   margin: 10px 30px 10px;
-  border-bottom: 1px solid ${colors.primaryDarkerLighten};
+  border-bottom: 1px solid ${props => props.theme.primaryDarkerLighten};
 `;
 
 const MedalTitle = styled.p`
@@ -24,7 +24,7 @@ const MedalTitle = styled.p`
   text-transform: uppercase;
   font-weight: ${fontWeight.semibold};
   font-size: ${fontSize.F11};
-  color: ${colors.primaryDark};
+  color: ${props => props.theme.primaryDark};
 `;
 const WonMedals = styled(Holder)`
   flex-wrap: wrap;

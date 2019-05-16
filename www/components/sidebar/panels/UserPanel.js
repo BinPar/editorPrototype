@@ -18,7 +18,7 @@ const ProfilePicture = styled.div`
   height: 145px;
   border-radius: 50%;
   overflow: hidden;
-  border: 3px solid ${colors.primaryDarkerLighten};
+  border: 3px solid ${props => props.theme.primaryDarkerLighten};
   padding: 5px;
   margin-bottom: 10px;
 `;
@@ -42,7 +42,7 @@ const Username = styled.p`
   font-family: ${fontFamily.sansSerif};
   font-weight: ${fontWeight.extrabold};
   font-size: ${fontSize.F16};
-  color: ${colors.primaryDark};
+  color: ${props => props.theme.primaryDark};
   margin-bottom: 10px;
 `;
 
@@ -51,7 +51,7 @@ const UserRole = styled.p`
   text-transform: uppercase;
   font-weight: ${fontWeight.semibold};
   font-size: ${fontSize.F11};
-  color: ${colors.primaryDark};
+  color: ${props => props.theme.primaryDark};
 `;
 
 const UserPanel = () => (

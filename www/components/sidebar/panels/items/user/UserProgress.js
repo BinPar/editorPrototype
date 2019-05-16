@@ -8,14 +8,14 @@ import Icon from '../../../../basics/Icon';
 import Holder from '../../../../layout/Holder';
 
 const Wrapper = styled(Holder)`
-  background-color: ${colors.primaryTrans10};
+  background-color: ${props => props.theme.primaryTrans10};
   width: 100%;
   padding: 25px 30px;
 `;
 
 const Title = styled.p`
   font-family: ${fontFamily.sansSerif};
-  color: ${colors.primaryDark};
+  color: ${props => props.theme.primaryDark};
   text-transform: uppercase;
   font-weight: ${fontWeight.extrabold};
   font-size: ${fontSize.F09};
@@ -25,7 +25,7 @@ const Title = styled.p`
 
 const Progress = styled.p`
   font-family: ${fontFamily.sansSerif};
-  color: ${colors.primaryDark};
+  color: ${props => props.theme.primaryDark};
   font-weight: ${fontWeight.black};
   font-size: ${fontSize.F17};
 `;

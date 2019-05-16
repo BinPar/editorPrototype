@@ -2,24 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import {
-  colors, fontFamily, fontSize, fontWeight,
+  fontFamily, fontSize, fontWeight,
 } from '../../utils/Constants';
 import Icon from './Icon';
 
 const type = {
   outline: css`
-    border: 2px solid ${colors.primaryMed};
-    color: ${colors.primaryMed};
+    border: 2px solid ${props => props.theme.outlineButtonBorder};
+    color: ${props => props.theme.outlineButtonText};
     &:hover {
-      background-color: ${colors.primaryMed};
-      color: ${colors.white};
+      background-color: ${props => props.theme.outlineButtonBg};
+      color: ${props => props.theme.outlineButtonTextHover};
     }
   `,
   full: css`
-    background-color: ${colors.primaryMed};
-    color: ${colors.white};
+    background-color: ${props => props.theme.buttonBg};
+    color: ${props => props.theme.buttonText};
     &:hover {
-      background-color: ${colors.primaryDark};
+      background-color: ${props => props.theme.buttonBgHover};
     }
   `,
 };
@@ -42,18 +42,22 @@ const ButtonIconWrapper = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: color 500ms ease;
+  .icon {
+    transition: color 250ms ease;
+  }
   &:hover {
     .icon {
-      color: ${props => props.hoverColor || colors.greyDarker};
+      color: ${props => props.hoverColor || props.theme.buttonIconHover};
     }
   }
   &.active {
     .icon {
-      color: ${colors.greyDarker};
+      color: ${props => props.activeColor || props.theme.buttonIconActive};
     }
     &:hover {
       .icon {
-        color: ${colors.greyDark};
+        color: ${props => props.activeHoverColor || props.theme.buttonIconActiveHover};
       }
     }
   }

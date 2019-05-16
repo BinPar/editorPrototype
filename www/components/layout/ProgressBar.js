@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import CircularProgressbar from 'react-circular-progressbar';
 import {
   colors, minMedia, maxMedia,
@@ -14,13 +14,13 @@ const SmallProgressBarWrapper = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  background: ${colors.primaryDarkerLighten};
+  background: ${props => props.theme.smallProgressBarTrail};
 `;
 
 const SmallBar = styled.span`
   height: 7px;
   border-radius: 7px;
-  background: ${colors.primaryDarkerMed};
+  background: ${props => props.theme.smallProgressBarPath};
   width: ${props => `${props.progress}%`};
 `;
 
@@ -54,19 +54,9 @@ const ProgressBarWrapper = styled.div`
   `}
 `;
 
-{/* const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-const scrolled = (winScroll / height) * 100;
-
 const Bar = styled.span`
   height: 5px;
-  background: ${colors.primaryLight};
-  width: ${`${scrolled}%`};
-`; */}
-
-const Bar = styled.span`
-  height: 5px;
-  background: ${colors.primaryLight};
+  background: ${props => props.theme.largeProgressBarPath};
   width: ${props => `${props.progress}%`};
 `;
 
@@ -81,37 +71,5 @@ ProgressBar.defaultProps = {
 };
 
 ProgressBar.propTypes = {
-  progress: PropTypes.string.isRequired,
-};
-
-const CircleProgressBarWrapper = styled(CircularProgressbar)`
-  width: 20px;
-  position: absolute;
-  right: 10px;
-  top: 0;
-`;
-
-export const CircleProgressBar = ({ progress }) => (
-  <CircleProgressBarWrapper
-    percentage={progress}
-    strokeWidth={10}
-    styles={{
-      path: {
-        stroke: colors.primary,
-        strokeLinecap: 'round',
-        transition: 'stroke-dashoffset 0.5s ease 0s',
-      },
-      trail: {
-        stroke: colors.primaryLight,
-        opacity: 0.3,
-      },
-    }}
-  />
-);
-
-CircleProgressBar.defaultProps = {
-};
-
-CircleProgressBar.propTypes = {
   progress: PropTypes.string.isRequired,
 };

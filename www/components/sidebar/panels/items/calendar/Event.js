@@ -23,20 +23,20 @@ const Title = styled(Text)`
   font-size: ${fontSize.F11};
   margin-bottom: 10px;
   text-transform: uppercase;
-  color: ${colors.primaryDarkerMed};
+  color: ${props => props.theme.primaryDarkerMed};
 `;
 
 const type = {
   evaluation: css`
-    border-color: ${colors.secondary};
+    border-color: ${props => props.theme.secondary};
     ${TypeTitle} {
-      color: ${colors.secondaryDark};
+      color: ${props => props.theme.secondaryDark};
     }
   `,
   event: css`
-    border-color: ${colors.primary};
+    border-color: ${props => props.theme.primary};
     ${TypeTitle} {
-      color: ${colors.primaryDark};
+      color: ${props => props.theme.primaryDark};
     }
   `,
 };
@@ -54,7 +54,7 @@ const EventWrapper = styled(Holder)`
 
 const Description = styled(Text)`
   font-size: ${fontSize.F12};
-  color: ${colors.primaryDarkerMed};
+  color: ${props => props.theme.primaryDarkerMed};
   font-weight: ${fontWeight.semibold};
 `;
 

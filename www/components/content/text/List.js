@@ -30,7 +30,7 @@ const listType = {
       position: absolute;
       top: 6px;
       right: calc(100% + 10px);
-      color: ${colors.secondary};
+      color: ${props => props.theme.listDecoration};
       font-weight: ${fontWeight.bold};
       font-size: ${fontSize.F19};
       font-family: ${fontFamily.sansSerif};
@@ -43,7 +43,7 @@ const listType = {
       position: absolute;
       top: 6px;
       right: calc(100% + 10px);
-      color: ${colors.secondary};
+      color: ${props => props.theme.listDecoration};
       font-weight: ${fontWeight.bold};
       font-size: ${fontSize.F19};
       font-family: ${fontFamily.sansSerif};
@@ -58,7 +58,7 @@ const listType = {
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background: ${colors.secondary};
+      background: ${props => props.theme.listDecoration};
     }
     &.table {
       margin-left: 1rem;
@@ -68,7 +68,7 @@ const listType = {
       ::before {
         width: 5px;
         height: 5px;
-        background: ${colors.primary};
+        background: ${props => props.theme.tableListDecoration};
         top: 8px;
         right: calc(100% + 10px);
       }

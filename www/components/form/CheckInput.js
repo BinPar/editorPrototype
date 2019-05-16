@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {
-  fontSize, colors, fontFamily, icon,
+  fontFamily, icon,
 } from '../../utils/Constants';
 import Icon from '../basics/Icon';
 import Label from './Label';
@@ -18,11 +18,11 @@ const IconWrapper = styled(Icon)`
     left: 0;
     height: 30px;
     width: 30px;
-    background-color: ${colors.primary};
+    background-color: ${props => props.theme.checkBg};
     border-radius: 30px;
   }
   &:before {
-    color: ${colors.white};
+    color: ${props => props.theme.checkIcon};
     position: absolute;
     z-index: 1;
     top: 50%;
@@ -51,13 +51,13 @@ const Input = styled.input`
 
   &:hover {
     ~ label {
-      color: ${colors.primary};
+      color: ${props => props.theme.checkLabelHover};
     }
   }
 
   &:checked {
     ~ label {
-      color: ${colors.primary};
+      color: ${props => props.theme.checkLabelHover};
     }
     ~ .icon {
       &:before {

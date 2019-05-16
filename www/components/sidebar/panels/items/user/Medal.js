@@ -20,7 +20,7 @@ const Name = styled.p`
   text-transform: uppercase;
   font-weight: ${fontWeight.black};
   font-size: ${fontSize.F10};
-  color: ${colors.primaryDarker};
+  color: ${props => props.theme.primaryDarker};
   margin-top: 10px;
   text-align: center;
   letter-spacing: 0.04em;

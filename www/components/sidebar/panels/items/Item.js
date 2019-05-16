@@ -7,7 +7,7 @@ import {
 import Holder from '../../../layout/Holder';
 import Button from '../../../basics/Button';
 import Icon from '../../../basics/Icon';
-import { CircleProgressBar } from '../../../layout/ProgressBar';
+import CircleProgressBar from '../../../layout/CircleProgressBar';
 import Counter from '../../../basics/Counter';
 import Title from './index/Title';
 
@@ -22,7 +22,7 @@ const StyledItem = styled(Holder)`
         content: '';
         width: ${props => (props.editing ? 'calc(100% - 35px)' : 'calc(100% - 12px)')};
         height: calc(100% + 10px);
-        background-color: ${colors.primaryDarkerLighten};
+        background-color: ${props => props.theme.primaryDarkerLighten};
         opacity: 0.2;
         position: absolute;
         top: -5px;
@@ -59,7 +59,7 @@ const ExpandButton = styled(Button)`
     cursor: default;
     &:hover {
       .icon {
-        color: ${colors.primaryDarkerLighten}
+        color: ${props => props.theme.primaryDarkerLighten}
       }
     }
   }
@@ -80,7 +80,7 @@ const Link = styled.a`
       content: '';
       width: ${props => (props.editing ? 'calc(100% - 35px)' : 'calc(100% - 12px)')};
       height: calc(100% + 10px);
-      background-color: ${colors.primaryDarkerLighten};
+      background-color: ${props => props.theme.primaryDarkerLighten};
       opacity: 0.2;
       position: absolute;
       top: -5px;
@@ -102,7 +102,7 @@ const Link = styled.a`
 
 const Section = styled.p`
   font-family: ${fontFamily.sansSerif};
-  color: ${colors.primaryDarkerLighten};
+  color: ${props => props.theme.primaryDarkerLighten};
   text-transform: uppercase;
   font-weight: ${fontWeight.extrabold};
   margin-bottom: 5px;
@@ -125,7 +125,7 @@ const LevelThreeTitle = styled.p`
   font-weight: ${fontWeight.semibold};
   letter-spacing: 0.07em;
   font-size: ${fontSize.F12};
-  color: ${colors.primaryDarkerMed};
+  color: ${props => props.theme.primaryDarkerMed};
 `;
 
 const LockedDate = styled(Holder)`
@@ -143,7 +143,7 @@ const Date = styled.p`
   font-family: ${fontFamily.sansSerif};
   font-weight: ${fontWeight.black};
   font-size: ${fontSize.F09};
-  color: ${colors.primaryLight};
+  color: ${props => props.theme.primaryLight};
   text-transform: uppercase;
 `;
 

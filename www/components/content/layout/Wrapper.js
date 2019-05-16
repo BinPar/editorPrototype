@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { colors, maxMedia, minMedia } from '../../../utils/Constants';
+import { maxMedia, minMedia } from '../../../utils/Constants';
 
 const layout = {
   wrapper: css`
@@ -49,7 +49,7 @@ export default styled.div`
         transform: translate(-50%, -50%);
         width: calc(100% + 50px);
         height: calc(100% + 50px);
-        border: 4px solid ${colors.greyMed};
+        border: 4px solid ${props => props.theme.editWrapperBorder};
         opacity: 0.3;
         border-radius: 10px;
         pointer-events: none;

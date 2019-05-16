@@ -66,11 +66,19 @@ export const fontWeight = {
 // COLORS
 
 export const colors = {
+
+  // BASICS
+
   greyLighter: '#F9FBFA',
   greyLight: '#EDF2F0',
   greyMed: '#BCBDC1',
   greyDark: '#6E6F71',
   greyDarker: '#323031',
+
+  white: '#FFFFFF',
+  black: '#000000',
+
+  // DEFAULT
 
   primaryLightest: '#F1F7F6',
   primaryLighter: '#E8F3F1',
@@ -88,67 +96,431 @@ export const colors = {
   secondary: '#EAC36A',
   secondaryDark: '#B29451',
 
-  error: '#F2735F',
-  warning: '#EFA773',
-  warningDark: '#956847',
+  red: '#F2735F',
+  orange: '#EFA773',
+  orangeDark: '#956847',
 
-  white: '#FFFFFF',
-  black: '#000000',
+};
 
-  backgroundLightGreen: '#F9FBFA',
+// THEMES
+
+export const themes = {
 
   defaultTheme: {
-    primaryLightest: '#F1F7F6',
-    primaryLighter: '#E8F3F1',
-    primaryLight: '#AFC6CA',
-    primary: '#8DC3B9',
-    primaryTrans10: '#E6F1EF',
-    primaryMed: '#5C817A',
-    primaryDark: '#578995',
-    primaryDarker: '#485869',
-    primaryDarkerLightest: '#EAEBEC',
-    primaryDarkerLighten: '#B6BCC3',
-    primaryDarkerMed: '#7C8995',
+    white: colors.white,
 
-    secondaryLight: '#FBFAF7',
-    secondary: '#EAC36A',
-    secondaryDark: '#B29451',
+    greyLighter: colors.greyLighter,
+    greyLight: colors.greyLight,
+    greyMed: colors.greyMed,
+    greyDark: colors.greyDark,
+    greyDarker: colors.greyDarker,
+
+    primaryLightest: colors.primaryLightest,
+    primaryLighter: colors.primaryLighter,
+    primaryLight: colors.primaryLight,
+    primary: colors.primary,
+    primaryTrans10: colors.primaryTrans10,
+    primaryMed: colors.primaryMed,
+    primaryDark: colors.primaryDark,
+    primaryDarker: colors.primaryDarker,
+    primaryDarkerLightest: colors.primaryDarkerLightest,
+    primaryDarkerLighten: colors.primaryDarkerLighten,
+    primaryDarkerMed: colors.primaryDarkerMed,
+
+    secondaryLight: colors.secondaryLight,
+    secondary: colors.secondary,
+    secondaryDark: colors.secondaryDark,
+
+    error: colors.red,
+    warning: colors.orange,
+    warningDark: colors.orangeDark,
+
+    // BACKGROUNDS
+
+    bodyBg: colors.white,
+
+    // ICON
+
+    iconColor: colors.greyDark,
+
+    // BUTTONS
+
+    outlineButtonBorder: colors.primaryMed,
+    outlineButtonText: colors.primaryMed,
+    outlineButtonTextHover: colors.white,
+    outlineButtonBg: colors.primaryMed,
+
+    buttonText: colors.white,
+    buttonBg: colors.primaryMed,
+    buttonBgHover: colors.primaryDark,
+
+    buttonIconHover: colors.greyDarker,
+    buttonIconActive: colors.greyDarker,
+    buttonIconActiveHover: colors.greyDark,
+
+    // COUNTER
+
+    counterBg: colors.primaryLight,
+    counterNumber: colors.white,
+
+    // TABS
+
+    tabMarker: colors.primaryMed,
+    tabBorder: colors.primaryLighter,
+    tabText: colors.primaryDarkerLighten,
+    tabTextHover: colors.primaryMed,
+
+    // TOOLTIP
+
+    tooltipBg: colors.greyDark,
+    tooltipIcon: colors.white,
+    tooltipIconActive: colors.primary,
+
+    // FORMS
+
+    label: colors.primaryDarkerLighten,
+    inputBorder: colors.primaryDarkerLighten,
+    inputBorderWithValue: colors.primaryMed,
+    labelWithValue: colors.primaryMed,
+    checkBg: colors.primary,
+    checkIcon: colors.white,
+    checkLabelHover: colors.primary,
+
+    // PROGRESS BAR
+
+    smallProgressBarTrail: colors.primaryDarkerLighten,
+    smallProgressBarPath: colors.primaryDarkerMed,
+
+    largeProgressBarPath: colors.primaryLight,
+
+    circleProgressBarTrail: colors.primaryLight,
+    circleProgressBarPath: colors.primary,
+
+    // CONTENT
+
+    // TEXT
+
+    title: colors.greyDarker,
+    subtitle: colors.greyDarker,
+    paragraph: colors.greyDarker,
+    listDecoration: colors.secondary,
+
+    // LINK
+
+    link: colors.primaryDark,
+    linkHover: colors.primaryDarker,
+
+    // HIGHLIGHTED
+    highlightedBg: colors.greyLighter,
+    highlightedText: colors.primaryDarker,
+
+    // TABLE
+
+    tableListDecoration: colors.primary,
+    tableBasicBg: colors.white,
+    tableBasicBorder: colors.primaryLightest,
+    tableBasicText: colors.greyDark,
+
+    tableHighlightedBg: colors.primaryLightest,
+    tableHighlightedBorder: colors.white,
+    tableHighlightedText: colors.primaryMed,
+
+    cellHeaderBg: colors.primaryLight,
+    cellHeaderText: colors.white,
+
+    // QUOTES
+
+    quoteText: colors.greyDark,
+    quoteSmallAccent: colors.secondary,
+    quoteMidAccent: colors.greyLight,
+
+    // IMAGES
+
+    imageFooterDivision: colors.greyMed,
+    imageFooterText: colors.greyMed,
+
+    // BLOCK
+
+    infoBorder: colors.primary,
+    infoBg: colors.primaryLighter,
+    infoText: colors.primaryMed,
+
+    knowledgeBorder: colors.secondary,
+    knowledgeBg: colors.secondaryLight,
+    knowledgeText: colors.secondaryDark,
+
+    // AUTHOR
+
+    authorName: colors.primaryDark,
+    authorDate: colors.greyMed,
+
+    // EDIT
+
+    editWrapperBorder: colors.greyMed,
+
+    // ADD
+
+    addDivision: colors.greyMed,
+    addOptionsDivision: colors.primaryDarkerLightest,
+    addBgSidebar: colors.primaryLightest,
+    addBg: colors.white,
+    addIcon: colors.primaryDarkerLighten,
+    addIconHover: colors.primaryDarkerMed,
+    addOptionIcon: colors.primaryDarkerLighten,
+    addOptionIconHover: colors.primaryDarkerMed,
+
+    // SIDEBAR
+
+    sidebarBg: colors.primaryLightest,
+    sidebarScroll: colors.primaryLighter,
+    sidebarScrollHover: colors.primary,
+
+    sidebarMenuBg: colors.white,
+    sidebarMenuIcon: colors.greyMed,
+    sidebarMenuIconHover: colors.primary,
+    sidebarMenuIconActiveHover: colors.primaryLight,
+
+    // CALENDAR
+
+    calendarMonth: colors.primaryDarkerMed,
+    calendarWeekDay: colors.primaryDarkerLighten,
+    calendarDay: colors.primaryDarkerMed,
+    calendarDivision: colors.primaryDarkerLighten,
+    calendarEventOnDay: colors.primaryDarkerLighten,
+    calendarTextHover: colors.white,
+    calendarDayHover: colors.primaryLight,
+    calendarCurrentDay: colors.primaryDark,
+    calendarCurrentDayHover: colors.primaryDarker,
+    calendarActiveDay: colors.primary,
+    calendarActiveDayHover: colors.primaryLight,
+
+    // HEADER
+
+    headerBg: colors.primaryDark,
+    headerModule: colors.white,
+    headerTitle: colors.white,
+    headerTitleBorder: colors.white,
+    editToolsDivision: colors.white,
+    headerIcon: colors.white,
+    headerIconHover: colors.primaryLight,
+
+    // FOOTER
+
+    footerLink: colors.greyDark,
+    footerLinkHover: colors.primaryDark,
+    footerLinkDivision: colors.greyMed,
   },
 
   darkTheme: {
-    primaryLightest: 'red',
-    primaryLighter: '#E8F3F1',
-    primaryLight: '#AFC6CA',
-    primary: '#8DC3B9',
-    primaryTrans10: '#E6F1EF',
-    primaryMed: '#5C817A',
-    primaryDark: '#578995',
-    primaryDarker: '#485869',
-    primaryDarkerLightest: '#EAEBEC',
-    primaryDarkerLighten: '#B6BCC3',
-    primaryDarkerMed: '#7C8995',
+    white: colors.white,
 
-    secondaryLight: '#FBFAF7',
-    secondary: '#EAC36A',
-    secondaryDark: '#B29451',
+    greyLighter: colors.greyLighter,
+    greyLight: colors.greyLight,
+    greyMed: colors.greyMed,
+    greyDark: colors.greyDark,
+    greyDarker: colors.greyDarker,
+
+    primaryLightest: colors.primaryLightest,
+    primaryLighter: colors.primaryLighter,
+    primaryLight: colors.primaryLight,
+    primary: colors.primary,
+    primaryTrans10: colors.primaryTrans10,
+    primaryMed: colors.primaryMed,
+    primaryDark: colors.primaryDark,
+    primaryDarker: colors.primaryDarker,
+    primaryDarkerLightest: colors.primaryDarkerLightest,
+    primaryDarkerLighten: colors.primaryDarkerLighten,
+    primaryDarkerMed: colors.primaryDarkerMed,
+
+    secondaryLight: colors.secondaryLight,
+    secondary: colors.secondary,
+    secondaryDark: colors.secondaryDark,
+
+    error: colors.red,
+    warning: colors.orange,
+    warningDark: colors.orangeDark,
+
+    // BACKGROUNDS
+
+    bodyBg: colors.white,
+
+    // ICON
+
+    iconColor: colors.greyDark,
+
+    // BUTTONS
+
+    outlineButtonBorder: colors.primaryMed,
+    outlineButtonText: colors.primaryMed,
+    outlineButtonTextHover: colors.white,
+    outlineButtonBg: colors.primaryMed,
+
+    buttonText: colors.white,
+    buttonBg: colors.primaryMed,
+    buttonBgHover: colors.primaryDark,
+
+    buttonIconHover: colors.greyDarker,
+    buttonIconActive: colors.greyDarker,
+    buttonIconActiveHover: colors.greyDark,
+
+    // COUNTER
+
+    counterBg: colors.primaryLight,
+    counterNumber: colors.white,
+
+    // TABS
+
+    tabMarker: colors.primaryMed,
+    tabBorder: colors.primaryLighter,
+    tabText: colors.primaryDarkerLighten,
+    tabTextHover: colors.primaryMed,
+
+    // TOOLTIP
+
+    tooltipBg: colors.greyDark,
+    tooltipIcon: colors.white,
+    tooltipIconActive: colors.primary,
+
+    // FORMS
+
+    label: colors.primaryDarkerLighten,
+    inputBorder: colors.primaryDarkerLighten,
+    inputBorderWithValue: colors.primaryMed,
+    labelWithValue: colors.primaryMed,
+    checkBg: colors.primary,
+    checkIcon: colors.white,
+    checkLabelHover: colors.primary,
+
+    // PROGRESS BAR
+
+    smallProgressBarTrail: colors.primaryDarkerLighten,
+    smallProgressBarPath: colors.primaryDarkerMed,
+
+    largeProgressBarPath: colors.primaryLight,
+
+    circleProgressBarTrail: colors.primaryLight,
+    circleProgressBarPath: colors.primary,
+
+    // CONTENT
+
+    // TEXT
+
+    title: colors.greyDarker,
+    subtitle: colors.greyDarker,
+    paragraph: colors.greyDarker,
+    listDecoration: colors.secondary,
+
+    // LINK
+
+    link: colors.primaryDark,
+    linkHover: colors.primaryDarker,
+
+    // HIGHLIGHTED
+    highlightedBg: colors.greyLighter,
+    highlightedText: colors.primaryDarker,
+
+    // TABLE
+
+    tableListDecoration: colors.primary,
+    tableBasicBg: colors.white,
+    tableBasicBorder: colors.primaryLightest,
+    tableBasicText: colors.greyDark,
+
+    tableHighlightedBg: colors.primaryLightest,
+    tableHighlightedBorder: colors.white,
+    tableHighlightedText: colors.primaryMed,
+
+    cellHeaderBg: colors.primaryLight,
+    cellHeaderText: colors.white,
+
+    // QUOTES
+
+    quoteText: colors.greyDark,
+    quoteSmallAccent: colors.secondary,
+    quoteMidAccent: colors.greyLight,
+
+    // IMAGES
+
+    imageFooterDivision: colors.greyMed,
+    imageFooterText: colors.greyMed,
+
+    // BLOCK
+
+    infoBorder: colors.primary,
+    infoBg: colors.primaryLighter,
+    infoText: colors.primaryMed,
+
+    knowledgeBorder: colors.secondary,
+    knowledgeBg: colors.secondaryLight,
+    knowledgeText: colors.secondaryDark,
+
+    // AUTHOR
+
+    authorName: colors.primaryDark,
+    authorDate: colors.greyMed,
+
+    // EDIT
+
+    editWrapperBorder: colors.greyMed,
+
+    // ADD
+
+    addDivision: colors.greyMed,
+    addOptionsDivision: colors.primaryDarkerLightest,
+    addBgSidebar: colors.primaryLightest,
+    addBg: colors.white,
+    addIcon: colors.primaryDarkerLighten,
+    addIconHover: colors.primaryDarkerMed,
+    addOptionIcon: colors.primaryDarkerLighten,
+    addOptionIconHover: colors.primaryDarkerMed,
+
+    // SIDEBAR
+
+    sidebarBg: colors.primaryLightest,
+    sidebarScroll: colors.primaryLighter,
+    sidebarScrollHover: colors.primary,
+
+    sidebarMenuBg: colors.white,
+    sidebarMenuIcon: colors.greyMed,
+    sidebarMenuIconHover: colors.primary,
+    sidebarMenuIconActiveHover: colors.primaryLight,
+
+    // CALENDAR
+
+    calendarMonth: colors.primaryDarkerMed,
+    calendarWeekDay: colors.primaryDarkerLighten,
+    calendarDay: colors.primaryDarkerMed,
+    calendarDivision: colors.primaryDarkerLighten,
+    calendarEventOnDay: colors.primaryDarkerLighten,
+    calendarTextHover: colors.white,
+    calendarDayHover: colors.primaryLight,
+    calendarCurrentDay: colors.primaryDark,
+    calendarCurrentDayHover: colors.primaryDarker,
+    calendarActiveDay: colors.primary,
+    calendarActiveDayHover: colors.primaryLight,
+
+    // HEADER
+
+    headerBg: colors.primaryDark,
+    headerModule: colors.white,
+    headerTitle: colors.white,
+    headerTitleBorder: colors.white,
+    editToolsDivision: colors.white,
+    headerIcon: colors.white,
+    headerIconHover: colors.primaryLight,
+
+    // FOOTER
+
+    footerLink: colors.greyDark,
+    footerLinkHover: colors.primaryDark,
+    footerLinkDivision: colors.greyMed,
   },
 
   lightTheme: {
-    primaryLightest: '#F1F7F6',
-    primaryLighter: '#E8F3F1',
-    primaryLight: '#AFC6CA',
-    primary: '#8DC3B9',
-    primaryTrans10: '#E6F1EF',
-    primaryMed: '#5C817A',
-    primaryDark: '#578995',
-    primaryDarker: '#485869',
-    primaryDarkerLightest: '#EAEBEC',
-    primaryDarkerLighten: '#B6BCC3',
-    primaryDarkerMed: '#7C8995',
-
-    secondaryLight: '#FBFAF7',
-    secondary: '#EAC36A',
-    secondaryDark: '#B29451',
+    headerBg: colors.primaryDark,
+    sidebarBg: '#13181C',
+    bodyBg: '#1A2026',
+    paragraph: colors.greyDarker,
   },
 };
 

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import {
-  colors, fontSize, fontFamily, fontWeight, maxMedia, minMedia,
+  fontSize, fontFamily, fontWeight, maxMedia, minMedia,
 } from '../../../utils/Constants';
 import Holder from '../../layout/Holder';
 
@@ -43,16 +43,16 @@ export const Row = styled.tr``;
 
 const type = {
   basic: css`
-    background: ${colors.white};
+    background: ${props => props.theme.tableBasicBg};
     padding: 20px;
-    border: 3px solid ${colors.primaryLightest};
+    border: 3px solid ${props => props.theme.tableBasicBorder};
   `,
   highlight: css`
-    background: ${colors.primaryLightest};
+    background: ${props => props.theme.tableHighlightedBg};
     padding: 10px;
-    border-bottom: 3px solid ${colors.white};
+    border-bottom: 3px solid ${props => props.theme.tableHighlightedBorder};
     & + & {
-      border-left: 3px solid ${colors.white};
+      border-left: 3px solid ${props => props.theme.tableHighlightedBorder};
     }
   `,
 };
@@ -74,7 +74,7 @@ export const Cell = styled.td`
 `;
 
 export const CellHeader = styled.th`
-  background: ${colors.primaryLight};
+  background: ${props => props.theme.cellHeaderBg};
   padding: 20px 10px;
   vertical-align: middle;
 `;
@@ -83,21 +83,21 @@ export const CellHeader = styled.th`
 
 const style = {
   basic: css`
-    color: ${colors.greyDark};
+    color: ${props => props.theme.tableBasicText};
     font-size: ${fontSize.F14};
     line-height: ${fontSize.F21};
     font-weight: ${fontWeight.medium};
     text-align: left;
   `,
   highlight: css`
-    color: ${colors.primaryMed};
+    color: ${props => props.theme.tableHighlightedText};
     font-size: ${fontSize.F16};
     font-weight: ${fontWeight.bold};
     text-align: center;
     line-height: ${fontSize.F20};
   `,
   header: css`
-    color: ${colors.white};
+    color: ${props => props.theme.cellHeaderText};
     font-size: ${fontSize.F16};
     font-weight: ${fontWeight.bold};
     line-height: ${fontSize.F22};

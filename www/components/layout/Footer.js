@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {
-  colors, fontSize, fontWeight, fontStyle, icon,
+  fontSize, fontWeight, fontStyle, icon,
 } from '../../utils/Constants';
 import Link from '../content/text/Link';
 import Icon from '../basics/Icon';
@@ -19,11 +19,14 @@ const FooterLink = styled(Link)`
   font-weight: ${fontWeight.regular};
   font-size: ${fontSize.F19};
   font-style: ${fontStyle.normal};
-  color: ${colors.greyDark};
+  color: ${props => props.theme.footerLink};
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  .icon {
+    color: ${props => props.theme.footerLink};
+  }
   & + & {
     margin-left: 50px;
     :before {
@@ -34,12 +37,15 @@ const FooterLink = styled(Link)`
       left: -25px;
       width: 2px;
       height: 30px;
-      background: ${colors.greyMed};
+      background: ${props => props.theme.footerLinkDivision};
       opacity: 0.4;
     }
   }
   :hover {
-    color: ${colors.primaryDark};
+    color: ${props => props.theme.footerLinkHover};
+    .icon {
+      color: ${props => props.theme.footerLinkHover};
+    }
   }
   &.disabled {
     opacity: 0.4;

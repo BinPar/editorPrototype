@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import {
-  colors,
   fontFamily,
   fontWeight,
   fontStyle,
@@ -15,7 +14,7 @@ import Link from '../text/Link';
 const ImageFooter = styled.p`
   font-size: ${fontSize.F14};
   text-align: center;
-  color: ${colors.greyMed};
+  color: ${props => props.theme.imageFooterText};
   font-family: ${fontFamily.sansSerif};
   font-weight: ${fontWeight.semibold};
   font-style: ${fontStyle.italic};
@@ -59,7 +58,7 @@ const FooterLink = styled(Link)`
     content: '';
     width: 2px;
     height: 100%;
-    background-color: ${colors.greyMed};
+    background-color: ${props => props.theme.imageFooterDivision};
     position: absolute;
     top: 0;
     left: -10px;

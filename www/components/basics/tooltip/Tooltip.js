@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { colors } from '../../utils/Constants';
 
 const TooltipPosition = styled.div`
   position: absolute;
@@ -16,7 +15,7 @@ const TooltipWrapper = styled.div`
   height: 50px;
   min-width: 60px;
   border-radius: 30px;
-  background-color: ${colors.greyDarker};
+  background-color: ${props => props.theme.tooltipBg};
   position: relative;
   padding: 0 20px;
   display: flex;
@@ -27,7 +26,7 @@ const TooltipWrapper = styled.div`
     position: absolute;
     width: 23px;
     height: 23px;
-    background-color: ${colors.greyDarker};
+    background-color: ${props => props.theme.tooltipBg};
     top: 35px;
     left: 50%;
     border-radius: 5px;

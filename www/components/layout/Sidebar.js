@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {
-  colors, maxMedia, minMedia, icon,
+  maxMedia, minMedia, icon,
 } from '../../utils/Constants';
 import Holder from './Holder';
 import Button from '../basics/Button';
@@ -19,24 +19,24 @@ const SidebarWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  background-color: ${props => props.theme.primaryLightest};
+  background-color: ${props => props.theme.sidebarBg};
   overflow-y: auto;
 
   &::-webkit-scrollbar-track {
-    background-color: ${colors.primaryLightest};
+    background-color: ${props => props.theme.sidebarBg};
   }
   &::-webkit-scrollbar-thumb {
-    background: ${colors.primaryLighter};
+    background: ${props => props.theme.sidebarScroll};
   }
   &::-webkit-scrollbar-thumb:hover {
-    background: ${colors.primary};
+    background: ${props => props.theme.sidebarScrollHover};
   }
   @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
     * {
       -ms-overflow-style: -ms-autohiding-scrollbar;
-      -ms-scrollbar-highlight-color: ${colors.primaryLightest};
-      -ms-scrollbar-arrow-color: ${colors.primaryLighter};
-      -ms-scrollbar-face-color: ${colors.primaryLighter};
+      -ms-scrollbar-highlight-color: ${props => props.theme.primaryLightest};
+      -ms-scrollbar-arrow-color: ${props => props.theme.primaryLighter};
+      -ms-scrollbar-face-color: ${props => props.theme.primaryLighter};
     }
   }
   ${maxMedia.maxMobile`
@@ -56,7 +56,7 @@ const SidebarWrapper = styled.div`
 `;
 
 const FixedMenu = styled(Holder)`
-  background-color: ${colors.white};
+  background-color: ${props => props.theme.sidebarMenuBg};
   position: fixed;
   z-index: 1100;
   padding: 10px 0;
@@ -80,20 +80,20 @@ const FixedMenu = styled(Holder)`
 const StyledMenuButton = styled(Button)`
   z-index: 1;
   .icon {
-    color: ${colors.greyMed};
+    color: ${props => props.theme.sidebarMenuIcon};
   }
   &:hover {
     .icon {
-      color: ${colors.primary};
+      color: ${props => props.theme.sidebarMenuIconHover};
     }
   }
   &.active {
     .icon {
-      color: ${colors.primary};
+      color: ${props => props.theme.sidebarMenuIconHover};
     }
     &:hover {
       .icon {
-        color: ${colors.primaryLight};
+        color: ${props => props.theme.sidebarMenuIconActiveHover};
       }
     }
   }

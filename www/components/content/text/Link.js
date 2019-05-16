@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-import { colors, fontWeight, fontStyle } from '../../../utils/Constants';
+import { fontWeight, fontStyle } from '../../../utils/Constants';
 
 export default styled.a`
-  color: ${colors.primaryDark};
+  color: ${props => props.theme.link};
   font-style: ${fontStyle.italic};
   font-weight: ${fontWeight.semibold};
   :hover {
-    color: ${colors.primaryDarker};
+    color: ${props => props.theme.linkHover};
   }
 `;

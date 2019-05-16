@@ -20,7 +20,7 @@ const StyledItem = styled.li`
         content: '';
         width: calc(100% - 12px);
         height: calc(100% + 10px);
-        background-color: ${colors.primaryDarkerLighten};
+        background-color: ${props => props.theme.primaryDarkerLighten};
         opacity: 0.2;
         position: absolute;
         top: -5px;
@@ -41,7 +41,7 @@ const OptionsWrapper = styled(Holder)`
     width: 2px;
     height: 100%;
     border-radius: 2px;
-    background-color: ${colors.primaryDarkerLighten};
+    background-color: ${props => props.theme.primaryDarkerLighten};
     opacity: 0.3;
     position: absolute;
     left: 0;
@@ -72,7 +72,7 @@ const Link = styled.a`
       content: '';
       width: calc(100% - 20px);
       height: calc(100% + 10px);
-      background-color: ${colors.primaryDarkerLighten};
+      background-color: ${props => props.theme.primaryDarkerLighten};
       opacity: 0.2;
       position: absolute;
       top: -5px;
@@ -88,14 +88,14 @@ const Text = styled.p`
   font-weight: ${fontWeight.regular};
   letter-spacing: 0.07em;
   font-size: ${fontSize.F12};
-  color: ${colors.primaryDarkerMed};
+  color: ${props => props.theme.primaryDarkerMed};
 `;
 
 const Name = styled.p`
   font-family: ${fontFamily.sansSerif};
   font-weight: ${fontWeight.bold};
   font-size: ${fontSize.F09};
-  color: ${colors.primaryDarkerMed};
+  color: ${props => props.theme.primaryDarkerMed};
   margin-bottom: 5px;
 `;
 

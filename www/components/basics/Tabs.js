@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {
-  colors,
   fontFamily,
   fontSize,
   fontWeight,
@@ -14,7 +13,7 @@ import Holder from '../layout/Holder';
 const Marker = styled.span`
   position: absolute;
   bottom: -2px;
-  border-bottom: 3px solid ${colors.primaryMed};
+  border-bottom: 3px solid ${props => props.theme.tabMarker};
   width: ${props => props.width};
   left: ${props => props.left};
   transition: all 1s ease;
@@ -46,7 +45,7 @@ Tab.propTypes = {
 };
 
 const TabsWrapper = styled(Holder)`
-  border-bottom: 2px solid ${colors.primaryLighter};
+  border-bottom: 2px solid ${props => props.theme.tabBorder};
   margin-bottom: 10px;
   padding-bottom: 10px;
   position: relative;
@@ -57,7 +56,7 @@ const TabWrapper = styled.button`
   text-transform: uppercase;
   font-weight: ${fontWeight.extrabold};
   letter-spacing: 0.05em;
-  color: ${colors.primaryDarkerLighten};
+  color: ${props => props.theme.tabText};
 
   ${maxMedia.maxMobile`
     font-size: ${fontSize.F10};
@@ -68,17 +67,19 @@ const TabWrapper = styled.button`
 
   &:hover,
   &.active {
-    color: ${colors.primaryMed};
+    color: ${props => props.theme.tabTextHover};
   }
   & + & {
     margin-left: 10px;
   }
 `;
 
+// TODO: Establecer marker inicial
+
 const Tabs = ({ tabs, initialTab }) => {
   const [activeTab, setActiveTab] = React.useState({
     text: initialTab || tabs[0],
-    marker: { width: '0px', left: '50%' }, // TODO: Establecer marker inicial
+    marker: { width: '0px', left: '50%' },
   });
   const [tempMarker, setTempMarker] = React.useState({
     text: '',

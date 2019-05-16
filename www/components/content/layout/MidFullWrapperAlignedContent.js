@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { maxMedia, minMedia, colors } from '../../../utils/Constants';
+import { maxMedia, minMedia } from '../../../utils/Constants';
 import Holder from '../../layout/Holder';
 
 export default styled(Holder)`
@@ -29,7 +29,7 @@ export default styled(Holder)`
         transform: translate(-50%, -50%);
         width: calc(100% + 50px);
         height: calc(100% + 50px);
-        border: 4px solid ${colors.greyMed};
+        border: 4px solid ${props => props.theme.editWrapperBorder};
         opacity: 0.3;
         border-radius: 10px;
       }

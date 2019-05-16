@@ -38,7 +38,7 @@ const VisibilityButton = styled(OptionButton)`
     width: 2px;
     border-radius: 1px;
     height: 15px;
-    background-color: ${colors.primaryDarkerLighten};
+    background-color: ${props => props.theme.primaryDarkerLighten};
     margin-right: 10px;
     opacity: 0.5;
   }

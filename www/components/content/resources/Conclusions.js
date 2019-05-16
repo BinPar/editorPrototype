@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { colors, fontSize, fontWeight } from '../../../utils/Constants';
+import { fontSize, fontWeight } from '../../../utils/Constants';
 import Subtitle from '../text/Subtitle';
 import FullWrapper from '../layout/FullWrapper';
 import Wrapper from '../layout/Wrapper';
@@ -9,13 +9,13 @@ import Paragraph from '../text/Paragraph';
 
 export const ConclusionItem = styled(Paragraph)`
   font-size: ${fontSize.F19};
-  color: ${colors.primaryDarker};
+  color: ${props => props.theme.highlightedText};
   font-weight: ${fontWeight.medium};
 `;
 
 const Full = styled(FullWrapper)`
   && {
-    background: ${colors.backgroundLightGreen};
+    background: ${props => props.theme.highlightedBg};
   }
 `;
 

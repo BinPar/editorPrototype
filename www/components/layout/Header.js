@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { withTheme } from 'styled-components';
 import {
-  colors, fontSize, fontWeight, minMedia, maxMedia, icon,
+  fontSize, fontWeight, minMedia, maxMedia, icon,
 } from '../../utils/Constants';
 import Holder from './Holder';
 import Paragraph from '../content/text/Paragraph';
@@ -29,7 +29,7 @@ const HeaderWrapper = styled.header`
 const Content = styled(Holder)`
   width: 100%;
   height: 65px;
-  background: ${colors.primaryDark};
+  background: ${props => props.theme.headerBg};
   padding: 0 20px;
   position: relative;
   ${maxMedia.maxMobile`
@@ -48,16 +48,16 @@ const TitleWrapper = styled(Holder)`
 `;
 
 const Module = styled(Paragraph)`
-  color: ${colors.white};
+  color: ${props => props.theme.headerModule};
   font-weight: ${fontWeight.bold};
   font-size: ${fontSize.F19};
 `;
 
 const Title = styled(Paragraph)`
-  color: ${colors.white};
+  color: ${props => props.theme.headerTitle};
   margin-top: 0;
   margin-left: 10px;
-  border-left: 1px solid ${colors.white};
+  border-left: 1px solid ${props => props.theme.headerTitleBorder};
   padding-left: 10px;
   hyphens: none;
   text-align: left;
@@ -117,7 +117,7 @@ const EditTools = styled(Holder)`
     width: 2px;
     height: 25px;
     border-radius: 2px;
-    background-color: ${colors.white};
+    background-color: ${props => props.theme.editToolsDivision};
     opacity: 0.3;
     position: absolute;
     left: 100%;
@@ -138,7 +138,7 @@ const PrintButton = styled(Button)`
   margin-right: 15px;
 `;
 
-const Header = ({ editing, author, ...props }) => (
+const Header = ({ editing, author, theme, ...props }) => (
   <HeaderWrapper {...props}>
     <Content>
       <TitleWrapper justify="start">
@@ -156,27 +156,27 @@ const Header = ({ editing, author, ...props }) => (
           <EditTools>
             <EditToolButton
               name={icon.clock}
-              color={colors.white}
-              hoverColor={colors.primaryLight}
+              color={theme.headerIcon}
+              hoverColor={theme.headerIconHover}
             />
             <EditToolButton
               name={icon.undo}
-              color={colors.white}
-              hoverColor={colors.primaryLight}
+              color={theme.headerIcon}
+              hoverColor={theme.headerIconHover}
             />
             <EditToolButton
               name={icon.redo}
-              color={colors.white}
-              hoverColor={colors.primaryLight}
+              color={theme.headerIcon}
+              hoverColor={theme.headerIconHover}
             />
           </EditTools>
         ) : null}
         <Holder>
           {author && (
-            <EditButton name={icon.edit} color={colors.white} hoverColor={colors.primaryLight} />
+            <EditButton name={icon.edit} color={theme.headerIcon} hoverColor={theme.headerIconHover} />
           )}
-          <PrintButton name={icon.print} color={colors.white} hoverColor={colors.primaryLight} />
-          <Button name={icon.bell} color={colors.white} hoverColor={colors.primaryLight} />
+          <PrintButton name={icon.print} color={theme.headerIcon} hoverColor={theme.headerIconHover} />
+          <Button name={icon.bell} color={theme.headerIcon} hoverColor={theme.headerIconHover} />
         </Holder>
       </Holder>
     </Content>
@@ -192,6 +192,7 @@ Header.defaultProps = {
 Header.propTypes = {
   editing: PropTypes.bool,
   author: PropTypes.bool,
+  theme: PropTypes.shape({}).isRequired,
 };
 
-export default Header;
+export default withTheme(Header);

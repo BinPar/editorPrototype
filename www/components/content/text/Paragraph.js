@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import {
-  colors, fontFamily, fontWeight, fontSize, minMedia, maxMedia,
+  fontFamily, fontWeight, fontSize, minMedia, maxMedia,
 } from '../../../utils/Constants';
 
 export default styled.p`
@@ -15,7 +15,7 @@ export default styled.p`
     line-height: ${fontSize.F32};
   `};
   text-align: justify;
-  color: ${colors.greyDarker};
+  color: ${props => props.theme.paragraph};
   font-family: ${fontFamily.serif};
   font-weight: ${fontWeight.regular};
   user-select: auto;

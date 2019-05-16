@@ -32,11 +32,11 @@ const Cover = styled.div`
 const Swatch = styled.button`
   margin-left: 5px;
   padding: 4px;
-  background-color: ${colors.white};
+  background-color: ${props => props.theme.white};
   border-radius: 50%;
   width: 25px;
   height: 25px;
-  border: 2px solid ${colors.greyMed};
+  border: 2px solid ${props => props.theme.greyMed};
 `;
 
 const Color = styled.span`
@@ -56,7 +56,7 @@ const Label = styled.p`
   text-transform: uppercase;
   font-weight: ${fontWeight.black};
   font-size: ${fontSize.F11};
-  color: ${colors.primaryDarkerLighten};
+  color: ${props => props.theme.primaryDarkerLighten};
   letter-spacing: 0.08em;
 `;
 

@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { colors } from '../../utils/Constants';
-import Icon from './Icon';
+import styled, { withTheme } from 'styled-components';
+import Icon from '../Icon';
 
 const Button = styled.button`
   &:hover {
     .icon {
-      color: ${colors.primary}
+      color: ${props => props.theme.tooltipIconActive};
     }
   }
   &.disabled {
@@ -16,12 +15,14 @@ const Button = styled.button`
   }
   ~ * {
     margin-left: 10px;
-  };
+  }
 `;
 
-export const TooltipButton = ({ active, disabled, name }) => (
+const TooltipButton = ({
+  active, disabled, name, theme,
+}) => (
   <Button className={disabled ? 'disabled' : ''}>
-    <Icon name={name} color={active ? colors.primary : colors.white} />
+    <Icon name={name} color={active ? theme.tooltipIconActive : theme.tooltipIcon} />
   </Button>
 );
 
@@ -34,6 +35,7 @@ TooltipButton.propTypes = {
   disabled: PropTypes.bool,
   active: PropTypes.bool,
   name: PropTypes.string.isRequired,
+  theme: PropTypes.shape({}).isRequired,
 };
 
-export default TooltipButton;
+export default withTheme(TooltipButton);

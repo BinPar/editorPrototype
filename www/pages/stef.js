@@ -7,7 +7,7 @@ import Content from '../components/Content';
 import Footer from '../components/layout/Footer';
 import Sidebar from '../components/layout/Sidebar';
 import Holder from '../components/layout/Holder';
-import { maxMedia, minMedia, colors } from '../utils/Constants';
+import { maxMedia, minMedia, themes } from '../utils/Constants';
 
 const maxTablet = maxMedia.maxTablet`
   overflow-x: hidden;
@@ -15,7 +15,7 @@ const maxTablet = maxMedia.maxTablet`
 
 const MainLayout = styled.div`
   position: relative;
-  background-color: white;
+  background-color: ${props => props.theme.bodyBg};
   ${maxTablet}
 `;
 
@@ -67,7 +67,7 @@ const testPage = () => {
   };
   const sidebarOpen = !!activeTab;
   return (
-    <ThemeProvider theme={colors.darkTheme}>
+    <ThemeProvider theme={themes.defaultTheme}>
       <MainLayout>
         <Head>
           <title>Editor</title>

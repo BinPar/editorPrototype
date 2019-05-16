@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import Wrapper from './Wrapper';
 import FullWrapperAlignedContent from './FullWrapperAlignedContent';
-import { colors } from '../../../utils/Constants';
 
 const alignment = {
   left: css`
@@ -34,7 +33,7 @@ const CenteredContent = styled.div`
         transform: translate(-50%, -50%);
         width: calc(100% + 50px);
         height: calc(100% + 50px);
-        border: 4px solid ${colors.greyMed};
+        border: 4px solid ${props => props.theme.editWrapperBorder};
         opacity: 0.3;
         border-radius: 10px;
         pointer-events: none;

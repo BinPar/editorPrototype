@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { inputSize } from '../../utils/Constants';
 import TextInput from './TextInput';
-import RadioInput from './RadioInput';
 import CheckInput from './CheckInput';
 import Textarea from './Textarea';
 import Search from './Search';
@@ -16,9 +15,6 @@ const renderInput = (input, className, props = {}) => {
     }
     case 'check': {
       return <CheckInput {...props} />;
-    }
-    case 'radio': {
-      return <RadioInput {...props} />;
     }
     case 'search': {
       return <Search {...props} />;

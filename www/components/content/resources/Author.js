@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {
-  colors, fontSize, fontWeight, fontFamily,
+  fontSize, fontWeight, fontFamily,
 } from '../../../utils/Constants';
 import Holder from '../../layout/Holder';
 
@@ -12,7 +12,7 @@ const AuthorWrapper = styled(Holder)`
 
 const Name = styled.p`
   font-family: ${fontFamily.serif};
-  color: ${colors.primaryDark};
+  color: ${props => props.theme.authorName};
   font-size: ${fontSize.F15};
   font-weight: ${fontWeight.semibold};
   line-height: ${fontSize.F15};
@@ -22,7 +22,7 @@ const Date = styled.p`
   font-family: ${fontFamily.sansSerif};
   font-size: ${fontSize.F11};
   line-height: ${fontSize.F11};
-  color: ${colors.greyMed};
+  color: ${props => props.theme.authorDate};
   font-weight: ${fontWeight.bold};
   margin-top: 5px;
 `;

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { withTheme } from 'styled-components';
 import {
-  colors, fontFamily, fontWeight, fontSize, icon,
+  fontFamily, fontWeight, fontSize, icon,
 } from '../../../../../utils/Constants';
 import Holder from '../../../../layout/Holder';
 import Button from '../../../../basics/Button';
@@ -184,14 +184,14 @@ const Calendar = ({ theme }) => (
       <Holder>
         <ArrowButton
           name={icon.longArrowLeft}
-          color={colors.primaryDarkerLighten}
-          hoverColor={colors.primaryDarkerMed}
+          color={theme.calendarArrow}
+          hoverColor={theme.calendarArrowHover}
           size={fontSize.F20}
         />
         <Button
           name={icon.longArrowRight}
-          color={colors.primaryDarkerLighten}
-          hoverColor={colors.primaryDarkerMed}
+          color={theme.calendarArrow}
+          hoverColor={theme.calendarArrowHover}
           size={fontSize.F20}
         />
       </Holder>

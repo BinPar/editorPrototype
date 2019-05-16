@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {
-  colors, fontFamily, fontWeight, fontSize,
+  fontFamily, fontWeight, fontSize,
 } from '../../../../../utils/Constants';
 import Holder from '../../../../layout/Holder';
 
@@ -13,7 +13,7 @@ const Text = styled.p`
   font-family: ${fontFamily.sansSerif};
   font-weight: ${fontWeight.black};
   text-transform: uppercase;
-  color: ${props => props.theme.primaryDarkerMed};
+  color: ${props => props.theme.calendarDateText};
 `;
 const Day = styled(Text)`
   font-size: ${fontSize.F45};

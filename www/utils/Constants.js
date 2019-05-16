@@ -293,6 +293,9 @@ export const themes = {
     calendarCurrentDayHover: colors.primaryDarker,
     calendarActiveDay: colors.primary,
     calendarActiveDayHover: colors.primaryLight,
+    calendarArrow: colors.primaryDarkerLighten,
+    calendarArrowHover: colors.primaryDarkerMed,
+    calendarDateText: colors.primaryDarkerMed,
 
     // HEADER
 
@@ -342,7 +345,7 @@ export const themes = {
 
     // BACKGROUNDS
 
-    bodyBg: colors.white,
+    bodyBg: '#1A2026',
 
     // ICON
 
@@ -405,9 +408,9 @@ export const themes = {
 
     // TEXT
 
-    title: colors.greyDarker,
-    subtitle: colors.greyDarker,
-    paragraph: colors.greyDarker,
+    title: '#BFC8C9',
+    subtitle: '#BFC8C9',
+    paragraph: '#BFC8C9',
     listDecoration: colors.secondary,
 
     // LINK
@@ -416,8 +419,8 @@ export const themes = {
     linkHover: colors.primaryDarker,
 
     // HIGHLIGHTED
-    highlightedBg: colors.greyLighter,
-    highlightedText: colors.primaryDarker,
+    highlightedBg: '#2C3640',
+    highlightedText: '#7F9194',
 
     // TABLE
 
@@ -476,7 +479,7 @@ export const themes = {
 
     // SIDEBAR
 
-    sidebarBg: colors.primaryLightest,
+    sidebarBg: '#0E1113',
     sidebarScroll: colors.primaryLighter,
     sidebarScrollHover: colors.primary,
 

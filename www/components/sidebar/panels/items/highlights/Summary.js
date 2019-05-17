@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { withTheme } from 'styled-components';
 import {
-  colors, fontSize, fontFamily, fontWeight, icon,
+  fontSize, fontFamily, fontWeight, icon,
 } from '../../../../../utils/Constants';
 import Holder from '../../../../layout/Holder';
 import Button from '../../../../basics/Button';
@@ -17,7 +17,7 @@ const SummaryWrapper = styled.div`
 const Name = styled.p`
   font-family: ${fontFamily.sansSerif};
   background-color: ${props => props.color};
-  color: ${props => props.textColor || colors.greyDarker};
+  color: ${props => props.textColor || props.theme.highlightSummaryText};
   padding: 7px 10px;
   margin-left: 15px;
   font-weight: ${fontWeight.semibold};
@@ -38,7 +38,7 @@ const VisibilityButton = styled(OptionButton)`
     width: 2px;
     border-radius: 1px;
     height: 15px;
-    background-color: ${props => props.theme.primaryDarkerLighten};
+    background-color: ${props => props.theme.highlightSummaryOptionsDivision};
     margin-right: 10px;
     opacity: 0.5;
   }
@@ -46,7 +46,9 @@ const VisibilityButton = styled(OptionButton)`
 
 // SUMMARY
 
-const Summary = ({ color, name, ...props }) => (
+const Summary = ({
+  color, name, theme, ...props
+}) => (
   <SummaryWrapper>
     <Holder>
       <Icon name={icon.highlight} color={color} size={fontSize.F19} />
@@ -57,21 +59,21 @@ const Summary = ({ color, name, ...props }) => (
     <Holder>
       <OptionButton
         name={icon.editSmall}
-        color={colors.primaryDarkerLighten}
+        color={theme.highlightSummaryOptionIcon}
         size={fontSize.F15}
-        hoverColor={colors.primaryDarkerMed}
+        hoverColor={theme.highlightSummaryOptionIconHover}
       />
       <OptionButton
         name={icon.trash}
-        color={colors.primaryDarkerLighten}
+        color={theme.highlightSummaryOptionIcon}
         size={fontSize.F15}
-        hoverColor={colors.primaryDarkerMed}
+        hoverColor={theme.highlightSummaryOptionIconHover}
       />
       <VisibilityButton
         name={icon.eye}
-        color={colors.primaryDarkerLighten}
+        color={theme.highlightSummaryOptionIcon}
         size={fontSize.F15}
-        hoverColor={colors.primaryDarkerMed}
+        hoverColor={theme.highlightSummaryOptionIconHover}
       />
     </Holder>
   </SummaryWrapper>
@@ -82,6 +84,7 @@ Summary.defaultProps = {};
 Summary.propTypes = {
   color: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  theme: PropTypes.shape({}).isRequired,
 };
 
-export default Summary;
+export default withTheme(Summary);

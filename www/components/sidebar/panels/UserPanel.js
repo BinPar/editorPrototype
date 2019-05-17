@@ -1,15 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { withTheme } from 'styled-components';
 import {
-  colors, fontSize, fontWeight, fontStyle, minMedia, icon, fontFamily,
+  fontSize, fontWeight, icon, fontFamily,
 } from '../../../utils/Constants';
 import Panel from './Panel';
 import UserProgress from './items/user/UserProgress';
 import UserMedals from './items/user/UserMedals';
 import Holder from '../../layout/Holder';
 import Button from '../../basics/Button';
-import Icon from '../../basics/Icon';
 
 const PanelWrapper = styled(Panel)``;
 
@@ -18,7 +17,7 @@ const ProfilePicture = styled.div`
   height: 145px;
   border-radius: 50%;
   overflow: hidden;
-  border: 3px solid ${props => props.theme.primaryDarkerLighten};
+  border: 3px solid ${props => props.theme.userImageBorder};
   padding: 5px;
   margin-bottom: 10px;
 `;
@@ -42,7 +41,7 @@ const Username = styled.p`
   font-family: ${fontFamily.sansSerif};
   font-weight: ${fontWeight.extrabold};
   font-size: ${fontSize.F16};
-  color: ${props => props.theme.primaryDark};
+  color: ${props => props.theme.userName};
   margin-bottom: 10px;
 `;
 
@@ -51,21 +50,21 @@ const UserRole = styled.p`
   text-transform: uppercase;
   font-weight: ${fontWeight.semibold};
   font-size: ${fontSize.F11};
-  color: ${props => props.theme.primaryDark};
+  color: ${props => props.theme.userRole};
 `;
 
-const UserPanel = () => (
+const UserPanel = ({ theme }) => (
   <PanelWrapper>
     <Options justify="between">
       <Button
         name={icon.logout}
-        color={colors.primaryDarkerLighten}
-        hoverColor={colors.primaryDarkerMed}
+        color={theme.itemIcon}
+        hoverColor={theme.itemIconHover}
       />
       <Button
         name={icon.settings}
-        color={colors.primaryDarkerLighten}
-        hoverColor={colors.primaryDarkerMed}
+        color={theme.itemIcon}
+        hoverColor={theme.itemIconHover}
       />
     </Options>
     <UserInfo column>
@@ -82,6 +81,8 @@ const UserPanel = () => (
 
 UserPanel.defaultProps = {};
 
-UserPanel.propTypes = {};
+UserPanel.propTypes = {
+  theme: PropTypes.shape({}).isRequired,
+};
 
-export default UserPanel;
+export default withTheme(UserPanel);

@@ -14,7 +14,7 @@ import Block from './content/resources/Block';
 import { Targets, TargetItem } from './content/resources/Targets';
 import { Conclusions, ConclusionItem } from './content/resources/Conclusions';
 import { BulletList, ListItem, OrderedList } from './content/text/List';
-import { colors, icon } from '../utils/Constants';
+import { icon } from '../utils/Constants';
 import {
   Table, Header, Row, CellHeader, Text, Body, Cell,
 } from './content/resources/Table';
@@ -29,6 +29,10 @@ const Ejercicio = styled.iframe`
   border: none;
   height: 830px;
   width: 100%;
+  background: ${props => props.theme.bodyBg};
+  #preso {
+    background: ${props => props.theme.bodyBg};
+  }
 `;
 const ContentWrapper = styled.section`
   padding: 0 0 70px;

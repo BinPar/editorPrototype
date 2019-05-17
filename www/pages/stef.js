@@ -7,7 +7,8 @@ import Content from '../components/Content';
 import Footer from '../components/layout/Footer';
 import Sidebar from '../components/layout/Sidebar';
 import Holder from '../components/layout/Holder';
-import { maxMedia, minMedia, themes } from '../utils/Constants';
+import { maxMedia, minMedia } from '../utils/Constants';
+import themes from '../utils/Themes';
 
 const maxTablet = maxMedia.maxTablet`
   overflow-x: hidden;
@@ -17,6 +18,7 @@ const MainLayout = styled.div`
   position: relative;
   background-color: ${props => props.theme.bodyBg};
   ${maxTablet}
+  
 `;
 
 const Wrapper = styled(Holder)`
@@ -38,6 +40,22 @@ const ContentWrapper = styled.div`
     margin-top: 65px;
     height: calc(100% - 65px);
   `}
+  &::-webkit-scrollbar-track {
+    background-color: ${props => props.theme.bodyBg};
+  }
+  &::-webkit-scrollbar-thumb {
+    background: ${props => props.theme.bodyScroll};
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: ${props => props.theme.bodyScrollHover};
+  }
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    * {
+      -ms-scrollbar-highlight-color: ${props => props.theme.bodyScrollHover};
+      -ms-scrollbar-arrow-color: ${props => props.theme.bodyScroll};
+      -ms-scrollbar-face-color: ${props => props.theme.bodyScroll};
+    }
+  }
 `;
 
 const testPage = () => {
@@ -67,7 +85,7 @@ const testPage = () => {
   };
   const sidebarOpen = !!activeTab;
   return (
-    <ThemeProvider theme={themes.defaultTheme}>
+    <ThemeProvider theme={themes.dark}>
       <MainLayout>
         <Head>
           <title>Editor</title>

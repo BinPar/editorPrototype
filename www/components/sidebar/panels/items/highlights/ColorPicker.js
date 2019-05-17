@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { ChromePicker } from 'react-color';
 import styled from 'styled-components';
-import { colors, fontFamily, fontWeight, fontSize } from '../../../../../utils/Constants';
+import { fontFamily, fontWeight, fontSize } from '../../../../../utils/Constants';
 import Holder from '../../../../layout/Holder';
 
 const ColorPickerWrapper = styled(Holder)`
@@ -32,11 +32,11 @@ const Cover = styled.div`
 const Swatch = styled.button`
   margin-left: 5px;
   padding: 4px;
-  background-color: ${props => props.theme.white};
+  background-color: ${props => props.theme.swatchBg};
   border-radius: 50%;
   width: 25px;
   height: 25px;
-  border: 2px solid ${props => props.theme.greyMed};
+  border: 2px solid ${props => props.theme.swatchBorder};
 `;
 
 const Color = styled.span`
@@ -56,7 +56,7 @@ const Label = styled.p`
   text-transform: uppercase;
   font-weight: ${fontWeight.black};
   font-size: ${fontSize.F11};
-  color: ${props => props.theme.primaryDarkerLighten};
+  color: ${props => props.theme.swatchLabel};
   letter-spacing: 0.08em;
 `;
 

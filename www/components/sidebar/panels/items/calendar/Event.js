@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import {
-  colors, fontFamily, fontWeight, fontSize,
+  fontFamily, fontWeight, fontSize,
 } from '../../../../../utils/Constants';
 import Holder from '../../../../layout/Holder';
 
@@ -23,20 +23,20 @@ const Title = styled(Text)`
   font-size: ${fontSize.F11};
   margin-bottom: 10px;
   text-transform: uppercase;
-  color: ${props => props.theme.primaryDarkerMed};
+  color: ${props => props.theme.calendarEventTitle};
 `;
 
 const type = {
   evaluation: css`
-    border-color: ${props => props.theme.secondary};
+    border-color: ${props => props.theme.calendarCalendarTypeBorder};
     ${TypeTitle} {
-      color: ${props => props.theme.secondaryDark};
+      color: ${props => props.theme.calendarCalendarTypeTitle};
     }
   `,
   event: css`
-    border-color: ${props => props.theme.primary};
+    border-color: ${props => props.theme.calendarEventTypeBorder};
     ${TypeTitle} {
-      color: ${props => props.theme.primaryDark};
+      color: ${props => props.theme.calendarEventTypeTitle};
     }
   `,
 };
@@ -54,7 +54,7 @@ const EventWrapper = styled(Holder)`
 
 const Description = styled(Text)`
   font-size: ${fontSize.F12};
-  color: ${props => props.theme.primaryDarkerMed};
+  color: ${props => props.theme.calendarEventDescription};
   font-weight: ${fontWeight.semibold};
 `;
 

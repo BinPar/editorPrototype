@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { withTheme } from 'styled-components';
 import {
-  colors, fontSize, fontFamily, fontWeight, icon,
+  fontSize, fontFamily, fontWeight, icon,
 } from '../../../../utils/Constants';
 import Holder from '../../../layout/Holder';
 import Button from '../../../basics/Button';
@@ -20,13 +20,18 @@ const StyledItem = styled.li`
         content: '';
         width: calc(100% - 12px);
         height: calc(100% + 10px);
-        background-color: ${props => props.theme.primaryDarkerLighten};
+        background-color: ${props => props.theme.itemLinkHoverBg};
         opacity: 0.2;
         position: absolute;
         top: -5px;
         left: 12px;
         right: 0;
         pointer-events: none;
+      }
+      &:hover {
+        &:after {
+          background-color: ${props => props.theme.itemLinkActiveHoverBg};
+        }
       }
     }
   }
@@ -41,7 +46,7 @@ const OptionsWrapper = styled(Holder)`
     width: 2px;
     height: 100%;
     border-radius: 2px;
-    background-color: ${props => props.theme.primaryDarkerLighten};
+    background-color: ${props => props.theme.itemDivision};
     opacity: 0.3;
     position: absolute;
     left: 0;
@@ -51,7 +56,6 @@ const OptionsWrapper = styled(Holder)`
 
 const DeleteButton = styled(Button)`
 `;
-
 
 const TypeIcon = styled(Icon)`
   margin-top: -1px;
@@ -72,7 +76,7 @@ const Link = styled.a`
       content: '';
       width: calc(100% - 20px);
       height: calc(100% + 10px);
-      background-color: ${props => props.theme.primaryDarkerLighten};
+      background-color: ${props => props.theme.itemLinkHoverBg};
       opacity: 0.2;
       position: absolute;
       top: -5px;
@@ -88,19 +92,19 @@ const Text = styled.p`
   font-weight: ${fontWeight.regular};
   letter-spacing: 0.07em;
   font-size: ${fontSize.F12};
-  color: ${props => props.theme.primaryDarkerMed};
+  color: ${props => props.theme.itemText};
 `;
 
 const Name = styled.p`
   font-family: ${fontFamily.sansSerif};
   font-weight: ${fontWeight.bold};
   font-size: ${fontSize.F09};
-  color: ${props => props.theme.primaryDarkerMed};
+  color: ${props => props.theme.itemName};
   margin-bottom: 5px;
 `;
 
 const HighlightItem = ({
-  active, route, text, name, textColor, ...props
+  active, route, text, name, textColor, theme, ...props
 }) => (
   <StyledItem className={`${active ? ' active' : ''} `}>
     <TypeIcon color={textColor} name={icon.highlight} size={fontSize.F12} {...props} />
@@ -113,8 +117,8 @@ const HighlightItem = ({
     <OptionsWrapper column justify="start">
       <DeleteButton
         name={icon.trash}
-        color={colors.primaryDarkerLighten}
-        hoverColor={colors.primaryDarkerMed}
+        color={theme.itemIcon}
+        hoverColor={theme.itemIconHover}
         size={fontSize.F16}
       />
     </OptionsWrapper>
@@ -132,6 +136,7 @@ HighlightItem.propTypes = {
   text: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   textColor: PropTypes.string.isRequired,
+  theme: PropTypes.shape({}).isRequired,
 };
 
-export default HighlightItem;
+export default withTheme(HighlightItem);

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { withTheme } from 'styled-components';
 import {
-  colors, fontSize, fontFamily, fontWeight, icon,
+  fontSize, fontFamily, fontWeight, icon,
 } from '../../../../utils/Constants';
 import Holder from '../../../layout/Holder';
 import Button from '../../../basics/Button';
@@ -22,13 +22,18 @@ const StyledItem = styled(Holder)`
         content: '';
         width: ${props => (props.editing ? 'calc(100% - 35px)' : 'calc(100% - 12px)')};
         height: calc(100% + 10px);
-        background-color: ${props => props.theme.primaryDarkerLighten};
+        background-color: ${props => props.theme.itemLinkHoverBg};
         opacity: 0.2;
         position: absolute;
         top: -5px;
         left: ${props => (props.editing ? '35px' : '12px')};
         right: 0;
         pointer-events: none;
+      }
+      &:hover {
+        &:after {
+          background-color: ${props => props.theme.itemLinkActiveHoverBg};
+        }
       }
     }
   }
@@ -59,7 +64,7 @@ const ExpandButton = styled(Button)`
     cursor: default;
     &:hover {
       .icon {
-        color: ${props => props.theme.primaryDarkerLighten}
+        color: ${props => props.theme.itemIcon}
       }
     }
   }
@@ -80,7 +85,7 @@ const Link = styled.a`
       content: '';
       width: ${props => (props.editing ? 'calc(100% - 35px)' : 'calc(100% - 12px)')};
       height: calc(100% + 10px);
-      background-color: ${props => props.theme.primaryDarkerLighten};
+      background-color: ${props => props.theme.itemLinkHoverBg};
       opacity: 0.2;
       position: absolute;
       top: -5px;
@@ -102,7 +107,7 @@ const Link = styled.a`
 
 const Section = styled.p`
   font-family: ${fontFamily.sansSerif};
-  color: ${props => props.theme.primaryDarkerLighten};
+  color: ${props => props.theme.itemSection};
   text-transform: uppercase;
   font-weight: ${fontWeight.extrabold};
   margin-bottom: 5px;
@@ -125,7 +130,7 @@ const LevelThreeTitle = styled.p`
   font-weight: ${fontWeight.semibold};
   letter-spacing: 0.07em;
   font-size: ${fontSize.F12};
-  color: ${props => props.theme.primaryDarkerMed};
+  color: ${props => props.theme.itemLevelThree};
 `;
 
 const LockedDate = styled(Holder)`
@@ -143,7 +148,7 @@ const Date = styled.p`
   font-family: ${fontFamily.sansSerif};
   font-weight: ${fontWeight.black};
   font-size: ${fontSize.F09};
-  color: ${props => props.theme.primaryLight};
+  color: ${props => props.theme.itemUnlockDate};
   text-transform: uppercase;
 `;
 
@@ -162,7 +167,7 @@ const Item = ({
   text,
   open,
   module,
-  theme,
+  levelTheme,
   evaluation,
   progress,
   count,
@@ -171,26 +176,27 @@ const Item = ({
   editing,
   day,
   month,
+  theme,
 }) => (
   <StyledItem justify="start" align="start" className={`${active ? ' active' : ''} `}>
     {editing && (
       <DragButton
         name={icon.drag}
-        color={colors.primaryDarkerLighten}
-        hoverColor={colors.primaryDarkerMed}
+        color={theme.itemIcon}
+        hoverColor={theme.itemIconHover}
         size={fontSize.F16}
       />
     )}
     {hasChildren ? (
       <ExpandButton
         name={open ? icon.minimize : icon.maximize}
-        color={colors.primaryDarkerLighten}
-        hoverColor={colors.primaryDarkerMed}
+        color={theme.itemIcon}
+        hoverColor={theme.itemIconHover}
         size={fontSize.F20}
         className={`${locked && !editing ? ' locked' : ''}`}
       />
     ) : (
-      <TypeIcon color={colors.primaryDarkerLighten} name={type} size={fontSize.F16} />
+      <TypeIcon color={theme.itemIcon} name={type} size={fontSize.F16} />
     )}
     {editing ? (
       <ItemHolder justify="start">
@@ -203,16 +209,16 @@ const Item = ({
             </Module>,
             <Title className="levelOne" editing title={text} />,
           ]}
-          {theme && [
+          {levelTheme && [
             <Theme>
               Tema
               {' '}
-              {theme}
+              {levelTheme}
             </Theme>,
             <Title className="levelTwo" editing title={text} />,
           ]}
           {evaluation && <Evaluation>Evaluación</Evaluation>}
-          {module || theme || evaluation ? null : <LevelThreeTitle>{text}</LevelThreeTitle>}
+          {module || levelTheme || evaluation ? null : <LevelThreeTitle>{text}</LevelThreeTitle>}
         </ItemWrapper>
       </ItemHolder>
     ) : (
@@ -227,21 +233,21 @@ const Item = ({
             </Module>,
             <Title className="levelOne" title={text} />,
           ]}
-          {theme && [
+          {levelTheme && [
             <Theme>
               Tema
               {' '}
-              {theme}
+              {levelTheme}
             </Theme>,
             <Title className="levelTwo" title={text} />,
           ]}
           {evaluation && <Evaluation>Evaluación</Evaluation>}
-          {module || theme || evaluation ? null : <LevelThreeTitle>{text}</LevelThreeTitle>}
+          {module || levelTheme || evaluation ? null : <LevelThreeTitle>{text}</LevelThreeTitle>}
         </Holder>
         {progress && !editing && <CircleProgressBar progress={progress} />}
         {locked && !editing && (
           <LockedDate column>
-            <Lock name={icon.lock} color={colors.primaryLight} />
+            <Lock name={icon.lock} color={theme.itemLockIcon} />
             <Date>
               {day}
               {' '}
@@ -253,17 +259,17 @@ const Item = ({
       </Link>
     )}
     {editing
-      && (module || theme) && [
+      && (module || levelTheme) && [
         <DeleteButton
           name={icon.trash}
-          color={colors.primaryDarkerLighten}
-          hoverColor={colors.primaryDarkerMed}
+          color={theme.itemIcon}
+          hoverColor={theme.itemIconHover}
           size={fontSize.F15}
         />,
         <CalendarButton
           name={icon.calendar}
-          color={colors.primaryDarkerLighten}
-          hoverColor={colors.primaryDarkerMed}
+          color={theme.itemIcon}
+          hoverColor={theme.itemIconHover}
           size={fontSize.F15}
         />,
     ]}
@@ -278,7 +284,7 @@ Item.defaultProps = {
   type: '',
   text: '',
   module: null,
-  theme: null,
+  levelTheme: null,
   evaluation: false,
   editing: false,
   locked: false,
@@ -296,7 +302,7 @@ Item.propTypes = {
   type: PropTypes.string,
   text: PropTypes.string,
   module: PropTypes.number,
-  theme: PropTypes.number,
+  levelTheme: PropTypes.number,
   evaluation: PropTypes.bool,
   progress: PropTypes.string,
   day: PropTypes.number,
@@ -304,6 +310,7 @@ Item.propTypes = {
   editing: PropTypes.bool,
   locked: PropTypes.bool,
   count: PropTypes.number,
+  theme: PropTypes.shape({}).isRequired,
 };
 
-export default Item;
+export default withTheme(Item);

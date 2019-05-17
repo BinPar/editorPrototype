@@ -2,11 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {
-  colors, fontSize, fontFamily, fontWeight,
+  fontSize, fontFamily, fontWeight,
 } from '../../../../utils/Constants';
 import Holder from '../../../layout/Holder';
-import Button from '../../../basics/Button';
-import Icon from '../../../basics/Icon';
 
 const StyledItem = styled.li`
   display: flex;
@@ -20,7 +18,7 @@ const StyledItem = styled.li`
         content: '';
         width: calc(100% - 12px);
         height: calc(100% + 10px);
-        background-color: ${props => props.theme.primaryDarkerLighten};
+        background-color: ${props => props.theme.itemLinkActiveHoverBg};
         opacity: 0.2;
         position: absolute;
         top: -5px;
@@ -41,7 +39,7 @@ const Link = styled.a`
       content: '';
       width: 100%;
       height: calc(100% + 10px);
-      background-color: ${props => props.theme.primaryDarkerLighten};
+      background-color: ${props => props.theme.itemLinkHoverBg};
       opacity: 0.2;
       position: absolute;
       top: -5px;
@@ -62,7 +60,7 @@ const Text = styled.p`
   font-weight: ${fontWeight.regular};
   letter-spacing: 0.07em;
   font-size: ${fontSize.F12};
-  color: ${props => props.theme.primaryDarkerMed};
+  color: ${props => props.theme.itemText};
 
   display: block;
   display: -webkit-box;
@@ -106,10 +104,10 @@ const Title = styled.p`
   font-family: ${fontFamily.sansSerif};
   font-weight: ${fontWeight.semibold};
   font-size: ${fontSize.F12};
-  color: ${props => props.theme.primaryDarker};
+  color: ${props => props.theme.itemName};
   margin-bottom: 10px;
   padding-bottom: 10px;
-  border-bottom: 1px solid ${props => props.theme.primaryDarkerLighten};
+  border-bottom: 1px solid ${props => props.theme.itemNameBorder};
 `;
 
 const ResourceItem = ({

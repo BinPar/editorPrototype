@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { withTheme } from 'styled-components';
 import {
   colors, fontSize, fontFamily, fontWeight, icon,
 } from '../../../../utils/Constants';
@@ -20,13 +20,18 @@ const StyledItem = styled.li`
         content: '';
         width: calc(100% - 12px);
         height: calc(100% + 10px);
-        background-color: ${props => props.theme.primaryDarkerLighten};
+        background-color: ${props => props.theme.itemLinkHoverBg};
         opacity: 0.2;
         position: absolute;
         top: -5px;
         left: 12px;
         right: 0;
         pointer-events: none;
+      }
+      &:hover {
+        &:after {
+          background-color: ${props => props.theme.itemLinkActiveHoverBg};
+        }
       }
     }
   }
@@ -41,7 +46,7 @@ const OptionsWrapper = styled(Holder)`
     width: 2px;
     height: 100%;
     border-radius: 2px;
-    background-color: ${props => props.theme.primaryDarkerLighten};
+    background-color: ${props => props.theme.itemDivision};
     opacity: 0.3;
     position: absolute;
     left: 0;
@@ -69,7 +74,7 @@ const Link = styled.a`
       content: '';
       width: calc(100% - 20px);
       height: calc(100% + 10px);
-      background-color: ${props => props.theme.primaryDarkerLighten};
+      background-color: ${props => props.theme.itemLinkHoverBg};
       opacity: 0.2;
       position: absolute;
       top: -5px;
@@ -85,22 +90,22 @@ const Text = styled.p`
   font-weight: ${fontWeight.regular};
   letter-spacing: 0.07em;
   font-size: ${fontSize.F12};
-  color: ${props => props.theme.primaryDarkerMed};
+  color: ${props => props.theme.itemText};
 `;
 
 const Date = styled.p`
   font-family: ${fontFamily.sansSerif};
   font-weight: ${fontWeight.bold};
   font-size: ${fontSize.F09};
-  color: ${props => props.theme.primaryDarkerMed};
+  color: ${props => props.theme.itemDate};
   margin-bottom: 10px;
 `;
 
 const DoubtItem = ({
-  active, route, text, date,
+  active, route, text, date, theme,
 }) => (
   <StyledItem className={`${active ? ' active' : ''} `}>
-    <TypeIcon color={colors.primaryDarkerLighten} name={icon.doubt} size={fontSize.F16} />
+    <TypeIcon color={theme.itemIcon} name={icon.doubt} size={fontSize.F16} />
     <Link href={route}>
       <Holder column justify="start" align="start">
         <Date>{date}</Date>
@@ -110,8 +115,8 @@ const DoubtItem = ({
     <OptionsWrapper column justify="start">
       <DeleteButton
         name={icon.trash}
-        color={colors.primaryDarkerLighten}
-        hoverColor={colors.primaryDarkerMed}
+        color={theme.itemIcon}
+        hoverColor={theme.itemIconHover}
         size={fontSize.F16}
       />
     </OptionsWrapper>
@@ -128,6 +133,7 @@ DoubtItem.propTypes = {
   route: PropTypes.string,
   text: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
+  theme: PropTypes.shape({}).isRequired,
 };
 
-export default DoubtItem;
+export default withTheme(DoubtItem);

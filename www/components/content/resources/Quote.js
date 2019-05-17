@@ -90,6 +90,7 @@ const maxMobileFont = maxMedia.maxMobile`
 const QuoteMid = styled(QuoteText)`
   ${maxMobileFont}
   ${minTabletFont}
+  color: ${props => props.theme.quoteMidText};
   margin-left: 30px;
 `;
 

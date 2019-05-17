@@ -42,7 +42,7 @@ const IndexPanel = ({ editing }) => (
       >
         <ItemGroup>
           <ItemWrapper
-            theme={1}
+            levelTheme={1}
             text="Anatomía ecográfica hepática. Normalidad y variantes morfológicas"
             hasChildren
             open
@@ -74,7 +74,7 @@ const IndexPanel = ({ editing }) => (
             </ItemGroup>
           </ItemWrapper>
           <ItemWrapper
-            theme={2}
+            levelTheme={2}
             text="Patología hepática. Alteraciones focales y difusas"
             hasChildren
             locked
@@ -83,7 +83,7 @@ const IndexPanel = ({ editing }) => (
             editing={editing}
           />
           <ItemWrapper
-            theme={3}
+            levelTheme={3}
             text="Anatomía ecográfica de la vesícula y vía biliar. Normalidad y variantes morfológicas"
             hasChildren
             locked
@@ -92,7 +92,7 @@ const IndexPanel = ({ editing }) => (
             editing={editing}
           />
           <ItemWrapper
-            theme={4}
+            levelTheme={4}
             text="Patología vesícula y vías biliares: obstructiva y tumoral"
             hasChildren
             locked

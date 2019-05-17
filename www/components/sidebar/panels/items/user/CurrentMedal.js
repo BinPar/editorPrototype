@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { withTheme } from 'styled-components';
 import {
-  colors, icon, fontFamily, fontWeight, fontSize,
+  fontFamily, fontWeight, fontSize,
 } from '../../../../../utils/Constants';
 import Icon from '../../../../basics/Icon';
 import Holder from '../../../../layout/Holder';
@@ -25,7 +25,7 @@ const Name = styled.p`
   text-transform: uppercase;
   font-weight: ${fontWeight.black};
   font-size: ${fontSize.F11};
-  color: ${props => props.theme.primaryDarker};
+  color: ${props => props.theme.medalName};
   margin-bottom: 5px;
 `;
 
@@ -33,7 +33,7 @@ const Description = styled.p`
   font-family: ${fontFamily.sansSerif};
   font-weight: ${fontWeight.regular};
   font-size: ${fontSize.F11};
-  color: ${props => props.theme.primaryDarker};
+  color: ${props => props.theme.medalDescription};
   letter-spacing: 0.05em;
   margin-bottom: 10px;
   width: 100%;
@@ -70,10 +70,10 @@ const Description = styled.p`
 `;
 
 const CurrentMedal = ({
-  badge, name, description, progress,
+  badge, name, description, progress, theme,
 }) => (
   <CurrentMedalWrapper justify="start">
-    <Icon name={badge} size={fontSize.F70} color={colors.primaryDarker} />
+    <Icon name={badge} size={fontSize.F70} color={theme.medalIcon} />
     <InfoWrapper column align="start">
       <Name>{name}</Name>
       <Description>{description}</Description>
@@ -89,6 +89,7 @@ CurrentMedal.propTypes = {
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   progress: PropTypes.string.isRequired,
+  theme: PropTypes.shape({}).isRequired,
 };
 
-export default CurrentMedal;
+export default withTheme(CurrentMedal);

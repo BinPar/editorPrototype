@@ -1,8 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {
-  colors, icon, fontFamily, fontWeight, fontSize,
+  icon, fontFamily, fontWeight, fontSize,
 } from '../../../../../utils/Constants';
 import Holder from '../../../../layout/Holder';
 import Medal from './Medal';
@@ -16,7 +15,7 @@ const CurrentMedalsWrapper = styled(Holder)`
   width: calc(100% - 60px);
   padding: 20px 0;
   margin: 10px 30px 10px;
-  border-bottom: 1px solid ${props => props.theme.primaryDarkerLighten};
+  border-bottom: 1px solid ${props => props.theme.medalTitleBorder};
 `;
 
 const MedalTitle = styled.p`
@@ -24,7 +23,7 @@ const MedalTitle = styled.p`
   text-transform: uppercase;
   font-weight: ${fontWeight.semibold};
   font-size: ${fontSize.F11};
-  color: ${props => props.theme.primaryDark};
+  color: ${props => props.theme.medalTitle};
 `;
 const WonMedals = styled(Holder)`
   flex-wrap: wrap;

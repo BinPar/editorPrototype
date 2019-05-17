@@ -28,7 +28,7 @@ const DoubtsPanel = () => (
       >
         <ItemGroup>
           <ItemWrapper
-            theme={1}
+            levelTheme={1}
             text="Anatomía ecográfica hepática. Normalidad y variantes morfológicas"
             hasChildren
             open
@@ -43,7 +43,7 @@ const DoubtsPanel = () => (
             </ItemGroup>
           </ItemWrapper>
           <ItemWrapper
-            theme={2}
+            levelTheme={2}
             text="Patología hepática. Alteraciones focales y difusas"
             hasChildren
             count={4}

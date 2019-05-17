@@ -33,10 +33,9 @@ const SidebarWrapper = styled.div`
   }
   @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
     * {
-      -ms-overflow-style: -ms-autohiding-scrollbar;
-      -ms-scrollbar-highlight-color: ${props => props.theme.primaryLightest};
-      -ms-scrollbar-arrow-color: ${props => props.theme.primaryLighter};
-      -ms-scrollbar-face-color: ${props => props.theme.primaryLighter};
+      -ms-scrollbar-highlight-color: ${props => props.theme.sidebarScrollHover};
+      -ms-scrollbar-arrow-color: ${props => props.theme.sidebarScroll};
+      -ms-scrollbar-face-color: ${props => props.theme.sidebarScroll};
     }
   }
   ${maxMedia.maxMobile`

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { withTheme } from 'styled-components';
 import {
-  colors, icon, fontFamily, fontWeight, fontSize,
+  colors, fontFamily, fontWeight, fontSize,
 } from '../../../../../utils/Constants';
 import Icon from '../../../../basics/Icon';
 import Holder from '../../../../layout/Holder';
@@ -20,7 +20,7 @@ const Name = styled.p`
   text-transform: uppercase;
   font-weight: ${fontWeight.black};
   font-size: ${fontSize.F10};
-  color: ${props => props.theme.primaryDarker};
+  color: ${props => props.theme.medalName};
   margin-top: 10px;
   text-align: center;
   letter-spacing: 0.04em;
@@ -56,9 +56,9 @@ const Name = styled.p`
   }
 `;
 
-const Medal = ({ badge, name, disabled }) => (
+const Medal = ({ badge, name, disabled, theme }) => (
   <MedalWrapper column className={disabled ? 'disabled' : ''}>
-    <Icon name={badge} size={fontSize.F70} color={colors.primaryDarker} />
+    <Icon name={badge} size={fontSize.F70} color={theme.medalIcon} />
     <Name>{name}</Name>
   </MedalWrapper>
 );
@@ -71,6 +71,7 @@ Medal.propTypes = {
   disabled: PropTypes.bool,
   name: PropTypes.string.isRequired,
   badge: PropTypes.string.isRequired,
+  theme: PropTypes.shape({}).isRequired,
 };
 
-export default Medal;
+export default withTheme(Medal);

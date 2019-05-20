@@ -31,7 +31,7 @@ const AddMarker = styled(Button)`
   width: 100%;
 `;
 
-const settings = false;
+const settings = true;
 const tabs = ['Mis textos', 'Mis marcadores'];
 const HighlightsPanel = () => (
   <PanelWrapper>

@@ -919,9 +919,6 @@
   box-sizing: border-box;
 	outline: none;
 }
-*::selection {
-  background: #efefef;
-}
 body > div:first-child,
 #__next {
   width: 100%;
@@ -1193,22 +1190,12 @@ img {
   width: 5px;
   height: 5px;
 }
-/* ::-webkit-scrollbar-track {
-  background: #fff;
-} */
 ::-webkit-scrollbar-thumb {
-  /* background: #d8d8d8; */
   cursor: pointer;
 }
-/* ::-webkit-scrollbar-thumb:hover {
-  background: #8DC3B9;
-} */
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   * {
     -ms-overflow-style: -ms-autohiding-scrollbar;
-    /* -ms-scrollbar-highlight-color: #fff;
-    -ms-scrollbar-arrow-color: #d8d8d8;
-    -ms-scrollbar-face-color: #d8d8d8; */
   }
 }
 [hidden] {

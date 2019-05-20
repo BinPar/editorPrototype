@@ -67,7 +67,7 @@ const OptionsHolder = styled(Holder)`
 `;
 
 const AddButton = styled(Button)`
-  background-color: ${props => (props.sidebar ? props.theme.addBgSidebar : props.theme.addBg)};
+  background-color: ${props => (props.sidebar ? props.theme.sidebarBg : props.theme.bodyBg)};
   padding: ${props => (props.sidebar ? '5px' : '10px')};
   border-radius: 50%;
   z-index: 3;

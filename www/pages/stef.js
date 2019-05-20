@@ -40,6 +40,9 @@ const ContentWrapper = styled.div`
     margin-top: 65px;
     height: calc(100% - 65px);
   `}
+  *::selection {
+    background: ${props => props.theme.selection};
+  }
   &::-webkit-scrollbar-track {
     background-color: ${props => props.theme.bodyBg};
   }
@@ -59,7 +62,7 @@ const ContentWrapper = styled.div`
 `;
 
 const testPage = () => {
-  const [setAuthor] = useState(false);
+  const [setAuthor] = useState(true);
   const [setEditing] = useState(setAuthor);
 
   const [, setEditorState] = useState(EditorState.createEmpty());
@@ -85,7 +88,7 @@ const testPage = () => {
   };
   const sidebarOpen = !!activeTab;
   return (
-    <ThemeProvider theme={themes.dark}>
+    <ThemeProvider theme={themes.sepia}>
       <MainLayout>
         <Head>
           <title>Editor</title>

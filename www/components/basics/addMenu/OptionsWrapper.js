@@ -39,7 +39,7 @@ const Wrapper = styled(Holder)`
     width: ${props => (props.sidebar ? 'calc(100% + 5px)' : 'calc(100% + 15px)')};
     height: 100%;
     position: absolute;
-    background-color: ${props => (props.sidebar ? props.theme.addBgSidebar : props.theme.addBg)};
+    background-color: ${props => (props.sidebar ? props.theme.sidebarBg : props.theme.bodyBg)};
     left: ${props => (props.sidebar ? '-5px' : '-15px')};
     right: ${props => (props.sidebar ? '-5px' : '-15px')};
     top: 0;

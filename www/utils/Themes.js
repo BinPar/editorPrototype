@@ -14,6 +14,9 @@ const themes = {
     // BACKGROUNDS
 
     bodyBg: colors.white,
+    selection: colors.greyLight,
+    bodyScroll: colors.primaryLight,
+    bodyScrollHover: colors.primary,
 
     // ICON
 
@@ -259,6 +262,7 @@ const themes = {
     // BACKGROUNDS
 
     bodyBg: colors.darkPrimaryDark,
+    selection: colors.darkPrimaryDarkest,
     bodyScroll: colors.darkPrimaryMedTwo,
     bodyScrollHover: colors.darkPrimaryDarkestLighten,
 
@@ -340,16 +344,16 @@ const themes = {
     // TABLE
 
     tableListDecoration: colors.primary,
-    tableBasicBg: colors.white,
-    tableBasicBorder: colors.primaryLightest,
-    tableBasicText: colors.greyDark,
+    tableBasicBg: colors.darkPrimaryDark,
+    tableBasicBorder: colors.darkPrimaryMed,
+    tableBasicText: colors.darkPrimaryLighter,
 
-    tableHighlightedBg: colors.primaryLightest,
-    tableHighlightedBorder: colors.white,
-    tableHighlightedText: colors.primaryMed,
+    tableHighlightedBg: colors.darkPrimaryMed,
+    tableHighlightedBorder: colors.darkPrimaryDark,
+    tableHighlightedText: colors.darkPrimaryLighter,
 
-    cellHeaderBg: colors.primaryLight,
-    cellHeaderText: colors.white,
+    cellHeaderBg: colors.darkPrimaryMedTwo,
+    cellHeaderText: colors.darkPrimaryLighter,
 
     // QUOTES
 
@@ -386,8 +390,6 @@ const themes = {
 
     addDivision: colors.greyMed,
     addOptionsDivision: colors.primaryDarkerLightest,
-    addBgSidebar: colors.darkPrimaryDarkest,
-    addBg: colors.darkPrimaryDark,
     addIcon: colors.primaryDarkerLighten,
     addIconHover: colors.primaryDarkerMed,
     addOptionIcon: colors.primaryDarkerLighten,
@@ -482,23 +484,265 @@ const themes = {
     // HEADER
 
     headerBg: colors.darkPrimaryMedTwo,
-    headerModule: colors.white,
-    headerTitle: colors.white,
-    headerTitleBorder: colors.white,
-    editToolsDivision: colors.white,
-    headerIcon: colors.white,
-    headerIconHover: colors.primaryLight,
+    headerModule: colors.darkPrimaryLighter,
+    headerTitle: colors.darkPrimaryLighter,
+    headerTitleBorder: colors.darkPrimaryLighter,
+    editToolsDivision: colors.darkPrimaryLighter,
+    headerIcon: colors.darkPrimaryLighter,
+    headerIconHover: colors.secondary,
 
     // FOOTER
 
-    footerLink: colors.greyDark,
-    footerLinkHover: colors.primaryDark,
-    footerLinkDivision: colors.greyMed,
+    footerLink: colors.darkPrimaryLighter,
+    footerLinkHover: colors.secondary,
+    footerLinkDivision: colors.darkPrimaryLighter,
   },
 
   // ///////////////////////////////// SEPIA
 
-  sepia: {},
+  sepia: {
+    error: colors.red,
+    warning: colors.orange,
+    warningDark: colors.orangeDark,
+
+    // BACKGROUNDS
+
+    bodyBg: colors.sepiaLightest,
+    selection: colors.sepiaLighter,
+    bodyScroll: colors.sepia,
+    bodyScrollHover: colors.sepiaDark,
+
+    // ICON
+
+    iconColor: colors.beigeDark,
+
+    // BUTTONS
+
+    outlineButtonBorder: colors.sepiaMed,
+    outlineButtonText: colors.sepiaMed,
+    outlineButtonTextHover: colors.white,
+    outlineButtonBg: colors.sepiaMed,
+
+    buttonText: colors.white,
+    buttonBg: colors.sepiaMed,
+    buttonBgHover: colors.sepiaDark,
+
+    buttonIconHover: colors.sepiaDarker,
+    buttonIconActive: colors.sepiaDarker,
+    buttonIconActiveHover: colors.sepiaDark,
+
+    // COUNTER
+
+    counterBg: colors.beigeDark,
+    counterNumber: colors.white,
+
+    // TABS
+
+    tabMarker: colors.beigeDark,
+    tabBorder: colors.sepiaDarkerLightest,
+    tabText: colors.beigeMed,
+    tabTextHover: colors.beigeDark,
+
+    // TOOLTIP
+
+    tooltipBg: colors.sepiaDarker,
+    tooltipIcon: colors.white,
+    tooltipIconActive: colors.secondary,
+
+    // FORMS
+
+    label: colors.sepiaDarkerLighten,
+    inputBorder: colors.sepiaDarkerLighten,
+    inputBorderWithValue: colors.sepiaMed,
+    labelWithValue: colors.sepiaMed,
+    checkBg: colors.sepia,
+    checkIcon: colors.white,
+    checkLabelHover: colors.sepia,
+
+    // PROGRESS BAR
+
+    smallProgressBarTrail: colors.sepiaDarkerLightest,
+    smallProgressBarPath: colors.sepiaDarkerMed,
+
+    largeProgressBarPath: colors.sepia,
+
+    circleProgressBarTrail: colors.sepiaMed,
+    circleProgressBarPath: colors.sepiaDarker,
+
+    // CONTENT
+
+    // TEXT
+
+    title: colors.sepiaDark,
+    subtitle: colors.sepiaDark,
+    paragraph: colors.sepiaDark,
+    listDecoration: colors.secondary,
+
+    // LINK
+
+    link: colors.beigeMed,
+    linkHover: colors.sepiaMed,
+
+    // HIGHLIGHTED
+    highlightedBg: colors.sepiaLighter,
+    highlightedText: colors.sepiaDarkerMed,
+
+    // TABLE
+
+    tableListDecoration: colors.secondary,
+    tableBasicBg: colors.sepiaLightest,
+    tableBasicBorder: colors.sepia,
+    tableBasicText: colors.sepiaDark,
+
+    tableHighlightedBg: colors.sepia,
+    tableHighlightedBorder: colors.sepiaLightest,
+    tableHighlightedText: colors.white,
+
+    cellHeaderBg: colors.sepiaDarkerMed,
+    cellHeaderText: colors.white,
+
+    // QUOTES
+
+    quoteText: colors.sepiaDark,
+    quoteMidText: colors.sepiaDark,
+    quoteSmallAccent: colors.secondary,
+    quoteMidAccent: colors.sepiaDarkerLightest,
+
+    // IMAGES
+
+    imageFooterDivision: colors.beigeMed,
+    imageFooterText: colors.sepiaDark,
+
+    // BLOCK
+
+    infoBorder: colors.sepiaDark,
+    infoBg: colors.sepiaLighter,
+    infoText: colors.sepiaDark,
+
+    knowledgeBorder: colors.secondary,
+    knowledgeBg: colors.secondaryLight,
+    knowledgeText: colors.secondaryDark,
+
+    // AUTHOR
+
+    authorName: colors.sepiaDark,
+    authorDate: colors.beigeMed,
+
+    // EDIT
+
+    editWrapperBorder: colors.beigeMed,
+
+    // ADD
+
+    addDivision: colors.beigeMed,
+    addOptionsDivision: colors.sepiaDarkerLightest,
+    addIcon: colors.sepiaDarkerLighten,
+    addIconHover: colors.sepiaDarkerMed,
+    addOptionIcon: colors.sepiaDarkerLighten,
+    addOptionIconHover: colors.sepiaDarkerMed,
+
+    // SIDEBAR
+
+    sidebarBg: colors.sepiaLight,
+    sidebarScroll: colors.sepiaDarkerLightest,
+    sidebarScrollHover: colors.sepiaDarkerLighten,
+
+    sidebarMenuBg: colors.sepiaLightest,
+    sidebarMenuIcon: colors.sepia,
+    sidebarMenuIconHover: colors.beigeDark,
+    sidebarMenuIconActiveHover: colors.sepiaDarkerMed,
+
+    // CALENDAR
+
+    calendarMonth: colors.sepiaDarkerMed,
+    calendarWeekDay: colors.sepiaDarkerLighten,
+    calendarDay: colors.sepiaDarkerMed,
+    calendarDivision: colors.sepiaDarkerLighten,
+    calendarEventOnDay: colors.sepiaDarkerLighten,
+    calendarTextHover: colors.white,
+    calendarDayHover: colors.sepia,
+    calendarCurrentDay: colors.sepiaDark,
+    calendarCurrentDayHover: colors.sepiaDarker,
+    calendarActiveDay: colors.sepia,
+    calendarActiveDayHover: colors.sepia,
+    calendarArrow: colors.sepiaDarkerLighten,
+    calendarArrowHover: colors.sepiaDarkerMed,
+    calendarDateText: colors.sepiaDarkerMed,
+    calendarEventTypeTitle: colors.sepiaDark,
+    calendarEventTypeBorder: colors.sepia,
+    calendarCalendarTypeTitle: colors.secondaryDark,
+    calendarCalendarTypeBorder: colors.secondary,
+    calendarEventTitle: colors.sepiaDarkerMed,
+    calendarEventDescription: colors.sepiaDarkerMed,
+
+    // COLOR PICKER
+
+    swatchBg: colors.white,
+    swatchBorder: colors.beigeMed,
+    swatchLabel: colors.sepiaDarkerLighten,
+
+    // HIGHLIGHTS
+
+    highlightItemBg: colors.white,
+    highlightItemSettingsBorder: colors.primaryLighter,
+    highlightSummaryText: colors.greyDarker,
+    highlightSummaryOptionsDivision: colors.sepiaDarkerLightest,
+    highlightSummaryOptionIcon: colors.sepiaDarkerLightest,
+    highlightSummaryOptionIconHover: colors.sepiaDarkerMed,
+
+    // ITEMS
+
+    itemLinkHoverBg: colors.sepiaDarkerLightest,
+    itemLinkActiveHoverBg: colors.sepiaDarkerMed,
+    itemDivision: colors.sepiaDarkerLightest,
+    itemLockIcon: colors.sepia,
+    itemIcon: colors.sepiaDarkerLightest,
+    itemIconHover: colors.sepiaDarkerMed,
+    itemDate: colors.sepiaDarkerMed,
+    itemUnlockDate: colors.sepia,
+    itemName: colors.sepiaDarkerMed,
+    itemNameBorder: colors.sepiaDarkerLightest,
+    itemText: colors.sepiaDarkerMed,
+    itemSection: colors.sepiaDarkerLightest,
+    itemLevelThree: colors.sepiaDarkerMed,
+
+    // INDEX
+
+    indexEditTitleInputBorder: colors.sepia,
+    indexEditTitleInput: colors.sepiaDarker,
+    indexTitle: colors.sepiaDarker,
+
+    // USER
+
+    userImageBorder: colors.sepiaDarkerLightest,
+    userName: colors.sepiaDark,
+    userRole: colors.sepiaDark,
+    userProgressBg: colors.sepiaTrans,
+    userProgressTitle: colors.sepiaDarkerMed,
+    userProgress: colors.sepiaDarkerMed,
+    userProgressIcon: colors.sepiaDarkerMed,
+    medalTitleBorder: colors.sepiaDarkerLightest,
+    medalTitle: colors.sepiaDarkerMed,
+    medalName: colors.sepiaDarkerMed,
+    medalDescription: colors.sepiaDarkerMed,
+    medalIcon: colors.sepiaDarkerMed,
+
+    // HEADER
+
+    headerBg: colors.sepiaDark,
+    headerModule: colors.sepiaLighter,
+    headerTitle: colors.sepiaLighter,
+    headerTitleBorder: colors.sepiaLighter,
+    editToolsDivision: colors.sepiaLighter,
+    headerIcon: colors.sepiaLighter,
+    headerIconHover: colors.secondary,
+
+    // FOOTER
+
+    footerLink: colors.sepiaMed,
+    footerLinkHover: colors.sepiaDarker,
+    footerLinkDivision: colors.sepiaMed,
+  },
 };
 
 export default themes;

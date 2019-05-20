@@ -116,6 +116,27 @@ export const colors = {
   darkPrimaryDarkestLighten: '#4d5e69',
   darkPrimaryDarkestMed: '#262e33',
 
+  // SEPIA
+
+  beigeLighter: '#fffaf4',
+  beigeLight: '#ffedda',
+  beigeMed: '#bfa991',
+  beigeDark: '#8f7252',
+  beigeDarker: '#3e3122',
+
+  sepiaLightest: '#fffdf9',
+  sepiaLighter: '#fffaf3',
+  sepiaLight: '#f7f3ea',
+  sepiaTrans: '#f7eeda',
+  sepia: '#c5b9b2',
+  sepiaMed: '#736c67',
+  sepiaDark: '#5d544d',
+  sepiaDarker: '#372e26',
+  sepiaDarkerLightest: '#d6c9be',
+  sepiaDarkerLighten: '#a09489',
+  sepiaDarkerLight: '#756759',
+  sepiaDarkerMed: '#645445',
+
 };
 
 // MEDIA QUERIES

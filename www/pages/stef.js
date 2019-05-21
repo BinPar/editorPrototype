@@ -88,7 +88,7 @@ const testPage = () => {
   };
   const sidebarOpen = !!activeTab;
   return (
-    <ThemeProvider theme={themes.default}>
+    <ThemeProvider theme={themes.sepia}>
       <MainLayout>
         <Head>
           <title>Editor</title>

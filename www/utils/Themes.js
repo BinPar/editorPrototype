@@ -487,6 +487,12 @@ const themes = {
     medalDescription: colors.primaryDarker,
     medalIcon: colors.primaryDarker,
 
+    // SETTINGS
+
+    skinTitleText: colors.primaryDark,
+    skinThumbText: colors.primaryDarkerLighten,
+    skinThumbTextHover: colors.primaryDarkerMed,
+
     // HEADER
 
     headerBg: colors.darkPrimaryMedTwo,
@@ -732,6 +738,12 @@ const themes = {
     medalName: colors.sepiaDarkerMed,
     medalDescription: colors.sepiaDarkerMed,
     medalIcon: colors.sepiaDarkerMed,
+
+    // SETTINGS
+
+    skinTitleText: colors.sepiaDark,
+    skinThumbText: colors.sepiaDarkerLighten,
+    skinThumbTextHover: colors.sepiaDarkerMed,
 
     // HEADER
 

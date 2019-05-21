@@ -272,14 +272,14 @@ const themes = {
 
     // BUTTONS
 
-    outlineButtonBorder: colors.primaryMed,
-    outlineButtonText: colors.primaryMed,
-    outlineButtonTextHover: colors.white,
-    outlineButtonBg: colors.primaryMed,
+    outlineButtonBorder: colors.secondary,
+    outlineButtonText: colors.secondary,
+    outlineButtonTextHover: colors.darkPrimaryDarkest,
+    outlineButtonBg: colors.secondary,
 
-    buttonText: colors.white,
-    buttonBg: colors.primaryMed,
-    buttonBgHover: colors.primaryDark,
+    buttonText: colors.darkPrimaryDarkest,
+    buttonBg: colors.secondary,
+    buttonBgHover: colors.secondaryDark,
 
     buttonIconHover: colors.greyDarker,
     buttonIconActive: colors.greyDarker,
@@ -431,13 +431,13 @@ const themes = {
 
     // COLOR PICKER
 
-    swatchBg: colors.white,
+    swatchBg: colors.darkPrimaryDarkestMed,
     swatchBorder: colors.greyMed,
     swatchLabel: colors.primaryDarkerLighten,
 
     // HIGHLIGHTS
 
-    highlightItemBg: colors.white,
+    highlightItemBg: colors.darkPrimaryDarkestMed,
     highlightItemSettingsBorder: colors.primaryLighter,
     highlightSummaryText: colors.greyDarker,
     highlightSummaryOptionsDivision: colors.primaryDarkerLighten,

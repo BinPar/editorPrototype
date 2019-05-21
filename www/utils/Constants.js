@@ -125,9 +125,9 @@ export const colors = {
   beigeDarker: '#3e3122',
 
   sepiaLightest: '#fffdf9',
-  sepiaLighter: '#fffaf3',
+  sepiaLighter: '#f7f2ea',
   sepiaLight: '#f7f3ea',
-  sepiaTrans: '#f7eeda',
+  sepiaTrans: '#e8e4db',
   sepia: '#c5b9b2',
   sepiaMed: '#736c67',
   sepiaDark: '#5d544d',

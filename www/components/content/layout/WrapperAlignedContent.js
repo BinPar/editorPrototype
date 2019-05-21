@@ -31,7 +31,7 @@ export default styled(Holder)`
     width: calc(100% - 100px);
   `}
   ${minMedia.minDeskLarge`
-    width: ${props => (props.sidebarOpen ? 'calc(970px - 350px)' : '970px')};
+    width: ${props => (props.sidebarOpen ? 'calc(970px - 400px)' : '970px')};
   `}
   
 `;

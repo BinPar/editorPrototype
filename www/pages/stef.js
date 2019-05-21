@@ -62,7 +62,7 @@ const ContentWrapper = styled.div`
 `;
 
 const testPage = () => {
-  const [setAuthor] = useState(true);
+  const [setAuthor] = useState(false);
   const [setEditing] = useState(setAuthor);
 
   const [, setEditorState] = useState(EditorState.createEmpty());
@@ -88,7 +88,7 @@ const testPage = () => {
   };
   const sidebarOpen = !!activeTab;
   return (
-    <ThemeProvider theme={themes.sepia}>
+    <ThemeProvider theme={themes.default}>
       <MainLayout>
         <Head>
           <title>Editor</title>

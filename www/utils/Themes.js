@@ -235,6 +235,12 @@ const themes = {
     medalDescription: colors.primaryDarker,
     medalIcon: colors.primaryDarker,
 
+    // SETTINGS
+
+    skinTitleText: colors.primaryDark,
+    skinThumbText: colors.primaryDarkerLighten,
+    skinThumbTextHover: colors.primaryDarkerMed,
+
     // HEADER
 
     headerBg: colors.primaryDark,

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Panel from './Panel';
+import Skins from './items/settings/Skins';
 
 const PanelWrapper = styled(Panel)`
   padding-left: 10px;
@@ -9,7 +10,7 @@ const PanelWrapper = styled(Panel)`
 
 const SettingsPanel = () => (
   <PanelWrapper>
-    settings
+    <Skins />
   </PanelWrapper>
 );
 

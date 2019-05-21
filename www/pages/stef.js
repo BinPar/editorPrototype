@@ -9,6 +9,7 @@ import Sidebar from '../components/layout/Sidebar';
 import Holder from '../components/layout/Holder';
 import { maxMedia, minMedia } from '../utils/Constants';
 import themes from '../utils/Themes';
+import { ProgressBar } from '../components/layout/ProgressBar';
 
 const maxTablet = maxMedia.maxTablet`
   overflow-x: hidden;
@@ -18,7 +19,6 @@ const MainLayout = styled.div`
   position: relative;
   background-color: ${props => props.theme.bodyBg};
   ${maxTablet}
-  
 `;
 
 const Wrapper = styled(Holder)`
@@ -68,7 +68,7 @@ const testPage = () => {
   const [, setEditorState] = useState(EditorState.createEmpty());
 
   const [ssr, setSsr] = useState(true);
-
+  const progressRef = React.useRef();
   useEffect(() => {
     if (ssr) {
       setSsr(false);
@@ -88,7 +88,7 @@ const testPage = () => {
   };
   const sidebarOpen = !!activeTab;
   return (
-    <ThemeProvider theme={themes.dark}>
+    <ThemeProvider theme={themes.default}>
       <MainLayout>
         <Head>
           <title>Editor</title>
@@ -100,8 +100,18 @@ const testPage = () => {
             activeTab={activeTab}
             onTabClick={onTabClick}
           />
-          <ContentWrapper {...{ sidebarOpen }}>
+          <ContentWrapper
+            {...{ sidebarOpen }}
+            onScroll={(e) => {
+              const {
+                target: { scrollTop, scrollHeight, clientHeight },
+              } = e;
+              const progress = (scrollTop / (scrollHeight - clientHeight)) * 100;
+              progressRef.current.style.width = `${progress}%`;
+            }}
+          >
             <Header editing={setEditing} author={setAuthor} open={sidebarOpen} />
+            <ProgressBar open={sidebarOpen} ref={progressRef} />
             <Content editing={setEditing} open={sidebarOpen} />
             <Footer backRoute="#" backDisabled nextRoute="#" />
           </ContentWrapper>

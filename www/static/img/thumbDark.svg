@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="69px" height="76px" viewBox="0 0 69 76" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>thumbDark</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M69.0295243,24.7573619 C69.0295243,20.9019685 66.9723866,17.3388612 63.6347572,15.4125563 L40.3381598,1.96182641 C36.9977467,0.0355215496 32.886255,0.0355215496 29.5458419,1.96182641 L6.24924451,15.4125563 C2.91161513,17.3388612 0.854477422,20.9019685 0.854477422,24.7573619 L0.854477422,51.6588217 C0.854477422,55.5142151 2.91161513,59.0773224 6.24924451,61.0036272 L29.5458419,74.4543572 C32.886255,76.380662 36.9977467,76.380662 40.3381598,74.4543572 L63.6347572,61.0036272 C66.9723866,59.0773224 69.0295243,55.5142151 69.0295243,51.6588217 L69.0295243,24.7573619 Z" id="path-1"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Sidebar-Profile-Copy" transform="translate(-139.000000, -64.000000)">
+            <g id="Group-8-Copy" transform="translate(22.000000, 59.513032)">
+                <g id="Group-4-Copy-3" transform="translate(113.442004, 0.000000)">
+                    <g id="thumbDark" transform="translate(3.000000, 4.000000)">
+                        <path d="M69.0295243,24.7573619 C69.0295243,20.9019685 66.9723866,17.3388612 63.6347572,15.4125563 L40.3381598,1.96182641 C36.9977467,0.0355215496 32.886255,0.0355215496 29.5458419,1.96182641 L6.24924451,15.4125563 C2.91161513,17.3388612 0.854477422,20.9019685 0.854477422,24.7573619 L0.854477422,51.6588217 C0.854477422,55.5142151 2.91161513,59.0773224 6.24924451,61.0036272 L29.5458419,74.4543572 C32.886255,76.380662 36.9977467,76.380662 40.3381598,74.4543572 L63.6347572,61.0036272 C66.9723866,59.0773224 69.0295243,55.5142151 69.0295243,51.6588217 L69.0295243,24.7573619 Z" id="Fill-1" fill="#2C3640"></path>
+                        <g id="Group-5">
+                            <mask id="mask-2" fill="white">
+                                <use xlink:href="#path-1"></use>
+                            </mask>
+                            <g id="Fill-1"></g>
+                            <rect id="Rectangle-Copy-12" fill="#6C7D80" fill-rule="nonzero" mask="url(#mask-2)" x="13.4420009" y="56.7022164" width="43" height="2.62413603" rx="1.31206802"></rect>
+                            <rect id="Rectangle-Copy-5" fill="#6C7D80" fill-rule="nonzero" mask="url(#mask-2)" x="13.4420009" y="24.928169" width="43" height="2.62413603" rx="1.31206802"></rect>
+                            <rect id="Rectangle-Copy-6" fill="#6C7D80" fill-rule="nonzero" mask="url(#mask-2)" x="13.4420009" y="30.642503" width="43" height="2.62413603" rx="1.31206802"></rect>
+                            <rect id="Rectangle-Copy-9" fill="#6C7D80" fill-rule="nonzero" mask="url(#mask-2)" x="13.4420009" y="36.3568369" width="43" height="2.62413603" rx="1.31206802"></rect>
+                            <rect id="Rectangle-Copy-10" fill="#1A2026" fill-rule="nonzero" mask="url(#mask-2)" x="16.4420009" y="12.5707622" width="37" height="9.26720894" rx="1.31206802"></rect>
+                            <rect id="Rectangle-Copy-11" fill="#47707A" fill-rule="nonzero" mask="url(#mask-2)" x="8.44200086" y="42.0711708" width="53" height="11.5408477" rx="1.31206802"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

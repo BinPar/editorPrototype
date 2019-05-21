@@ -7,7 +7,6 @@ import {
 import Holder from './Holder';
 import Paragraph from '../content/text/Paragraph';
 import Button from '../basics/Button';
-import { ProgressBar } from './ProgressBar';
 
 const HeaderWrapper = styled.header`
   height: 70px;
@@ -138,7 +137,9 @@ const PrintButton = styled(Button)`
   margin-right: 15px;
 `;
 
-const Header = ({ editing, author, theme, ...props }) => (
+const Header = ({
+  editing, author, theme, progress, ...props
+}) => (
   <HeaderWrapper {...props}>
     <Content>
       <TitleWrapper justify="start">
@@ -173,14 +174,21 @@ const Header = ({ editing, author, theme, ...props }) => (
         ) : null}
         <Holder>
           {author && (
-            <EditButton name={icon.edit} color={theme.headerIcon} hoverColor={theme.headerIconHover} />
+            <EditButton
+              name={icon.edit}
+              color={theme.headerIcon}
+              hoverColor={theme.headerIconHover}
+            />
           )}
-          <PrintButton name={icon.print} color={theme.headerIcon} hoverColor={theme.headerIconHover} />
+          <PrintButton
+            name={icon.print}
+            color={theme.headerIcon}
+            hoverColor={theme.headerIconHover}
+          />
           <Button name={icon.bell} color={theme.headerIcon} hoverColor={theme.headerIconHover} />
         </Holder>
       </Holder>
     </Content>
-    <ProgressBar {...props} progress="40" />
   </HeaderWrapper>
 );
 
@@ -193,6 +201,7 @@ Header.propTypes = {
   editing: PropTypes.bool,
   author: PropTypes.bool,
   theme: PropTypes.shape({}).isRequired,
+  progress: PropTypes.string.isRequired,
 };
 
 export default withTheme(Header);

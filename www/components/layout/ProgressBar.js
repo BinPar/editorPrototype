@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import CircularProgressbar from 'react-circular-progressbar';
 import {
-  colors, minMedia, maxMedia,
+  minMedia, maxMedia,
 } from '../../utils/Constants';
 
 
@@ -43,7 +42,9 @@ const ProgressBarWrapper = styled.div`
   justify-content: flex-start;
   align-items: center;
   position: absolute;
-  left: 0;
+  transition: all 500ms ease;
+  z-index: 1000;
+  left: ${props => (props.open ? '350px' : 0)};
   ${maxMedia.maxMobile`
     top: 125px;
     width: 100%;
@@ -57,15 +58,14 @@ const ProgressBarWrapper = styled.div`
 const Bar = styled.span`
   height: 5px;
   background: ${props => props.theme.largeProgressBarPath};
-  width: ${props => `${props.progress}%`};
 `;
 
 
-export const ProgressBar = ({ progress, ...props }) => (
+export const ProgressBar = React.forwardRef((props, ref) => (
   <ProgressBarWrapper {...props}>
-    <Bar progress={progress} />
+    <Bar ref={ref} />
   </ProgressBarWrapper>
-);
+));
 
 ProgressBar.defaultProps = {
 };

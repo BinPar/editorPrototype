@@ -240,6 +240,13 @@ const themes = {
     skinTitleText: colors.primaryDark,
     skinThumbText: colors.primaryDarkerLighten,
     skinThumbTextHover: colors.primaryDarkerMed,
+    skinBorder: colors.primaryDarkerLighten,
+    skinBorderHover: colors.primaryDarkerMed,
+    
+    fontSizeIcon: colors.primaryDarkerLighten,
+    fontSizeBar: colors.primaryDarkerMed,
+
+    settingsDivision: colors.primaryDarkerLighten,
 
     // HEADER
 
@@ -490,8 +497,12 @@ const themes = {
     // SETTINGS
 
     skinTitleText: colors.primaryDark,
-    skinThumbText: colors.primaryDarkerLighten,
-    skinThumbTextHover: colors.primaryDarkerMed,
+    skinThumbText: colors.darkPrimaryDarkestLighten,
+    skinThumbTextHover: colors.secondary,
+    skinBorder: colors.darkPrimaryDarkestLighten,
+    skinBorderHover: colors.secondary,
+
+    settingsDivision: colors.darkPrimaryDarkestLightest,
 
     // HEADER
 
@@ -744,6 +755,10 @@ const themes = {
     skinTitleText: colors.sepiaDark,
     skinThumbText: colors.sepiaDarkerLighten,
     skinThumbTextHover: colors.sepiaDarkerMed,
+    skinBorder: colors.sepiaDarkerLighten,
+    skinBorderHover: colors.sepiaDarkerMed,
+
+    settingsDivision: colors.sepiaDarkerLighten,
 
     // HEADER
 

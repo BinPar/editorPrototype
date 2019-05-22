@@ -71,5 +71,4 @@ ProgressBar.defaultProps = {
 };
 
 ProgressBar.propTypes = {
-  progress: PropTypes.string.isRequired,
 };

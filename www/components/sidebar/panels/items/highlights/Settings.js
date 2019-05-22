@@ -19,9 +19,8 @@ const Settings = () => (
     <Form>
       <Field label="Nombre" size="full" type="text" required />
     </Form>
-    <PickerWrapper justify="between">
+    <PickerWrapper justify="start">
       <ColorPicker label="Color de Fondo" />
-      <ColorPicker label="Color de Texto" />
     </PickerWrapper>
   </SettingsWrapper>
 );

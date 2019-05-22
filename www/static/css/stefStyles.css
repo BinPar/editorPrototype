@@ -785,8 +785,17 @@
 .fixedTextRight:before {
   content: "\e914";
 }
+.fontBig:before {
+  content: "\e942";
+}
+.fontSmall:before {
+  content: "\e943";
+}
 .full:before {
   content: "\e915";
+}
+.hexagon:before {
+  content: "\e944";
 }
 .highlight:before {
   content: "\e916";

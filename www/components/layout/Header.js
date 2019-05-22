@@ -138,7 +138,7 @@ const PrintButton = styled(Button)`
 `;
 
 const Header = ({
-  editing, author, theme, progress, ...props
+  editing, author, theme, ...props
 }) => (
   <HeaderWrapper {...props}>
     <Content>
@@ -201,7 +201,6 @@ Header.propTypes = {
   editing: PropTypes.bool,
   author: PropTypes.bool,
   theme: PropTypes.shape({}).isRequired,
-  progress: PropTypes.string.isRequired,
 };
 
 export default withTheme(Header);

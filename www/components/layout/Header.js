@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { withTheme } from 'styled-components';
 import {
-  fontSize, fontWeight, minMedia, maxMedia, icon,
+  fontSize, fontWeight, minMedia, maxMedia, icon, fontFamily,
 } from '../../utils/Constants';
 import Holder from './Holder';
 import Paragraph from '../content/text/Paragraph';
@@ -46,10 +46,15 @@ const TitleWrapper = styled(Holder)`
   `};
 `;
 
-const Module = styled(Paragraph)`
+const Module = styled.p`
   color: ${props => props.theme.headerModule};
   font-weight: ${fontWeight.bold};
   font-size: ${fontSize.F19};
+  font-family: ${fontFamily.serif};
+  user-select: auto;
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    width: autos;
+  }
 `;
 
 const Title = styled(Paragraph)`
@@ -100,11 +105,18 @@ const Title = styled(Paragraph)`
 `;
 
 const Logo = styled.a`
-  width: 200px;
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  ${minMedia.minTablet`
+    width: 200px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    `};
+  ${maxMedia.maxMobile`
+    width: 180px;
+    left: 10px;
+    transform: translate(0, -50%);
+  `};
 `;
 
 const EditTools = styled(Holder)`

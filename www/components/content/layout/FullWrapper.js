@@ -43,9 +43,9 @@ const CenteredContent = styled.div`
 `;
 
 const FullWrapper = ({
-  children, align, alignContent, className, editing,
+  children, align, alignContent, className, editing, ...props
 }) => (
-  <Full layout="full" align={align}>
+  <Full layout="full" align={align} {...props}>
     {align ? (
       <FullWrapperAlignedContent
         position="flex"

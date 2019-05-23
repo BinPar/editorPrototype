@@ -62,8 +62,12 @@ const ContentWrapper = styled.div`
 `;
 
 const testPage = () => {
+  // Cambia a estado de edición
   const [setAuthor] = useState(false);
   const [setEditing] = useState(setAuthor);
+
+  // Cambia el tema
+  const [setTheme] = useState('dark');
 
   const [, setEditorState] = useState(EditorState.createEmpty());
 
@@ -86,9 +90,12 @@ const testPage = () => {
   const onTabClick = (tab) => {
     setActiveTab(activeTab === tab ? null : tab);
   };
+
   const sidebarOpen = !!activeTab;
   return (
-    <ThemeProvider theme={themes.default}>
+
+    // Cambia el tema
+    <ThemeProvider theme={themes.dark}>
       <MainLayout>
         <Head>
           <title>Editor</title>
@@ -112,7 +119,7 @@ const testPage = () => {
           >
             <Header editing={setEditing} author={setAuthor} open={sidebarOpen} />
             <ProgressBar open={sidebarOpen} ref={progressRef} />
-            <Content editing={setEditing} open={sidebarOpen} />
+            <Content editing={setEditing} open={sidebarOpen} activeTheme={setTheme} />
             <Footer backRoute="#" backDisabled nextRoute="#" />
           </ContentWrapper>
         </Wrapper>

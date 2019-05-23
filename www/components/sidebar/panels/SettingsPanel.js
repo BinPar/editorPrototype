@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Panel from './Panel';
 import Skins from './items/settings/Skins';
-import FontSize2 from './items/settings/FontSize2';
+import FontSize from './items/settings/FontSize';
 
 const PanelWrapper = styled(Panel)`
   padding: 0 30px;
@@ -11,7 +11,7 @@ const PanelWrapper = styled(Panel)`
 const SettingsPanel = () => (
   <PanelWrapper>
     <Skins />
-    <FontSize2 />
+    <FontSize />
   </PanelWrapper>
 );
 

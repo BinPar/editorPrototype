@@ -57,9 +57,9 @@ const MidFull = styled(Wrapper)`
 `;
 
 const MidFullWrapper = ({
-  children, align, alignContent, className, position, editing,
+  children, align, alignContent, className, position, editing, ...props
 }) => (
-  <MidFull layout="midFull" align={align}>
+  <MidFull layout="midFull" align={align} {...props}>
     {align ? (
       <MidFullWrapperAlignedContent
         position={position || 'flex'}

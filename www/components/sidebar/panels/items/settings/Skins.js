@@ -8,7 +8,7 @@ import {
 } from '../../../../../utils/Constants';
 
 const SkinsWrapper = styled.div`
-  padding: 20px 0;
+  padding: 30px 0;
   border-bottom: 1px solid ${props => props.theme.settingsDivision};
   margin-bottom: 20px;
 `;

@@ -116,6 +116,8 @@ export const colors = {
   darkPrimaryDarkestLighten: '#4d5e69',
   darkPrimaryDarkestMed: '#262e33',
 
+  darkSecondaryDark: '#3a3932',
+
   // SEPIA
 
   beigeLighter: '#fffaf4',
@@ -125,7 +127,7 @@ export const colors = {
   beigeDarker: '#3e3122',
 
   sepiaLightest: '#fffdf9',
-  sepiaLighter: '#f7f2ea',
+  sepiaLighter: '#f1e9de',
   sepiaLight: '#f7f3ea',
   sepiaTrans: '#e8e4db',
   sepia: '#c5b9b2',
@@ -136,6 +138,10 @@ export const colors = {
   sepiaDarkerLighten: '#a09489',
   sepiaDarkerLight: '#756759',
   sepiaDarkerMed: '#645445',
+
+  sepiaInfoBg: '#d7cdba',
+  sepiaInfoBorder: '#6c552c',
+  sepiaInfoText: '#42331a',
 
 };
 

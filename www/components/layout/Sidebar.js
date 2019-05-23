@@ -19,7 +19,7 @@ const SidebarWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  background-color: ${props => props.theme.sidebarBg};
+  
   overflow-y: auto;
 
   &::-webkit-scrollbar-track {
@@ -40,9 +40,10 @@ const SidebarWrapper = styled.div`
   }
   ${maxMedia.maxMobile`
     position: absolute;
-    width: ${props => (props.open ? '100%' : 0)};
-    z-index: 2000;
-    height: calc(100% - 125px);
+    width: 100%;
+    z-index: 900;
+    min-height: 60px;
+    top: 65px;
     .sidebarShape {
       display: none;
     }
@@ -51,6 +52,7 @@ const SidebarWrapper = styled.div`
     width: ${props => (props.open ? '350px' : 0)};
     height: 100%;
     transition: width 500ms ease;
+    background-color: ${props => props.theme.sidebarBg};
   `}
 `;
 

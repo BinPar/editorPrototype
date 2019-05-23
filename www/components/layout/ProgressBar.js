@@ -41,17 +41,17 @@ const ProgressBarWrapper = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  position: absolute;
+  position: fixed;
   transition: all 500ms ease;
-  z-index: 1000;
-  left: ${props => (props.open ? '350px' : 0)};
+  z-index: 800;
   ${maxMedia.maxMobile`
     top: 125px;
     width: 100%;
-    `}
+  `}
   ${minMedia.minTablet`
     top: 65px;
     width: 100%;
+    left: ${props => (props.open ? '350px' : 0)};
   `}
 `;
 

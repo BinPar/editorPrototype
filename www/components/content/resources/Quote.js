@@ -60,6 +60,9 @@ const QuoteText = styled.p`
   font-style: ${fontStyle.italic};
   color: ${props => props.theme.quoteText};
   opacity: 0.8;
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    width: 100%;
+  }
 `;
 
 const QuoteSmall = styled(QuoteText)`

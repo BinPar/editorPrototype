@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {
-  fontSize, fontWeight, fontStyle, icon,
+  fontSize, fontWeight, fontStyle, icon, maxMedia,
 } from '../../utils/Constants';
 import Link from '../content/text/Link';
 import Icon from '../basics/Icon';

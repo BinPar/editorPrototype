@@ -71,13 +71,104 @@ const ImageWrapper = styled.div`
 `;
 const Img = styled.img`
   width: 100%;
+  &.sepia {
+    filter: url(#sepia);
+  }
+  &.dark {
+    filter: url(#dark);
+  }
 `;
 
+const Svg = styled.svg`
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+`;
+
+const SepiaFilter = () => (
+  <Svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+    <defs>
+      <filter id="sepia">
+        <feColorMatrix
+          type="matrix"
+          values="1 0 0 0 0
+      1 0 0 0 0
+      1 0 0 0 0
+      0 0 0 1 0"
+          in="SourceGraphic"
+          result="colormatrix"
+        />
+        <feComponentTransfer in="colormatrix" result="componentTransfer">
+          <feFuncR type="table" tableValues="0.26 0.95" />
+          <feFuncG type="table" tableValues="0.19 0.78" />
+          <feFuncB type="table" tableValues="0.11 0.59" />
+          <feFuncA type="table" tableValues="0 0.3" />
+        </feComponentTransfer>
+        <feBlend mode="normal" in="componentTransfer" in2="SourceGraphic" result="blend" />
+      </filter>
+    </defs>
+  </Svg>
+);
+
+const DarkFilter = () => (
+  <Svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+    <defs>
+      <filter id="dark">
+        <feColorMatrix
+          type="matrix"
+          values="1 0 0 0 0
+      1 0 0 0 0
+      1 0 0 0 0
+      0 0 0 1 0"
+          in="SourceGraphic"
+          result="colormatrix"
+        />
+        <feComponentTransfer in="colormatrix" result="componentTransfer">
+          <feFuncR type="table" tableValues="0" />
+          <feFuncG type="table" tableValues="0" />
+          <feFuncB type="table" tableValues="0" />
+          <feFuncA type="table" tableValues="0 0.2" />
+        </feComponentTransfer>
+        <feBlend mode="multiply" in="componentTransfer" in2="SourceGraphic" result="blend" />
+      </filter>
+    </defs>
+  </Svg>
+);
+
+const renderFilter = (filterName) => {
+  switch (filterName) {
+    case 'sepia':
+      return <SepiaFilter />;
+    case 'dark':
+      return <DarkFilter />;
+    default:
+      return null;
+  }
+};
+
 const Image = ({
-  alt, source, size, footerText, footerLink, footerLinkRoute, right, float,
+  alt,
+  source,
+  size,
+  footerText,
+  footerLink,
+  footerLinkRoute,
+  right,
+  float,
+  activeTheme,
 }) => (
   <ImageWrapper size={size} className={`${right ? 'right' : 'left'}${float ? ' float' : ''}`}>
-    <Img src={source} alt={alt} />
+    <Img
+      src={source}
+      alt={alt}
+      className={`${activeTheme === 'sepia' ? ' sepia' : ''} ${
+        activeTheme === 'dark' ? ' dark' : ''
+      }`}
+    />
+    {activeTheme === 'sepia' ? renderFilter('sepia') : null}
+    {activeTheme === 'dark' ? renderFilter('dark') : null}
     <ImageFooter>
       {footerText}
       {footerLink && <FooterLink href={footerLinkRoute}>{footerLink}</FooterLink>}
@@ -102,6 +193,7 @@ Image.propTypes = {
   footerText: PropTypes.string.isRequired,
   footerLink: PropTypes.string,
   footerLinkRoute: PropTypes.string,
+  activeTheme: PropTypes.string.isRequired,
 };
 
 export default Image;

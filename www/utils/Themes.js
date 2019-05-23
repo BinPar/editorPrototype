@@ -387,7 +387,7 @@ const themes = {
     infoText: colors.primaryPrimary,
 
     knowledgeBorder: colors.secondary,
-    knowledgeBg: colors.secondaryDarker,
+    knowledgeBg: colors.darkSecondaryDark,
     knowledgeText: colors.secondary,
 
     // AUTHOR
@@ -501,6 +501,9 @@ const themes = {
     skinThumbTextHover: colors.secondary,
     skinBorder: colors.darkPrimaryDarkestLighten,
     skinBorderHover: colors.secondary,
+
+    fontSizeIcon: colors.darkPrimaryDarkestLighten,
+    fontSizeBar: colors.secondary,
 
     settingsDivision: colors.darkPrimaryDarkestLightest,
 
@@ -638,12 +641,12 @@ const themes = {
 
     // BLOCK
 
-    infoBorder: colors.sepiaDark,
-    infoBg: colors.sepiaLighter,
-    infoText: colors.sepiaDark,
+    infoBorder: colors.sepiaInfoBorder,
+    infoBg: colors.sepiaInfoBg,
+    infoText: colors.sepiaInfoText,
 
     knowledgeBorder: colors.secondary,
-    knowledgeBg: colors.secondaryLight,
+    knowledgeBg: '#fff6dc',
     knowledgeText: colors.secondaryDark,
 
     // AUTHOR
@@ -757,6 +760,9 @@ const themes = {
     skinThumbTextHover: colors.sepiaDarkerMed,
     skinBorder: colors.sepiaDarkerLighten,
     skinBorderHover: colors.sepiaDarkerMed,
+
+    fontSizeIcon: colors.sepiaDarkerLighten,
+    fontSizeBar: colors.beigeDark,
 
     settingsDivision: colors.sepiaDarkerLighten,
 

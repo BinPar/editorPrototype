@@ -9,11 +9,14 @@ import Holder from '../../layout/Holder';
 // ESTRUCTURA
 
 const TableWrapper = styled(Holder)`
-  overflow-x: auto;
+  overflow: auto;
   padding: 4px;
   :not(:only-child) {
     margin-bottom: 50px;
   }
+  ${maxMedia.maxMobile`
+    align-items: flex-start;
+  `}
 `;
 
 const TableContent = styled.table`
@@ -57,20 +60,16 @@ const type = {
   `,
 };
 
-const maxMobileMinWidth = maxMedia.maxMobile`
-  min-width: 200px;
-`;
-
-const minTabletMinWidth = minMedia.minTablet`
-  min-width: 150px;
-`;
-
 export const Cell = styled.td`
   ${props => type[props.type] || type.basic};
   vertical-align: middle;
   min-height: 50px;
-  ${maxMobileMinWidth}
-  ${minTabletMinWidth}
+  ${minMedia.minTablet`
+    min-width: 150px;
+  `}
+  ${maxMedia.maxMobile`
+    min-width: 200px;
+  `}
 `;
 
 export const CellHeader = styled.th`
@@ -111,4 +110,7 @@ export const Text = styled.p`
   ~ * {
     margin-top: 10px
   };
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    width: 100%;
+  }
 `;

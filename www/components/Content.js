@@ -14,7 +14,7 @@ import Block from './content/resources/Block';
 import { Targets, TargetItem } from './content/resources/Targets';
 import { Conclusions, ConclusionItem } from './content/resources/Conclusions';
 import { BulletList, ListItem, OrderedList } from './content/text/List';
-import { icon } from '../utils/Constants';
+import { icon, maxMedia } from '../utils/Constants';
 import {
   Table, Header, Row, CellHeader, Text, Body, Cell,
 } from './content/resources/Table';
@@ -34,13 +34,14 @@ const Ejercicio = styled.iframe`
     background: ${props => props.theme.bodyBg};
   }
 `;
+
 const ContentWrapper = styled.section`
   padding: 0 0 70px;
   box-shadow: 0px 12px 20px -7px rgba(0, 0, 0, 0.2);
   background: ${props => props.theme.bodyBg};
 `;
 
-const Content = ({ open, editing }) => (
+const Content = ({ open, editing, activeTheme }) => (
   <ContentWrapper>
     <Wrapper className={editing ? ' editing' : ''} sidebarOpen={open}>
       <Author name="I. Fernández Buhigas" date="1 Marzo" time="10 min" />
@@ -126,6 +127,7 @@ Sed tempus tellus vitae mi
         footerText="Footer text"
         footerLink="Footer Link"
         footerLinkRoute="#"
+        activeTheme={activeTheme}
       />
       <WrapperAlignedContent>
         <Paragraph>
@@ -181,6 +183,7 @@ Sed tempus tellus vitae mi
         footerText="Footer text"
         footerLink="Footer Link"
         footerLinkRoute="#"
+        activeTheme={activeTheme}
       />
     </MidFullWrapper>
     <Wrapper className={editing ? ' editing' : ''} sidebarOpen={open}>
@@ -243,6 +246,7 @@ Sed tempus tellus vitae mi
         footerText="Footer text"
         footerLink="Footer Link"
         footerLinkRoute="#"
+        activeTheme={activeTheme}
       />
     </FullWrapper>
     <Wrapper className={editing ? ' editing' : ''} sidebarOpen={open}>
@@ -266,7 +270,7 @@ Sed tempus tellus vitae mi
       </Paragraph>
     </Wrapper>
     <MidFullWrapper editing={editing} sidebarOpen={open}>
-      <Block>
+      <Block activeTheme={activeTheme}>
         Aliquam erat volutpat. Ut sollicitudin sapien sed suscipit finibus. Cras eget eros eget
         velit faucibus convallis non non diam. Pellentesque molestie metus erat, quis dictum leo
         aliquet sit amet. Praesent ac tempor sem.
@@ -309,6 +313,7 @@ Sed tempus tellus vitae mi
         footerText="Footer text"
         footerLink="Footer Link"
         footerLinkRoute="#"
+        activeTheme={activeTheme}
       />
       <WrapperAlignedContent sidebarOpen={open}>
         <Paragraph>
@@ -348,7 +353,7 @@ Sed tempus tellus vitae mi
       </Paragraph>
     </Wrapper>
     <MidFullWrapper editing={editing} align="right" sidebarOpen={open}>
-      <Block type="info">
+      <Block type="info" activeTheme={activeTheme}>
         Aliquam erat volutpat. Ut sollicitudin sapien sed suscipit finibus. Cras eget eros eget
         velit faucibus convallis non non diam. Pellentesque molestie metus erat, quis dictum leo
         aliquet sit amet. Praesent ac tempor sem.
@@ -525,11 +530,13 @@ Sed tempus tellus vitae mi
 Content.defaultProps = {
   open: false,
   editing: false,
+  activeTheme: '',
 };
 
 Content.propTypes = {
   open: PropTypes.bool,
   editing: PropTypes.bool,
+  activeTheme: PropTypes.string,
 };
 
 export default Content;

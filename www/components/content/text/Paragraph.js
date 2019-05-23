@@ -23,4 +23,7 @@ export default styled.p`
   ~ * {
     margin-top: 20px
   };
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    width: 100%;
+  }
 `;

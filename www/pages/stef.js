@@ -23,10 +23,19 @@ const MainLayout = styled.div`
 `;
 
 const Wrapper = styled(Holder)`
-  ${minMedia.minTablet`
-    height: 100vh;
-  `}
   ${maxMedia.maxMobile`
+  `}
+  ${minMedia.minTablet`
+    ${maxMedia.maxTablet`
+      @media (orientation: landscape) {
+        height: 100vh;
+      }
+      @media (orientation: portrait) {
+      }
+    `}
+  `}
+  ${minMedia.minDesk`
+    height: 100vh;
   `}
 `;
 

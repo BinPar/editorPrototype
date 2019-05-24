@@ -4,13 +4,29 @@ import styled from 'styled-components';
 import Holder from '../../../../layout/Holder';
 import Icon from '../../../../basics/Icon';
 import {
-  icon, fontFamily, fontSize, fontWeight,
+  icon, fontFamily, fontSize, fontWeight, maxMedia, minMedia,
 } from '../../../../../utils/Constants';
 
 const SkinsWrapper = styled.div`
-  padding: 30px 0;
-  border-bottom: 1px solid ${props => props.theme.settingsDivision};
-  margin-bottom: 20px;
+  
+  ${minMedia.minTablet`
+    border-bottom: 1px solid ${props => props.theme.settingsDivision};
+    margin-bottom: 20px;
+    padding: 30px 0;
+  `};
+
+  ${maxMedia.maxMobile`
+    @media (orientation: portrait) {
+      border-bottom: 1px solid ${props => props.theme.settingsDivision};
+      margin-bottom: 20px;
+      padding: 30px 0;
+    }
+    @media (orientation: landscape) {
+      border-right: 1px solid ${props => props.theme.settingsDivision};
+      margin-right: 20px;
+      padding: 0 30px;
+    }
+  `};
 `;
 
 const Title = styled.p`

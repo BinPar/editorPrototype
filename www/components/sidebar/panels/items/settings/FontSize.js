@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Holder from '../../../../layout/Holder';
 import Icon from '../../../../basics/Icon';
 import {
-  icon, fontFamily, fontSize, fontWeight,
+  icon, fontFamily, fontSize, fontWeight, maxMedia,
 } from '../../../../../utils/Constants';
 
 const FontSizeWrapper = styled.div`
@@ -29,7 +29,9 @@ const Slider = styled.div`
   margin: 0 20px;
   position: relative;
   overflow: visible;
-  padding: 10px;
+  ${maxMedia.maxMobile`
+    padding: 10px;
+  `};
 `;
 
 const SliderShell = styled.div`

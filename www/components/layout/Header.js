@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { withTheme } from 'styled-components';
+import styled, { withTheme, css } from 'styled-components';
 import {
   fontSize, fontWeight, minMedia, maxMedia, icon, fontFamily,
 } from '../../utils/Constants';
@@ -8,22 +8,40 @@ import Holder from './Holder';
 import Paragraph from '../content/text/Paragraph';
 import Button from '../basics/Button';
 
+const headerMobile = css`
+  position: fixed;
+  width: 100%;
+  left: 0;
+`;
+
+const headerDesktop = css`
+  position: fixed;
+  width: ${props => (props.open ? 'calc(100% - 350px)' : '100%')};
+  left: ${props => (props.open ? '350px' : 0)};
+  transition: all 500ms ease;
+`;
+
 const HeaderWrapper = styled.header`
   height: 70px;
   top: 0;
   right: 0;
   z-index: 1000;
   ${maxMedia.maxMobile`
-    position: fixed;
-    width: 100%;
-    left: 0;
-    `};
+    ${headerMobile}
+  `}
   ${minMedia.minTablet`
-    position: fixed;
-    width: ${props => (props.open ? 'calc(100% - 350px)' : '100%')};
-    left: ${props => (props.open ? '350px' : 0)};
-    transition: all 500ms ease;
-  `};
+    ${maxMedia.maxTablet`
+      @media (orientation: landscape) {
+        ${headerDesktop}
+      }
+      @media (orientation: portrait) {
+        ${headerMobile}
+      }
+    `}
+  `}
+  ${minMedia.minDesk`
+    ${headerDesktop}
+  `}
 `;
 
 const Content = styled(Holder)`

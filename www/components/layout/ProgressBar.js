@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import {
   minMedia, maxMedia,
 } from '../../utils/Constants';
@@ -36,6 +36,17 @@ SmallProgressBar.propTypes = {
   progress: PropTypes.string.isRequired,
 };
 
+const progressBarMobile = css`
+  top: 125px;
+  width: 100%;
+`;
+
+const progressBarDesktop = css`
+  top: 65px;
+  width: 100%;
+  left: ${props => (props.open ? '350px' : 0)};
+`;
+
 const ProgressBarWrapper = styled.div`
   height: 5px;
   display: flex;
@@ -45,13 +56,20 @@ const ProgressBarWrapper = styled.div`
   transition: all 500ms ease;
   z-index: 800;
   ${maxMedia.maxMobile`
-    top: 125px;
-    width: 100%;
+    ${progressBarMobile}
   `}
   ${minMedia.minTablet`
-    top: 65px;
-    width: 100%;
-    left: ${props => (props.open ? '350px' : 0)};
+    ${maxMedia.maxTablet`
+      @media (orientation: landscape) {
+        ${progressBarDesktop}
+      }
+      @media (orientation: portrait) {
+        ${progressBarMobile}
+      }
+    `}
+  `}
+  ${minMedia.minDesk`
+    ${progressBarDesktop}
   `}
 `;
 

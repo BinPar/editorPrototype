@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import {
   maxMedia, minMedia, icon,
 } from '../../utils/Constants';
@@ -14,6 +14,25 @@ import ResourcesPanel from '../sidebar/panels/ResourcesPanel';
 import HighlightsPanel from '../sidebar/panels/HighlightsPanel';
 import DoubtsPanel from '../sidebar/panels/DoubtsPanel';
 import SettingsPanel from '../sidebar/panels/SettingsPanel';
+
+const sidebarMobile = css`
+  position: fixed;
+  width: 100%;
+  z-index: 900;
+  min-height: 60px;
+  top: 65px;
+  overflow: hidden;
+  .sidebarShape {
+    display: none;
+  }
+`;
+
+const sidebarDesktop = css`
+  width: ${props => (props.open ? '350px' : 0)};
+  height: 100%;
+  transition: width 500ms ease;
+  background-color: ${props => props.theme.sidebarBg};
+`;
 
 const SidebarWrapper = styled.div`
   display: flex;
@@ -39,22 +58,43 @@ const SidebarWrapper = styled.div`
     }
   }
   ${maxMedia.maxMobile`
-    position: fixed;
-    width: 100%;
-    z-index: 900;
-    min-height: 60px;
-    top: 65px;
-    overflow: hidden;
-    .sidebarShape {
-      display: none;
-    }
+    ${sidebarMobile}
   `}
   ${minMedia.minTablet`
-    width: ${props => (props.open ? '350px' : 0)};
-    height: 100%;
-    transition: width 500ms ease;
-    background-color: ${props => props.theme.sidebarBg};
+    ${maxMedia.maxTablet`
+      @media (orientation: landscape) {
+        position: ${props => (props.open ? 'relative' : 'fixed')};
+        z-index: 900;
+        left: 0;
+        height: 100%;
+        transition: width 500ms ease;
+        min-width: 71px;
+      }
+      @media (orientation: portrait) {
+        ${sidebarMobile}
+      }
+    `}
   `}
+  ${minMedia.minDesk`
+    ${sidebarDesktop}
+  `}
+`;
+
+const menuMobile = css`
+  flex-direction: row;
+  width: 100%;
+  height: 60px;
+  top: 65px;
+  left: 0;
+`;
+
+const menuDesktop = css`
+  width: 71px;
+  height: 420px;
+  border-radius: 35px;
+  top: 100px;
+  left: ${props => (props.open ? '355px' : '5px')};
+  transition: left 500ms ease;
 `;
 
 const FixedMenu = styled(Holder)`
@@ -63,19 +103,20 @@ const FixedMenu = styled(Holder)`
   z-index: 1100;
   padding: 10px 0;
   ${maxMedia.maxMobile`
-    flex-direction: row;
-    width: 100%;
-    height: 60px;
-    top: 65px;
-    left: 0;
+    ${menuMobile}
   `}
   ${minMedia.minTablet`
-    width: 71px;
-    height: 420px;
-    border-radius: 35px;
-    top: 100px;
-    left: ${props => (props.open ? '355px' : '5px')};
-    transition: left 500ms ease;
+    ${maxMedia.maxTablet`
+      @media (orientation: landscape) {
+        ${menuDesktop}
+      }
+      @media (orientation: portrait) {
+        ${menuMobile}
+      }
+    `}
+  `}
+  ${minMedia.minDesk`
+    ${menuDesktop}
   `}
 `;
 

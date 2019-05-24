@@ -507,7 +507,7 @@ const themes = {
     fontSizeBarValue: colors.darkPrimaryDarkestLighten,
     fontSizeBar: colors.secondary,
 
-    settingsDivision: colors.darkPrimaryDarkestLightest,
+    settingsDivision: colors.darkPrimaryDarkestMed,
 
     // HEADER
 

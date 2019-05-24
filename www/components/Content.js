@@ -14,7 +14,7 @@ import Block from './content/resources/Block';
 import { Targets, TargetItem } from './content/resources/Targets';
 import { Conclusions, ConclusionItem } from './content/resources/Conclusions';
 import { BulletList, ListItem, OrderedList } from './content/text/List';
-import { icon, maxMedia } from '../utils/Constants';
+import { icon, maxMedia, minMedia } from '../utils/Constants';
 import {
   Table, Header, Row, CellHeader, Text, Body, Cell,
 } from './content/resources/Table';
@@ -41,6 +41,13 @@ const ContentWrapper = styled.section`
   background: ${props => props.theme.bodyBg};
   ${maxMedia.maxMobile`
     margin-top: 145px;
+  `}
+  ${minMedia.minTablet`
+    ${maxMedia.maxTablet`
+      @media (orientation: portrait) {
+        margin-top: 145px;
+      }
+    `}
   `}
 `;
 

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Holder from '../../../../layout/Holder';
 import Icon from '../../../../basics/Icon';
 import {
-  icon, fontFamily, fontSize, fontWeight, colors,
+  icon, fontFamily, fontSize, fontWeight,
 } from '../../../../../utils/Constants';
 
 const FontSizeWrapper = styled.div`
@@ -24,11 +24,12 @@ const Title = styled.p`
 const SliderWrapper = styled(Holder)``;
 
 const Slider = styled.div`
-  height: 30px;
+  height: 50px;
   width: 100%;
   margin: 0 20px;
   position: relative;
   overflow: visible;
+  padding: 10px;
 `;
 
 const SliderShell = styled.div`
@@ -203,7 +204,7 @@ const CurrentSize = styled.p`
   position: absolute;
   z-index: 99;
   pointer-events: none;
-  color: ${colors.white};
+  color: ${props => props.theme.fontSizeBarValue};
   font-weight: ${fontWeight.black};
   font-size: ${fontSize.F12};
 `;
@@ -236,6 +237,8 @@ function showValue(val, sliderNum) {
 }
 
 const sliderNum = 1;
+
+// TODO: Revisar compatibilidad con pantallas táctiles (cuesta)
 
 const FontSize = () => (
   <FontSizeWrapper>

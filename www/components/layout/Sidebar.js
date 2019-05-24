@@ -39,11 +39,12 @@ const SidebarWrapper = styled.div`
     }
   }
   ${maxMedia.maxMobile`
-    position: absolute;
+    position: fixed;
     width: 100%;
     z-index: 900;
     min-height: 60px;
     top: 65px;
+    overflow: hidden;
     .sidebarShape {
       display: none;
     }

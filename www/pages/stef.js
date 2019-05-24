@@ -11,6 +11,7 @@ import { maxMedia, minMedia } from '../utils/Constants';
 import themes from '../utils/Themes';
 import { ProgressBar } from '../components/layout/ProgressBar';
 
+
 const maxTablet = maxMedia.maxTablet`
   overflow-x: hidden;
 `;
@@ -22,9 +23,10 @@ const MainLayout = styled.div`
 `;
 
 const Wrapper = styled(Holder)`
-  height: 100vh;
+  ${minMedia.minTablet`
+    height: 100vh;
+  `}
   ${maxMedia.maxMobile`
-    padding-top: 125px;
   `}
 `;
 
@@ -32,8 +34,7 @@ const ContentWrapper = styled.div`
   overflow-y: auto;
   overflow-x: hidden;
   ${maxMedia.maxMobile`
-    height: 100%;
-    `}
+  `}
   ${minMedia.minTablet`
     width: ${props => (props.sidebarOpen ? 'calc(100% - 350px)' : '100%')};
     transition: width 500ms ease;

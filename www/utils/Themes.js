@@ -244,6 +244,7 @@ const themes = {
     skinBorderHover: colors.primaryDarkerMed,
     
     fontSizeIcon: colors.primaryDarkerLighten,
+    fontSizeBarValue: colors.white,
     fontSizeBar: colors.primaryDarkerMed,
 
     settingsDivision: colors.primaryDarkerLighten,
@@ -503,6 +504,7 @@ const themes = {
     skinBorderHover: colors.secondary,
 
     fontSizeIcon: colors.darkPrimaryDarkestLighten,
+    fontSizeBarValue: colors.darkPrimaryDarkestLighten,
     fontSizeBar: colors.secondary,
 
     settingsDivision: colors.darkPrimaryDarkestLightest,
@@ -762,6 +764,7 @@ const themes = {
     skinBorderHover: colors.sepiaDarkerMed,
 
     fontSizeIcon: colors.sepiaDarkerLighten,
+    fontSizeBarValue: colors.white,
     fontSizeBar: colors.beigeDark,
 
     settingsDivision: colors.sepiaDarkerLighten,

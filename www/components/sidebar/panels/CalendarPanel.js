@@ -4,6 +4,7 @@ import Panel from './Panel';
 import Date from './items/calendar/Date';
 import Event from './items/calendar/Event';
 import Calendar from './items/calendar/Calendar';
+import { maxMedia } from '../../../utils/Constants';
 
 const PanelWrapper = styled(Panel)`
   padding-bottom: 0;
@@ -31,6 +32,9 @@ const EventsWrapper = styled.div`
       -ms-scrollbar-face-color: ${props => props.theme.sidebarScroll};
     }
   }
+  ${maxMedia.maxMobile`
+    height: calc(100vh - 525px);
+  `}
 `;
 
 const CalendarPanel = () => (

@@ -6,6 +6,12 @@ import FontSize from './items/settings/FontSize';
 
 const PanelWrapper = styled(Panel)`
   padding: 0 30px;
+  @media (orientation: landscape) {
+    padding-bottom: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: space-between;
+  }
 `;
 
 const SettingsPanel = () => (

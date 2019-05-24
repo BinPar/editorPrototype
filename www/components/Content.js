@@ -39,6 +39,9 @@ const ContentWrapper = styled.section`
   padding: 0 0 70px;
   box-shadow: 0px 12px 20px -7px rgba(0, 0, 0, 0.2);
   background: ${props => props.theme.bodyBg};
+  ${maxMedia.maxMobile`
+    margin-top: 145px;
+  `}
 `;
 
 const Content = ({ open, editing, activeTheme }) => (

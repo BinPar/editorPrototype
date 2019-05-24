@@ -10,8 +10,10 @@ const PanelWrapper = styled.div`
   padding-bottom: 20px;
   ${maxMedia.maxMobile`
     background-color: ${props => props.theme.sidebarBg};
-    min-height: calc(100vh - 125px);
-    margin-top: 50px;
+    height: calc(100vh - 115px);
+    margin-top: 60px;
+    overflow-y: auto;
+    padding-bottom: 50px;
   `}
 `;
 

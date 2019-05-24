@@ -10,15 +10,16 @@ import Button from '../basics/Button';
 
 const HeaderWrapper = styled.header`
   height: 70px;
-  position: fixed;
   top: 0;
   right: 0;
   z-index: 1000;
   ${maxMedia.maxMobile`
+    position: fixed;
     width: 100%;
     left: 0;
-  `};
+    `};
   ${minMedia.minTablet`
+    position: fixed;
     width: ${props => (props.open ? 'calc(100% - 350px)' : '100%')};
     left: ${props => (props.open ? '350px' : 0)};
     transition: all 500ms ease;

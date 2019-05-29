@@ -13,10 +13,10 @@ export default styled(Holder)`
     width: calc(100% - 50px);
   `}
   ${minMedia.minDesk`
-    width: calc(100% - 100px);
+    width: ${props => (props.sidebarOpen ? 'calc(100% - 50px)' : 'calc(100% - 100px)')};
   `}
   ${minMedia.minDeskLarge`
-    width: ${props => (props.sidebarOpen ? 'calc((970px - 400px) + (100% - (970px - 400px))/2)' : 'calc(970px + (100% - 970px)/2)')};
+    width: ${props => (props.sidebarOpen ? 'calc((910px - 400px) + (100% - (910px - 400px))/2)' : 'calc(970px + (100% - 970px)/2)')};
   `}
   &.editing {
     position: relative;

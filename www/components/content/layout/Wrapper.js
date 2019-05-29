@@ -25,7 +25,7 @@ const layout = {
   midFull: css`
     margin: 0 auto;
     ${maxMedia.maxDesk`
-      width: calc(100% - 50px);
+      width: ${props => (props.sidebarOpen ? 'calc(100% - 170px)' : 'calc(100% - 50px)')};
     `}
     ${minMedia.minDeskLarge`
       width: ${props => (props.sidebarOpen ? 'calc(1280px - 400px)' : '1210px')};

@@ -11,7 +11,6 @@ import { maxMedia, minMedia } from '../utils/Constants';
 import themes from '../utils/Themes';
 import { ProgressBar } from '../components/layout/ProgressBar';
 
-
 const maxTablet = maxMedia.maxTablet`
   overflow-x: hidden;
 `;
@@ -42,13 +41,29 @@ const Wrapper = styled(Holder)`
 const ContentWrapper = styled.div`
   overflow-y: auto;
   overflow-x: hidden;
-  ${maxMedia.maxMobile`
-  `}
-  ${minMedia.minTablet`
+  ${minMedia.minDesk`
     width: ${props => (props.sidebarOpen ? 'calc(100% - 350px)' : '100%')};
     transition: width 500ms ease;
-    margin-top: 65px;
-    height: calc(100% - 65px);
+    padding-top: 65px;
+    height: 100%;
+  `}
+  ${minMedia.minTablet`
+    ${maxMedia.maxTablet`
+      @media (orientation: portrait) {
+        margin-top: 0;
+        width: 100vw;
+      }
+    `}
+    @media (orientation: landscape) {
+      @media (hover: none) and (pointer: coarse) {
+        width: ${props => (props.sidebarOpen ? 'calc(100% - 350px)' : '100%')};
+        transition: width 500ms ease;
+        padding-top: 65px;
+        height: 100%;
+        margin-left: ${props => (props.sidebarOpen ? '350px' : '0')};
+        transition: width 500ms ease, margin-left 500ms ease;
+      }
+    }
   `}
   *::selection {
     background: ${props => props.theme.selection};
@@ -105,7 +120,7 @@ const testPage = () => {
   return (
 
     // Cambia el tema
-    <ThemeProvider theme={themes.dark}>
+    <ThemeProvider theme={themes.default}>
       <MainLayout>
         <Head>
           <title>Editor</title>

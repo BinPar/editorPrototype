@@ -43,7 +43,7 @@ const progressBarMobile = css`
 
 const progressBarDesktop = css`
   top: 65px;
-  width: 100%;
+  width: ${props => (props.open ? 'calc(100vw - 350px)' : '100vw')};;
   left: ${props => (props.open ? '350px' : 0)};
 `;
 

@@ -1,18 +1,48 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { withTheme } from 'styled-components';
+import styled, { withTheme, css } from 'styled-components';
 import {
-  fontFamily, fontWeight, fontSize,
+  fontFamily,
+  fontWeight,
+  fontSize,
+  minMedia,
+  maxMedia,
 } from '../../../../../utils/Constants';
 import Icon from '../../../../basics/Icon';
 import Holder from '../../../../layout/Holder';
 import { SmallProgressBar } from '../../../../layout/ProgressBar';
 
-const CurrentMedalWrapper = styled(Holder)`
+const full = css`
   width: 100%;
   & + & {
     margin-top: 20px;
   }
+`;
+
+const half = css`
+  width: calc(50% - 20px);
+  & + & {
+    margin-left: 40px;
+  }
+`;
+
+const CurrentMedalWrapper = styled(Holder)`
+  ${maxMedia.maxMobile`
+    ${full}
+  `}
+  ${minMedia.minTablet`
+    ${maxMedia.maxTablet`
+      @media (orientation: landscape) {
+        ${full}
+      }
+      @media (orientation: portrait) {
+        ${half}
+      }
+    `}
+  `}
+  ${minMedia.minDesk`
+    ${full}
+  `}
 `;
 
 const InfoWrapper = styled(Holder)`
@@ -56,10 +86,10 @@ const Description = styled.p`
     right: -20px;
     width: 20%;
     height: 38px;
-    background: linear-gradient(to right, rgba(#8DC3B9, 0), rgba(#8DC3B9, 1) 80%);
+    background: linear-gradient(to right, rgba(#8dc3b9, 0), rgba(#8dc3b9, 1) 80%);
   }
 
-  @supports (-webkit-line-clamp: 3 ) {
+  @supports (-webkit-line-clamp: 3) {
     word-break: normal;
     -webkit-box-orient: vertical;
 

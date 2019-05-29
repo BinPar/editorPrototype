@@ -9,9 +9,7 @@ const panelMobile = css`
   margin-top: 60px;
   overflow-y: auto;
   padding-bottom: 50px;
-`;
-
-const panelDesktop = css`
+  width: 100%;
 `;
 
 const PanelWrapper = styled.div`
@@ -30,8 +28,15 @@ const PanelWrapper = styled.div`
         ${panelMobile}
       }
     `}
-  `}
-  ${minMedia.minDesk`
+    @media (orientation: landscape) {
+      @media (hover: none) and (pointer: coarse) {
+        background-color: ${props => props.theme.sidebarBg};
+        width: 350px;
+        height: 100vh;
+        overflow-y: auto;
+        padding-bottom: 20px;
+      }
+    }
   `}
 `;
 

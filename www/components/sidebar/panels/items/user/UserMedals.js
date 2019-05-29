@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {
-  icon, fontFamily, fontWeight, fontSize,
+  icon, fontFamily, fontWeight, fontSize, minMedia, maxMedia,
 } from '../../../../../utils/Constants';
 import Holder from '../../../../layout/Holder';
 import Medal from './Medal';
@@ -16,6 +16,21 @@ const CurrentMedalsWrapper = styled(Holder)`
   padding: 20px 0;
   margin: 10px 30px 10px;
   border-bottom: 1px solid ${props => props.theme.medalTitleBorder};
+  ${maxMedia.maxMobile`
+    flex-direction: column;
+  `}
+  ${minMedia.minTablet`
+    ${maxMedia.maxTablet`
+      @media (orientation: landscape) {
+        flex-direction: column;
+      }
+      @media (orientation: portrait) {
+      }
+    `}
+  `}
+  ${minMedia.minDesk`
+    flex-direction: column;
+  `}
 `;
 
 const MedalTitle = styled.p`
@@ -33,7 +48,7 @@ const WonMedals = styled(Holder)`
 const UserMedals = () => (
   <MedalsWrapper column>
     <MedalTitle>Medallas</MedalTitle>
-    <CurrentMedalsWrapper column>
+    <CurrentMedalsWrapper>
       <CurrentMedal
         badge={icon.badge}
         name="Nombre"

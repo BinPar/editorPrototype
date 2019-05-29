@@ -7,7 +7,9 @@ import {
 import Holder from '../../../../layout/Holder';
 
 const DateWrapper = styled(Holder)`
-  padding: 0 30px;
+  padding: 10px 30px 0;
+  margin-top: 10px;
+  border-top: 1px solid ${props => props.theme.calendarDivision};
 `;
 const Text = styled.p`
   font-family: ${fontFamily.sansSerif};

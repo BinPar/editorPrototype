@@ -39,6 +39,24 @@ const Title = styled.p`
   text-align: center;
 `;
 
+const SkinsThumbs = styled(Holder)`
+  ${minMedia.minTablet`
+    @media (orientation: portrait) {
+      justify-content: space-around;
+    }
+    @media (orientation: landscape) {
+      justify-content: space-between;
+    }
+  `};
+
+  ${maxMedia.maxMobile`
+    justify-content: space-between;
+  `};
+  ${minMedia.minDesk`
+    justify-content: space-between;
+  `};
+`;
+
 const ThumbWrapper = styled(Holder)`
   margin-bottom: 10px;
   position: relative;
@@ -107,11 +125,11 @@ Button.propTypes = {
 const Skins = () => (
   <SkinsWrapper>
     <Title>Selector de Skins</Title>
-    <Holder justify="between">
+    <SkinsThumbs>
       <Button active alt="Default Skin" source="/static/img/thumbDefault.svg" title="Default" />
       <Button alt="Dark Skin" source="/static/img/thumbDark.svg" title="Dark" />
       <Button alt="Sepia Skin" source="/static/img/thumbSepia.svg" title="Sepia" />
-    </Holder>
+    </SkinsThumbs>
   </SkinsWrapper>
 );
 

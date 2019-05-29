@@ -51,9 +51,6 @@ const Weekday = styled(Text)`
 const DaysWrapper = styled(Holder)`
   width: 100%;
   flex-wrap: wrap;
-  margin-bottom: 10px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid ${props => props.theme.calendarDivision};
 `;
 
 const DayText = styled(Text)`

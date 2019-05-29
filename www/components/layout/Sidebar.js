@@ -60,23 +60,27 @@ const SidebarWrapper = styled.div`
   ${maxMedia.maxMobile`
     ${sidebarMobile}
   `}
+  ${minMedia.minDesk`
+    ${sidebarDesktop}
+  `}
   ${minMedia.minTablet`
     ${maxMedia.maxTablet`
-      @media (orientation: landscape) {
-        position: ${props => (props.open ? 'relative' : 'fixed')};
+    @media (orientation: portrait) {
+      ${sidebarMobile}
+    }
+    `}
+    @media (orientation: landscape) {
+      @media (hover: none) and (pointer: coarse) {
+        position: fixed;
         z-index: 900;
         left: 0;
         height: 100%;
-        transition: width 500ms ease;
-        min-width: 71px;
+        transition: min-width 500ms ease;
+        min-width: ${props => (props.open ? '426px' : '76px')};
+        background-color: transparent;
+        justify-content: flex-start;
       }
-      @media (orientation: portrait) {
-        ${sidebarMobile}
-      }
-    `}
-  `}
-  ${minMedia.minDesk`
-    ${sidebarDesktop}
+    }
   `}
 `;
 

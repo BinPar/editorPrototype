@@ -10,13 +10,13 @@ import Button from '../basics/Button';
 
 const headerMobile = css`
   position: fixed;
-  width: 100%;
+  width: 100vw;
   left: 0;
 `;
 
 const headerDesktop = css`
   position: fixed;
-  width: ${props => (props.open ? 'calc(100% - 350px)' : '100%')};
+  width: ${props => (props.open ? 'calc(100vw - 350px)' : '100vw')};
   left: ${props => (props.open ? '350px' : 0)};
   transition: all 500ms ease;
 `;

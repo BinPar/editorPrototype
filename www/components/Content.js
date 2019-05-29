@@ -41,6 +41,7 @@ const ContentWrapper = styled.section`
   background: ${props => props.theme.bodyBg};
   ${maxMedia.maxMobile`
     margin-top: 145px;
+    width: 100%
   `}
   ${minMedia.minTablet`
     ${maxMedia.maxTablet`
@@ -48,11 +49,22 @@ const ContentWrapper = styled.section`
         margin-top: 145px;
       }
     `}
+    @media (orientation: landscape) {
+      @media (hover: none) and (pointer: coarse) {
+        margin-top: 145px;
+        width: ${props => (props.open ? 'calc(100vw - 350px)' : '100vw')};
+      }
+    }
+  `}
+  ${minMedia.minDesk`
+    @media (hover: hover) and (pointer: fine) {
+      width: 100%;
+    }
   `}
 `;
 
 const Content = ({ open, editing, activeTheme }) => (
-  <ContentWrapper>
+  <ContentWrapper open={open}>
     <Wrapper className={editing ? ' editing' : ''} sidebarOpen={open}>
       <Author name="I. Fernández Buhigas" date="1 Marzo" time="10 min" />
       <Title>Fundamentos y Objetivos de la Monitorización Fetal Intraparto</Title>

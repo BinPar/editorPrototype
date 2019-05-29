@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Holder from '../../../../layout/Holder';
 import Icon from '../../../../basics/Icon';
 import {
-  icon, fontFamily, fontSize, fontWeight, maxMedia,
+  icon, fontFamily, fontSize, fontWeight, maxMedia, minMedia,
 } from '../../../../../utils/Constants';
 
 const FontSizeWrapper = styled.div`
@@ -38,7 +38,9 @@ const SliderShell = styled.div`
   height: 100%;
   width: 100%;
   overflow: visible;
-  filter: url(#goo);
+  @media (hover: hover) and (pointer: fine) {
+    filter: url(#goo);
+  }
 `;
 
 const SliderTrack = styled.div`
@@ -199,7 +201,6 @@ const Size = styled.p`
 const CurrentSize = styled.p`
   font-family: ${fontFamily.sansSerif};
   width: 30px;
-  height: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -209,6 +210,12 @@ const CurrentSize = styled.p`
   color: ${props => props.theme.fontSizeBarValue};
   font-weight: ${fontWeight.black};
   font-size: ${fontSize.F12};
+  ${maxMedia.maxMobile`
+    height: 30px;
+  `};
+  ${minMedia.minTablet`
+    height: 50px;
+  `};
 `;
 
 const Svg = styled.svg`

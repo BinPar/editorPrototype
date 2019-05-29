@@ -15,11 +15,11 @@ const layout = {
     `}
     ${minMedia.minDeskLarge`
       ${maxMedia.maxDeskLarge`
-        width: ${props => (props.sidebarOpen ? 'calc(100% - 400px)' : '970px')};
+        width: ${props => (props.sidebarOpen ? 'calc(100% - 400px)' : '900px')};
       `}
     `}
     ${minMedia.minDeskHD`
-      width: ${props => (props.sidebarOpen ? 'calc(1280px - 400px)' : '970px')};
+      width: ${props => (props.sidebarOpen ? 'calc(1280px - 400px)' : '900px')};
     `}
   `,
   midFull: css`
@@ -28,7 +28,7 @@ const layout = {
       width: calc(100% - 50px);
     `}
     ${minMedia.minDeskLarge`
-      width: ${props => (props.sidebarOpen ? 'calc(1280px - 400px)' : '1280px')};
+      width: ${props => (props.sidebarOpen ? 'calc(1280px - 400px)' : '1210px')};
     `}
   `,
   full: css`

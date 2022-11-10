@@ -15,7 +15,7 @@
     "draft-js": "^0.10.5",
     "flubber": "^0.4.2",
     "loglevel": "^1.6.1",
-    "next": "^8.0.3",
+    "next": "^13.0.2",
     "prop-types": "^15.7.2",
     "react": "^16.8.3",
     "react-circular-progressbar": "^1.1.0",
